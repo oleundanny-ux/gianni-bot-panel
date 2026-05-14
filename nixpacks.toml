@@ -1,9 +1,7 @@
 [phases.install]
-cmds = ["npm install -g pnpm@latest", "pnpm install --frozen-lockfile"]
+cmds = ["npm install -g pnpm@latest && pnpm install --frozen-lockfile"]
 
 [phases.build]
 cmds = [
-  "pnpm --filter @workspace/bot-panel run build",
-  "pnpm --filter @workspace/api-server run build",
-  "cp -r artifacts/bot-panel/dist/public artifacts/api-server/dist/public"
+  "pnpm --filter @workspace/bot-panel run build && pnpm --filter @workspace/api-server run build && cp -r artifacts/bot-panel/dist/public artifacts/api-server/dist/public"
 ]
