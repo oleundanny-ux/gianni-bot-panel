@@ -1,0 +1,1038 @@
+[
+  {
+    "name": "welcome",
+    "title": "",
+    "description": "**wlcm {user}!**\n\n<a:571294pinkpaw:1500259928936284211> #chat **·** \n<a:500819pinkheart:1500259925170065510> #info **·** \n<a:633186palepinkribbonsoft:1500259940894380143> #news **·** \n<a:85034pinknotes:1500444022622130196> #gws\n\n<a:273219mochi:1500259896539480154> **{memberCount} member · discord.gg/gian**",
+    "color": "#b240c9",
+    "category": "Sistem",
+    "footer": "GIANNI (Custom) • Welcome",
+    "thumbnail": "{user.avatar}",
+    "fields": []
+  },
+  {
+    "name": "leave",
+    "title": "",
+    "description": "**bye {user}** <a:940159mute:1500446088434552974>\n\n<a:672852everyone:1500445962185998478> {user} **je napustio/la server**\n<a:760912ban:1500446026715103253> **{memberCount} member · discord.gg/gian**",
+    "color": "#2B2D3A",
+    "category": "Sistem",
+    "footer": "GIANNI (Custom) • Leave",
+    "thumbnail": "{user.avatar}",
+    "fields": []
+  },
+  {
+    "name": "dm-welcome",
+    "title": null,
+    "description": "**wlcm {user}!**\n\n<a:vatrice1:1500466044429664256> <#1496860023706488884> **·** <a:vatrice2:1500466048418185246> <#1496860023093989475> **·** <a:vatrice3:1500466039782113352> <#1501973333195882696> **·** <a:vatrice4:1500466061970247741> <#1496860023480127505>\n🪶 **{memberCount} member · discord.gg/gian**",
+    "color": "#2B2D3A",
+    "category": "Sistem",
+    "footer": "GIANNI (Custom) • Dobrodošlica DM",
+    "thumbnail": "{user.avatar}",
+    "fields": []
+  },
+  {
+    "name": "boost",
+    "title": "💜 Novi Boost!",
+    "description": "{user} je upravo **boostovao server**! 🚀\nHvala ti na podršci — server je sad još jači! 💪",
+    "color": "#F47FFF",
+    "category": "Sistem",
+    "footer": "GIANNI (Custom) • Hvala na podršci 💜",
+    "thumbnail": "{user.avatar}",
+    "fields": [
+      {
+        "name": "🚀 Boostova",
+        "value": "`{boostCount}`",
+        "inline": true
+      },
+      {
+        "name": "🏅 Tier",
+        "value": "`Lvl {tier}`",
+        "inline": true
+      },
+      {
+        "name": "🎁 Nagrada",
+        "value": "`+2.500 💶`",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "birthday",
+    "title": "🎂 Sretan Rođendan!",
+    "description": "Danas je rođendan od {user}! 🎉\nSvi mu/joj čestitajte! 🥳",
+    "color": "#2B2D42",
+    "category": "Sistem",
+    "footer": "GIANNI (Custom) • Rođendani",
+    "thumbnail": "{user.avatar}",
+    "fields": []
+  },
+  {
+    "name": "starboard",
+    "title": null,
+    "description": "{content}",
+    "color": "#F1C40F",
+    "category": "Sistem",
+    "footer": "⭐ {count} | #{channel}",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "📍 Original",
+        "value": "[Idi na poruku]({jumpUrl})",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "aotw",
+    "title": "👑 Aktivni Član Sedmice",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━\n👑 Najaktivniji član ove sedmice je:\n\n## {user}\n\n💬 Napisao/la **{count}** poruka u zadnjih 7 dana!\n━━━━━━━━━━━━━━━━━━━━━━\n🎁 **Nagrada:** `+500 coina` 💰 + `+100 XP` ⚡\n💜 Hvala što si dio × GIANNI porodice!",
+    "color": "#FFD700",
+    "category": "Sistem",
+    "footer": "GIANNI (Custom) • Sljedeći AOTW za 7 dana 📅",
+    "thumbnail": "{user.avatar}",
+    "fields": [
+      {
+        "name": "📊 Top 3 sedmice",
+        "value": "🥇 **{top1}** — `{top1count}` poruka\n🥈 **{top2}** — `{top2count}` poruka\n🥉 **{top3}** — `{top3count}` poruka",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "log-join",
+    "title": "📥 Novi Član",
+    "description": null,
+    "color": "#43B581",
+    "category": "Log",
+    "footer": null,
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "ID",
+        "value": "`{userId}`",
+        "inline": true
+      },
+      {
+        "name": "Nalog kreiran",
+        "value": "{createdAt}",
+        "inline": true
+      },
+      {
+        "name": "Ukupno članova",
+        "value": "`{memberCount}`",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "log-edit",
+    "title": "✏️ Poruka Editovana",
+    "description": null,
+    "color": "#F39C12",
+    "category": "Log",
+    "footer": null,
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "Kanal",
+        "value": "{channel}",
+        "inline": true
+      },
+      {
+        "name": "📍 Link",
+        "value": "[Idi na poruku]({jumpUrl})",
+        "inline": true
+      },
+      {
+        "name": "Prije",
+        "value": "{before}",
+        "inline": false
+      },
+      {
+        "name": "Poslije",
+        "value": "{after}",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "log-delete",
+    "title": "🗑️ Poruka Obrisana",
+    "description": null,
+    "color": "#E74C3C",
+    "category": "Log",
+    "footer": null,
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "Kanal",
+        "value": "{channel}",
+        "inline": true
+      },
+      {
+        "name": "Sadržaj",
+        "value": "{content}",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "report",
+    "title": "🚨 NOVA PRIJAVA",
+    "description": null,
+    "color": "#E74C3C",
+    "category": "Log",
+    "footer": "Server: {guildName}",
+    "thumbnail": "{reported.avatar}",
+    "fields": [
+      {
+        "name": "👤 Prijavio",
+        "value": "{reporter}\nID: `{reporterId}`",
+        "inline": true
+      },
+      {
+        "name": "🎯 Prijavljen",
+        "value": "{reported}\nID: `{reportedId}`",
+        "inline": true
+      },
+      {
+        "name": "📍 Kanal",
+        "value": "{channel}",
+        "inline": true
+      },
+      {
+        "name": "📝 Razlog",
+        "value": "{razlog}",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "warn",
+    "title": "⚠️ Upozorenje",
+    "description": "{user} je upozoren/a od strane moderatora.",
+    "color": "#F39C12",
+    "category": "Moderacija",
+    "footer": "GIANNI (Custom) • Moderacija",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "👤 Korisnik",
+        "value": "{user}",
+        "inline": true
+      },
+      {
+        "name": "🛡️ Moderator",
+        "value": "{mod}",
+        "inline": true
+      },
+      {
+        "name": "📝 Razlog",
+        "value": "{razlog}",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "ban",
+    "title": "🔨 Član Banovan",
+    "description": null,
+    "color": "#E74C3C",
+    "category": "Moderacija",
+    "footer": null,
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "ID",
+        "value": "`{userId}`",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "levelup",
+    "title": "🌟 ʟᴇᴠᴇʟ ᴜᴘ! 🌟",
+    "description": "━━━━━━━━━━━━━━━━━━━━\n🎉 Čestitamo {user}!\nDostigao/la si **`★ LEVEL {level} ★`**\n━━━━━━━━━━━━━━━━━━━━\n💬 **+100 XP** • <a:vatrice1:1500466044429664256> **+1 vatrica**\n📨 Sljedeći level: još `100` poruka!\n\n📊 Provjeri statistiku sa `/aktivnost` ili `/rank`",
+    "color": "#FFD700",
+    "category": "XP",
+    "footer": "⚡ GIANNI (Custom) • XP Sistem (svakih 100 poruka)",
+    "thumbnail": "{user.avatar}",
+    "fields": []
+  },
+  {
+    "name": "vatrica-nova",
+    "title": "🔥 ɴᴏᴠᴀ ᴠᴀᴛʀɪᴄᴀ! 🔥",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━\n🎉 Čestitamo {user}!\nImaš sada **`{vatriceCount}`** 🔥\n━━━━━━━━━━━━━━━━━━━━━━\n💬 Zarađeno aktivnošću u chatu (svakih 150 poruka)\n📊 Tvoje mjesto: **#{rank}** od **{total}**\n\n**Do sljedeće vatrice:** `░░░░░░░░░░`  `{progress}/150`\n\n**🏆 Trenutni podij:**\n🥇 **{top1}** — 🔥 {top1count}\n🥈 **{top2}** — 🔥 {top2count}\n🥉 **{top3}** — 🔥 {top3count}\n━━━━━━━━━━━━━━━━━━━━━━\n_Pogledaj kompletnu top listu sa_ `/vatrice pup`",
+    "color": "#FF6A00",
+    "category": "XP",
+    "footer": "🔥 GIANNI (Custom) • Vatrice sistem",
+    "thumbnail": "{user.avatar}",
+    "fields": []
+  },
+  {
+    "name": "aktivnost",
+    "title": "📊 ᴀᴋᴛɪᴠɴᴏsᴛ",
+    "description": "━━━━━━━━━━━━━━━━━━━━\n👤 **{user}**\n━━━━━━━━━━━━━━━━━━━━\n🟧🟧🟧⬛⬛⬛⬛⬛⬛⬛  `{progress}/100`\n⏳ Još **`{doSljedeceg}`** poruka do sljedećeg levela!",
+    "color": "#FFA500",
+    "category": "XP",
+    "footer": "⚡ GIANNI (Custom) • Aktivnost • Svakih 100 poruka novi level!",
+    "thumbnail": "{user.avatar}",
+    "fields": [
+      {
+        "name": "🏆 Level",
+        "value": "```fix\n★ {level} ★\n```",
+        "inline": true
+      },
+      {
+        "name": "⭐ XP",
+        "value": "```py\n{xp}\n```",
+        "inline": true
+      },
+      {
+        "name": "💬 Poruke",
+        "value": "```css\n{poruke}\n```",
+        "inline": true
+      },
+      {
+        "name": "🔥 Vatrice",
+        "value": "```yaml\n{vatrice}\n```",
+        "inline": true
+      },
+      {
+        "name": "📈 Sistem",
+        "value": "```ini\n[100 poruka = 1 LVL + 1 vatrica + 100 XP]\n```",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "rank",
+    "title": "📈 Rank Profil",
+    "description": "🟪🟪🟪🟪⬛⬛⬛⬛⬛⬛\n`▰▰▰▰▱▱▱▱▱▱` **40%**",
+    "color": "#9B59B6",
+    "category": "XP",
+    "footer": null,
+    "thumbnail": "{user.avatar}",
+    "fields": [
+      {
+        "name": "🏆 Level",
+        "value": "```fix\n{level}\n```",
+        "inline": true
+      },
+      {
+        "name": "⭐ XP",
+        "value": "```py\n{xp}/{needed}\n```",
+        "inline": true
+      },
+      {
+        "name": "📊 Progres",
+        "value": "```css\n[{pct}%]\n```",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "leaderboard-xp",
+    "title": "🏅 Top Lista — XP",
+    "description": "🥇 **ImeKorisnika** — Level `10` • `980 XP`\n🥈 **ImeKorisnika2** — Level `8` • `650 XP`\n🥉 **ImeKorisnika3** — Level `7` • `420 XP`\n`4.` **ImeKorisnika4** — Level `6` • `310 XP`",
+    "color": "#9B59B6",
+    "category": "XP",
+    "footer": null,
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "leaderboard-novac",
+    "title": "🏅 Top Lista — Bogatstvo",
+    "description": "🥇 **ImeKorisnika** — `25.000 💶`\n🥈 **ImeKorisnika2** — `18.500 💶`\n🥉 **ImeKorisnika3** — `12.000 💶`\n`4.` **ImeKorisnika4** — `8.750 💶`",
+    "color": "#F1C40F",
+    "category": "XP",
+    "footer": null,
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "heist",
+    "title": "💰 RAZBOJ U PRIPREMI",
+    "description": "{user} organizuje razboj!\n**Klikni dugme da se pridružiš** (treba 3+ ljudi za uspjeh)\n⏰ 30 sekundi do akcije!",
+    "color": "#F39C12",
+    "category": "Ekonomija",
+    "footer": null,
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "lottery",
+    "title": "🎰 Sedmična Loto",
+    "description": null,
+    "color": "#2B2D42",
+    "category": "Ekonomija",
+    "footer": "/lottery buy — kupi tiket za 100 coina",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "💰 Pot",
+        "value": "`{pot}` coina",
+        "inline": true
+      },
+      {
+        "name": "🎫 Tvoji tiketi",
+        "value": "`{my}` / `{total}`",
+        "inline": true
+      },
+      {
+        "name": "🎯 Šansa",
+        "value": "`{chance}%`",
+        "inline": true
+      },
+      {
+        "name": "⏰ Sljedeći žrijeb",
+        "value": "{nextDraw}",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "quests",
+    "title": "📋 Dnevni Zadaci",
+    "description": "⬜ **Pošalji 10 poruka** — Budi aktivan u chatu\n`░░░░░░░░░░` `0/10` • 💶 `+200`\n\n✅ **Odigraj slots** — Probaj sreću na slot mašini\n`██████████` `1/1` • 💶 `+150`\n\n⬜ **Uhvati 5 životinja** — Idi u /hunt\n`███░░░░░░░` `3/5` • 💶 `+300`",
+    "color": "#2B2D42",
+    "category": "Ekonomija",
+    "footer": "Resetuju se u ponoć UTC • GIANNI (Custom)",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "✅ Završeno",
+        "value": "`1/3`",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "giveaway",
+    "title": "🎉 NAGRADNA IGRA!",
+    "description": "## 🏆  {nagrada}\n\nKlikni dugme **🎉 Učestvuj** da se prijaviš!",
+    "color": "#F1C40F",
+    "category": "Ekonomija",
+    "footer": "Završava se automatski • GIANNI (Custom)",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "🕒 Trajanje",
+        "value": "`{trajanje}`",
+        "inline": true
+      },
+      {
+        "name": "👥 Učesnici",
+        "value": "`{ucesnici}`",
+        "inline": true
+      },
+      {
+        "name": "🎟️ Domaćin",
+        "value": "{domaćin}",
+        "inline": true
+      },
+      {
+        "name": "📅 Završava",
+        "value": "{kraj}",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "slots",
+    "title": "🎰  S L O T  M A Š I N A",
+    "description": "𓉘  🍒  │  🍒  │  🍒  𓉝\n\n🎰 Sva tri ista — **JACKPOT!**",
+    "color": "#F1C40F",
+    "category": "Igre",
+    "footer": "GIANNI (Custom) • 🍒×3 🍋×3.5 🍊×4 🍇×5 🔔×6 ⭐×8 💎×15 7️⃣×50",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "💰 Ulog",
+        "value": "`{ulog} 💶`",
+        "inline": true
+      },
+      {
+        "name": "🎯 Rezultat",
+        "value": "🎊 **+{dobitak} 💶** *(×3)*",
+        "inline": true
+      },
+      {
+        "name": "🏦 Balans",
+        "value": "`{balans} 💶`",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "blackjack",
+    "title": "🃏 Blackjack",
+    "description": null,
+    "color": "#2B2D42",
+    "category": "Igre",
+    "footer": "Oklada: {oklada} 💶 • GIANNI (Custom)",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "Tvoje karte  (17)",
+        "value": "🂡 🂮",
+        "inline": false
+      },
+      {
+        "name": "Dealer  (?)",
+        "value": "🂫 🎴",
+        "inline": false
+      },
+      {
+        "name": "Rezultat",
+        "value": "🎉 **BLACKJACK!** `+{dobitak} 💶`!",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "poker-lobby",
+    "title": "🃏 POKER — Texas Hold'em",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n💰 **Ulog po igraču:** `{ulog} 💶`\n🏆 **Trenutni pot:** `{pot} 💶`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n👥 **Igrači ({count}/9):**\n▸ **{player1}**\n▸ **{player2}**\n\n▸ Klikni **Ulazi u igru** da se pridružiš\n▸ Domaćin klika **Počni igru** kad je spreman\n▸ Igra automatski kreće za **60 sekundi**",
+    "color": "#2ECC71",
+    "category": "Igre",
+    "footer": "🃏 GIANNI (Custom) • Poker • Min 2, Max 9 igrača",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "poker-game",
+    "title": "🃏 Pre-Flop — Kartice podijeljene",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n🃏 **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n💰 **Pot:** `{pot} 💶`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n👥 **Aktivni:**\n✅ **{player1}**\n✅ **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n⏳ **Čekamo potez:**\n⏳ {player1}",
+    "color": "#F39C12",
+    "category": "Igre",
+    "footer": "🃏 GIANNI (Custom) • Klikni 'Vidi kartice' za svoju ruku • Pot: {pot} 💶",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "poker-showdown",
+    "title": "🏆 SHOWDOWN — Poker",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n🃏 **Zajedničke kartice:**\n🂡 🂺 🂳 🃈 🃑\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🏆 **{winner}**\n   Ruka: 🂡 🂮\n   → **Royal Flush** | 🂡 🂺 🂳 🃈 🃑\n\n  **{loser}**\n   Ruka: 🃁 🃎\n   → **Dva Para** | 🂡 🂺 🃁 🃎 🂳\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🏆 **Pobjednik:** {winner}\n💰 **Dobitak:** `{dobitak} 💶` po pobjedniku",
+    "color": "#F1C40F",
+    "category": "Igre",
+    "footer": "🃏 GIANNI (Custom) • Poker završen • Ukupni pot: {pot} 💶",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "among-us-lobby",
+    "title": "🚀 Among Us — Lobby",
+    "description": "Pridruži se i čekaj da host pokrene igru!\n**Min 4 • Max 10 igrača**",
+    "color": "#1B1B2F",
+    "category": "Igre",
+    "footer": "Host: klikni ▶️ Pokreni igru kad ste svi tu!",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "👥 Igrači (2/10)",
+        "value": "🟥 Player1\n🔵 Player2",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "among-us-game",
+    "title": "🚀 Among Us — U Toku",
+    "description": null,
+    "color": "#1B1B2F",
+    "category": "Igre",
+    "footer": "📋 Zadatak • 🚨 Alarm • 🔪 Akcija • 🛑 Sabotiraj • 🎭 Lažni alarm • 🔫 Šerif • 👻 Ghost",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "👥 Igrači",
+        "value": "🟥 Player1\n🔵 Player2\n💀 ~~Player3~~",
+        "inline": false
+      },
+      {
+        "name": "📋 Zadaci",
+        "value": "🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `3/10`",
+        "inline": true
+      },
+      {
+        "name": "🎭 Živi",
+        "value": "🔵 2 crew | 🔴 1 imp",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "among-us-end",
+    "title": "🏁 🔵 CREWMATI POBIJEDE!",
+    "description": "Svi impostori eliminirani! ✅",
+    "color": "#43B581",
+    "category": "Igre",
+    "footer": "GIANNI (Custom) • Among Us",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "🎭 Otkrivene uloge",
+        "value": "🔵 🟥 **Player1** — CREWMATE\n🔴 🔵 **Player2** — IMPOSTOR",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "kaladont-start",
+    "title": "🔤  K A L A D O N T",
+    "description": "━━━━━━━━━━━━━━━━━━━━━\n✨ Igra je počela! Prva riječ:\n## 💬  **BALKAN**\n━━━━━━━━━━━━━━━━━━━━━",
+    "color": "#00BCD4",
+    "category": "Igre",
+    "footer": "🔤 Pokrenuo/la: {user}  •  🏁 Pritisni dugme za kraj",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "➡️  Sljedeća počinje sa",
+        "value": "## **`AN`**",
+        "inline": true
+      },
+      {
+        "name": "⚙️  Težina",
+        "value": "🟡 Normalno · 2 slova",
+        "inline": true
+      },
+      {
+        "name": "🔗  Niz",
+        "value": "**#1**",
+        "inline": true
+      },
+      {
+        "name": "📖  Pravila igre",
+        "value": "✅  Svaka riječ počinje traženim slovima\n🚫  Ista osoba **ne može** igrati iza sebe\n🔁  Ponavljanje iste riječi nije dozvoljeno\n🎲  **50/50 sudbina** — čak i ispravna riječ može propasti!\n🆘  Pritisni **Pomoć** za primjer riječi\n🏆  Upiši **`KALADONT`** i osvoji **1500** 🪙 + **200** ✨ XP!",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "kaladont-active",
+    "title": "🔤  K A L A D O N T  —  aktivna igra",
+    "description": "━━━━━━━━━━━━━━━━━━━━━",
+    "color": "#00BCD4",
+    "category": "Igre",
+    "footer": "🏁 Pritisni dugme za kraj igre",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "✨  Zadnja riječ",
+        "value": "**`ANKETA`**",
+        "inline": true
+      },
+      {
+        "name": "🗣️  Odigrao/la",
+        "value": "Korisnik",
+        "inline": true
+      },
+      {
+        "name": "🔗  Niz",
+        "value": "**#5**",
+        "inline": true
+      },
+      {
+        "name": "➡️  Sljedeća počinje sa",
+        "value": "## **`TA`**",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "kaladont-word",
+    "title": null,
+    "description": "## ✨  **TAČKA**\n*🗣️ Korisnik*",
+    "color": "#00BCD4",
+    "category": "Igre",
+    "footer": "🔤 GIANNI Kaladont  •  #6",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "➡️  Sljedeća počinje sa",
+        "value": "## **`KA`**",
+        "inline": true
+      },
+      {
+        "name": "🔗  Niz",
+        "value": "**#6**",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "kaladont-win",
+    "title": "👑  K A L A D O N T  —  P O B J E D A !",
+    "description": "🎉 {user} je izrekao/la magičnu riječ!",
+    "color": "#FFD700",
+    "category": "Igre",
+    "footer": "GIANNI (Custom) • Kaladont pobjeda",
+    "thumbnail": "{user.avatar}",
+    "fields": [
+      {
+        "name": "🏆  Pobjednik/ca",
+        "value": "**{user}**",
+        "inline": true
+      },
+      {
+        "name": "📊  Riječi u nizu",
+        "value": "**{count}**",
+        "inline": true
+      },
+      {
+        "name": "💰  Nagrada",
+        "value": "**+1.500 💶**",
+        "inline": true
+      },
+      {
+        "name": "⭐  XP",
+        "value": "**+200**",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "bingo",
+    "title": "🎱  ✦  B  I  N  G  O  ✦  🎱",
+    "description": "🎯 **Klikni dugme ispod i unesi 5 brojeva (1–75)!**\n🎫 Tiket košta samo **500 coina** 🪙\n\n⏱️ Imaš **2 minute** za tiket — brzo! 🔥\n📢 Rezultati se objavljuju **javno** za sve 🌍",
+    "color": "#00BCD4",
+    "category": "Igre",
+    "footer": "🎱 × GIANNI Bingo • Cijena tiketa: 500 coina 🪙",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "🏆  Nagradna lista",
+        "value": "🥉 `2 pogotka`  ──  **10.000** coina\n🥈 `3 pogotka`  ──  **30.000** coina\n🥇 `4 pogotka`  ──  **75.000** coina\n👑 `5 pogodaka` ── **250.000** coina  🏆 **JACKPOT!**",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "hunt",
+    "title": "🏹  Uhvatio si životinje!",
+    "description": "## 🐺  Vuk\n⭐ **Uncommon**  ·  ⚔️ Snaga `15`",
+    "color": "#9B59B6",
+    "category": "Fun",
+    "footer": "{user} • GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "🔢 Imaš ukupno",
+        "value": "`1x 🐺 Vuk`",
+        "inline": true
+      },
+      {
+        "name": "💶 Vrijednost",
+        "value": "`80 💶`",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "zoo",
+    "title": "🦁 {user} — Zoo",
+    "description": "🌟 **Legendary**\n🐉 **Zmaj** `×1`\n\n⭐ **Uncommon**\n🐺 **Vuk** `×3`  🦊 **Lisica** `×2`\n\n🟢 **Common**\n🐟 **Riba** `×7`  🐇 **Zec** `×5`",
+    "color": "#9B59B6",
+    "category": "Fun",
+    "footer": "GIANNI (Custom) v2.0 • /hunt za loviti!",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "🔢 Ukupno",
+        "value": "`18` životinja",
+        "inline": true
+      },
+      {
+        "name": "⚔️ Snaga",
+        "value": "`145`",
+        "inline": true
+      }
+    ]
+  },
+  {
+    "name": "battle",
+    "title": "⚔️  BITKA!",
+    "description": "**{player1}** vs **{player2}**\n`████████████░░░░░░░░`\n⚔️ `{score1}` vs `{score2}` ⚔️",
+    "color": "#F1C40F",
+    "category": "Fun",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": "{winner.avatar}",
+    "fields": [
+      {
+        "name": "🏆 Pobjednik",
+        "value": "**{winner}**",
+        "inline": true
+      },
+      {
+        "name": "💀 Poražen",
+        "value": "{loser}",
+        "inline": true
+      },
+      {
+        "name": "💶 Nagrada",
+        "value": "`+{nagrada} 💶`",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "pray",
+    "title": null,
+    "description": "🙏 {user} moli se za {target}! Nebo čuje — `+{bonus} 💶` palo s neba!",
+    "color": "#FFD700",
+    "category": "Fun",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "vers",
+    "title": null,
+    "description": "> 🎙️\n> *Ovo je primjer versa koji korisnik pošalje*\n> *Svaki red je jedan stih*\n> 🎤",
+    "color": "#9B30FF",
+    "category": "Fun",
+    "footer": "🎧 vers • drop the mic",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "zagrljaj",
+    "title": null,
+    "description": "🤗 {from} grli {to}! Aww, tako slatko! 💕",
+    "color": "#FF4D6D",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "poljubac",
+    "title": null,
+    "description": "💋 {from} šalje poljubac {to}! 😘",
+    "color": "#FF4D6D",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "mazi",
+    "title": null,
+    "description": "🥰 {from} mazi {to} nježno! Aww! 💕",
+    "color": "#FF4D6D",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "tapsi",
+    "title": null,
+    "description": "👋 {from} tapše {to} prijateljski! 🤝",
+    "color": "#FF4D6D",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "high5",
+    "title": null,
+    "description": "🙌 {from} daje peticu {to}! HIGH FIVE! ✋",
+    "color": "#FF4D6D",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "cudan",
+    "title": null,
+    "description": "😠 {from} je ćudan prema {to}! Ajde, brate... 😤",
+    "color": "#F39C12",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "srce",
+    "title": null,
+    "description": "❤️ {from} šalje srce {to}! Aww! 🥺",
+    "color": "#FF4D6D",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "brak",
+    "title": null,
+    "description": "💍 {from} zaprosio {to}! 😍 Hoćeš li? 🥂",
+    "color": "#FF4D6D",
+    "category": "Ljubavne",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "kompli",
+    "title": null,
+    "description": "🌹 {from} kaže {to}: 'Ti si razlog zašto dan počinje sa osmijehom. 😍'",
+    "color": "#FF85C8",
+    "category": "Fun",
+    "footer": "GIANNI (Custom) • Muvanje 101 💕",
+    "thumbnail": "{to.avatar}",
+    "fields": []
+  },
+  {
+    "name": "fora",
+    "title": null,
+    "description": "😂 {from} je pogledao/la {to} i shvatio/la: 'Brate/sestro, ti si dokaz da evolucija nije uvijek napredak.' 🐒",
+    "color": "#2B2D42",
+    "category": "Fun",
+    "footer": "GIANNI (Custom) • Sve u šali! 😂",
+    "thumbnail": "{to.avatar}",
+    "fields": []
+  },
+  {
+    "name": "muv",
+    "title": null,
+    "description": "😏 {from} {to}: 'Jesi li ti WiFi? Jer osjećam konekciju između nas.' 📶💕",
+    "color": "#FF4D6D",
+    "category": "Fun",
+    "footer": "GIANNI (Custom) • Balkan Muvanje™ 😏",
+    "thumbnail": "{to.avatar}",
+    "fields": []
+  },
+  {
+    "name": "crush",
+    "title": null,
+    "description": "💘 Po zvijezdama i kafanskim računima, tvoj tajni crush je... **{crush}**! 😳",
+    "color": "#FF4D6D",
+    "category": "Fun",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "spotify",
+    "title": "🎵 {trackTitle}",
+    "description": "**Izvođač:** {artist}\n**Album:** {album}\n\n`0:45` ▰▰▰▰▰▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱ `3:22`",
+    "color": "#1DB954",
+    "category": "Info",
+    "footer": "Spotify • GIANNI (Custom)",
+    "thumbnail": "{albumArt}",
+    "fields": []
+  },
+  {
+    "name": "invite",
+    "title": "📊 Statistika — {user}",
+    "description": null,
+    "color": "#2B2D42",
+    "category": "Info",
+    "footer": "Korisnik: {user} • ID: {userId}",
+    "thumbnail": "{user.avatar}",
+    "fields": [
+      {
+        "name": "✍️ Poruke poslato",
+        "value": "`{poruke}`",
+        "inline": true
+      },
+      {
+        "name": "👥 Doveo članova",
+        "value": "`{invites}`",
+        "inline": true
+      },
+      {
+        "name": "📅 Pridružio",
+        "value": "{joinedAt}",
+        "inline": true
+      },
+      {
+        "name": "🔗 Tvoj invite",
+        "value": "`{inviteUses}` korišćenja",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "avatar",
+    "title": "🖼️ {user}",
+    "description": "[PNG]({png}) • [JPG]({jpg}) • [WEBP]({webp})",
+    "color": "#2B2D42",
+    "category": "Info",
+    "footer": null,
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "brojanje-info",
+    "title": "🔢 Brojanje — stanje",
+    "description": "📍 **Kanal:** {channel}\n🔢 **Trenutno:** `{current}`\n➡️ **Sljedeći broj:** `{next}`\n👤 **Zadnji brojao:** {lastUser}\n🏆 **Rekord:** `{highScore}`",
+    "color": "#2B2D42",
+    "category": "Info",
+    "footer": "GIANNI (Custom) v2.0",
+    "thumbnail": null,
+    "fields": []
+  },
+  {
+    "name": "ticket",
+    "title": "🎫  Otvori Tiket",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n🎫 Trebaš pomoć? **Otvori tiket**!\n\n📝 Popuni formu i naš staff će ti odgovoriti što prije.\n⏳ Prosječno vrijeme odgovora: **< 30 minuta**\n━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    "color": "#00BCD4",
+    "category": "Sistem",
+    "footer": "🎫 GIANNI Ticket Sistem",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "📋 Šta ćeš dobiti",
+        "value": "🔒 Privatni kanal samo za tebe i staff\n✅ Pomoć od iskusnog tima\n📎 Možeš priložiti slike/screenshote",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "ticket-otvoren",
+    "title": "✅  Tiket otvoren!",
+    "description": "## 🎉 Tvoj tiket je kreiran!\nPrivatni kanal: {channel}\n\n⏳ Staff će ti odgovoriti uskoro. Budemo te obavijestili! 📩",
+    "color": "#00BCD4",
+    "category": "Sistem",
+    "footer": "🎫 GIANNI  •  Hvala na strpljenju! 🙏",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "📋  Šta dalje?",
+        "value": "💬 Idi u kanal i čekaj odgovor staffa\n📎 Možeš priložiti slike/screenshote\n🔒 Kanal je **privatan** — samo ti i staff\n✅ Ticket se zatvara kad je problem riješen",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "staff-prijava",
+    "title": "<:57656pinkarrow:1504506091751477319>  STAFF PRIJAVA",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nOtvorene su prijave za **Staff tim** servera!\n\n<:89292document:1504506160399650907> **Kako se prijaviti:**\n<:114060numberone1pink:1500460043575885915>  Klikni redom na **5 dugmadi** ispod i upiši svoje podatke\n<:617584numbertwo2pink:1500460055231860898>  Kad popuniš **sva polja**, klikni **<:98773announcepink:1504506163772002525> Pošalji prijavu**\n<:923324numberthree3pink:1500460082222206988>  Bot će ti otvoriti **privatni kanal** sa staff timom\n\n<:27825pinkpin:1504506059912511719> Tvoji odgovori se vide samo tebi dok ne pošalješ prijavu.\n<:36298alertpink2:1504506072264741087> **Discord invite linkovi nisu dozvoljeni** u poljima!\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    "color": "#d576c8",
+    "category": "Sistem",
+    "footer": "📋 GIANNI (Custom) • Staff Prijava",
+    "thumbnail": null,
+    "fields": [
+      {
+        "name": "<:27825pinkpin:1504506059912511719> Rubrike",
+        "value": "<:6455_aesthetic_controller:1500459590616350720> **Godine** — koliko imaš godina\n<:69926book:1504506110478913536> **Iskustvo** — prethodno iskustvo\n<:456636pinkcuteprincesshouse:1500262874847772804> **Motivacija** — zašto želiš staff\n<:18500dotpink:1504506045387636776> **Igrači** — koliko ljudi možeš dovesti\n<:20757pinkheartquartet:1504506051788275722> **Aktivnost** — sati dnevno + timezone",
+        "inline": false
+      }
+    ]
+  },
+  {
+    "name": "private-vc",
+    "title": "<:4755undeadened:1504505879750377542> Dobrodošao u svoj kanal, {user}!",
+    "description": "**Ti si vlasnik!** <:33379crownred:1504505536840859668> Koristi dugmad ispod:\n\n<:3409locked:1504509321613148342> **Lock** — niko ne može ući\n<:32673memberred:1504505534273949848> **Unlock** — svi mogu ući\n<:50265trialmoderator:1504506932646510772> **Hide / Show** — sakrij/pokaži kanal\n<:8526link:1504505939917803620> **Rename** — promijeni ime\n<:7188members:1504505910314405888> **Limit** — postavi max članova\n<:33570alert:1504509383537721514> **Kick** — izbaci nekog iz kanala\n<:3652invite:1504505868832608427> **Owner** — prebaci vlasništvo\n<:92042no:1504509438273523842> **Delete** — obriši kanal\n\n*Kanal se automatski briše kad ostane prazan.*",
+    "color": "#f50a0a",
+    "category": "Sistem",
+    "footer": "GIANNI (Custom) • Privatni Voice Sistem",
+    "thumbnail": null,
+    "fields": []
+  }
+]
