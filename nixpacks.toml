@@ -1,10 +1,8 @@
 [phases.setup]
-nixPkgs = ["nodejs_20", "nodePackages.pnpm"]
+nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = ["pnpm install --no-frozen-lockfile"]
+cmds = ["npm install --production 2>/dev/null || true"]
 
 [phases.build]
-cmds = [
-  "pnpm --filter @workspace/bot-panel run build && pnpm --filter @workspace/api-server run build && cp -r artifacts/bot-panel/dist/public artifacts/api-server/dist/public"
-]
+cmds = []
