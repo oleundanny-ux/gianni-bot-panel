@@ -1,10 +1,8 @@
 import { Router } from "express";
-import fs from "fs";
-import path from "path";
+import { db, embedsTable } from "@workspace/db";
+import { eq } from "drizzle-orm";
 
 const router = Router();
-
-const EMBEDS_FILE = path.join(process.cwd(), "data", "embeds.json");
 
 export const DEFAULT_EMBEDS = [
   // ─── SISTEM ───────────────────────────────────────────────────────────────
@@ -1065,50 +1063,65 @@ export const DEFAULT_EMBEDS = [
   },
 ];
 
-function loadEmbeds(): typeof DEFAULT_EMBEDS {
+async function loadEmbeds(): Promise<typeof DEFAULT_EMBEDS> {
+  const rows = await db.select().from(embedsTable);
+  const savedMap = new Map(rows.map((r) => [r.name, r.data as (typeof DEFAULT_EMBEDS)[number]]));
+
+  // Seed any defaults not yet in DB
+  const missing = DEFAULT_EMBEDS.filter((e) => !savedMap.has(e.name));
+  if (missing.length > 0) {
+    await db.insert(embedsTable)
+      .values(missing.map((e) => ({ name: e.name, data: e })))
+      .onConflictDoNothing();
+    missing.forEach((e) => savedMap.set(e.name, e));
+  }
+
+  // Preserve default ordering
+  return DEFAULT_EMBEDS.map((def) => savedMap.get(def.name) ?? def);
+}
+
+router.get("/embeds", async (req, res) => {
   try {
-    if (fs.existsSync(EMBEDS_FILE)) {
-      const raw = fs.readFileSync(EMBEDS_FILE, "utf-8");
-      const saved = JSON.parse(raw) as typeof DEFAULT_EMBEDS;
-      // Merge: add any new default embeds that don't exist in saved file
-      const savedNames = new Set(saved.map((e) => e.name));
-      const newDefaults = DEFAULT_EMBEDS.filter((e) => !savedNames.has(e.name));
-      if (newDefaults.length > 0) {
-        const merged = [...saved, ...newDefaults];
-        saveEmbeds(merged);
-        return merged;
-      }
-      return saved;
-    }
-  } catch {}
-  return DEFAULT_EMBEDS;
-}
-
-function saveEmbeds(embeds: typeof DEFAULT_EMBEDS): void {
-  const dir = path.dirname(EMBEDS_FILE);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(EMBEDS_FILE, JSON.stringify(embeds, null, 2), "utf-8");
-}
-
-router.get("/embeds", (req, res) => {
-  res.json(loadEmbeds());
+    res.json(await loadEmbeds());
+  } catch (err) {
+    req.log.error(err, "Failed to load embeds");
+    res.status(500).json({ error: "Database error" });
+  }
 });
 
-router.get("/embeds/:name", (req, res) => {
-  const embeds = loadEmbeds();
-  const embed = embeds.find((e) => e.name === req.params.name);
-  if (!embed) return res.status(404).json({ error: "Embed not found" });
-  return res.json(embed);
+router.get("/embeds/:name", async (req, res) => {
+  try {
+    const rows = await db.select().from(embedsTable).where(eq(embedsTable.name, req.params.name));
+    if (rows.length > 0) return res.json(rows[0].data);
+    // Fall back to default
+    const def = DEFAULT_EMBEDS.find((e) => e.name === req.params.name);
+    if (!def) return res.status(404).json({ error: "Embed not found" });
+    return res.json(def);
+  } catch (err) {
+    req.log.error(err, "Failed to get embed");
+    return res.status(500).json({ error: "Database error" });
+  }
 });
 
-router.put("/embeds/:name", (req, res) => {
-  const embeds = loadEmbeds();
-  const idx = embeds.findIndex((e) => e.name === req.params.name);
-  if (idx === -1) return res.status(404).json({ error: "Embed not found" });
-  const updated = { ...embeds[idx], ...req.body };
-  embeds[idx] = updated;
-  saveEmbeds(embeds);
-  return res.json(updated);
+router.put("/embeds/:name", async (req, res) => {
+  try {
+    const existing = DEFAULT_EMBEDS.find((e) => e.name === req.params.name);
+    if (!existing) return res.status(404).json({ error: "Embed not found" });
+
+    // Get current saved version (or fall back to default)
+    const rows = await db.select().from(embedsTable).where(eq(embedsTable.name, req.params.name));
+    const current = rows.length > 0 ? (rows[0].data as (typeof DEFAULT_EMBEDS)[number]) : existing;
+    const updated = { ...current, ...req.body };
+
+    await db.insert(embedsTable)
+      .values({ name: req.params.name, data: updated })
+      .onConflictDoUpdate({ target: embedsTable.name, set: { data: updated, updatedAt: new Date() } });
+
+    return res.json(updated);
+  } catch (err) {
+    req.log.error(err, "Failed to save embed");
+    return res.status(500).json({ error: "Database error" });
+  }
 });
 
 export default router;
