@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { LayoutDashboard, TerminalSquare, LayoutTemplate, Settings, Users, Server } from "lucide-react";
+import { LayoutDashboard, TerminalSquare, LayoutTemplate, Settings, Users, Server, Shield } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
 const BASE_URL = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -11,6 +11,7 @@ const NAV = [
   { href: "/embeds", label: "Embeds", icon: LayoutTemplate, emoji: "📋" },
   { href: "/members", label: "Članovi", icon: Users, emoji: "👥" },
   { href: "/server", label: "Server", icon: Server, emoji: "🌐" },
+  { href: "/permissions", label: "Permisije", icon: Shield, emoji: "🛡️" },
   { href: "/settings", label: "Podešavanja", icon: Settings, emoji: "⚙️" },
 ];
 
