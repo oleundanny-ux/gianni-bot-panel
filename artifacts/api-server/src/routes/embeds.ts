@@ -1150,6 +1150,399 @@ export const DEFAULT_EMBEDS = [
       { name: "<:518169rolemodpurple:1496901673426096158> Veličina",         value: "{velicina}",  inline: true },
     ],
   },
+
+  // ─── MODERACIJA (kompletno) ────────────────────────────────────
+  {
+    name: "mod-kick",
+    title: "<:994180roleadminred1:1496902197605306461> Član Kickovan",
+    description:
+      "<a:15072animatedarrowpink2:1496898801556914236> **{target}** je kickovan sa servera.\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
+    color: "#dc2626",
+    category: "Moderacija",
+    footer: "GIANNI (Custom) • Moderacija",
+    thumbnail: "{target.avatar}",
+    fields: [
+      { name: "<:617219rolemodpink:1496898535897956373> Izvršio",  value: "{mod}",    inline: true },
+      { name: "<:2261bell:1504505860720820395> Datum",            value: "{date}",   inline: true },
+      { name: "<:268961empty:1496899316596605142>",               value: "",         inline: true },
+    ],
+  },
+  {
+    name: "mod-mute",
+    title: "<:518169rolemodpurple:1496901673426096158> Član Mutovan",
+    description:
+      "<a:15072animatedarrowpink2:1496898801556914236> **{target}** je mutovan na **{duration}**.\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
+    color: "#9B59B6",
+    category: "Moderacija",
+    footer: "GIANNI (Custom) • Moderacija",
+    thumbnail: "{target.avatar}",
+    fields: [
+      { name: "<:617219rolemodpink:1496898535897956373> Izvršio",   value: "{mod}",      inline: true },
+      { name: "<:2261bell:1504505860720820395> Trajanje",           value: "{duration}", inline: true },
+      { name: "<:4558purplecheck:1504504889706020995> Ističe",      value: "{expires}",  inline: true },
+    ],
+  },
+  {
+    name: "mod-unmute",
+    title: "<:4558purplecheck:1504504889706020995> Član Odmutovan",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> **{target}** je odmutovan.\n<:518169rolemodpurple:1496901673426096158> Može ponovo pisati na serveru.",
+    color: "#059669",
+    category: "Moderacija",
+    footer: "GIANNI (Custom) • Moderacija",
+    thumbnail: "{target.avatar}",
+    fields: [
+      { name: "<:617219rolemodpink:1496898535897956373> Izvršio", value: "{mod}",  inline: true },
+      { name: "<:2261bell:1504505860720820395> Datum",            value: "{date}", inline: true },
+    ],
+  },
+  {
+    name: "mod-timeout",
+    title: "<:518169rolemodpurple:1496901673426096158> Timeout",
+    description:
+      "<a:15072animatedarrowpink2:1496898801556914236> **{target}** je stavljen u timeout na **{duration}**.\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
+    color: "#d97706",
+    category: "Moderacija",
+    footer: "GIANNI (Custom) • Moderacija",
+    thumbnail: "{target.avatar}",
+    fields: [
+      { name: "<:617219rolemodpink:1496898535897956373> Izvršio",  value: "{mod}",      inline: true },
+      { name: "<:2261bell:1504505860720820395> Trajanje",          value: "{duration}", inline: true },
+      { name: "<:4558purplecheck:1504504889706020995> Ističe",     value: "{expires}",  inline: true },
+    ],
+  },
+  {
+    name: "mod-purge",
+    title: "<:617219rolemodpink:1496898535897956373> Poruke Obrisane",
+    description:
+      "<a:15072animatedarrowpink2:1496898801556914236> Obrisano **{count}** poruka u <#{channel}>.\n<:518169rolemodpurple:1496901673426096158> Izvršio: **{mod}**",
+    color: "#9B59B6",
+    category: "Moderacija",
+    footer: "GIANNI (Custom) • Purge",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "mod-unban",
+    title: "<:4558purplecheck:1504504889706020995> Član Odbanovan",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> **{target}** je odbanovan sa servera.\n<:518169rolemodpurple:1496901673426096158> Izvršio: **{mod}**",
+    color: "#059669",
+    category: "Moderacija",
+    footer: "GIANNI (Custom) • Moderacija",
+    thumbnail: null,
+    fields: [
+      { name: "<:2261bell:1504505860720820395> Datum", value: "{date}", inline: true },
+    ],
+  },
+
+  // ─── EKONOMIJA (kompletno) ────────────────────────────────────
+  {
+    name: "eco-balance",
+    title: "<:2084purplestar:1504504848375349388> Balans — {user}",
+    description:
+      "<a:529977coin:1500444133389635704> Pregled tvog novčanika na serveru:",
+    color: "#9B59B6",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) • Ekonomija",
+    thumbnail: "{user.avatar}",
+    fields: [
+      { name: "<a:529977coin:1500444133389635704> Gotovina",  value: "`{cash}` 🪙",    inline: true },
+      { name: "<:33927diamond:1496898969052381407> Banka",    value: "`{bank}` 🪙",    inline: true },
+      { name: "<:79529shinycrown:1496899185516216400> Ukupno", value: "`{total}` 🪙",  inline: true },
+    ],
+  },
+  {
+    name: "eco-daily",
+    title: "<a:529977coin:1500444133389635704> Dnevna Nagrada",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> **{user}** je uzeo/la dnevnu nagradu!\n<:518169rolemodpurple:1496901673426096158> Streak: **{streak} dana** zaredom <a:3599pinkheart:1504504866700132534>",
+    color: "#FF85C8",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) • Ekonomija • Sutra možeš ponovo",
+    thumbnail: "{user.avatar}",
+    fields: [
+      { name: "<a:529977coin:1500444133389635704> Nagrada",   value: "`+{amount}` 🪙",       inline: true },
+      { name: "<:2084purplestar:1504504848375349388> Streak bonus", value: "`+{bonus}` 🪙",  inline: true },
+      { name: "<:33927diamond:1496898969052381407> Ukupno",   value: "`{total}` 🪙",         inline: true },
+    ],
+  },
+  {
+    name: "eco-work",
+    title: "<:518169rolemodpurple:1496901673426096158> Posao — {job}",
+    description:
+      "<a:15072animatedarrowpink2:1496898801556914236> **{user}** je radio/la kao **{job}** i zaradio/la:\n<a:529977coin:1500444133389635704> **{amount}** kovanica!",
+    color: "#9B59B6",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) • Ekonomija • Sljedeći posao za {cooldown}",
+    thumbnail: null,
+    fields: [
+      { name: "<a:529977coin:1500444133389635704> Zarada",   value: "`+{amount}` 🪙", inline: true },
+      { name: "<:33927diamond:1496898969052381407> Balans",  value: "`{total}` 🪙",   inline: true },
+    ],
+  },
+  {
+    name: "eco-shop",
+    title: "<:2084purplestar:1504504848375349388>  S H O P",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> Dobrodošao/la u shop! Kupi role, iteme i više.\n━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#9B59B6",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) • Shop",
+    thumbnail: null,
+    fields: [
+      { name: "<:617219rolemodpink:1496898535897956373> VIP Role",      value: "`5.000` 🪙",  inline: true },
+      { name: "<:864113ownerpinkcrownwithheart:1496899493130539008> Premium", value: "`10.000` 🪙", inline: true },
+      { name: "<:33927diamond:1496898969052381407> Dijamant",            value: "`25.000` 🪙", inline: true },
+    ],
+  },
+  {
+    name: "eco-buy",
+    title: "<:4558purplecheck:1504504889706020995> Kupovina Uspješna",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> **{user}** je kupio/la **{item}**!\n<:518169rolemodpurple:1496901673426096158> Cijena: **{price}** 🪙",
+    color: "#FF85C8",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) • Shop",
+    thumbnail: "{user.avatar}",
+    fields: [
+      { name: "<a:529977coin:1500444133389635704> Plaćeno",   value: "`-{price}` 🪙",  inline: true },
+      { name: "<:33927diamond:1496898969052381407> Ostalo",   value: "`{balance}` 🪙", inline: true },
+    ],
+  },
+  {
+    name: "eco-transfer",
+    title: "<:8526link:1504505939917803620> Transfer Kovanica",
+    description:
+      "<a:529977coin:1500444133389635704> **{from}** je poslao/la **{amount}** 🪙 → **{to}**\n<:4558purplecheck:1504504889706020995> Transfer uspješan!",
+    color: "#9B59B6",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) • Ekonomija",
+    thumbnail: null,
+    fields: [
+      { name: "<a:529977coin:1500444133389635704> Iznos",  value: "`{amount}` 🪙",    inline: true },
+      { name: "<:617219rolemodpink:1496898535897956373> Od", value: "{from}",          inline: true },
+      { name: "<:2084purplestar:1504504848375349388> Za",   value: "{to}",             inline: true },
+    ],
+  },
+  {
+    name: "eco-rob",
+    title: "<:994180roleadminred1:1496902197605306461> Pljačka!",
+    description:
+      "<a:15072animatedarrowpink2:1496898801556914236> **{user}** je pokušao/la opljačkati **{target}**!\n{result}",
+    color: "#dc2626",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) • Ekonomija",
+    thumbnail: null,
+    fields: [
+      { name: "<a:529977coin:1500444133389635704> Ukradeno", value: "`{stolen}` 🪙",  inline: true },
+      { name: "<:33927diamond:1496898969052381407> Kazna",   value: "`{fine}` 🪙",    inline: true },
+    ],
+  },
+
+  // ─── MUZIKA ──────────────────────────────────────────────────
+  {
+    name: "music-play",
+    title: "<a:85034pinknotes:1500444022622130196> Reprodukcija",
+    description:
+      "<a:15072animatedarrowpink2:1496898801556914236> Sada svira: **[{title}]({url})**\n<:518169rolemodpurple:1496901673426096158> Autor: **{author}** · Trajanje: `{duration}`",
+    color: "#9B59B6",
+    category: "Muzika",
+    footer: "GIANNI (Custom) • Muzika",
+    thumbnail: "{thumbnail}",
+    fields: [
+      { name: "<:2261bell:1504505860720820395> Dodao/la",    value: "{requester}",  inline: true },
+      { name: "<:33927diamond:1496898969052381407> Glasnoća", value: "`{volume}%`", inline: true },
+      { name: "<:8526link:1504505939917803620> U redu",      value: "`{queueSize}` pjesme", inline: true },
+    ],
+  },
+  {
+    name: "music-queue",
+    title: "<a:85034pinknotes:1500444022622130196>  R E D  —  Muzika",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> **Trenutno svira:**\n**[{currentTitle}]({currentUrl})** · `{currentDuration}`\n━━━━━━━━━━━━━━━━━━━━━━\n{queueList}",
+    color: "#9B59B6",
+    category: "Muzika",
+    footer: "GIANNI (Custom) • Muzika • Strana {page}/{totalPages}",
+    thumbnail: null,
+    fields: [
+      { name: "<:33927diamond:1496898969052381407> Ukupno u redu", value: "`{queueSize}` pjesme", inline: true },
+      { name: "<:2261bell:1504505860720820395> Ukupno trajanje",   value: "`{totalDuration}`",    inline: true },
+    ],
+  },
+  {
+    name: "music-skip",
+    title: "<:1111pinkarrow:1496903118108229733> Preskočeno",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> **{user}** je preskočio/la: **{title}**\n<a:85034pinknotes:1500444022622130196> Sljedeće: **{next}**",
+    color: "#FF85C8",
+    category: "Muzika",
+    footer: "GIANNI (Custom) • Muzika",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "music-pause",
+    title: "<a:85034pinknotes:1500444022622130196> Pauzirano",
+    description:
+      "<:518169rolemodpurple:1496901673426096158> Muzika je pauzirana.\n<a:15072animatedarrowpink2:1496898801556914236> Napiši `/resume` da nastaviš.",
+    color: "#9B59B6",
+    category: "Muzika",
+    footer: "GIANNI (Custom) • Muzika",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "music-stop",
+    title: "<:2261bell:1504505860720820395> Muzika Zaustavljena",
+    description:
+      "<:518169rolemodpurple:1496901673426096158> **{user}** je zaustavio/la muziku i obrisao/la red.\n<a:571294pinkpaw:1500259928936284211> Vidimo se sljedeći put!",
+    color: "#9B59B6",
+    category: "Muzika",
+    footer: "GIANNI (Custom) • Muzika",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "music-lyrics",
+    title: "<a:85034pinknotes:1500444022622130196> Tekst Pjesme — {title}",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n{lyrics}\n━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#9B59B6",
+    category: "Muzika",
+    footer: "GIANNI (Custom) • Lyrics • {author}",
+    thumbnail: null,
+    fields: [],
+  },
+
+  // ─── VERIFIKACIJA ────────────────────────────────────────────
+  {
+    name: "verify-panel",
+    title: "<:4558purplecheck:1504504889706020995>  V E R I F I K A C I J A",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> Klikni dugme ispod da potvrdiš da nisi bot!\n<:518169rolemodpurple:1496901673426096158> Nakon verifikacije dobijate pristup svim kanalima.\n━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> **discord.gg/gian**",
+    color: "#9B59B6",
+    category: "Verifikacija",
+    footer: "GIANNI (Custom) • Verifikacija",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "verify-success",
+    title: "<:4558purplecheck:1504504889706020995> Verifikacija Uspješna!",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> **{user}** — Dobrodošao/la! <a:3599pinkheart:1504504866700132534>\n<:518169rolemodpurple:1496901673426096158> Verifikacija je prošla. Uživaj na serveru!\n<a:15072animatedarrowpink2:1496898801556914236> Dobio/la si ulogu: <@&{roleId}>",
+    color: "#FF85C8",
+    category: "Verifikacija",
+    footer: "GIANNI (Custom) • Verifikacija",
+    thumbnail: "{user.avatar}",
+    fields: [],
+  },
+  {
+    name: "verify-fail",
+    title: "<:994180roleadminred1:1496902197605306461> Verifikacija Neuspješna",
+    description:
+      "<:518169rolemodpurple:1496901673426096158> Verifikacija nije prošla. Pokušaj ponovo!\n<a:15072animatedarrowpink2:1496898801556914236> Ako imaš problema, kontaktiraj staff.",
+    color: "#dc2626",
+    category: "Verifikacija",
+    footer: "GIANNI (Custom) • Verifikacija",
+    thumbnail: null,
+    fields: [],
+  },
+
+  // ─── ANKETE ──────────────────────────────────────────────────
+  {
+    name: "poll-create",
+    title: "<:2084purplestar:1504504848375349388>  A N K E T A",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> **{question}**\n━━━━━━━━━━━━━━━━━━━━━━\n<:1111pinkarrow:1496903118108229733> Glasaj koristeći reakcije ispod!",
+    color: "#9B59B6",
+    category: "Ankete",
+    footer: "GIANNI (Custom) • Anketa • Završava za {duration}",
+    thumbnail: null,
+    fields: [
+      { name: "1️⃣ Opcija A", value: "{optionA}", inline: true },
+      { name: "2️⃣ Opcija B", value: "{optionB}", inline: true },
+      { name: "3️⃣ Opcija C", value: "{optionC}", inline: true },
+    ],
+  },
+  {
+    name: "poll-results",
+    title: "<:79529shinycrown:1496899185516216400> Anketa — Rezultati",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> **{question}**\n━━━━━━━━━━━━━━━━━━━━━━\n{resultsBar}",
+    color: "#FF85C8",
+    category: "Ankete",
+    footer: "GIANNI (Custom) • Anketa završena • Ukupno glasova: {totalVotes}",
+    thumbnail: null,
+    fields: [
+      { name: "<:2084purplestar:1504504848375349388> Pobjednik",  value: "**{winner}** — `{winnerPercent}%`", inline: true },
+      { name: "<:2261bell:1504505860720820395> Glasova",          value: "`{totalVotes}`",                   inline: true },
+    ],
+  },
+
+  // ─── REACTION ROLES ──────────────────────────────────────────
+  {
+    name: "rr-panel",
+    title: "<:2084purplestar:1504504848375349388>  U L O G E  —  Odaberi",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> Klikni na reakciju da dobiješ/skineš ulogu!\n━━━━━━━━━━━━━━━━━━━━━━\n{roleList}",
+    color: "#9B59B6",
+    category: "Reaction Roles",
+    footer: "GIANNI (Custom) • Reaction Roles",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "rr-add",
+    title: "<:4558purplecheck:1504504889706020995> Uloga Dodana",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> **{user}** — dobio/la si ulogu <@&{roleId}>! <a:3599pinkheart:1504504866700132534>",
+    color: "#FF85C8",
+    category: "Reaction Roles",
+    footer: "GIANNI (Custom) • Reaction Roles",
+    thumbnail: "{user.avatar}",
+    fields: [],
+  },
+  {
+    name: "rr-remove",
+    title: "<:617219rolemodpink:1496898535897956373> Uloga Skinuta",
+    description:
+      "<:518169rolemodpurple:1496901673426096158> **{user}** — uloga <@&{roleId}> je skinuta.",
+    color: "#9B59B6",
+    category: "Reaction Roles",
+    footer: "GIANNI (Custom) • Reaction Roles",
+    thumbnail: "{user.avatar}",
+    fields: [],
+  },
+
+  // ─── REPORT ──────────────────────────────────────────────────
+  {
+    name: "report",
+    title: "<:994180roleadminred1:1496902197605306461> Nova Prijava — Report",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> **{reporter}** je prijavio/la **{target}**\n━━━━━━━━━━━━━━━━━━━━━━\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
+    color: "#dc2626",
+    category: "Admin",
+    footer: "GIANNI (Custom) • Report Sistem",
+    thumbnail: "{target.avatar}",
+    fields: [
+      { name: "<:617219rolemodpink:1496898535897956373> Prijavio",  value: "{reporter}", inline: true },
+      { name: "<:994180roleadminred1:1496902197605306461> Prijavljeni", value: "{target}", inline: true },
+      { name: "<:2261bell:1504505860720820395> Datum",              value: "{date}",     inline: true },
+    ],
+  },
+  {
+    name: "report-closed",
+    title: "<:4558purplecheck:1504504889706020995> Report Zatvoren",
+    description:
+      "<a:64382pinksparkles:1500259869259988033> Report #**{id}** je zatvoren od strane **{mod}**.\n<:518169rolemodpurple:1496901673426096158> Akcija: **{action}**",
+    color: "#9B59B6",
+    category: "Admin",
+    footer: "GIANNI (Custom) • Report Sistem",
+    thumbnail: null,
+    fields: [],
+  },
 ];
 
 async function loadEmbeds(): Promise<typeof DEFAULT_EMBEDS> {
