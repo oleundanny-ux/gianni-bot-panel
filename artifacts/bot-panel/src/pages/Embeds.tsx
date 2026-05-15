@@ -17,6 +17,7 @@ import {
   Hand, Diamond, User, Wallet, Briefcase, ShoppingCart, ShoppingBag, ArrowLeftRight,
   AlertOctagon, Play, ListMusic, SkipForward, Pause, Square, ShieldCheck, ShieldX,
   Plus, Minus, RotateCcw, Database, FileText, PencilLine, Trash2, UserCheck,
+  ChevronDown,
   type LucideIcon,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -631,45 +632,130 @@ function EmojiChip({ token, onReplace }: EmojiChipProps) {
   }, [open]);
 
   const chipColor = "#5865F2";
-
-  const display = token.isCustom ? (
-    <div
-      className="flex items-center justify-center rounded flex-shrink-0"
-      style={{ width: 18, height: 18, background: `${chipColor}22`, border: `1px solid ${chipColor}44` }}
-    >
-      <Smile style={{ width: 11, height: 11, color: chipColor, strokeWidth: 2.2 }} />
-    </div>
-  ) : (
-    <span className="text-sm leading-none">{token.raw}</span>
-  );
-
-  const label = token.name ? (
-    <span className="text-[10px] font-semibold max-w-[72px] truncate" style={{ color: open ? chipColor : "#949BA4" }}>
-      :{token.name}:
-    </span>
-  ) : null;
+  // Strip leading digits from emoji name for cleaner display
+  const shortName = token.name
+    ? (token.name.replace(/^\d+/, "") || token.name).slice(0, 13)
+    : "emoji";
 
   return (
-    <div ref={ref} className="relative inline-block">
+    <div ref={ref} className="relative">
       <button
         type="button"
         onClick={() => setOpen(p => !p)}
         title={token.name ? `:${token.name}:` : "Zamijeni emoji"}
-        className={`flex items-center gap-1 px-1.5 py-0.5 rounded-md border text-[10px] font-medium transition-all ${
-          open
-            ? "border-[#5865F2] bg-[#5865F2]/15 text-[#5865F2]"
-            : "border-[#404249] bg-[#1E1F22] text-[#949BA4] hover:border-[#5865F2]/60 hover:bg-[#5865F2]/08"
-        }`}
+        className="flex items-center gap-1 pl-1 pr-2 py-0.5 rounded-full border text-[10px] font-semibold transition-all duration-150"
+        style={{
+          borderColor: open ? chipColor : "#404249",
+          background: open ? `${chipColor}22` : "#1E1F22",
+          color: open ? "#fff" : "#949BA4",
+          boxShadow: open ? `0 0 8px ${chipColor}44` : "none",
+        }}
+        onMouseEnter={e => {
+          if (!open) {
+            (e.currentTarget as HTMLElement).style.borderColor = `${chipColor}80`;
+            (e.currentTarget as HTMLElement).style.background = `${chipColor}12`;
+            (e.currentTarget as HTMLElement).style.color = "#d1d5db";
+          }
+        }}
+        onMouseLeave={e => {
+          if (!open) {
+            (e.currentTarget as HTMLElement).style.borderColor = "#404249";
+            (e.currentTarget as HTMLElement).style.background = "#1E1F22";
+            (e.currentTarget as HTMLElement).style.color = "#949BA4";
+          }
+        }}
       >
-        {display}
-        {label}
-        <RefreshCw className="w-2.5 h-2.5 flex-shrink-0 opacity-60" />
+        <div
+          className="flex items-center justify-center rounded-full flex-shrink-0"
+          style={{
+            width: 16, height: 16,
+            background: open ? chipColor : `${chipColor}30`,
+            transition: "background 0.15s",
+          }}
+        >
+          {token.isCustom
+            ? <Smile style={{ width: 9, height: 9, color: open ? "#fff" : chipColor, strokeWidth: 2.5 }} />
+            : <span style={{ fontSize: 9, lineHeight: 1 }}>{token.raw}</span>
+          }
+        </div>
+        <span className="max-w-[84px] truncate" style={{ color: "inherit" }}>{shortName}</span>
+        <RefreshCw style={{ width: 8, height: 8, opacity: 0.45, flexShrink: 0 }} />
       </button>
       {open && (
         <EmojiPicker
           onSelect={(md) => { onReplace(md); setOpen(false); }}
           onClose={() => setOpen(false)}
         />
+      )}
+    </div>
+  );
+}
+
+// ── EmojiChipsPanel ───────────────────────────────────────────────────────────
+
+function EmojiChipsPanel({
+  tokens,
+  replaceEmoji,
+}: {
+  tokens: EmojiToken[];
+  replaceEmoji: (token: EmojiToken, md: string) => void;
+}) {
+  const [expanded, setExpanded] = useState(true);
+  const ACCENT = "#5865F2";
+
+  return (
+    <div
+      className="rounded-lg overflow-hidden transition-all"
+      style={{ background: `${ACCENT}08`, border: `1px solid ${ACCENT}25` }}
+    >
+      {/* Header row */}
+      <button
+        type="button"
+        onClick={() => setExpanded(p => !p)}
+        className="w-full flex items-center gap-2 px-2.5 py-1.5 transition-colors"
+        style={{ background: "transparent" }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `${ACCENT}10`; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+      >
+        <div
+          className="flex items-center justify-center rounded-md flex-shrink-0"
+          style={{ width: 16, height: 16, background: `${ACCENT}28`, border: `1px solid ${ACCENT}50` }}
+        >
+          <Smile style={{ width: 9, height: 9, color: ACCENT, strokeWidth: 2.5 }} />
+        </div>
+        <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: ACCENT }}>
+          Zamijeni emoji
+        </span>
+        <div
+          className="flex items-center justify-center rounded-full text-[9px] font-black flex-shrink-0"
+          style={{ width: 16, height: 16, background: ACCENT, color: "#fff", minWidth: 16 }}
+        >
+          {tokens.length}
+        </div>
+        <div className="flex-1" />
+        <ChevronDown
+          style={{
+            width: 11, height: 11, color: `${ACCENT}aa`,
+            transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+            transition: "transform 0.2s",
+          }}
+        />
+      </button>
+
+      {/* Chips */}
+      {expanded && (
+        <div
+          className="px-2.5 pt-1.5 pb-2.5 flex flex-wrap gap-1.5"
+          style={{ borderTop: `1px solid ${ACCENT}18` }}
+        >
+          {tokens.map((token, i) => (
+            <EmojiChip
+              key={`${token.index}-${i}`}
+              token={token}
+              onReplace={(md) => replaceEmoji(token, md)}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
@@ -750,18 +836,9 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
         )}
       </div>
 
-      {/* Emoji replace chips — shown when emojis are detected in the text */}
+      {/* Emoji replace panel — shown when emojis are detected in the text */}
       {tokens.length > 0 && (
-        <div className="flex flex-wrap gap-1 pt-0.5">
-          <span className="text-[10px] text-[#5C5F66] self-center">zamijeni:</span>
-          {tokens.map((token, i) => (
-            <EmojiChip
-              key={`${token.index}-${i}`}
-              token={token}
-              onReplace={(md) => replaceEmoji(token, md)}
-            />
-          ))}
-        </div>
+        <EmojiChipsPanel tokens={tokens} replaceEmoji={replaceEmoji} />
       )}
     </div>
   );
