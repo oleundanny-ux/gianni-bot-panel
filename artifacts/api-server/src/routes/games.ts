@@ -12,7 +12,7 @@ const DEFAULTS = {
     kradi:  { enabled: true, cooldown_hours: 2,  success_rate: 38, steal_min: 50, steal_max: 300 },
   },
   gambling: {
-    slots:       { enabled: true, cooldown_sec: 15, max_bet: 1000000000 },
+    slots:       { enabled: true, cooldown_sec: 15, max_bet: 1000000000, symbols: ["🍒","🍋","🍇","💎","🔔","⭐","🎰","🍀","👑"] },
     blackjack:   { enabled: true, cooldown_sec: 30 },
     poker:       { enabled: true, min_bet: 50,  max_bet: 50000 },
     kviz:        { enabled: true, min_bet: 10 },
