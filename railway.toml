@@ -4,4 +4,8 @@ builder = "nixpacks"
 [deploy]
 startCommand = "node index.mjs"
 restartPolicyType = "on_failure"
-restartPolicyMaxRetries = 3
+restartPolicyMaxRetries = 5
+
+[[deploy.healthChecks]]
+type = "http"
+path = "/api/healthz"
