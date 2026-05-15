@@ -549,11 +549,12 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
   );
 }
 
-function DiscordEmbedPreview({ embed, title, description, color, fields: fieldsProp }: {
+function DiscordEmbedPreview({ embed, title, description, color, bgColor, fields: fieldsProp }: {
   embed: EmbedTemplate;
   title: string;
   description: string;
   color: string;
+  bgColor?: string;
   fields?: EmbedTemplate["fields"];
 }) {
   function renderText(text: string) {
@@ -599,7 +600,7 @@ function DiscordEmbedPreview({ embed, title, description, color, fields: fieldsP
           {/* Embed card — matches Discord layout exactly */}
           <div
             className="rounded overflow-hidden inline-flex max-w-[480px] w-full mt-0.5"
-            style={{ borderLeft: `4px solid ${color}`, backgroundColor: "#2B2D31" }}
+            style={{ borderLeft: `4px solid ${color}`, backgroundColor: bgColor ?? "#2B2D31" }}
           >
             <div className="p-3 flex-1 min-w-0">
               {/* Author line (optional — blank for now) */}
@@ -663,6 +664,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
   const [title, setTitle] = useState(embed.title ?? "");
   const [description, setDescription] = useState(embed.description ?? "");
   const [color, setColor] = useState(embed.color ?? "#2B2D42");
+  const [bgColor, setBgColor] = useState<string>((embed as any).bgColor ?? "#2B2D31");
   const [fields, setFields] = useState<EmbedField[]>(embed.fields ?? []);
 
   // Resizable panel state
@@ -702,6 +704,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
     setTitle(embed.title ?? "");
     setDescription(embed.description ?? "");
     setColor(embed.color ?? "#2B2D42");
+    setBgColor((embed as any).bgColor ?? "#2B2D31");
     setFields(embed.fields ?? []);
   }, [embed.name]);
 
@@ -711,7 +714,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
 
   const handleSave = () => {
     updateEmbedMutation.mutate(
-      { name: embed.name, data: { title, description, color, fields } },
+      { name: embed.name, data: { title, description, color, bgColor, fields } },
       {
         onSuccess: () => {
           toast({ title: "Embed sacuvan" });
@@ -844,6 +847,58 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
             </div>
           </div>
 
+          {/* Background colour picker */}
+          <div className="space-y-2">
+            <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Pozadina embeda</Label>
+            <div className="grid grid-cols-10 gap-1.5">
+              {[
+                "#2B2D31","#1E1F22","#313338","#111214","#0d0d0d",
+                "#1a1a2e","#16213e","#0f3460","#1b1b2f","#2d1b33",
+                "#1f2d1f","#1a2a1a","#2d1a1a","#2a1f0f","#1e2a2a",
+                "#ffffff","#f0f0f0","#e0e0e0","#c0c0c0","#808080",
+              ].map(preset => (
+                <button
+                  key={preset}
+                  type="button"
+                  title={preset}
+                  onClick={() => setBgColor(preset)}
+                  className="w-6 h-6 rounded-full border-2 transition-all hover:scale-110 focus:outline-none"
+                  style={{
+                    backgroundColor: preset,
+                    borderColor: bgColor.toLowerCase() === preset.toLowerCase() ? "#fff" : preset === "#ffffff" ? "#555" : "transparent",
+                    boxShadow: bgColor.toLowerCase() === preset.toLowerCase() ? `0 0 0 1px ${preset === "#ffffff" ? "#aaa" : preset}` : "none",
+                  }}
+                />
+              ))}
+            </div>
+            <div className="flex gap-2 items-center">
+              <div className="relative w-9 h-9 flex-shrink-0">
+                <div
+                  className="w-9 h-9 rounded-lg border-2 border-[#404249] cursor-pointer overflow-hidden"
+                  style={{ backgroundColor: bgColor }}
+                />
+                <input
+                  type="color"
+                  value={bgColor}
+                  onChange={e => setBgColor(e.target.value)}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  title="Odaberi prilagođenu pozadinu"
+                />
+              </div>
+              <Input
+                value={bgColor}
+                onChange={e => setBgColor(e.target.value)}
+                className="flex-1 bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] font-mono text-sm uppercase"
+                placeholder="#2B2D31"
+              />
+              <div
+                className="w-9 h-9 rounded-lg flex-shrink-0 border border-white/10"
+                style={{ backgroundColor: bgColor }}
+                title="Pregled pozadine"
+              />
+            </div>
+          </div>
+
           {fields.length > 0 && (
             <div className="space-y-3">
               <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Polja</Label>
@@ -886,6 +941,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
             title={title}
             description={description}
             color={color}
+            bgColor={bgColor}
             fields={fields}
           />
 
