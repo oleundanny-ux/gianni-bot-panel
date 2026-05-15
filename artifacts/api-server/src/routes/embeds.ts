@@ -802,6 +802,27 @@ export const DEFAULT_EMBEDS = [
     footer: "GIANNI (Custom) • Privatni Voice Sistem",
     thumbnail: null,
     fields: [],
+    buttons: [],
+  },
+  {
+    name: "voice-pravila",
+    title: "🔊  P R I V A T N I  V O I C E  K A N A L I",
+    description:
+      "Uđi u <#1494043959213953114> i bot ti **automatski** kreira vlastiti voice kanal.\nPostaješ **vlasnik** 👑 i dobijaš puni kontrolni panel.",
+    color: "#2B2D3A",
+    category: "Sistem paneli",
+    footer: "🔊 GIANNI • Voice Pravila",
+    thumbnail: null,
+    fields: [
+      { name: "🤝  Ponašanje", value: "🚫 Bez vrijeđanja, maltretiranja i rasizma\n🎙️ Ne prekidaj druge dok pričaju\n🔇 Ne lupaj mikrofonom bez razloga", inline: true },
+      { name: "👑  Vlasništvo", value: "🎛️ Samo vlasnik koristi Lock / Hide / Kick panel\n🔁 Prebaci vlasništvo prije izlaska\n⚖️ Ne koristi panel za maltretiranje", inline: true },
+      { name: "🔞  Sadržaj & Imena", value: "🚫 Bez NSFW sadržaja i streaminga\n✏️ Ime kanala mora biti pristojno\n📋 Vrijede sva opšta pravila servera", inline: true },
+      { name: "🗑️  Automatsko brisanje", value: "Kad svi izađu, bot **automatski briše** kanal.\n👮 Staff ima pristup svim kanalima zbog moderacije.", inline: false },
+      { name: "⚠️  Kazne", value: "`1.` ⚠️ Upozorenje  `2.` 🔇 Voice mute  `3.` 🚫 Zabrana voice-a  `4.` 👢 Kick / 🔨 Ban", inline: false },
+    ],
+    buttons: [
+      { label: "🔊 Kreiraj svoj voice", style: "success", customId: "vc_create_btn" },
+    ],
   },
   // ─── VATRICE ──────────────────────────────────────────────────────────────
   {
