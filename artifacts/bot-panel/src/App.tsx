@@ -8,6 +8,7 @@ import Commands from "@/pages/Commands";
 import Embeds from "@/pages/Embeds";
 import Members from "@/pages/Members";
 import Permissions from "@/pages/Permissions";
+import Protection from "@/pages/Protection";
 import Settings from "@/pages/Settings";
 import ServerPage from "@/pages/ServerPage";
 import NotFound from "@/pages/not-found";
@@ -24,6 +25,7 @@ function Router() {
         <Route path="/members" component={Members} />
         <Route path="/server" component={ServerPage} />
         <Route path="/permissions" component={Permissions} />
+        <Route path="/protection" component={Protection} />
         <Route path="/settings" component={Settings} />
         <Route component={NotFound} />
       </Switch>
