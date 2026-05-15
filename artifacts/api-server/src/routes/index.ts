@@ -7,6 +7,7 @@ import settingsRouter from "./settings";
 import discordRouter from "./discord";
 import channelConfigsRouter from "./channel-configs";
 import protectionRouter from "./protection";
+import gamesRouter from "./games";
 
 const router: IRouter = Router();
 
@@ -21,5 +22,6 @@ router.use(settingsRouter);
 router.use(discordRouter);
 router.use(channelConfigsRouter);
 router.use(protectionRouter);
+router.use(gamesRouter);
 
 export default router;
