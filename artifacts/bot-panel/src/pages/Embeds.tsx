@@ -896,31 +896,6 @@ function useDiscordRoles() {
   });
 }
 
-function InlineEmojiBadge({ id, name, cleanName }: { id: string; name: string; cleanName: string }) {
-  const [failed, setFailed] = useState(false);
-  const ACCENT = "#5865F2";
-  if (!failed) {
-    return (
-      <img
-        src={`https://cdn.discordapp.com/emojis/${id}.png?size=32`}
-        alt={`:${name}:`}
-        title={`:${name}:`}
-        className="inline-block w-5 h-5 object-contain align-middle mx-0.5 rounded-sm"
-        onError={() => setFailed(true)}
-      />
-    );
-  }
-  return (
-    <span
-      className="inline-flex items-center gap-0.5 align-middle mx-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold"
-      style={{ background: `${ACCENT}22`, border: `1px solid ${ACCENT}44`, color: ACCENT, verticalAlign: "middle" }}
-      title={`:${name}:`}
-    >
-      <Smile style={{ width: 9, height: 9, strokeWidth: 2.5, display: "inline", flexShrink: 0 }} />
-      <span>{cleanName}</span>
-    </span>
-  );
-}
 
 function DiscordEmbedPreview({ embed, title, description, color, bgColor, previewMode, fields: fieldsProp, buttons: buttonsProp }: {
   embed: EmbedTemplate;
@@ -937,11 +912,18 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
     return parts.map((part, i) => {
       const match = part.match(/^<(a?):([^:]+):(\d+)>$/);
       if (match) {
+        const animated = match[1] === "a";
         const name = match[2];
         const id = match[3];
-        const cleanName = name.replace(/^\d+/, "").slice(0, 14) || name.slice(0, 14);
+        const ext = animated ? "gif" : "png";
         return (
-          <InlineEmojiBadge key={i} id={id} name={name} cleanName={cleanName} />
+          <img
+            key={i}
+            src={`https://cdn.discordapp.com/emojis/${id}.${ext}?size=32`}
+            alt={`:${name}:`}
+            title={`:${name}:`}
+            className="inline-block w-5 h-5 object-contain align-middle mx-0.5"
+          />
         );
       }
       return <span key={i}>{part}</span>;
