@@ -178,6 +178,7 @@ const EMBED_ICONS: Record<string, LucideIcon> = {
   "log-delete":       Trash2,
   report:             AlertTriangle,
   "report-closed":    CheckCircle,
+  "report-nova":      AlertTriangle,
   // Moderacija
   warn:               AlertTriangle,
   ban:                Ban,
