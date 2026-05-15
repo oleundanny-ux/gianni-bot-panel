@@ -20488,27 +20488,27 @@ var require_router = __commonJS({
     var slice = Array.prototype.slice;
     var flatten = Array.prototype.flat;
     var methods = METHODS.map((method) => method.toLowerCase());
-    module.exports = Router9;
+    module.exports = Router10;
     module.exports.Route = Route;
-    function Router9(options) {
-      if (!(this instanceof Router9)) {
-        return new Router9(options);
+    function Router10(options) {
+      if (!(this instanceof Router10)) {
+        return new Router10(options);
       }
       const opts = options || {};
-      function router9(req, res, next) {
-        router9.handle(req, res, next);
+      function router10(req, res, next) {
+        router10.handle(req, res, next);
       }
-      Object.setPrototypeOf(router9, this);
-      router9.caseSensitive = opts.caseSensitive;
-      router9.mergeParams = opts.mergeParams;
-      router9.params = {};
-      router9.strict = opts.strict;
-      router9.stack = [];
-      return router9;
+      Object.setPrototypeOf(router10, this);
+      router10.caseSensitive = opts.caseSensitive;
+      router10.mergeParams = opts.mergeParams;
+      router10.params = {};
+      router10.strict = opts.strict;
+      router10.stack = [];
+      return router10;
     }
-    Router9.prototype = function() {
+    Router10.prototype = function() {
     };
-    Router9.prototype.param = function param2(name2, fn) {
+    Router10.prototype.param = function param2(name2, fn) {
       if (!name2) {
         throw new TypeError("argument name is required");
       }
@@ -20528,7 +20528,7 @@ var require_router = __commonJS({
       params.push(fn);
       return this;
     };
-    Router9.prototype.handle = function handle(req, res, callback) {
+    Router10.prototype.handle = function handle(req, res, callback) {
       if (!callback) {
         throw new TypeError("argument callback is required");
       }
@@ -20655,7 +20655,7 @@ var require_router = __commonJS({
         }
       }
     };
-    Router9.prototype.use = function use(handler) {
+    Router10.prototype.use = function use(handler) {
       let offset = 0;
       let path6 = "/";
       if (typeof handler !== "function") {
@@ -20688,7 +20688,7 @@ var require_router = __commonJS({
       }
       return this;
     };
-    Router9.prototype.route = function route(path6) {
+    Router10.prototype.route = function route(path6) {
       const route2 = new Route(path6);
       const layer = new Layer(path6, {
         sensitive: this.caseSensitive,
@@ -20703,7 +20703,7 @@ var require_router = __commonJS({
       return route2;
     };
     methods.concat("all").forEach(function(method) {
-      Router9.prototype[method] = function(path6) {
+      Router10.prototype[method] = function(path6) {
         const route = this.route(path6);
         route[method].apply(route, slice.call(arguments, 1));
         return this;
@@ -20886,13 +20886,13 @@ var require_application = __commonJS({
     var compileTrust = require_utils3().compileTrust;
     var resolve = __require("node:path").resolve;
     var once = require_once();
-    var Router9 = require_router();
+    var Router10 = require_router();
     var slice = Array.prototype.slice;
     var flatten = Array.prototype.flat;
     var app2 = exports = module.exports = {};
     var trustProxyDefaultSymbol = "@@symbol:trust_proxy_default";
     app2.init = function init() {
-      var router9 = null;
+      var router10 = null;
       this.cache = /* @__PURE__ */ Object.create(null);
       this.engines = /* @__PURE__ */ Object.create(null);
       this.settings = /* @__PURE__ */ Object.create(null);
@@ -20901,13 +20901,13 @@ var require_application = __commonJS({
         configurable: true,
         enumerable: true,
         get: function getrouter() {
-          if (router9 === null) {
-            router9 = new Router9({
+          if (router10 === null) {
+            router10 = new Router10({
               caseSensitive: this.enabled("case sensitive routing"),
               strict: this.enabled("strict routing")
             });
           }
-          return router9;
+          return router10;
         }
       });
     };
@@ -20978,15 +20978,15 @@ var require_application = __commonJS({
       if (fns.length === 0) {
         throw new TypeError("app.use() requires a middleware function");
       }
-      var router9 = this.router;
+      var router10 = this.router;
       fns.forEach(function(fn2) {
         if (!fn2 || !fn2.handle || !fn2.set) {
-          return router9.use(path6, fn2);
+          return router10.use(path6, fn2);
         }
         debug(".use app under %s", path6);
         fn2.mountpath = path6;
         fn2.parent = this;
-        router9.use(path6, function mounted_app(req, res, next) {
+        router10.use(path6, function mounted_app(req, res, next) {
           var orig = req.app;
           fn2.handle(req, res, function(err) {
             Object.setPrototypeOf(req, orig.request);
@@ -23513,7 +23513,7 @@ var require_express = __commonJS({
     var EventEmitter = __require("node:events").EventEmitter;
     var mixin = require_merge_descriptors();
     var proto = require_application();
-    var Router9 = require_router();
+    var Router10 = require_router();
     var req = require_request();
     var res = require_response();
     exports = module.exports = createApplication;
@@ -23535,8 +23535,8 @@ var require_express = __commonJS({
     exports.application = proto;
     exports.request = req;
     exports.response = res;
-    exports.Route = Router9.Route;
-    exports.Router = Router9;
+    exports.Route = Router10.Route;
+    exports.Router = Router10;
     exports.json = bodyParser.json;
     exports.raw = bodyParser.raw;
     exports.static = require_serve_static();
@@ -42209,14 +42209,14 @@ var init_src = __esm({
 });
 
 // src/app.ts
-var import_express9 = __toESM(require_express2(), 1);
+var import_express10 = __toESM(require_express2(), 1);
 var import_cors = __toESM(require_lib3(), 1);
 var import_pino_http = __toESM(require_logger(), 1);
 import path5 from "path";
 import fs5 from "fs";
 
 // src/routes/index.ts
-var import_express8 = __toESM(require_express2(), 1);
+var import_express9 = __toESM(require_express2(), 1);
 
 // src/routes/health.ts
 var import_express = __toESM(require_express2(), 1);
@@ -46249,9 +46249,68 @@ router.get("/healthz", (_req, res) => {
 });
 var health_default = router;
 
-// src/routes/commands.ts
+// src/routes/auth.ts
 var import_express2 = __toESM(require_express2(), 1);
+
+// src/middleware/auth.ts
+import { createHash } from "crypto";
+function makeToken(secret) {
+  return createHash("sha256").update(secret + ":gianni-panel-v2").digest("hex");
+}
+function authMiddleware(req, res, next) {
+  const secret = process.env.PANEL_SECRET;
+  if (!secret) {
+    next();
+    return;
+  }
+  if (req.path.startsWith("/auth/")) {
+    next();
+    return;
+  }
+  if (req.path === "/healthz" || req.path === "/health") {
+    next();
+    return;
+  }
+  const auth = req.headers.authorization ?? "";
+  const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+  if (!token || token !== makeToken(secret)) {
+    res.status(401).json({ error: "Neautorizovano \u2014 prijava obavezna." });
+    return;
+  }
+  next();
+}
+
+// src/routes/auth.ts
 var router2 = (0, import_express2.Router)();
+router2.post("/auth/login", (req, res) => {
+  const secret = process.env.PANEL_SECRET;
+  if (!secret) {
+    return res.json({ token: "dev-mode", devMode: true });
+  }
+  const { password } = req.body;
+  if (!password || password !== secret) {
+    req.log.warn({ ip: req.ip }, "Failed panel login attempt");
+    return res.status(401).json({ error: "Pogre\u0161na lozinka panela." });
+  }
+  const token = makeToken(secret);
+  req.log.info({ ip: req.ip }, "Panel login success");
+  return res.json({ token, devMode: false });
+});
+router2.get("/auth/verify", (req, res) => {
+  const secret = process.env.PANEL_SECRET;
+  if (!secret) return res.json({ ok: true, devMode: true });
+  const auth = req.headers.authorization ?? "";
+  const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+  if (!token || token !== makeToken(secret)) {
+    return res.status(401).json({ ok: false });
+  }
+  return res.json({ ok: true, devMode: false });
+});
+var auth_default = router2;
+
+// src/routes/commands.ts
+var import_express3 = __toESM(require_express2(), 1);
+var router3 = (0, import_express3.Router)();
 var ALL_COMMANDS = [
   {
     category: "Op\u0161te",
@@ -46430,10 +46489,10 @@ var ALL_COMMANDS = [
     ]
   }
 ];
-router2.get("/commands", (req, res) => {
+router3.get("/commands", (req, res) => {
   res.json(ALL_COMMANDS);
 });
-router2.get("/commands/:name", (req, res) => {
+router3.get("/commands/:name", (req, res) => {
   const { name: name2 } = req.params;
   for (const cat of ALL_COMMANDS) {
     const cmd = cat.commands.find((c) => c.name === name2);
@@ -46443,12 +46502,12 @@ router2.get("/commands/:name", (req, res) => {
   }
   return res.status(404).json({ error: "Command not found" });
 });
-var commands_default = router2;
+var commands_default = router3;
 
 // src/routes/embeds.ts
-var import_express3 = __toESM(require_express2(), 1);
+var import_express4 = __toESM(require_express2(), 1);
 init_drizzle_orm();
-var router3 = (0, import_express3.Router)();
+var router4 = (0, import_express4.Router)();
 var _db = null;
 var _embedsTable = null;
 var _dbAvailable = null;
@@ -47513,7 +47572,7 @@ async function loadEmbeds() {
   }
   return DEFAULT_EMBEDS.map((def) => savedMap.get(def.name) ?? def);
 }
-router3.get("/embeds", async (req, res) => {
+router4.get("/embeds", async (req, res) => {
   try {
     res.json(await loadEmbeds());
   } catch (err) {
@@ -47521,7 +47580,7 @@ router3.get("/embeds", async (req, res) => {
     res.json(DEFAULT_EMBEDS);
   }
 });
-router3.get("/embeds/:name", async (req, res) => {
+router4.get("/embeds/:name", async (req, res) => {
   try {
     const conn = await getDb();
     if (conn) {
@@ -47538,7 +47597,7 @@ router3.get("/embeds/:name", async (req, res) => {
     return def ? res.json(def) : res.status(404).json({ error: "Embed not found" });
   }
 });
-router3.put("/embeds/:name", async (req, res) => {
+router4.put("/embeds/:name", async (req, res) => {
   try {
     const existing = DEFAULT_EMBEDS.find((e) => e.name === req.params.name);
     if (!existing) return res.status(404).json({ error: "Embed not found" });
@@ -47557,13 +47616,13 @@ router3.put("/embeds/:name", async (req, res) => {
     return res.status(500).json({ error: "Database error" });
   }
 });
-var embeds_default = router3;
+var embeds_default = router4;
 
 // src/routes/settings.ts
-var import_express4 = __toESM(require_express2(), 1);
+var import_express5 = __toESM(require_express2(), 1);
 import fs from "fs";
 import path from "path";
-var router4 = (0, import_express4.Router)();
+var router5 = (0, import_express5.Router)();
 var SETTINGS_FILE = path.join(process.cwd(), "data", "settings.json");
 var DEFAULT_SETTINGS = {
   botName: "GIANNI (Custom)",
@@ -47604,10 +47663,10 @@ function saveSettings(s) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(SETTINGS_FILE, JSON.stringify(s, null, 2), "utf-8");
 }
-router4.get("/settings", (req, res) => {
+router5.get("/settings", (req, res) => {
   res.json(loadSettings());
 });
-router4.put("/settings", (req, res) => {
+router5.put("/settings", (req, res) => {
   const current = loadSettings();
   const updated = {
     ...current,
@@ -47620,7 +47679,7 @@ router4.put("/settings", (req, res) => {
   saveSettings(updated);
   res.json(updated);
 });
-router4.post("/settings/token", async (req, res) => {
+router5.post("/settings/token", async (req, res) => {
   const { token } = req.body;
   if (!token || typeof token !== "string" || token.trim().length < 30) {
     res.status(400).json({ error: "Invalid token" });
@@ -47646,7 +47705,7 @@ router4.post("/settings/token", async (req, res) => {
   req.log.info("Discord token updated at runtime");
   res.json({ ok: true, message: "Token saved and active" });
 });
-router4.get("/stats", (req, res) => {
+router5.get("/stats", (req, res) => {
   const commandsByCategory = {};
   let total = 0;
   for (const cat of ALL_COMMANDS) {
@@ -47660,13 +47719,13 @@ router4.get("/stats", (req, res) => {
     commandsByCategory
   });
 });
-var settings_default = router4;
+var settings_default = router5;
 
 // src/routes/discord.ts
-var import_express5 = __toESM(require_express2(), 1);
+var import_express6 = __toESM(require_express2(), 1);
 import fs2 from "fs";
 import path2 from "path";
-var router5 = (0, import_express5.Router)();
+var router6 = (0, import_express6.Router)();
 var DISCORD_API = "https://discord.com/api/v10";
 var PRIMARY_GUILD_ID = "1496860022066385016";
 var APPLICATION_ID = "1496871647204999208";
@@ -47698,7 +47757,7 @@ function saveEmojiCache(emojis) {
   } catch {
   }
 }
-router5.get("/discord/debug", async (req, res) => {
+router6.get("/discord/debug", async (req, res) => {
   const token = process.env.DISCORD_TOKEN ?? "";
   const result = {
     hasToken: !!token,
@@ -47741,7 +47800,7 @@ router5.get("/discord/debug", async (req, res) => {
   }
   res.json(result);
 });
-router5.get("/discord/emojis", async (req, res) => {
+router6.get("/discord/emojis", async (req, res) => {
   const forceRefresh = req.query.refresh === "1";
   if (!forceRefresh) {
     const cached2 = loadEmojiCache();
@@ -47809,7 +47868,7 @@ router5.get("/discord/emojis", async (req, res) => {
   }
   return res.status(503).json({ error: "Emoji nisu dostupni" });
 });
-router5.get("/discord/guild", async (req, res) => {
+router6.get("/discord/guild", async (req, res) => {
   try {
     const response = await fetch(
       `${DISCORD_API}/guilds/${PRIMARY_GUILD_ID}?with_counts=true`,
@@ -47831,7 +47890,7 @@ router5.get("/discord/guild", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.get("/discord/members", async (req, res) => {
+router6.get("/discord/members", async (req, res) => {
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   const limit = Math.min(Number(req.query.limit) || 100, 1e3);
   const after = req.query.after || "0";
@@ -47862,7 +47921,7 @@ router5.get("/discord/members", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.get("/discord/roles", async (req, res) => {
+router6.get("/discord/roles", async (req, res) => {
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   try {
     const response = await fetch(
@@ -47891,7 +47950,7 @@ router5.get("/discord/roles", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.patch("/discord/roles/:roleId", async (req, res) => {
+router6.patch("/discord/roles/:roleId", async (req, res) => {
   const { roleId } = req.params;
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   const { permissions, color, hoist, mentionable } = req.body;
@@ -47928,7 +47987,7 @@ router5.patch("/discord/roles/:roleId", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.patch("/discord/members/:userId", async (req, res) => {
+router6.patch("/discord/members/:userId", async (req, res) => {
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   const { userId } = req.params;
   const { nick, roles, reason } = req.body;
@@ -47959,7 +48018,7 @@ router5.patch("/discord/members/:userId", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.post("/discord/members/:userId/timeout", async (req, res) => {
+router6.post("/discord/members/:userId/timeout", async (req, res) => {
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   const { userId } = req.params;
   const { minutes, reason } = req.body;
@@ -47990,7 +48049,7 @@ router5.post("/discord/members/:userId/timeout", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.delete("/discord/members/:userId/kick", async (req, res) => {
+router6.delete("/discord/members/:userId/kick", async (req, res) => {
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   const { userId } = req.params;
   const reason = req.query.reason || "";
@@ -48013,7 +48072,7 @@ router5.delete("/discord/members/:userId/kick", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.post("/discord/members/:userId/ban", async (req, res) => {
+router6.post("/discord/members/:userId/ban", async (req, res) => {
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   const { userId } = req.params;
   const { reason, delete_message_seconds } = req.body;
@@ -48040,7 +48099,7 @@ router5.post("/discord/members/:userId/ban", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-router5.get("/discord/channels", async (req, res) => {
+router6.get("/discord/channels", async (req, res) => {
   const guildId = req.query.guild || PRIMARY_GUILD_ID;
   try {
     const response = await fetch(
@@ -48125,7 +48184,7 @@ function buildComponents(buttons) {
   });
   return [{ type: 1, components: comps.slice(0, 5) }];
 }
-router5.post("/discord/channels/:channelId/send-embed", async (req, res) => {
+router6.post("/discord/channels/:channelId/send-embed", async (req, res) => {
   const { channelId } = req.params;
   const { embedName } = req.body;
   if (!embedName) return res.status(400).json({ error: "embedName required" });
@@ -48168,13 +48227,13 @@ router5.post("/discord/channels/:channelId/send-embed", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
-var discord_default = router5;
+var discord_default = router6;
 
 // src/routes/channel-configs.ts
-var import_express6 = __toESM(require_express2(), 1);
+var import_express7 = __toESM(require_express2(), 1);
 import fs3 from "fs";
 import path3 from "path";
-var router6 = (0, import_express6.Router)();
+var router7 = (0, import_express7.Router)();
 var CONFIGS_FILE = path3.join(process.cwd(), "data", "channel-configs.json");
 function loadConfigs() {
   try {
@@ -48190,10 +48249,10 @@ function saveConfigs(data) {
   if (!fs3.existsSync(dir)) fs3.mkdirSync(dir, { recursive: true });
   fs3.writeFileSync(CONFIGS_FILE, JSON.stringify(data, null, 2), "utf-8");
 }
-router6.get("/channel-configs", (req, res) => {
+router7.get("/channel-configs", (req, res) => {
   res.set("Cache-Control", "no-store").json(loadConfigs());
 });
-router6.put("/channel-configs/:channelId", (req, res) => {
+router7.put("/channel-configs/:channelId", (req, res) => {
   const { channelId } = req.params;
   const { embedNames, note } = req.body;
   const configs = loadConfigs();
@@ -48205,13 +48264,13 @@ router6.put("/channel-configs/:channelId", (req, res) => {
   saveConfigs(configs);
   res.json(configs[channelId] ?? { embedNames: [] });
 });
-var channel_configs_default = router6;
+var channel_configs_default = router7;
 
 // src/routes/protection.ts
-var import_express7 = __toESM(require_express2(), 1);
+var import_express8 = __toESM(require_express2(), 1);
 import fs4 from "fs";
 import path4 from "path";
-var router7 = (0, import_express7.Router)();
+var router8 = (0, import_express8.Router)();
 var PROTECTION_FILE = path4.join(process.cwd(), "data", "protection.json");
 var DEFAULT_PROTECTION = {
   antiRaid: {
@@ -48252,10 +48311,10 @@ function save(cfg) {
   if (!fs4.existsSync(dir)) fs4.mkdirSync(dir, { recursive: true });
   fs4.writeFileSync(PROTECTION_FILE, JSON.stringify(cfg, null, 2), "utf-8");
 }
-router7.get("/protection", (_req, res) => {
+router8.get("/protection", (_req, res) => {
   res.json(load());
 });
-router7.put("/protection", (req, res) => {
+router8.put("/protection", (req, res) => {
   const current = load();
   const body = req.body;
   const updated = {
@@ -48272,18 +48331,19 @@ router7.put("/protection", (req, res) => {
   );
   res.json(updated);
 });
-var protection_default = router7;
+var protection_default = router8;
 
 // src/routes/index.ts
-var router8 = (0, import_express8.Router)();
-router8.use(health_default);
-router8.use(commands_default);
-router8.use(embeds_default);
-router8.use(settings_default);
-router8.use(discord_default);
-router8.use(channel_configs_default);
-router8.use(protection_default);
-var routes_default = router8;
+var router9 = (0, import_express9.Router)();
+router9.use(health_default);
+router9.use(auth_default);
+router9.use(commands_default);
+router9.use(embeds_default);
+router9.use(settings_default);
+router9.use(discord_default);
+router9.use(channel_configs_default);
+router9.use(protection_default);
+var routes_default = router9;
 
 // src/lib/logger.ts
 var import_pino = __toESM(require_pino(), 1);
@@ -48304,7 +48364,7 @@ var logger = (0, import_pino.default)({
 });
 
 // src/app.ts
-var app = (0, import_express9.default)();
+var app = (0, import_express10.default)();
 app.use(
   (0, import_pino_http.default)({
     logger,
@@ -48325,12 +48385,12 @@ app.use(
   })
 );
 app.use((0, import_cors.default)());
-app.use(import_express9.default.json());
-app.use(import_express9.default.urlencoded({ extended: true }));
-app.use("/api", routes_default);
+app.use(import_express10.default.json());
+app.use(import_express10.default.urlencoded({ extended: true }));
+app.use("/api", authMiddleware, routes_default);
 var staticDir = path5.join(process.cwd(), "public");
 if (fs5.existsSync(staticDir)) {
-  app.use(import_express9.default.static(staticDir));
+  app.use(import_express10.default.static(staticDir));
   app.use((_req, res) => {
     res.sendFile(path5.join(staticDir, "index.html"));
   });
