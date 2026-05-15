@@ -489,7 +489,7 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
         <button
           type="button"
           onClick={() => setShowPicker(p => !p)}
-          className="absolute right-2 top-2 text-[#949BA4] hover:text-[#F1C40F] transition-colors"
+          className="absolute right-2 bottom-2 text-[#949BA4] hover:text-[#F1C40F] transition-colors"
           data-testid={`button-emoji-${testId}`}
           title="Umetni emoji"
         >
