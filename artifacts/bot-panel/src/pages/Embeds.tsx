@@ -908,8 +908,8 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
 
               {/* Footer */}
               {embed.footer && (
-                <div className="mt-3 pt-2 border-t border-white/5 text-[11px] text-[#949BA4] flex items-center gap-1.5">
-                  {embed.footer}
+                <div className="mt-3 pt-2 border-t border-white/5 text-[11px] text-[#949BA4] flex items-center gap-1.5 flex-wrap">
+                  {renderText(embed.footer)}
                 </div>
               )}
             </div>
