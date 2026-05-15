@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { LayoutDashboard, TerminalSquare, LayoutTemplate, Settings, Users, Server, Shield } from "lucide-react";
+import { LayoutDashboard, TerminalSquare, LayoutTemplate, Settings, Users, Server, Shield, LogOut } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
+import { useAuth } from "@/context/AuthContext";
 
 const BASE_URL = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -38,6 +39,7 @@ function useGuildInfo() {
 export function AppLayout({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const { data: guild } = useGuildInfo();
+  const { logout, devMode } = useAuth();
 
   return (
     <div className="flex h-screen w-full overflow-hidden" style={{ background: "#080910", color: "#e2e8f0", fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
@@ -156,11 +158,21 @@ export function AppLayout({ children }: { children: ReactNode }) {
             )}
             <div className="min-w-0 flex-1">
               <div className="text-xs font-bold text-white truncate">Gianni Bot</div>
-              <div className="flex items-center gap-1 text-xs" style={{ color: "#22c55e" }}>
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#22c55e", boxShadow: "0 0 4px #22c55e" }} />
-                Online
+              <div className="flex items-center gap-1 text-xs" style={{ color: devMode ? "#f59e0b" : "#22c55e" }}>
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: devMode ? "#f59e0b" : "#22c55e", boxShadow: `0 0 4px ${devMode ? "#f59e0b" : "#22c55e"}` }} />
+                {devMode ? "Dev mode" : "Online"}
               </div>
             </div>
+            <button
+              onClick={logout}
+              title="Odjavi se"
+              className="flex-shrink-0 p-1.5 rounded-lg transition-all"
+              style={{ color: "#4b5563", background: "transparent" }}
+              onMouseEnter={e => { e.currentTarget.style.color = "#f87171"; e.currentTarget.style.background = "rgba(239,68,68,0.08)"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = "#4b5563"; e.currentTarget.style.background = "transparent"; }}
+            >
+              <LogOut className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
       </aside>
