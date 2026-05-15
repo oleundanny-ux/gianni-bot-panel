@@ -33988,7 +33988,7 @@ app.use("/api", routes_default);
 var staticDir = path5.join(process.cwd(), "public");
 if (fs5.existsSync(staticDir)) {
   app.use(import_express8.default.static(staticDir));
-  app.get("*", (_req, res) => {
+  app.use((_req, res) => {
     res.sendFile(path5.join(staticDir, "index.html"));
   });
 }
