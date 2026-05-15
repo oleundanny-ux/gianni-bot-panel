@@ -48039,6 +48039,51 @@ router5.get("/discord/channels", async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 });
+var DISCORD_BTN_STYLE = {
+  primary: 1,
+  secondary: 2,
+  success: 3,
+  danger: 4,
+  link: 5
+};
+function buildComponents(buttons) {
+  if (!buttons || buttons.length === 0) return [];
+  const comps = buttons.map((btn) => {
+    const style = btn.type === "link" ? 5 : DISCORD_BTN_STYLE[btn.style] ?? 1;
+    const comp = { type: 2, style, label: btn.label || "Dugme" };
+    if (btn.emoji) {
+      const m = btn.emoji.match(/^<(a?):([^:]+):(\d+)>$/);
+      if (m) {
+        comp.emoji = { id: m[3], name: m[2], animated: m[1] === "a" };
+      } else {
+        comp.emoji = { name: btn.emoji };
+      }
+    }
+    if (btn.type === "link") {
+      comp.url = btn.url || "https://discord.gg";
+    } else {
+      switch (btn.type) {
+        case "voice_create":
+          comp.custom_id = "vc_create_btn";
+          break;
+        case "ticket_open":
+          comp.custom_id = "ticket_open";
+          break;
+        case "ticket_close":
+          comp.custom_id = "ticket_close";
+          break;
+        case "role":
+          comp.custom_id = `panel_role_${btn.roleId}`;
+          break;
+        default:
+          comp.custom_id = btn.customId || `btn_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`;
+          break;
+      }
+    }
+    return comp;
+  });
+  return [{ type: 1, components: comps.slice(0, 5) }];
+}
 router5.post("/discord/channels/:channelId/send-embed", async (req, res) => {
   const { channelId } = req.params;
   const { embedName } = req.body;
@@ -48060,11 +48105,14 @@ router5.post("/discord/channels/:channelId/send-embed", async (req, res) => {
   if (embedData.description) discordEmbed.description = embedData.description;
   if (embedData.footer) discordEmbed.footer = { text: embedData.footer };
   if (embedData.fields?.length) discordEmbed.fields = embedData.fields;
+  const components = buildComponents(embedData.buttons ?? []);
   try {
+    const body = { embeds: [discordEmbed] };
+    if (components.length > 0) body.components = components;
     const r = await fetch(`${DISCORD_API}/channels/${channelId}/messages`, {
       method: "POST",
       headers: botHeaders(),
-      body: JSON.stringify({ embeds: [discordEmbed] })
+      body: JSON.stringify(body)
     });
     if (!r.ok) {
       const err = await r.text();
@@ -48072,7 +48120,7 @@ router5.post("/discord/channels/:channelId/send-embed", async (req, res) => {
       return res.status(r.status).json({ error: err });
     }
     const msg = await r.json();
-    req.log.info({ channelId, embedName, messageId: msg.id }, "Embed sent to channel");
+    req.log.info({ channelId, embedName, messageId: msg.id, buttons: (embedData.buttons ?? []).length }, "Embed sent to channel");
     return res.json({ ok: true, messageId: msg.id });
   } catch (err) {
     req.log.error({ err }, "Failed to send embed to Discord");
