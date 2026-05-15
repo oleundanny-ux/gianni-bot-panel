@@ -271,7 +271,7 @@
   {
     "name": "aktivnost",
     "title": "<:367280roleadmingreen:1496898579720044706> ᴀᴋᴛɪᴠɴᴏsᴛ",
-    "description": "━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **{user}**\n━━━━━━━━━━━━━━━━━━━━\n🟧🟧🟧⬛⬛⬛⬛⬛⬛⬛  `{progress}/100`\n<a:44503lockkey:1500444008760217641> Još **`{doSljedeceg}`** poruka do sljedećeg levela!",
+    "description": "━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **{user}**\n━━━━━━━━━━━━━━━━━━━━\n<:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>  `{progress}/100`\n<a:44503lockkey:1500444008760217641> Još **`{doSljedeceg}`** poruka do sljedećeg levela!",
     "color": "#FFA500",
     "category": "XP",
     "footer": "<a:aktivnost:1500203557134270534> GIANNI (Custom) • Aktivnost • Svakih 100 poruka novi level!",
@@ -307,7 +307,7 @@
   {
     "name": "rank",
     "title": "<:367280roleadmingreen:1496898579720044706> Rank Profil",
-    "description": "🟪🟪🟪🟪⬛⬛⬛⬛⬛⬛\n`▰▰▰▰▱▱▱▱▱▱` **40%**",
+    "description": "<:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>\n`▰▰▰▰▱▱▱▱▱▱` **40%**",
     "color": "#9B59B6",
     "category": "XP",
     "footer": null,
@@ -394,7 +394,7 @@
   {
     "name": "quests",
     "title": "<:984706roleadminorange1:1496898583239200819> Dnevni Zadaci",
-    "description": "⬜ **Pošalji 10 poruka** — Budi aktivan u chatu\n`░░░░░░░░░░` `0/10` • <a:529977coin:1500444133389635704> `+200`\n\n<:428758neonverifiedcheck:1496898532559421571> **Odigraj slots** — Probaj sreću na slot mašini\n`██████████` `1/1` • <a:529977coin:1500444133389635704> `+150`\n\n⬜ **Uhvati 5 životinja** — Idi u /hunt\n`███░░░░░░░` `3/5` • <a:529977coin:1500444133389635704> `+300`",
+    "description": "<:268961empty:1496899316596605142> **Pošalji 10 poruka** — Budi aktivan u chatu\n`░░░░░░░░░░` `0/10` • <a:529977coin:1500444133389635704> `+200`\n\n<:428758neonverifiedcheck:1496898532559421571> **Odigraj slots** — Probaj sreću na slot mašini\n`██████████` `1/1` • <a:529977coin:1500444133389635704> `+150`\n\n<:268961empty:1496899316596605142> **Uhvati 5 životinja** — Idi u /hunt\n`███░░░░░░░` `3/5` • <a:529977coin:1500444133389635704> `+300`",
     "color": "#2B2D42",
     "category": "Ekonomija",
     "footer": "Resetuju se u ponoć UTC • GIANNI (Custom)",
@@ -441,10 +441,10 @@
   {
     "name": "slots",
     "title": "<a:39865dice:1500260185510248448>  S L O T  M A Š I N A",
-    "description": "𓉘  🍒  │  🍒  │  🍒  𓉝\n\n<a:43091slots:1500443990129115196> Sva tri ista — **JACKPOT!**",
+    "description": "𓉘  <:58390neoncherry:1496902029363249212>  │  <:58390neoncherry:1496902029363249212>  │  <:58390neoncherry:1496902029363249212>  𓉝\n\n<a:43091slots:1500443990129115196> Sva tri ista — **JACKPOT!**",
     "color": "#F1C40F",
     "category": "Igre",
-    "footer": "GIANNI (Custom) • 🍒×3 🍋×3.5 🍊×4 🍇×5 🔔×6 <:40197blueneonstar:1496898993395859457>×8 💎×15 7️⃣×50",
+    "footer": "GIANNI (Custom) • <:58390neoncherry:1496902029363249212>×3 <a:15770animatedarrowyellow:1496898815502844025>×3.5 <:984706roleadminorange1:1496898583239200819>×4 <a:62888purplemoneyrain:1504504998153814207>×5 <:2261bell:1504505860720820395>×6 <:40197blueneonstar:1496898993395859457>×8 <a:1174shinybluediamond:1504507147973558403>×15 7️⃣×50",
     "thumbnail": null,
     "fields": [
       {
@@ -466,7 +466,7 @@
   },
   {
     "name": "blackjack",
-    "title": "<a:39865dice:1500260185510248448> 🃏 Blackjack",
+    "title": "<a:39865dice:1500260185510248448> <a:39865dice1:1500443897489526965> Blackjack",
     "description": "",
     "color": "#2B2D42",
     "category": "Igre",
@@ -475,12 +475,12 @@
     "fields": [
       {
         "name": "Tvoje karte  (17)",
-        "value": "🂡 🂮",
+        "value": "<:33927diamond:1496898969052381407> <:79529shinycrown:1496899185516216400>",
         "inline": false
       },
       {
         "name": "Dealer  (?)",
-        "value": "🂫 <a:39865dice1:1500443897489526965>",
+        "value": "<:4082signalbaryellow:1500260022846881862> <a:39865dice1:1500443897489526965>",
         "inline": false
       },
       {
@@ -492,31 +492,31 @@
   },
   {
     "name": "poker-lobby",
-    "title": "<a:39865dice:1500260185510248448> 🃏 POKER — Texas Hold'em",
+    "title": "<a:39865dice:1500260185510248448> <a:39865dice1:1500443897489526965> POKER — Texas Hold'em",
     "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:529977coin:1500444133389635704> **Ulog po igraču:** `{ulog} <a:529977coin:1500444133389635704>`\n<:79529shinycrown:1496899185516216400> **Trenutni pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **Igrači ({count}/9):**\n▸ **{player1}**\n▸ **{player2}**\n\n▸ Klikni **Ulazi u igru** da se pridružiš\n▸ Domaćin klika **Počni igru** kad je spreman\n▸ Igra automatski kreće za **60 sekundi**",
     "color": "#2ECC71",
     "category": "Igre",
-    "footer": "🃏 GIANNI (Custom) • Poker • Min 2, Max 9 igrača",
+    "footer": "<a:39865dice1:1500443897489526965> GIANNI (Custom) • Poker • Min 2, Max 9 igrača",
     "thumbnail": null,
     "fields": []
   },
   {
     "name": "poker-game",
-    "title": "<a:39865dice:1500260185510248448> 🃏 Pre-Flop — Kartice podijeljene",
-    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n🃏 **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n<a:529977coin:1500444133389635704> **Pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **Aktivni:**\n<:428758neonverifiedcheck:1496898532559421571> **{player1}**\n<:428758neonverifiedcheck:1496898532559421571> **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:44503lockkey:1500444008760217641> **Čekamo potez:**\n<a:44503lockkey:1500444008760217641> {player1}",
+    "title": "<a:39865dice:1500260185510248448> <a:39865dice1:1500443897489526965> Pre-Flop — Kartice podijeljene",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:39865dice1:1500443897489526965> **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n<a:529977coin:1500444133389635704> **Pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **Aktivni:**\n<:428758neonverifiedcheck:1496898532559421571> **{player1}**\n<:428758neonverifiedcheck:1496898532559421571> **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:44503lockkey:1500444008760217641> **Čekamo potez:**\n<a:44503lockkey:1500444008760217641> {player1}",
     "color": "#F39C12",
     "category": "Igre",
-    "footer": "🃏 GIANNI (Custom) • Klikni 'Vidi kartice' za svoju ruku • Pot: {pot} <a:529977coin:1500444133389635704>",
+    "footer": "<a:39865dice1:1500443897489526965> GIANNI (Custom) • Klikni 'Vidi kartice' za svoju ruku • Pot: {pot} <a:529977coin:1500444133389635704>",
     "thumbnail": null,
     "fields": []
   },
   {
     "name": "poker-showdown",
     "title": "<:79529shinycrown:1496899185516216400> SHOWDOWN — Poker",
-    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n🃏 **Zajedničke kartice:**\n🂡 🂺 🂳 🃈 🃑\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{winner}**\n   Ruka: 🂡 🂮\n   → **Royal Flush** | 🂡 🂺 🂳 🃈 🃑\n\n  **{loser}**\n   Ruka: 🃁 🃎\n   → **Dva Para** | 🂡 🂺 🃁 🃎 🂳\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **Pobjednik:** {winner}\n<a:529977coin:1500444133389635704> **Dobitak:** `{dobitak} <a:529977coin:1500444133389635704>` po pobjedniku",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:39865dice1:1500443897489526965> **Zajedničke kartice:**\n<:33927diamond:1496898969052381407> <:40197blueneonstar:1496898993395859457> <:618492diamond:1500207262629761075> <a:505993sparkle1:1496899369939636295> <:33927diamond:1496898969052381407>\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{winner}**\n   Ruka: <:33927diamond:1496898969052381407> <:79529shinycrown:1496899185516216400>\n   → **Royal Flush** | <:33927diamond:1496898969052381407> <:40197blueneonstar:1496898993395859457> <:618492diamond:1500207262629761075> <a:505993sparkle1:1496899369939636295> <:33927diamond:1496898969052381407>\n\n  **{loser}**\n   Ruka: <a:1174shinybluediamond:1504507147973558403> <:79529shinycrown:1496899185516216400>\n   → **Dva Para** | <:33927diamond:1496898969052381407> <:40197blueneonstar:1496898993395859457> <a:1174shinybluediamond:1504507147973558403> <:79529shinycrown:1496899185516216400> <:618492diamond:1500207262629761075>\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **Pobjednik:** {winner}\n<a:529977coin:1500444133389635704> **Dobitak:** `{dobitak} <a:529977coin:1500444133389635704>` po pobjedniku",
     "color": "#F1C40F",
     "category": "Igre",
-    "footer": "🃏 GIANNI (Custom) • Poker završen • Ukupni pot: {pot} <a:529977coin:1500444133389635704>",
+    "footer": "<a:39865dice1:1500443897489526965> GIANNI (Custom) • Poker završen • Ukupni pot: {pot} <a:529977coin:1500444133389635704>",
     "thumbnail": null,
     "fields": []
   },
@@ -526,12 +526,12 @@
     "description": "Pridruži se i čekaj da host pokrene igru!\n**Min 4 • Max 10 igrača**",
     "color": "#1B1B2F",
     "category": "Igre",
-    "footer": "Host: klikni ▶️ Pokreni igru kad ste svi tu!",
+    "footer": "Host: klikni <:300997neonyoutubeplaybutton:1496901528412360744>️ Pokreni igru kad ste svi tu!",
     "thumbnail": null,
     "fields": [
       {
         "name": "<:7188members:1504505910314405888> Igrači (2/10)",
-        "value": "🟥 Player1\n🔵 Player2",
+        "value": "<:994180roleadminred1:1496902197605306461> Player1\n<:11309roleadminblue2:1496898576150954165> Player2",
         "inline": false
       }
     ]
@@ -542,29 +542,29 @@
     "description": "",
     "color": "#1B1B2F",
     "category": "Igre",
-    "footer": "<:7289announcement:1504505912939909141> Zadatak • <:73535warningids:1496899181674238053> Alarm • 🔪 Akcija • 🛑 Sabotiraj • <a:42985spellbook:1504506083094565125> Lažni alarm • 🔫 Šerif • 👻 Ghost",
+    "footer": "<:7289announcement:1504505912939909141> Zadatak • <:73535warningids:1496899181674238053> Alarm • <a:7995gunuzzi:1500461218450640896> Akcija • <a:760912ban:1500446026715103253> Sabotiraj • <a:42985spellbook:1504506083094565125> Lažni alarm • <a:40893gun:1500443902182948954> Šerif • <a:18299floatypinkghost:1500259858602135692> Ghost",
     "thumbnail": null,
     "fields": [
       {
         "name": "<:7188members:1504505910314405888> Igrači",
-        "value": "🟥 Player1\n🔵 Player2\n<a:760912ban:1500446026715103253> ~~Player3~~",
+        "value": "<:994180roleadminred1:1496902197605306461> Player1\n<:11309roleadminblue2:1496898576150954165> Player2\n<a:760912ban:1500446026715103253> ~~Player3~~",
         "inline": false
       },
       {
         "name": "<:7289announcement:1504505912939909141> Zadaci",
-        "value": "🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜ `3/10`",
+        "value": "<:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142> `3/10`",
         "inline": true
       },
       {
         "name": "<a:42985spellbook:1504506083094565125> Živi",
-        "value": "🔵 2 crew | 🔴 1 imp",
+        "value": "<:11309roleadminblue2:1496898576150954165> 2 crew | <:79652red:1496899187873415218> 1 imp",
         "inline": true
       }
     ]
   },
   {
     "name": "among-us-end",
-    "title": "<:428758neonverifiedcheck:1496898532559421571> 🔵 CREWMATI POBIJEDE!",
+    "title": "<:428758neonverifiedcheck:1496898532559421571> <:11309roleadminblue2:1496898576150954165> CREWMATI POBIJEDE!",
     "description": "Svi impostori eliminirani! <:428758neonverifiedcheck:1496898532559421571>",
     "color": "#43B581",
     "category": "Igre",
@@ -573,7 +573,7 @@
     "fields": [
       {
         "name": "<a:42985spellbook:1504506083094565125> Otkrivene uloge",
-        "value": "🔵 🟥 **Player1** — CREWMATE\n🔴 🔵 **Player2** — IMPOSTOR",
+        "value": "<:11309roleadminblue2:1496898576150954165> <:994180roleadminred1:1496902197605306461> **Player1** — CREWMATE\n<:79652red:1496899187873415218> <:11309roleadminblue2:1496898576150954165> **Player2** — IMPOSTOR",
         "inline": false
       }
     ]
@@ -594,7 +594,7 @@
       },
       {
         "name": "<:2711settings:1504505863032012832>  Težina",
-        "value": "🟡 Normalno · 2 slova",
+        "value": "<:4082signalbaryellow:1500260022846881862> Normalno · 2 slova",
         "inline": true
       },
       {
@@ -732,7 +732,7 @@
   {
     "name": "zoo",
     "title": "<a:874347butterfly:1496899500160192562> {user} — Zoo",
-    "description": "<a:505993sparkle1:1496899369939636295> **Legendary**\n<a:VATRICE:1496898836155596962> **Zmaj** `×1`\n\n<:40197blueneonstar:1496898993395859457> **Uncommon**\n<a:874347butterfly:1496899500160192562> **Vuk** `×3`  <a:874347butterfly:1496899500160192562> **Lisica** `×2`\n\n🟢 **Common**\n<a:874347butterfly:1496899500160192562> **Riba** `×7`  <a:571294pinkpaw:1500259928936284211> **Zec** `×5`",
+    "description": "<a:505993sparkle1:1496899369939636295> **Legendary**\n<a:VATRICE:1496898836155596962> **Zmaj** `×1`\n\n<:40197blueneonstar:1496898993395859457> **Uncommon**\n<a:874347butterfly:1496899500160192562> **Vuk** `×3`  <a:874347butterfly:1496899500160192562> **Lisica** `×2`\n\n<:367280roleadmingreen:1496898579720044706> **Common**\n<a:874347butterfly:1496899500160192562> **Riba** `×7`  <a:571294pinkpaw:1500259928936284211> **Zec** `×5`",
     "color": "#9B59B6",
     "category": "Fun",
     "footer": "GIANNI (Custom) v2.0 • /hunt za loviti!",
@@ -792,7 +792,7 @@
     "description": "> <a:music2:1500459145382592602>\n> *Ovo je primjer versa koji korisnik pošalje*\n> *Svaki red je jedan stih*\n> <a:music2:1500459145382592602>",
     "color": "#9B30FF",
     "category": "Fun",
-    "footer": "🎧 vers • drop the mic",
+    "footer": "<a:music2:1500459145382592602> vers • drop the mic",
     "thumbnail": null,
     "fields": []
   },
