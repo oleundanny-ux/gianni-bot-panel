@@ -549,12 +549,13 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
   );
 }
 
-function DiscordEmbedPreview({ embed, title, description, color, bgColor, fields: fieldsProp }: {
+function DiscordEmbedPreview({ embed, title, description, color, bgColor, previewMode, fields: fieldsProp }: {
   embed: EmbedTemplate;
   title: string;
   description: string;
   color: string;
   bgColor?: string;
+  previewMode?: "desktop" | "mobile";
   fields?: EmbedTemplate["fields"];
 }) {
   function renderText(text: string) {
@@ -581,26 +582,46 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, fields
     });
   }
 
+  const isMobile = previewMode === "mobile";
+
   return (
-    <div className="bg-[#313338] rounded-lg p-4">
+    <div
+      className="bg-[#313338] rounded-lg p-4 transition-all duration-300"
+      style={{ maxWidth: isMobile ? 340 : "100%" }}
+    >
+      {/* Device label */}
+      {isMobile && (
+        <div className="flex justify-center mb-2">
+          <span className="text-[10px] text-[#949BA4] bg-[#1E1F22] px-2 py-0.5 rounded-full tracking-wider">
+            📱 Mobile prikaz
+          </span>
+        </div>
+      )}
+
       {/* Message row */}
       <div className="flex gap-3">
-        <div className="w-10 h-10 rounded-full bg-[#F1C40F] flex-shrink-0 flex items-center justify-center font-bold text-black text-sm select-none">
+        <div className={`${isMobile ? "w-8 h-8 text-xs" : "w-10 h-10 text-sm"} rounded-full bg-[#F1C40F] flex-shrink-0 flex items-center justify-center font-bold text-black select-none`}>
           G
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-baseline gap-2 mb-1">
-            <span className="font-medium text-[#F2F3F5] text-sm">GIANNI (Custom)</span>
-            <span className="bg-[#5865F2] text-white text-[9px] px-1 py-px rounded font-bold uppercase leading-none tracking-wide">
-              BOT
-            </span>
-            <span className="text-[11px] text-[#949BA4]">Danas u 12:00</span>
+          <div className={`flex ${isMobile ? "flex-col gap-0" : "items-baseline gap-2"} mb-1`}>
+            <div className="flex items-center gap-1.5">
+              <span className={`font-medium text-[#F2F3F5] ${isMobile ? "text-[13px]" : "text-sm"}`}>GIANNI (Custom)</span>
+              <span className="bg-[#5865F2] text-white text-[9px] px-1 py-px rounded font-bold uppercase leading-none tracking-wide">
+                BOT
+              </span>
+            </div>
+            <span className={`${isMobile ? "text-[10px]" : "text-[11px]"} text-[#949BA4]`}>Danas u 12:00</span>
           </div>
 
           {/* Embed card — matches Discord layout exactly */}
           <div
-            className="rounded overflow-hidden inline-flex max-w-[480px] w-full mt-0.5"
-            style={{ borderLeft: `4px solid ${color}`, backgroundColor: bgColor ?? "#2B2D31" }}
+            className="rounded overflow-hidden inline-flex w-full mt-0.5"
+            style={{
+              borderLeft: `4px solid ${color}`,
+              backgroundColor: bgColor ?? "#2B2D31",
+              maxWidth: isMobile ? 260 : 480,
+            }}
           >
             <div className="p-3 flex-1 min-w-0">
               {/* Author line (optional — blank for now) */}
@@ -666,6 +687,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
   const [color, setColor] = useState(embed.color ?? "#2B2D42");
   const [bgColor, setBgColor] = useState<string>((embed as any).bgColor ?? "#2B2D31");
   const [fields, setFields] = useState<EmbedField[]>(embed.fields ?? []);
+  const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
 
   // Resizable panel state
   const [formWidth, setFormWidth] = useState(280);
@@ -935,13 +957,48 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
 
         {/* Preview */}
         <div className="flex-1 p-5 overflow-y-auto bg-[#2B2D31]">
-          <div className="text-xs text-[#949BA4] font-semibold uppercase tracking-wider mb-3">Pregled — Discord izgled</div>
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-xs text-[#949BA4] font-semibold uppercase tracking-wider">Pregled — Discord izgled</div>
+            <div className="flex items-center gap-1 bg-[#1E1F22] rounded-md p-0.5 border border-[#2B2D31]">
+              <button
+                type="button"
+                onClick={() => setPreviewMode("desktop")}
+                title="Desktop prikaz"
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-medium transition-all ${
+                  previewMode === "desktop"
+                    ? "bg-[#5865F2] text-white"
+                    : "text-[#949BA4] hover:text-[#B5BAC1]"
+                }`}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7l-2 3v1h8v-1l-2-3h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 12H3V4h18v10z"/>
+                </svg>
+                Desktop
+              </button>
+              <button
+                type="button"
+                onClick={() => setPreviewMode("mobile")}
+                title="Mobile prikaz"
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-medium transition-all ${
+                  previewMode === "mobile"
+                    ? "bg-[#5865F2] text-white"
+                    : "text-[#949BA4] hover:text-[#B5BAC1]"
+                }`}
+              >
+                <svg width="10" height="12" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                </svg>
+                Mobile
+              </button>
+            </div>
+          </div>
           <DiscordEmbedPreview
             embed={embed}
             title={title}
             description={description}
             color={color}
             bgColor={bgColor}
+            previewMode={previewMode}
             fields={fields}
           />
 
