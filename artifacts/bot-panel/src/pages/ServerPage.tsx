@@ -193,7 +193,8 @@ const EMBED_DISPLAY_NAMES: Record<string, string> = {
   ticket: "Tiket — Panel 🎫",
   "ticket-otvoren": "Tiket — Otvoren ✅",
   "staff-prijava": "Staff Prijava 📋",
-  "private-vc": "Privatni Voice Kanal 🔊",
+  "private-vc":    "Privatni Voice Kanal 🔊",
+  "voice-pravila": "Voice Pravila — Panel 🔊",
 };
 
 const EMBED_CATEGORY_COLORS: Record<string, string> = {
