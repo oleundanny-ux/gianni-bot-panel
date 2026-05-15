@@ -1,21 +1,105 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { LayoutDashboard, TerminalSquare, LayoutTemplate, Settings, Users, Server, Shield, LogOut } from "lucide-react";
+import {
+  LayoutDashboard, Terminal, FileText, Users, Globe,
+  ShieldCheck, ShieldAlert, Gamepad2, Settings2, LogOut, Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/context/AuthContext";
 
 const BASE_URL = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const NAV = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard, emoji: "⚡" },
-  { href: "/commands", label: "Komande", icon: TerminalSquare, emoji: "🎮" },
-  { href: "/embeds", label: "Embeds", icon: LayoutTemplate, emoji: "📋" },
-  { href: "/members", label: "Članovi", icon: Users, emoji: "👥" },
-  { href: "/server", label: "Server", icon: Server, emoji: "🌐" },
-  { href: "/permissions", label: "Permisije", icon: Shield, emoji: "🛡️" },
-  { href: "/protection", label: "Zaštita", icon: Shield, emoji: "🔒" },
-  { href: "/games", label: "Igre", icon: LayoutDashboard, emoji: "🎮" },
-  { href: "/settings", label: "Podešavanja", icon: Settings, emoji: "⚙️" },
+interface NavItem {
+  href: string;
+  label: string;
+  icon: LucideIcon;
+  color: string;      // bg color (hex / oklch / etc.)
+  glow: string;       // box-shadow glow color
+  textActive: string; // active text color
+}
+
+const NAV: NavItem[] = [
+  {
+    href: "/",
+    label: "Dashboard",
+    icon: LayoutDashboard,
+    color: "#059669",
+    glow: "rgba(5,150,105,0.45)",
+    textActive: "#34d399",
+  },
+  {
+    href: "/commands",
+    label: "Komande",
+    icon: Terminal,
+    color: "#2563eb",
+    glow: "rgba(37,99,235,0.45)",
+    textActive: "#60a5fa",
+  },
+  {
+    href: "/embeds",
+    label: "Embeds",
+    icon: FileText,
+    color: "#7c3aed",
+    glow: "rgba(124,58,237,0.45)",
+    textActive: "#a78bfa",
+  },
+  {
+    href: "/members",
+    label: "Članovi",
+    icon: Users,
+    color: "#db2777",
+    glow: "rgba(219,39,119,0.45)",
+    textActive: "#f472b6",
+  },
+  {
+    href: "/server",
+    label: "Server",
+    icon: Globe,
+    color: "#d97706",
+    glow: "rgba(217,119,6,0.45)",
+    textActive: "#fbbf24",
+  },
+  {
+    href: "/permissions",
+    label: "Permisije",
+    icon: ShieldCheck,
+    color: "#0891b2",
+    glow: "rgba(8,145,178,0.45)",
+    textActive: "#22d3ee",
+  },
+  {
+    href: "/protection",
+    label: "Zaštita",
+    icon: ShieldAlert,
+    color: "#dc2626",
+    glow: "rgba(220,38,38,0.45)",
+    textActive: "#f87171",
+  },
+  {
+    href: "/games",
+    label: "Igre",
+    icon: Gamepad2,
+    color: "#0d9488",
+    glow: "rgba(13,148,136,0.45)",
+    textActive: "#2dd4bf",
+  },
+  {
+    href: "/icons",
+    label: "Ikone",
+    icon: Sparkles,
+    color: "#a855f7",
+    glow: "rgba(168,85,247,0.45)",
+    textActive: "#d8b4fe",
+  },
+  {
+    href: "/settings",
+    label: "Podešavanja",
+    icon: Settings2,
+    color: "#64748b",
+    glow: "rgba(100,116,139,0.45)",
+    textActive: "#94a3b8",
+  },
 ];
 
 interface GuildInfo {
@@ -37,46 +121,68 @@ function useGuildInfo() {
   });
 }
 
+function NavIcon({ item, active }: { item: NavItem; active: boolean }) {
+  const Icon = item.icon;
+  return (
+    <div
+      className="flex items-center justify-center rounded-lg flex-shrink-0 transition-all duration-200"
+      style={{
+        width: 30,
+        height: 30,
+        background: active ? item.color : `${item.color}22`,
+        boxShadow: active ? `0 0 12px ${item.glow}, 0 0 4px ${item.glow}` : "none",
+        border: `1px solid ${active ? item.color : `${item.color}44`}`,
+      }}
+    >
+      <Icon
+        style={{
+          width: 15,
+          height: 15,
+          color: active ? "#fff" : item.color,
+          strokeWidth: 2.2,
+        }}
+      />
+    </div>
+  );
+}
+
 export function AppLayout({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const { data: guild } = useGuildInfo();
   const { logout, devMode } = useAuth();
 
-  return (
-    <div className="flex h-screen w-full overflow-hidden" style={{ background: "#080910", color: "#e2e8f0", fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
+  const activeItem = NAV.find(n => n.href === location);
 
+  return (
+    <div
+      className="flex h-screen w-full overflow-hidden"
+      style={{ background: "#080910", color: "#e2e8f0", fontFamily: "'Segoe UI', system-ui, sans-serif" }}
+    >
       {/* Global decorative background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div style={{ position: "absolute", top: "-120px", left: "-80px", width: "420px", height: "420px", borderRadius: "50%", background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
         <div style={{ position: "absolute", bottom: "-100px", right: "-60px", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%)", filter: "blur(40px)" }} />
-        <div style={{ position: "absolute", top: "40%", left: "50%", transform: "translate(-50%, -50%)", width: "600px", height: "300px", borderRadius: "50%", background: "radial-gradient(ellipse, rgba(99,102,241,0.04) 0%, transparent 70%)", filter: "blur(60px)" }} />
-        <div style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "radial-gradient(circle, rgba(99,102,241,0.12) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-          opacity: 0.4,
-        }} />
+        {activeItem && (
+          <div style={{ position: "absolute", top: "20%", left: "0", width: "300px", height: "300px", borderRadius: "50%", background: `radial-gradient(circle, ${activeItem.glow} 0%, transparent 70%)`, filter: "blur(60px)", transition: "all 0.5s ease" }} />
+        )}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(99,102,241,0.12) 1px, transparent 1px)", backgroundSize: "32px 32px", opacity: 0.4 }} />
       </div>
 
       {/* Sidebar */}
-      <aside className="w-60 flex-shrink-0 flex flex-col relative z-10 overflow-hidden" style={{ background: "rgba(10,11,15,0.95)", borderRight: "1px solid rgba(255,255,255,0.06)" }}>
-        {/* Purple ambient top glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% -5%, rgba(99,102,241,0.22) 0%, transparent 60%)" }} />
-        <div className="absolute top-0 right-0 w-px h-full pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(99,102,241,0.3) 30%, rgba(139,92,246,0.2) 70%, transparent)" }} />
+      <aside
+        className="w-60 flex-shrink-0 flex flex-col relative z-10 overflow-hidden"
+        style={{ background: "rgba(10,11,15,0.97)", borderRight: "1px solid rgba(255,255,255,0.06)" }}
+      >
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% -5%, rgba(99,102,241,0.18) 0%, transparent 60%)" }} />
+        <div className="absolute top-0 right-0 w-px h-full pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(99,102,241,0.25) 30%, rgba(139,92,246,0.15) 70%, transparent)" }} />
 
         {/* Brand */}
         <div className="flex items-center gap-3 px-5 py-5 relative z-10">
           {guild?.icon ? (
-            <img
-              src={guild.icon}
-              alt={guild.name}
-              className="w-9 h-9 rounded-xl flex-shrink-0 object-cover"
-              style={{ boxShadow: "0 0 24px rgba(99,102,241,0.55), 0 0 60px rgba(99,102,241,0.2)" }}
-            />
+            <img src={guild.icon} alt={guild.name} className="w-9 h-9 rounded-xl flex-shrink-0 object-cover" style={{ boxShadow: "0 0 24px rgba(99,102,241,0.55)" }} />
           ) : (
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0 relative" style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 0 24px rgba(99,102,241,0.55), 0 0 60px rgba(99,102,241,0.2)" }}>
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0 relative" style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 0 24px rgba(99,102,241,0.55)" }}>
               G
-              <div className="absolute inset-0 rounded-xl" style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.15), transparent)", borderRadius: "inherit" }} />
             </div>
           )}
           <div className="min-w-0">
@@ -85,8 +191,8 @@ export function AppLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
 
-        {/* Bot status pill */}
-        <div className="mx-4 mb-4 px-3 py-2.5 rounded-lg relative z-10" style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.18)" }}>
+        {/* Bot status */}
+        <div className="mx-4 mb-4 px-3 py-2.5 rounded-lg relative z-10" style={{ background: "rgba(99,102,241,0.07)", border: "1px solid rgba(99,102,241,0.15)" }}>
           <div className="flex items-center gap-2 mb-1">
             <div className="relative flex-shrink-0">
               <div className="w-2 h-2 rounded-full" style={{ background: "#22c55e" }} />
@@ -95,12 +201,8 @@ export function AppLayout({ children }: { children: ReactNode }) {
             <span className="text-xs font-semibold text-white">GIANNI · Online</span>
           </div>
           <div className="flex items-center gap-2">
-            {guild?.icon && (
-              <img src={guild.icon} alt="" className="w-4 h-4 rounded-full flex-shrink-0" />
-            )}
-            <div className="text-xs truncate" style={{ color: "#4b5563" }}>
-              {guild?.name ?? "GIAN · Discord"}
-            </div>
+            {guild?.icon && <img src={guild.icon} alt="" className="w-4 h-4 rounded-full flex-shrink-0" />}
+            <div className="text-xs truncate" style={{ color: "#4b5563" }}>{guild?.name ?? "GIAN · Discord"}</div>
           </div>
           {guild?.memberCount && (
             <div className="text-[10px] mt-0.5 font-medium" style={{ color: "#374151" }}>
@@ -109,7 +211,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
           )}
         </div>
 
-        {/* Nav section label */}
+        {/* Section label */}
         <div className="px-5 mb-2 relative z-10">
           <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "#2d3048" }}>Navigacija</span>
         </div>
@@ -123,37 +225,30 @@ export function AppLayout({ children }: { children: ReactNode }) {
                 key={item.href}
                 href={item.href}
                 data-testid={`nav-${item.label.toLowerCase()}`}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 w-full relative overflow-hidden"
+                className="flex items-center gap-3 px-2.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 w-full relative"
                 style={{
-                  background: active
-                    ? "linear-gradient(90deg, rgba(99,102,241,0.22), rgba(139,92,246,0.08))"
-                    : "transparent",
-                  color: active ? "#a5b4fc" : "#6b7280",
-                  borderLeft: active ? "2px solid #6366f1" : "2px solid transparent",
+                  background: active ? `${item.color}14` : "transparent",
+                  color: active ? item.textActive : "#6b7280",
                   display: "flex",
-                  boxShadow: active ? "inset 0 0 20px rgba(99,102,241,0.06)" : "none",
                 }}
               >
+                <NavIcon item={item} active={active} />
+                <span className="flex-1 font-medium" style={{ fontSize: "13px" }}>{item.label}</span>
                 {active && (
-                  <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, rgba(99,102,241,0.08), transparent)" }} />
-                )}
-                <span className="text-base leading-none relative z-10">{item.emoji}</span>
-                <span className="flex-1 relative z-10">{item.label}</span>
-                {active && (
-                  <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 relative z-10" style={{ background: "#6366f1", boxShadow: "0 0 8px #6366f1" }} />
+                  <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: item.color, boxShadow: `0 0 6px ${item.color}` }} />
                 )}
               </Link>
             );
           })}
         </nav>
 
-        {/* Footer user */}
+        {/* Footer */}
         <div className="px-4 py-4 relative z-10 flex-shrink-0" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
           <div className="flex items-center gap-2.5">
             {guild?.icon ? (
               <img src={guild.icon} alt="" className="w-8 h-8 rounded-lg flex-shrink-0 object-cover" style={{ boxShadow: "0 0 12px rgba(99,102,241,0.25)" }} />
             ) : (
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0 relative" style={{ background: "linear-gradient(135deg, #1e1b4b, #312e81)", color: "#a5b4fc", boxShadow: "0 0 12px rgba(99,102,241,0.25)" }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black flex-shrink-0" style={{ background: "linear-gradient(135deg, #1e1b4b, #312e81)", color: "#a5b4fc" }}>
                 G
               </div>
             )}
@@ -180,12 +275,16 @@ export function AppLayout({ children }: { children: ReactNode }) {
 
       {/* Main */}
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative z-10">
-        {/* Top header bar */}
-        <div className="flex-shrink-0 px-6 py-3 flex items-center justify-between" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)", background: "rgba(8,9,16,0.6)", backdropFilter: "blur(8px)" }}>
+        <div
+          className="flex-shrink-0 px-6 py-3 flex items-center justify-between"
+          style={{ borderBottom: "1px solid rgba(255,255,255,0.04)", background: "rgba(8,9,16,0.6)", backdropFilter: "blur(8px)" }}
+        >
           <div className="flex items-center gap-2 text-xs" style={{ color: "#374151" }}>
             <span style={{ color: "#4b5563" }}>gian.today</span>
             <span>/</span>
-            <span style={{ color: "#6366f1" }}>{NAV.find(n => n.href === location)?.label ?? "Panel"}</span>
+            {activeItem && (
+              <span style={{ color: activeItem.textActive }}>{activeItem.label}</span>
+            )}
           </div>
           <div className="flex items-center gap-3">
             {guild?.name && (
