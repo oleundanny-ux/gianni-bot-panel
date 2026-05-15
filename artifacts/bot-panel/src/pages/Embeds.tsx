@@ -82,6 +82,31 @@ const EMBED_DISPLAY_NAMES: Record<string, string> = {
   "ticket-otvoren": "Tiket — Otvoren ✅",
   "staff-prijava":  "Staff Prijava 📋",
   "private-vc":     "Privatni Voice Kanal 🔊",
+  // Vatrice
+  "vatrice-pup":    "Top Lista Vatrica 🔥",
+  "vatrice-start":  "Vatrica Sistem — Start 🔥",
+  "vatrice-kanal":  "Vatrica Kanal Postavljen ✅",
+  "vatrice-oblik":  "Vatrica Emoji Promijenjen 🔥",
+  // Ekonomija (dopune)
+  "giveaway-end":   "Nagradna Igra — Završena 🏆",
+  // Igre (dopune)
+  "vjasala":        "Vješala — Igra 📝",
+  "vjasala-kraj":   "Vješala — Pogodak! 🎉",
+  "toplo-hladno":   "Toplo ili Hladno 🌡️",
+  "kviz":           "Kviz — Balkan Pitanje 🧠",
+  "geografija":     "Geografija Kviz 🌍",
+  "mafia-lobby":    "Mafia — Lobby 🕵️",
+  "mafia-end":      "Mafia — Kraj Igre 🏆",
+  // Poo
+  "poo":            "Poo — Stanje Kreature 💩",
+  "poo-zadaci":     "Poo — Zadaci 📋",
+  "poo-top":        "Poo — Top Čuvari 🏆",
+  "poo-hrani":      "Poo — Hranjen! 🍖",
+  "poo-info":       "Poo — Moj Doprinos 📊",
+  // Admin
+  "backup":         "Backup — Snimljen 💾",
+  "backup-restore": "Backup — Vraćen ♻️",
+  "backup-status":  "Backup — Status 📊",
 };
 
 interface DiscordEmoji {
@@ -91,16 +116,19 @@ interface DiscordEmoji {
 }
 
 const EMBED_CATEGORY_COLORS: Record<string, string> = {
-  "Sistem":     "#6366f1",
-  "Log":        "#f59e0b",
-  "Moderacija": "#ef4444",
-  "XP":         "#22c55e",
-  "Ekonomija":  "#f97316",
-  "Igre":       "#3b82f6",
-  "Fun":        "#ec4899",
-  "Ljubavne":   "#e879f9",
-  "Info":       "#14b8a6",
+  "Sistem":        "#6366f1",
+  "Log":           "#f59e0b",
+  "Moderacija":    "#ef4444",
+  "XP":            "#22c55e",
+  "Ekonomija":     "#f97316",
+  "Igre":          "#3b82f6",
+  "Fun":           "#ec4899",
+  "Ljubavne":      "#e879f9",
+  "Info":          "#14b8a6",
   "Sistem paneli": "#a78bfa",
+  "Vatrice":       "#FF6A00",
+  "Poo":           "#92400e",
+  "Admin":         "#64748b",
 };
 
 function getCategoryColor(cat: string) {
