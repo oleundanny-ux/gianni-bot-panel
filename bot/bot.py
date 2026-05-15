@@ -9676,49 +9676,70 @@ async def pravila_voice_cmd(ctx: commands.Context):
     if ctx.author.id not in OWNER_IDS:
         return await ctx.send(embed=em("❌ Nemaš pristup", "Ova komanda je dostupna samo vlasniku bota.", color=COLORS["error"]))
 
-    e = discord.Embed(
-        title="🔊  P R I V A T N I  V O I C E  K A N A L I",
-        description=(
-            f"Uđi u <#{JTC_VOICE_ID}> i bot ti **automatski** kreira vlastiti voice kanal.\n"
-            "Postaješ **vlasnik** 👑 i dobijaš puni kontrolni panel."
-        ),
-        color=COLORS["default"],
-        timestamp=datetime.now(timezone.utc),
-    )
+    # ── Fetch embed config from panel (fallback to hardcoded) ──
+    _pv = await get_panel_embed("voice-pravila")
 
-    e.add_field(name="🤝  Ponašanje", value=(
-        "🚫 Bez vrijeđanja, maltretiranja i rasizma\n"
-        "🎙️ Ne prekidaj druge dok pričaju\n"
-        "🔇 Ne lupaj mikrofonom bez razloga"
-    ), inline=True)
-
-    e.add_field(name="👑  Vlasništvo", value=(
-        "🎛️ Samo vlasnik koristi Lock / Hide / Kick panel\n"
-        "🔁 Prebaci vlasništvo prije izlaska\n"
-        "⚖️ Ne koristi panel za maltretiranje"
-    ), inline=True)
-
-    e.add_field(name="🔞  Sadržaj & Imena", value=(
-        "🚫 Bez NSFW sadržaja i streaminga\n"
-        "✏️ Ime kanala mora biti pristojno\n"
-        "📋 Vrijede sva opšta pravila servera"
-    ), inline=True)
-
-    e.add_field(name="🗑️  Automatsko brisanje", value=(
-        "Kad svi izađu, bot **automatski briše** kanal.\n"
-        "👮 Staff ima pristup svim kanalima zbog moderacije."
-    ), inline=False)
-
-    e.add_field(name="⚠️  Kazne", value=(
-        "`1.` ⚠️ Upozorenje  `2.` 🔇 Voice mute  `3.` 🚫 Zabrana voice-a  `4.` 👢 Kick / 🔨 Ban"
-    ), inline=False)
+    if _pv:
+        _vc = int((_pv.get("color") or "#2B2D3A").lstrip("#") or "2B2D3A", 16)
+        e = discord.Embed(
+            title=_pv.get("title") or "🔊  P R I V A T N I  V O I C E  K A N A L I",
+            description=_pv.get("description") or "",
+            color=_vc,
+            timestamp=datetime.now(timezone.utc),
+        )
+        for f in (_pv.get("fields") or []):
+            e.add_field(name=f.get("name", ""), value=f.get("value", ""), inline=bool(f.get("inline", True)))
+        if _pv.get("footer"):
+            e.set_footer(text=_pv["footer"], icon_url=ctx.guild.icon.url if ctx.guild and ctx.guild.icon else None)
+        else:
+            e.set_footer(text="🔊 GIANNI • Voice Pravila", icon_url=ctx.guild.icon.url if ctx.guild and ctx.guild.icon else None)
+    else:
+        e = discord.Embed(
+            title="🔊  P R I V A T N I  V O I C E  K A N A L I",
+            description=(
+                f"Uđi u <#{JTC_VOICE_ID}> i bot ti **automatski** kreira vlastiti voice kanal.\n"
+                "Postaješ **vlasnik** 👑 i dobijaš puni kontrolni panel."
+            ),
+            color=COLORS["default"],
+            timestamp=datetime.now(timezone.utc),
+        )
+        e.add_field(name="🤝  Ponašanje", value=(
+            "🚫 Bez vrijeđanja, maltretiranja i rasizma\n"
+            "🎙️ Ne prekidaj druge dok pričaju\n"
+            "🔇 Ne lupaj mikrofonom bez razloga"
+        ), inline=True)
+        e.add_field(name="👑  Vlasništvo", value=(
+            "🎛️ Samo vlasnik koristi Lock / Hide / Kick panel\n"
+            "🔁 Prebaci vlasništvo prije izlaska\n"
+            "⚖️ Ne koristi panel za maltretiranje"
+        ), inline=True)
+        e.add_field(name="🔞  Sadržaj & Imena", value=(
+            "🚫 Bez NSFW sadržaja i streaminga\n"
+            "✏️ Ime kanala mora biti pristojno\n"
+            "📋 Vrijede sva opšta pravila servera"
+        ), inline=True)
+        e.add_field(name="🗑️  Automatsko brisanje", value=(
+            "Kad svi izađu, bot **automatski briše** kanal.\n"
+            "👮 Staff ima pristup svim kanalima zbog moderacije."
+        ), inline=False)
+        e.add_field(name="⚠️  Kazne", value=(
+            "`1.` ⚠️ Upozorenje  `2.` 🔇 Voice mute  `3.` 🚫 Zabrana voice-a  `4.` 👢 Kick / 🔨 Ban"
+        ), inline=False)
+        e.set_footer(text="🔊 GIANNI • Voice Pravila", icon_url=ctx.guild.icon.url if ctx.guild and ctx.guild.icon else None)
 
     if ctx.guild and ctx.guild.icon:
         e.set_thumbnail(url=ctx.guild.icon.url)
-    e.set_footer(text="🔊 GIANNI • Voice Pravila", icon_url=ctx.guild.icon.url if ctx.guild and ctx.guild.icon else None)
+
+    # ── Build view — optionally use panel button label ──
+    view = VoiceCreateButton()
+    if _pv:
+        _btns = _pv.get("buttons") or []
+        if _btns and view.children:
+            _bc = _btns[0]
+            view.children[0].label = _bc.get("label", "🔊 Kreiraj svoj voice")
 
     try:
-        await ctx.send(embed=e, view=VoiceCreateButton())
+        await ctx.send(embed=e, view=view)
     except discord.Forbidden:
         await ctx.send(embed=em("❌ Permisija", "Bot nema dozvolu da piše u ovaj kanal!", color=COLORS["error"]))
 
