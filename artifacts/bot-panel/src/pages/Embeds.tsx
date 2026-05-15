@@ -617,11 +617,12 @@ function EmojiChip({ token, onReplace }: EmojiChipProps) {
   }, [open]);
 
   const display = token.isCustom && token.id ? (
-    <img
-      src={`https://cdn.discordapp.com/emojis/${token.id}.${token.isAnimated ? "gif" : "png"}?size=32`}
-      alt={token.name}
-      className="w-5 h-5 object-contain"
-    />
+    <span className="flex items-center gap-1">
+      <span className="inline-flex items-center justify-center w-4 h-4 rounded bg-[#5865F2]/20 border border-[#5865F2]/40 flex-shrink-0">
+        <Smile className="w-2.5 h-2.5 text-[#5865F2]" />
+      </span>
+      <span className="text-[10px] text-[#B5BAC1] truncate max-w-[80px]">{token.name}</span>
+    </span>
   ) : (
     <span className="text-base leading-none">{token.raw}</span>
   );
