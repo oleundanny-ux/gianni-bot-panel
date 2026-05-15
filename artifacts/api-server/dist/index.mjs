@@ -33380,6 +33380,268 @@ var DEFAULT_EMBEDS = [
     footer: "GIANNI (Custom) \u2022 Privatni Voice Sistem",
     thumbnail: null,
     fields: []
+  },
+  // ─── VATRICE ──────────────────────────────────────────────────────────────
+  {
+    name: "vatrice-pup",
+    title: "\u{1F525} Top Lista \u2014 Vatrice",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F525} Najpopularniji \u010Dlanovi po vatricama:\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F947} **{top1}** \u2014 \u{1F525} `{top1count}`\n\u{1F948} **{top2}** \u2014 \u{1F525} `{top2count}`\n\u{1F949} **{top3}** \u2014 \u{1F525} `{top3count}`\n`4.` **{top4}** \u2014 \u{1F525} `{top4count}`\n`5.` **{top5}** \u2014 \u{1F525} `{top5count}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F4CA} Tvoje mjesto: **#{rank}** | Ima\u0161: **{myCount}** \u{1F525}",
+    color: "#FF6A00",
+    category: "Vatrice",
+    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Top Lista",
+    thumbnail: null,
+    fields: []
+  },
+  {
+    name: "vatrice-start",
+    title: "\u{1F525} Vatrica Sistem \u2014 Aktiviran!",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2705 Vatrica sistem je uspje\u0161no aktiviran na ovom serveru!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F525} Svako **{prag}** poruka, \u010Dlan dobija **1 vatricu**\n\u{1F4DB} Nick se automatski a\u017Eurira: `\u{1F525}\xD7{count} ImeKorisnika`\n\u{1F4E2} Objave se \u0161alju u {kanal}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#FF6A00",
+    category: "Vatrice",
+    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Sistem",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F525} Emoji", value: "`{emoji}`", inline: true },
+      { name: "\u{1F4E2} Kanal", value: "{kanal}", inline: true },
+      { name: "\u{1F4CA} Prag", value: "`{prag}` poruka", inline: true }
+    ]
+  },
+  {
+    name: "vatrice-kanal",
+    title: "\u2705 Vatrica Kanal Postavljen",
+    description: "Objave vatrica \u0107e se od sada slati u {kanal}.",
+    color: "#FF6A00",
+    category: "Vatrice",
+    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Sistem",
+    thumbnail: null,
+    fields: []
+  },
+  {
+    name: "vatrice-oblik",
+    title: "\u{1F525} Vatrica Emoji Promijenjen",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\nEmoji vatrice je promijenjen!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#FF6A00",
+    category: "Vatrice",
+    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Sistem",
+    thumbnail: null,
+    fields: [
+      { name: "Stari emoji", value: "`{stari}`", inline: true },
+      { name: "Novi emoji", value: "`{novi}`", inline: true }
+    ]
+  },
+  // ─── EKONOMIJA (dopune) ───────────────────────────────────────────────────
+  {
+    name: "giveaway-end",
+    title: "\u{1F3C6} Nagradna Igra \u2014 ZAVR\u0160ENA!",
+    description: "## \u{1F381}  {nagrada}\n\n\u010Cestitamo pobjedniku \u2014 pratite objavu!",
+    color: "#2ECC71",
+    category: "Ekonomija",
+    footer: "GIANNI (Custom) \u2022 Giveaway zavr\u0161en",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F3C6} Pobjednik", value: "{pobjednik}", inline: true },
+      { name: "\u{1F465} U\u010Desnici", value: "`{ucesnici}`", inline: true },
+      { name: "\u{1F39F}\uFE0F Doma\u0107in", value: "{doma\u0107in}", inline: true }
+    ]
+  },
+  // ─── IGRE (dopune) ────────────────────────────────────────────────────────
+  {
+    name: "vjasala",
+    title: "\u{1F4DD}  V J E \u0160 A L A",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F521} Pogodi skrivenu rije\u010D!\n\n```\n_ _ _ _ _ _\n```\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#9B59B6",
+    category: "Igre",
+    footer: "GIANNI (Custom) \u2022 /vjasala",
+    thumbnail: null,
+    fields: [
+      { name: "\u2764\uFE0F \u017Divoti", value: "`{zivoti}/6`", inline: true },
+      { name: "\u{1F524} Pogo\u0111ena slova", value: "`{pogodjena}`", inline: true },
+      { name: "\u274C Proma\u0161aji", value: "`{promasaji}`", inline: true }
+    ]
+  },
+  {
+    name: "vjasala-kraj",
+    title: "\u{1F389} Vje\u0161ala \u2014 Pogodak!",
+    description: "\u010Cestitamo {user}! Pogodio/la si **{rijec}**! \u{1F973}\n\u{1F4B6} **Nagrada:** `+{nagrada} coina`",
+    color: "#2ECC71",
+    category: "Igre",
+    footer: "GIANNI (Custom) \u2022 /vjasala",
+    thumbnail: "{user.avatar}",
+    fields: []
+  },
+  {
+    name: "toplo-hladno",
+    title: "\u{1F321}\uFE0F  T O P L O  \u2022  H L A D N O",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F3AF} Pogodi tajni broj (1\u2013{max})!\n\n\u{1F535} **Hladno** \u2014 daleko si\n\u{1F7E1} **Toplo** \u2014 bli\u017Ee si\n\u{1F534} **Vrelo** \u2014 skoro!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#3498DB",
+    category: "Igre",
+    footer: "GIANNI (Custom) \u2022 /toplo-hladno",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F3B2} Maksimum", value: "`{max}`", inline: true },
+      { name: "\u{1F522} Poku\u0161aji", value: "`{pokusaji}`", inline: true },
+      { name: "\u{1F321}\uFE0F Status", value: "{status}", inline: true }
+    ]
+  },
+  {
+    name: "kviz",
+    title: "\u{1F9E0}  K V I Z  \u2014  Balkan Pitanje",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2753 **{pitanje}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#E74C3C",
+    category: "Igre",
+    footer: "GIANNI (Custom) \u2022 /kviz \u2022 Oklada: {oklada} \u{1F4B6}",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F170}\uFE0F A", value: "{a}", inline: true },
+      { name: "\u{1F171}\uFE0F B", value: "{b}", inline: true },
+      { name: "\u{1F172} C", value: "{c}", inline: true },
+      { name: "\u{1F173} D", value: "{d}", inline: true }
+    ]
+  },
+  {
+    name: "geografija",
+    title: "\u{1F30D}  G E O G R A F I J A  \u2014  Kviz",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F30D} **{pitanje}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#27AE60",
+    category: "Igre",
+    footer: "GIANNI (Custom) \u2022 /geografija \u2022 Oklada: {oklada} \u{1F4B6}",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F170}\uFE0F A", value: "{a}", inline: true },
+      { name: "\u{1F171}\uFE0F B", value: "{b}", inline: true },
+      { name: "\u{1F172} C", value: "{c}", inline: true },
+      { name: "\u{1F173} D", value: "{d}", inline: true }
+    ]
+  },
+  {
+    name: "mafia-lobby",
+    title: "\u{1F575}\uFE0F  M A F I A  \u2014  Lobby",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F3AD} Mafia igra se priprema!\n**Pridru\u017Ei se klikom na dugme.**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2699\uFE0F Min: **5** | Max: **12** igra\u010Da\n\u23F1\uFE0F Igra kre\u0107e automatski za **60s** ili kad host klikne Start",
+    color: "#2C3E50",
+    category: "Igre",
+    footer: "\u{1F575}\uFE0F GIANNI (Custom) \u2022 Mafia",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F465} Igra\u010Di ({count}/12)", value: "{igraci}", inline: false }
+    ]
+  },
+  {
+    name: "mafia-end",
+    title: "\u{1F3C6}  M A F I A  \u2014  Kraj Igre",
+    description: "## {rezultat}\n\n{opis}",
+    color: "#F1C40F",
+    category: "Igre",
+    footer: "\u{1F575}\uFE0F GIANNI (Custom) \u2022 Mafia zavr\u0161ena",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F3AD} Uloge", value: "{uloge}", inline: false },
+      { name: "\u{1F3C6} Pobjednici", value: "{pobjednici}", inline: true },
+      { name: "\u{1F480} Eliminirani", value: "{eliminirani}", inline: true }
+    ]
+  },
+  // ─── POO ──────────────────────────────────────────────────────────────────
+  {
+    name: "poo",
+    title: "\u{1F4A9}  P O O  \u2014  Stanje Kreature",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{emojiBar}\n**Zdravlje:** `{zdravlje}/100`\n**Raspolo\u017Eenje:** `{raspolozenje}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F465} Ukupno \u010Duvara: **{cuvari}**\n\u{1F4CB} Zavr\u0161enih zadataka: **{zadaci}/100**",
+    color: "#8B4513",
+    category: "Poo",
+    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Sistem",
+    thumbnail: null,
+    fields: [
+      { name: "\u2764\uFE0F Zdravlje", value: "`{zdravlje}/100`", inline: true },
+      { name: "\u{1F60A} Raspolo\u017Eenje", value: "`{raspolozenje}`", inline: true },
+      { name: "\u{1F4CB} Zadaci", value: "`{zadaci}/100`", inline: true }
+    ]
+  },
+  {
+    name: "poo-zadaci",
+    title: "\u{1F4CB}  P O O  \u2014  Zadaci",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F4CB} Lista Poo zadataka \u2014 stranica **{str}/{ukupnoStr}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{zadaci}",
+    color: "#8B4513",
+    category: "Poo",
+    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Zadaci \u2022 /poo-zadaci [stranica]",
+    thumbnail: null,
+    fields: []
+  },
+  {
+    name: "poo-top",
+    title: "\u{1F3C6}  P O O  \u2014  Top \u010Cuvari",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F947} **{top1}** \u2014 `{top1pts}` pts\n\u{1F948} **{top2}** \u2014 `{top2pts}` pts\n\u{1F949} **{top3}** \u2014 `{top3pts}` pts\n`4.` **{top4}** \u2014 `{top4pts}` pts\n`5.` **{top5}** \u2014 `{top5pts}` pts\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#8B4513",
+    category: "Poo",
+    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Top Lista",
+    thumbnail: null,
+    fields: []
+  },
+  {
+    name: "poo-hrani",
+    title: "\u{1F356}  P O O  \u2014  Hranjen!",
+    description: "{user} je hranio/la Poo-a! \u{1F389}\nPotro\u0161eno: **200 coina**\n\n{emojiBar}\n**Zdravlje:** `{zdravlje}/100` **(+{bonus})**",
+    color: "#8B4513",
+    category: "Poo",
+    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Sistem",
+    thumbnail: null,
+    fields: [
+      { name: "\u2764\uFE0F Novo zdravlje", value: "`{zdravlje}/100`", inline: true },
+      { name: "\u{1F4B6} Tro\u0161ak", value: "`200 coina`", inline: true }
+    ]
+  },
+  {
+    name: "poo-info",
+    title: "\u{1F4CA}  P O O  \u2014  Moj Doprinos",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F464} **{user}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{progres}",
+    color: "#8B4513",
+    category: "Poo",
+    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Sistem",
+    thumbnail: "{user.avatar}",
+    fields: [
+      { name: "\u2705 Zavr\u0161enih zadataka", value: "`{zavrseni}`", inline: true },
+      { name: "\u2B50 Bodova ukupno", value: "`{bodovi}`", inline: true },
+      { name: "\u{1F3C5} Rang", value: "`#{rang}`", inline: true }
+    ]
+  },
+  // ─── ADMIN / BACKUP ───────────────────────────────────────────────────────
+  {
+    name: "backup",
+    title: "\u{1F4BE}  B A C K U P  \u2014  Snimljen",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2705 Backup je uspje\u0161no snimljen!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    color: "#2ECC71",
+    category: "Admin",
+    footer: "\u{1F4BE} GIANNI (Custom) \u2022 Backup Sistem",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F4C5} Datum", value: "{datum}", inline: true },
+      { name: "\u{1F4E6} Veli\u010Dina", value: "{velicina}", inline: true },
+      { name: "\u2601\uFE0F Cloud", value: "Discord DM", inline: true }
+    ]
+  },
+  {
+    name: "backup-restore",
+    title: "\u267B\uFE0F  B A C K U P  \u2014  Vra\u0107en",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2705 Backup je uspje\u0161no vra\u0107en!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u26A0\uFE0F Svi podaci su prepisani backupom od **{datum}**.",
+    color: "#E67E22",
+    category: "Admin",
+    footer: "\u{1F4BE} GIANNI (Custom) \u2022 Backup Vra\u0107en",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F4C5} Backup datum", value: "{datum}", inline: true },
+      { name: "\u{1F464} Pokrenuo", value: "{korisnik}", inline: true }
+    ]
+  },
+  {
+    name: "backup-status",
+    title: "\u{1F4CA}  B A C K U P  \u2014  Status",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2601\uFE0F Cloud backup istorija:\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{historija}",
+    color: "#3498DB",
+    category: "Admin",
+    footer: "\u{1F4BE} GIANNI (Custom) \u2022 Backup Sistem",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F4E6} Ukupno backupa", value: "`{ukupno}`", inline: true },
+      { name: "\u{1F552} Zadnji", value: "{zadnji}", inline: true },
+      { name: "\u{1F4BE} Veli\u010Dina", value: "{velicina}", inline: true }
+    ]
   }
 ];
 function loadEmbeds() {
