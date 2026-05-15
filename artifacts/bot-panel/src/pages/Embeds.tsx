@@ -17,7 +17,6 @@ import {
   Hand, Diamond, User, Wallet, Briefcase, ShoppingCart, ShoppingBag, ArrowLeftRight,
   AlertOctagon, Play, ListMusic, SkipForward, Pause, Square, ShieldCheck, ShieldX,
   Plus, Minus, RotateCcw, Database, FileText, PencilLine, Trash2, UserCheck,
-  ChevronDown,
   type LucideIcon,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -122,6 +121,7 @@ const EMBED_DISPLAY_NAMES: Record<string, string> = {
   "backup-restore": "Backup — Vraćen ♻️",
   "backup-status":  "Backup — Status 📊",
   "report-closed":  "Report Zatvoren",
+  "report-nova":    "Nova Prijava — Report",
   // Moderacija (kompletno)
   "mod-kick":       "Član Kickovan",
   "mod-mute":       "Član Mutovan",
