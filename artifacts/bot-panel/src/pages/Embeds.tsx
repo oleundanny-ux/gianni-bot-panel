@@ -82,6 +82,7 @@ const EMBED_DISPLAY_NAMES: Record<string, string> = {
   "ticket-otvoren": "Tiket — Otvoren ✅",
   "staff-prijava":  "Staff Prijava 📋",
   "private-vc":     "Privatni Voice Kanal 🔊",
+  "voice-pravila":  "Voice Pravila — Panel 🔊",
   // Vatrice
   "vatrice-pup":    "Top Lista Vatrica 🔥",
   "vatrice-start":  "Vatrica Sistem — Start 🔥",
@@ -549,7 +550,23 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
   );
 }
 
-function DiscordEmbedPreview({ embed, title, description, color, bgColor, previewMode, fields: fieldsProp }: {
+interface EmbedButton {
+  label: string;
+  style: "primary" | "secondary" | "success" | "danger" | "link";
+  emoji?: string;
+  url?: string;
+  customId?: string;
+}
+
+const BUTTON_STYLE_COLORS: Record<string, string> = {
+  primary:   "#5865F2",
+  secondary: "#4E5058",
+  success:   "#248046",
+  danger:    "#DA373C",
+  link:      "#4E5058",
+};
+
+function DiscordEmbedPreview({ embed, title, description, color, bgColor, previewMode, fields: fieldsProp, buttons: buttonsProp }: {
   embed: EmbedTemplate;
   title: string;
   description: string;
@@ -557,6 +574,7 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
   bgColor?: string;
   previewMode?: "desktop" | "mobile";
   fields?: EmbedTemplate["fields"];
+  buttons?: EmbedButton[];
 }) {
   function renderText(text: string) {
     // Render custom emoji markdown <:name:id> or <a:name:id> as actual images
@@ -667,6 +685,28 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
               )}
             </div>
           </div>
+
+          {/* Buttons row — below embed card like Discord */}
+          {buttonsProp && buttonsProp.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-2" style={{ maxWidth: isMobile ? 260 : 480 }}>
+              {buttonsProp.map((btn, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className="flex items-center gap-1.5 px-4 py-1.5 rounded text-white text-[13px] font-medium select-none cursor-default"
+                  style={{ background: BUTTON_STYLE_COLORS[btn.style] ?? "#4E5058" }}
+                >
+                  {btn.emoji && <span>{btn.emoji}</span>}
+                  {btn.style === "link" && (
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-70">
+                      <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                    </svg>
+                  )}
+                  <span>{btn.label || "Dugme"}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -687,6 +727,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
   const [color, setColor] = useState(embed.color ?? "#2B2D42");
   const [bgColor, setBgColor] = useState<string>((embed as any).bgColor ?? "#2B2D31");
   const [fields, setFields] = useState<EmbedField[]>(embed.fields ?? []);
+  const [buttons, setButtons] = useState<EmbedButton[]>((embed as any).buttons ?? []);
   const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
 
   // Resizable panel state
@@ -728,15 +769,29 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
     setColor(embed.color ?? "#2B2D42");
     setBgColor((embed as any).bgColor ?? "#2B2D31");
     setFields(embed.fields ?? []);
+    setButtons((embed as any).buttons ?? []);
   }, [embed.name]);
 
   const updateField = (i: number, key: "name" | "value", val: string) => {
     setFields((fs: EmbedField[]) => fs.map((f: EmbedField, idx: number) => idx === i ? { ...f, [key]: val } : f));
   };
 
+  const addButton = () => {
+    if (buttons.length >= 5) return;
+    setButtons(bs => [...bs, { label: "Dugme", style: "primary" }]);
+  };
+
+  const removeButton = (i: number) => {
+    setButtons(bs => bs.filter((_, idx) => idx !== i));
+  };
+
+  const updateButton = (i: number, patch: Partial<EmbedButton>) => {
+    setButtons(bs => bs.map((b, idx) => idx === i ? { ...b, ...patch } : b));
+  };
+
   const handleSave = () => {
     updateEmbedMutation.mutate(
-      { name: embed.name, data: { title, description, color, bgColor, fields } },
+      { name: embed.name, data: { title, description, color, bgColor, fields, buttons } as any },
       {
         onSuccess: () => {
           toast({ title: "Embed sacuvan" });
@@ -943,6 +998,138 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
               ))}
             </div>
           )}
+
+          {/* ── Dugmad editor ────────────────────────────────────── */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">
+                Dugmad
+                <span className="ml-1.5 text-[10px] font-normal normal-case text-[#6b7280]">
+                  ({buttons.length}/5)
+                </span>
+              </Label>
+              {buttons.length < 5 && (
+                <button
+                  type="button"
+                  onClick={addButton}
+                  className="flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-bold transition-all"
+                  style={{ background: "rgba(88,101,242,0.15)", border: "1px solid rgba(88,101,242,0.3)", color: "#a5b4fc" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(88,101,242,0.25)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(88,101,242,0.15)"; }}
+                >
+                  + Dodaj dugme
+                </button>
+              )}
+            </div>
+
+            {buttons.length === 0 && (
+              <div className="text-[11px] text-[#4E5058] italic text-center py-2 rounded-md border border-dashed border-[#2B2D31]">
+                Nema dugmadi — klikni + Dodaj dugme
+              </div>
+            )}
+
+            {buttons.map((btn, i) => (
+              <div key={i} className="bg-[#1E1F22] rounded-md p-3 space-y-2.5 border border-[#2B2D31]">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[11px] font-bold text-[#6b7280] uppercase tracking-wide">
+                    Dugme {i + 1}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => removeButton(i)}
+                    className="text-[#6b7280] hover:text-[#ef4444] transition-colors p-0.5 rounded"
+                    title="Ukloni dugme"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                {/* Label */}
+                <div className="space-y-1">
+                  <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Label</Label>
+                  <Input
+                    value={btn.label}
+                    onChange={e => updateButton(i, { label: e.target.value })}
+                    placeholder="Tekst na dugmetu..."
+                    className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8"
+                  />
+                </div>
+
+                {/* Emoji */}
+                <div className="space-y-1">
+                  <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Emoji (opcionalno)</Label>
+                  <Input
+                    value={btn.emoji ?? ""}
+                    onChange={e => updateButton(i, { emoji: e.target.value || undefined })}
+                    placeholder="🔊 ili <:ime:id>"
+                    className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8 font-mono"
+                  />
+                </div>
+
+                {/* Style */}
+                <div className="space-y-1">
+                  <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Stil</Label>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {(["success", "primary", "secondary", "danger"] as const).map(style => {
+                      const labels: Record<string, string> = {
+                        success: "🟢 Zeleno",
+                        primary: "🔵 Plavo",
+                        secondary: "⚫ Sivo",
+                        danger:  "🔴 Crveno",
+                      };
+                      const selected = btn.style === style;
+                      return (
+                        <button
+                          key={style}
+                          type="button"
+                          onClick={() => updateButton(i, { style })}
+                          className="px-2 py-1.5 rounded text-[11px] font-bold transition-all text-left"
+                          style={{
+                            background: selected ? `${BUTTON_STYLE_COLORS[style]}22` : "rgba(255,255,255,0.04)",
+                            border: `1px solid ${selected ? BUTTON_STYLE_COLORS[style] : "rgba(255,255,255,0.08)"}`,
+                            color: selected ? "#fff" : "#6b7280",
+                          }}
+                        >
+                          {labels[style]}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* URL (only for link style) */}
+                {btn.style === "link" && (
+                  <div className="space-y-1">
+                    <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">URL</Label>
+                    <Input
+                      value={btn.url ?? ""}
+                      onChange={e => updateButton(i, { url: e.target.value || undefined })}
+                      placeholder="https://..."
+                      className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8 font-mono"
+                    />
+                  </div>
+                )}
+
+                {/* Preview chip */}
+                <div className="pt-1">
+                  <button
+                    type="button"
+                    className="flex items-center gap-1.5 px-3 py-1 rounded text-white text-[12px] font-medium select-none cursor-default"
+                    style={{ background: BUTTON_STYLE_COLORS[btn.style] ?? "#4E5058" }}
+                  >
+                    {btn.emoji && <span>{btn.emoji}</span>}
+                    <span>{btn.label || "Dugme"}</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+
+            {buttons.length > 0 && (
+              <p className="text-[10px] text-[#4E5058] italic">
+                💡 custom_id dugmeta se ne mijenja ovdje — to ostaje hardkodirano u botu.
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Resize handle */}
@@ -1000,6 +1187,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
             bgColor={bgColor}
             previewMode={previewMode}
             fields={fields}
+            buttons={buttons}
           />
 
           <div className="mt-4 text-[11px] text-[#949BA4] space-y-1">
