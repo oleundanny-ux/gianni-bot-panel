@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
-  Save, Smile, X, Search, RefreshCw, LayoutTemplate, Maximize2, Minimize2,
+  Save, Smile, X, Search, RefreshCw, LayoutTemplate, Maximize2, Minimize2, AtSign,
   Settings, ScrollText, Shield, Zap, DollarSign, Gamepad2, Sparkles, Heart,
   Info, Music, BadgeCheck, BarChart2, Tag, Flame, Star, Archive, Wrench, Leaf,
   UserPlus, UserMinus, LogOut, MessageCircle, Rocket, Gift, Crown, Ticket,
@@ -539,6 +539,163 @@ function EmojiPicker({ onSelect, onClose }: EmojiPickerProps) {
   );
 }
 
+// ── Mention Picker ───────────────────────────────────────────────────────────
+
+const CHANNEL_TYPE_ICON: Record<number, string> = {
+  0: "#",   // text
+  2: "🔊",  // voice
+  5: "📢",  // announcement
+  15: "📋", // forum
+  13: "🎙️", // stage
+};
+
+interface MentionPickerProps {
+  onSelect: (markdown: string) => void;
+  onClose: () => void;
+}
+
+function MentionPicker({ onSelect, onClose }: MentionPickerProps) {
+  const { data: channelData, isLoading: chLoading } = useDiscordChannels();
+  const { data: roles, isLoading: rLoading } = useDiscordRoles();
+  const [tab, setTab] = useState<"channels" | "roles">("channels");
+  const [search, setSearch] = useState("");
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handle(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) onClose();
+    }
+    document.addEventListener("mousedown", handle);
+    return () => document.removeEventListener("mousedown", handle);
+  }, [onClose]);
+
+  const allChannels = useMemo(() => [
+    ...(channelData?.categories?.flatMap(c => c.channels) ?? []),
+    ...(channelData?.uncategorized ?? []),
+  ].filter(c => [0, 2, 5, 15, 13].includes(c.type)), [channelData]);
+
+  const filteredChannels = useMemo(() =>
+    !search ? allChannels : allChannels.filter(c => c.name.toLowerCase().includes(search.toLowerCase())),
+  [allChannels, search]);
+
+  const filteredRoles = useMemo(() =>
+    !search ? (roles ?? []) : (roles ?? []).filter(r => r.name.toLowerCase().includes(search.toLowerCase())),
+  [roles, search]);
+
+  const tabBtn = (active: boolean) =>
+    `flex-1 py-2 text-xs font-semibold transition-colors ${
+      active
+        ? "text-[#F2F3F5] border-b-2 border-[#5865F2]"
+        : "text-[#949BA4] hover:text-[#DBDEE1] border-b-2 border-transparent"
+    }`;
+
+  return (
+    <div
+      ref={ref}
+      className="absolute z-50 bottom-full mb-2 left-0 w-72 bg-[#1E1F22] border border-[#2B2D31] rounded-lg shadow-2xl overflow-hidden"
+    >
+      {/* Tabs */}
+      <div className="flex border-b border-[#2B2D31]">
+        <button className={tabBtn(tab === "channels")} onClick={() => setTab("channels")}>
+          # Kanali
+        </button>
+        <button className={tabBtn(tab === "roles")} onClick={() => setTab("roles")}>
+          @ Uloge
+        </button>
+      </div>
+
+      {/* Search */}
+      <div className="p-2 border-b border-[#2B2D31]">
+        <div className="flex items-center gap-2 bg-[#313338] rounded px-2">
+          <Search className="w-3.5 h-3.5 text-[#949BA4] flex-shrink-0" />
+          <input
+            autoFocus
+            placeholder={tab === "channels" ? "Pretraži kanale..." : "Pretraži uloge..."}
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            className="flex-1 bg-transparent text-sm text-[#F2F3F5] placeholder:text-[#949BA4] py-1.5 outline-none"
+          />
+          {search && (
+            <button onClick={() => setSearch("")} className="text-[#949BA4] hover:text-[#F2F3F5]">
+              <X className="w-3 h-3" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="overflow-y-auto" style={{ maxHeight: "220px" }}>
+        {tab === "channels" && (
+          <>
+            {chLoading && (
+              <div className="flex items-center justify-center h-16 text-[#949BA4] text-sm">Učitavam kanale...</div>
+            )}
+            {!chLoading && filteredChannels.length === 0 && (
+              <div className="flex items-center justify-center h-16 text-[#949BA4] text-sm">Nema kanala</div>
+            )}
+            {filteredChannels.map(ch => (
+              <button
+                key={ch.id}
+                onClick={() => { onSelect(`<#${ch.id}>`); onClose(); }}
+                className="w-full flex items-center gap-2 px-3 py-1.5 hover:bg-[#313338] text-left transition-colors"
+              >
+                <span className="text-[#949BA4] text-sm w-4 flex-shrink-0 text-center">
+                  {CHANNEL_TYPE_ICON[ch.type] ?? "#"}
+                </span>
+                <span className="text-sm text-[#DBDEE1] truncate">{ch.name}</span>
+                <span className="ml-auto text-[10px] text-[#5C5F66] flex-shrink-0">{ch.id.slice(-4)}</span>
+              </button>
+            ))}
+          </>
+        )}
+
+        {tab === "roles" && (
+          <>
+            {/* Special mentions */}
+            <div className="px-3 py-1 text-[10px] text-[#5C5F66] uppercase tracking-wider font-semibold">Posebno</div>
+            {["@everyone", "@here"].map(m => (
+              <button
+                key={m}
+                onClick={() => { onSelect(m); onClose(); }}
+                className="w-full flex items-center gap-2 px-3 py-1.5 hover:bg-[#313338] text-left transition-colors"
+              >
+                <div className="w-2.5 h-2.5 rounded-full bg-[#5865F2] flex-shrink-0" />
+                <span className="text-sm text-[#DBDEE1]">{m}</span>
+              </button>
+            ))}
+            {(roles ?? []).length > 0 && (
+              <div className="px-3 py-1 mt-1 text-[10px] text-[#5C5F66] uppercase tracking-wider font-semibold border-t border-[#2B2D31]">
+                Uloge ({filteredRoles.length})
+              </div>
+            )}
+            {rLoading && (
+              <div className="flex items-center justify-center h-16 text-[#949BA4] text-sm">Učitavam uloge...</div>
+            )}
+            {filteredRoles.map(role => (
+              <button
+                key={role.id}
+                onClick={() => { onSelect(`<@&${role.id}>`); onClose(); }}
+                className="w-full flex items-center gap-2 px-3 py-1.5 hover:bg-[#313338] text-left transition-colors"
+              >
+                <div
+                  className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                  style={{ background: role.color && role.color !== "#000000" ? role.color : "#99AAB5" }}
+                />
+                <span className="text-sm text-[#DBDEE1] truncate">@{role.name}</span>
+                <span className="ml-auto text-[10px] text-[#5C5F66] flex-shrink-0">{role.id.slice(-4)}</span>
+              </button>
+            ))}
+          </>
+        )}
+      </div>
+
+      <div className="px-3 py-1.5 border-t border-[#2B2D31] text-[10px] text-[#5C5F66]">
+        {tab === "channels" ? `${filteredChannels.length} kanala` : `${filteredRoles.length} uloga`}
+      </div>
+    </div>
+  );
+}
+
 // ── Emoji token detection ────────────────────────────────────────────────────
 
 interface EmojiToken {
@@ -663,11 +820,12 @@ interface TextFieldWithEmojiProps {
 
 function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextFieldWithEmojiProps) {
   const [showPicker, setShowPicker] = useState(false);
+  const [showMentionPicker, setShowMentionPicker] = useState(false);
   const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
   const tokens = useMemo(() => findEmojisInText(value ?? ""), [value]);
 
-  const insertEmoji = useCallback((markdown: string) => {
+  const insertAtCursor = useCallback((markdown: string) => {
     const el = inputRef.current;
     if (!el) { onChange(value + markdown); return; }
     const start = el.selectionStart ?? value.length;
@@ -696,7 +854,7 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
             ref={inputRef as React.Ref<HTMLTextAreaElement>}
             value={value ?? ""}
             onChange={e => onChange(e.target.value)}
-            className={`${commonClass} h-28 resize-none pr-9`}
+            className={`${commonClass} h-28 resize-none pr-16`}
             data-testid={testId}
           />
         ) : (
@@ -704,24 +862,41 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
             ref={inputRef as React.Ref<HTMLInputElement>}
             value={value ?? ""}
             onChange={e => onChange(e.target.value)}
-            className={`${commonClass} pr-9`}
+            className={`${commonClass} pr-16`}
             data-testid={testId}
           />
         )}
-        <button
-          type="button"
-          onClick={() => setShowPicker(p => !p)}
-          className="absolute right-2 bottom-2 text-[#949BA4] hover:text-[#F1C40F] transition-colors"
-          data-testid={`button-emoji-${testId}`}
-          title="Umetni emoji"
-        >
-          <Smile className="w-4 h-4" />
-        </button>
+        <div className="absolute right-2 bottom-2 flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => { setShowMentionPicker(p => !p); setShowPicker(false); }}
+            className={`transition-colors ${showMentionPicker ? "text-[#5865F2]" : "text-[#949BA4] hover:text-[#5865F2]"}`}
+            data-testid={`button-mention-${testId}`}
+            title="Umetni tag (kanal/uloga)"
+          >
+            <AtSign className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => { setShowPicker(p => !p); setShowMentionPicker(false); }}
+            className={`transition-colors ${showPicker ? "text-[#F1C40F]" : "text-[#949BA4] hover:text-[#F1C40F]"}`}
+            data-testid={`button-emoji-${testId}`}
+            title="Umetni emoji"
+          >
+            <Smile className="w-4 h-4" />
+          </button>
+        </div>
 
         {showPicker && (
           <EmojiPicker
-            onSelect={insertEmoji}
+            onSelect={insertAtCursor}
             onClose={() => setShowPicker(false)}
+          />
+        )}
+        {showMentionPicker && (
+          <MentionPicker
+            onSelect={insertAtCursor}
+            onClose={() => setShowMentionPicker(false)}
           />
         )}
       </div>
@@ -795,6 +970,21 @@ function useDiscordRoles() {
   });
 }
 
+interface DiscordChannel { id: string; name: string; type: number; }
+interface DiscordChannelCategory { id: string; name: string; channels: DiscordChannel[]; }
+
+function useDiscordChannels() {
+  return useQuery<{ categories: DiscordChannelCategory[]; uncategorized: DiscordChannel[] }>({
+    queryKey: ["discord-channels"],
+    queryFn: async () => {
+      const res = await fetch(`${BASE_URL}/api/discord/channels`);
+      if (!res.ok) throw new Error("Failed to fetch channels");
+      return res.json();
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+}
+
 
 function DiscordEmbedPreview({ embed, title, description, color, bgColor, previewMode, fields: fieldsProp, buttons: buttonsProp }: {
   embed: EmbedTemplate;
@@ -806,14 +996,31 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
   fields?: EmbedTemplate["fields"];
   buttons?: EmbedButton[];
 }) {
+  const { data: roles } = useDiscordRoles();
+  const { data: channelData } = useDiscordChannels();
+
+  const roleMap = useMemo(() => {
+    const m: Record<string, DiscordRole> = {};
+    for (const r of roles ?? []) m[r.id] = r;
+    return m;
+  }, [roles]);
+
+  const channelMap = useMemo(() => {
+    const m: Record<string, DiscordChannel> = {};
+    for (const cat of channelData?.categories ?? []) for (const ch of cat.channels) m[ch.id] = ch;
+    for (const ch of channelData?.uncategorized ?? []) m[ch.id] = ch;
+    return m;
+  }, [channelData]);
+
   function renderText(text: string) {
-    const parts = text.split(/(<a?:[^:]+:\d+>)/g);
+    const parts = text.split(/(<a?:[^:]+:\d+>|<#\d+>|<@&\d+>|<@!?\d+>|@everyone|@here)/g);
     return parts.map((part, i) => {
-      const match = part.match(/^<(a?):([^:]+):(\d+)>$/);
-      if (match) {
-        const animated = match[1] === "a";
-        const name = match[2];
-        const id = match[3];
+      // Custom emoji
+      const emojiMatch = part.match(/^<(a?):([^:]+):(\d+)>$/);
+      if (emojiMatch) {
+        const animated = emojiMatch[1] === "a";
+        const name = emojiMatch[2];
+        const id = emojiMatch[3];
         const ext = animated ? "gif" : "png";
         return (
           <img
@@ -823,6 +1030,49 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
             title={`:${name}:`}
             className="inline-block w-5 h-5 object-contain align-middle mx-0.5"
           />
+        );
+      }
+      // Channel mention <#id>
+      const chMatch = part.match(/^<#(\d+)>$/);
+      if (chMatch) {
+        const ch = channelMap[chMatch[1]];
+        return (
+          <span key={i} className="inline-flex items-center gap-0.5 px-1 py-0.5 rounded bg-[#5865F2]/20 text-[#5865F2] font-medium text-[0.85em] cursor-default hover:bg-[#5865F2]/30 transition-colors">
+            <span className="text-[#7289DA]">#</span>{ch ? ch.name : chMatch[1]}
+          </span>
+        );
+      }
+      // Role mention <@&id>
+      const roleMatch = part.match(/^<@&(\d+)>$/);
+      if (roleMatch) {
+        const role = roleMap[roleMatch[1]];
+        const roleColor = role?.color && role.color !== "#000000" ? role.color : "#99AAB5";
+        return (
+          <span
+            key={i}
+            className="inline-flex items-center px-1 py-0.5 rounded font-medium text-[0.85em] cursor-default transition-colors"
+            style={{ background: roleColor + "33", color: roleColor }}
+            title={role ? `@${role.name}` : roleMatch[1]}
+          >
+            @{role ? role.name : roleMatch[1]}
+          </span>
+        );
+      }
+      // User mention <@id> or <@!id>
+      const userMatch = part.match(/^<@!?(\d+)>$/);
+      if (userMatch) {
+        return (
+          <span key={i} className="inline-flex items-center px-1 py-0.5 rounded bg-[#5865F2]/20 text-[#5865F2] font-medium text-[0.85em] cursor-default hover:bg-[#5865F2]/30 transition-colors">
+            @{userMatch[1]}
+          </span>
+        );
+      }
+      // @everyone / @here
+      if (part === "@everyone" || part === "@here") {
+        return (
+          <span key={i} className="inline-flex items-center px-1 py-0.5 rounded bg-[#F0B132]/20 text-[#F0B132] font-medium text-[0.85em] cursor-default">
+            {part}
+          </span>
         );
       }
       return <span key={i}>{part}</span>;
