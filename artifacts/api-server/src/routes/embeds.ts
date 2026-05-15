@@ -1592,6 +1592,29 @@ router.get("/embeds/:name", async (req, res) => {
   }
 });
 
+router.post("/embeds/reset-all", async (req, res) => {
+  try {
+    const conn = await getDb();
+    if (!conn) return res.status(503).json({ error: "Database not available" });
+
+    const { db, embedsTable } = conn;
+
+    for (const embed of DEFAULT_EMBEDS) {
+      await db.insert(embedsTable)
+        .values({ name: embed.name, data: embed })
+        .onConflictDoUpdate({
+          target: embedsTable.name,
+          set: { data: embed, updatedAt: new Date() },
+        });
+    }
+
+    return res.json({ ok: true, updated: DEFAULT_EMBEDS.length });
+  } catch (err) {
+    req.log.error(err, "Failed to reset all embeds");
+    return res.status(500).json({ error: "Database error" });
+  }
+});
+
 router.put("/embeds/:name", async (req, res) => {
   try {
     const existing = DEFAULT_EMBEDS.find((e) => e.name === req.params.name);
