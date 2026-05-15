@@ -49,6 +49,65 @@ async def get_panel_embed(name: str) -> dict | None:
 # ── Panel protection config (anti-raid + anti-nsfw settings) ─────────────────
 _prot_cfg: dict = {}
 
+# ── Games config (panel → bot) ───────────────────────────
+_games_cfg: dict = {}
+
+async def get_panel_games() -> dict:
+    """Fetch games/economy settings from panel API. Falls back to defaults on error."""
+    global _games_cfg
+    try:
+        async with aiohttp.ClientSession() as _s:
+            async with _s.get(f"{PANEL_API_URL}/api/games",
+                              timeout=aiohttp.ClientTimeout(total=3)) as _r:
+                if _r.status == 200:
+                    _games_cfg = await _r.json()
+                    print(f"[panel-games] Config refreshed OK")
+    except Exception as _ge:
+        print(f"[panel-games] Fetch error (using last/defaults): {_ge}")
+    return _games_cfg
+
+def _g_eco(cmd: str) -> dict:
+    """Vrati economy config za datu komandu."""
+    defaults = {
+        "posao": {"enabled": True, "cooldown_min": 30,  "reward_min": 150, "reward_max": 600},
+        "daily": {"enabled": True, "cooldown_hours": 24, "reward_min": 300, "reward_max": 800},
+        "kradi": {"enabled": True, "cooldown_hours": 2,  "success_rate": 38, "steal_min": 50, "steal_max": 300},
+    }
+    eco = _games_cfg.get("economy", {})
+    return {**defaults.get(cmd, {}), **eco.get(cmd, {})}
+
+def _g_gamble(cmd: str) -> dict:
+    """Vrati gambling config za datu komandu."""
+    defaults = {
+        "slots":     {"enabled": True, "cooldown_sec": 15, "max_bet": 1_000_000_000},
+        "blackjack": {"enabled": True, "cooldown_sec": 30},
+        "poker":     {"enabled": True, "min_bet": 50,  "max_bet": 50_000},
+        "kviz":      {"enabled": True, "min_bet": 10},
+        "geografija":{"enabled": True, "min_bet": 10},
+        "kpm":       {"enabled": True},
+        "vjasala":   {"enabled": True},
+        "kaladont":  {"enabled": True, "reward": 1500},
+        "toplo_hladno":{"enabled": True},
+        "amogus":    {"enabled": True},
+    }
+    gam = _games_cfg.get("gambling", {})
+    return {**defaults.get(cmd, {}), **gam.get(cmd, {})}
+
+def _g_social() -> bool:
+    return _games_cfg.get("social", {}).get("enabled", True)
+
+def _g_hunt() -> dict:
+    defaults = {"enabled": True, "cooldown_sec": 7}
+    return {**defaults, **_games_cfg.get("animals", {}).get("hunt", {})}
+
+async def _games_refresh_loop():
+    """Osvježava games config svakih 5 minuta."""
+    await bot.wait_until_ready()
+    while not bot.is_closed():
+        await asyncio.sleep(300)
+        await get_panel_games()
+
+# ── Protection config (panel → bot) ──────────────────────
 async def get_panel_protection() -> dict:
     """Fetch protection settings from panel API. Falls back to defaults on error."""
     global _prot_cfg
@@ -1356,6 +1415,13 @@ async def on_ready():
         print("  ✔ Protection config učitan — refresh loop aktivan (svakih 5 min)")
     except Exception as e:
         print(f"  ✘ Protection config: {e}")
+    # ── Games config (ekonomija, kockanje, životinje) ──
+    try:
+        await get_panel_games()
+        bot.loop.create_task(_games_refresh_loop())
+        print("  ✔ Games config učitan — refresh loop aktivan (svakih 5 min)")
+    except Exception as e:
+        print(f"  ✘ Games config: {e}")
     # ── Smart sync: samo ako je broj komandi promijenjen ──
     cur_cmds = len(bot.tree.get_commands())
     last_cmds = data.get("_last_synced_count", -1)
@@ -2926,8 +2992,11 @@ async def baki(i: discord.Interaction, korisnik: discord.Member = None):
 @bot.tree.command(name="posao", description="💼 Radi i zaradi (svakih 30 min)")
 @app_commands.checks.cooldown(1, 1800, key=lambda i: i.user.id)
 async def posao(i: discord.Interaction):
+    cfg_p = _g_eco("posao")
+    if not cfg_p.get("enabled", True):
+        return await i.response.send_message(embed=em("⏸️ Isključeno", "Komanda `/posao` je trenutno isključena.", color=COLORS["warning"]), ephemeral=True)
     d = get_economy(i.user.id)
-    earn = random.randint(150, 600)
+    earn = random.randint(int(cfg_p.get("reward_min", 150)), int(cfg_p.get("reward_max", 600)))
     d["balance"] += earn; d["last_work"] = time.time(); save_data()
     quest_progress(i.user.id, "work3")
     _poo_task_progress(i.guild.id if i.guild else 0, i.user.id, "work")
@@ -2935,31 +3004,37 @@ async def posao(i: discord.Interaction):
         ("💶 Zarada", f"`+{earn} 💶`", True), ("🏦 Balans", f"`{d['balance']:,} 💶`", True), ("⏰ Sledeći", "za 30 min", True),
     ]))
 
-@bot.tree.command(name="daily", description="🎁 Nagrada svakih 30 minuta")
+@bot.tree.command(name="daily", description="🎁 Dnevna nagrada")
 async def daily(i: discord.Interaction):
-    # 🔒 PERZISTENTNI cooldown — koristi data["economy"][uid]["last_daily"] umjesto in-memory dekoratora.
-    # Ovo preživljava restart bota.
-    DAILY_COOLDOWN = 1800  # 30min u sekundama
+    cfg_d = _g_eco("daily")
+    if not cfg_d.get("enabled", True):
+        return await i.response.send_message(embed=em("⏸️ Isključeno", "Komanda `/daily` je trenutno isključena.", color=COLORS["warning"]), ephemeral=True)
+    # 🔒 PERZISTENTNI cooldown — preživljava restart bota
+    cooldown_secs = int(cfg_d.get("cooldown_hours", 24)) * 3600
     d = get_economy(i.user.id)
     now = time.time()
     last = float(d.get("last_daily", 0) or 0)
     elapsed = now - last
-    if elapsed < DAILY_COOLDOWN:
-        remaining = int(DAILY_COOLDOWN - elapsed)
-        mins, secs = divmod(remaining, 60)
-        wait_text = f"{mins}min {secs}s" if mins else f"{secs}s"
+    if elapsed < cooldown_secs:
+        remaining = int(cooldown_secs - elapsed)
+        hours, rem = divmod(remaining, 3600)
+        mins, secs = divmod(rem, 60)
+        if hours:   wait_text = f"{hours}h {mins}min"
+        elif mins:  wait_text = f"{mins}min {secs}s"
+        else:       wait_text = f"{secs}s"
         return await i.response.send_message(
             embed=em("⏳ Cooldown!", f"Već si uzeo daily!\n\n⏰ Sačekaj još **{wait_text}**.", color=COLORS["warning"]),
             ephemeral=True
         )
-    reward = random.randint(300, 800)
+    reward = random.randint(int(cfg_d.get("reward_min", 300)), int(cfg_d.get("reward_max", 800)))
     d["balance"] += reward
     d["last_daily"] = now
     save_data()
     quest_progress(i.user.id, "daily1")
     _poo_task_progress(i.guild.id if i.guild else 0, i.user.id, "daily")
-    await i.response.send_message(embed=em_pro("🎁 Daily Nagrada", "🌟 Tvoj poklon je stigao!\n*Vrati se za 30 min za novu nagradu* 🔄", color=COLORS["gold"], author=i.user, thumb=i.user.display_avatar.url, fields=[
-        ("💶 Nagrada", f"```diff\n+ {reward} 💶\n```", True), ("🏦 Balans", f"```yaml\n{d['balance']:,} 💶\n```", True), ("⏰ Sljedeći", "za 30 min", True),
+    cd_label = f"za {cfg_d.get('cooldown_hours', 24)}h"
+    await i.response.send_message(embed=em_pro("🎁 Daily Nagrada", "🌟 Tvoj poklon je stigao!", color=COLORS["gold"], author=i.user, thumb=i.user.display_avatar.url, fields=[
+        ("💶 Nagrada", f"```diff\n+ {reward} 💶\n```", True), ("🏦 Balans", f"```yaml\n{d['balance']:,} 💶\n```", True), ("⏰ Sljedeći", cd_label, True),
     ]))
 
 @bot.tree.command(name="daj", description="🤝 Pošalji pare drugaru")
@@ -2976,16 +3051,22 @@ async def daj(i: discord.Interaction, korisnik: discord.Member, iznos: int):
 @bot.tree.command(name="kradi", description="🕵️ Pokušaj ukrasti (rizično!)")
 @app_commands.checks.cooldown(1, 7200, key=lambda i: i.user.id)
 async def kradi(i: discord.Interaction, korisnik: discord.Member):
+    cfg_k = _g_eco("kradi")
+    if not cfg_k.get("enabled", True):
+        return await i.response.send_message(embed=em("⏸️ Isključeno", "Komanda `/kradi` je trenutno isključena.", color=COLORS["warning"]), ephemeral=True)
     if korisnik.id == i.user.id: return await i.response.send_message(embed=em("❌", "Ne možeš krasti sam sebe!", color=COLORS["error"]), ephemeral=True)
     if korisnik.bot: return await i.response.send_message(embed=em("❌", "Botovi nemaju para!", color=COLORS["error"]), ephemeral=True)
     s, r = get_economy(i.user.id), get_economy(korisnik.id)
     if r["balance"] < 100: return await i.response.send_message(embed=em("❌", "Siromašna žrtva, nema šta ukrasti.", color=COLORS["error"]), ephemeral=True)
     await i.response.defer()
     await asyncio.sleep(2)
-    amount = random.randint(50, min(600, r["balance"]))
-    if random.random() < 0.38:
+    steal_max = int(cfg_k.get("steal_max", 300))
+    steal_min = int(cfg_k.get("steal_min", 50))
+    success_rate = float(cfg_k.get("success_rate", 38)) / 100.0
+    amount = random.randint(steal_min, min(steal_max, r["balance"]))
+    if random.random() < success_rate:
         r["balance"] -= amount; s["balance"] += amount
-        e = em("🕵️ Krađa uspešna!", "Niko te nije video. Za sad... 👀", color=COLORS["gold"], fields=[
+        e = em("🕵️ Krađa uspješna!", "Niko te nije video. Za sad... 👀", color=COLORS["gold"], fields=[
             ("💰 Ukradeno", f"`{amount:,} 💶`", True), ("👤 Žrtva", korisnik.mention, True), ("🏦 Balans", f"`{s['balance']:,} 💶`", True),
         ])
     else:
