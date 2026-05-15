@@ -200,30 +200,30 @@ export const DEFAULT_EMBEDS = [
   // ─── LOG (Pink) ────────────────────────────────────────────────
   {
     name: "log-join",
-    title: "<:617219rolemodpink:1496898535897956373> Novi Član",
+    title: "<:984706roleadminorange1:1496898583239200819> Novi Član",
     description:
-      "<a:3599pinkheart:1504504866700132534> Novi član se pridružio serveru! <a:15072animatedarrowpink2:1496898801556914236>",
+      "<a:3599pinkheart:1504504866700132534> Novi član se pridružio serveru! <a:28079animatedarroworange:1496898931790057472>",
     color: "#FF85C8",
     category: "Log",
     footer: null,
     thumbnail: null,
     fields: [
-      { name: "<:617219rolemodpink:1496898535897956373> Korisnik",         value: "{user}",         inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> Korisnik",         value: "{user}",         inline: true },
       { name: "<:2084purplestar:1504504848375349388> ID",             value: "`{userId}`",     inline: true },
-      { name: "<a:15072animatedarrowpink2:1496898801556914236> Nalog kreiran",  value: "{createdAt}",   inline: false },
+      { name: "<a:28079animatedarroworange:1496898931790057472> Nalog kreiran",  value: "{createdAt}",   inline: false },
       { name: "<a:571294pinkpaw:1500259928936284211> Ukupno članova",  value: "`{memberCount}`",inline: true },
     ],
   },
   {
     name: "log-edit",
-    title: "<:617219rolemodpink:1496898535897956373> Poruka Editovana",
+    title: "<:984706roleadminorange1:1496898583239200819> Poruka Editovana",
     description: null,
     color: "#FF85C8",
     category: "Log",
     footer: null,
     thumbnail: null,
     fields: [
-      { name: "<:518169rolemodpurple:1496901673426096158> Kanal",   value: "{channel}",                inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> Kanal",   value: "{channel}",                inline: true },
       { name: "<a:571294pinkpaw:1500259928936284211> Autor",  value: "{user}",                   inline: true },
       { name: "<:8526link:1504505939917803620> Link",  value: "[Idi na poruku]({jumpUrl})",inline: false },
       { name: "<a:64382pinksparkles:1500259869259988033> Prije", value: "{before}",                 inline: false },
@@ -232,21 +232,21 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "log-delete",
-    title: "<:617219rolemodpink:1496898535897956373> Poruka Obrisana",
+    title: "<:984706roleadminorange1:1496898583239200819> Poruka Obrisana",
     description: null,
     color: "#FF85C8",
     category: "Log",
     footer: null,
     thumbnail: null,
     fields: [
-      { name: "<:518169rolemodpurple:1496901673426096158> Kanal",    value: "{channel}", inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> Kanal",    value: "{channel}", inline: true },
       { name: "<a:571294pinkpaw:1500259928936284211> Autor",   value: "{user}",    inline: true },
-      { name: "<a:15072animatedarrowpink2:1496898801556914236> Sadržaj",value: "{content}", inline: false },
+      { name: "<a:28079animatedarroworange:1496898931790057472> Sadržaj",value: "{content}", inline: false },
     ],
   },
   {
     name: "report",
-    title: "<:1111pinkarrow:1496903118108229733> NOVA PRIJAVA",
+    title: "<:36802redarrow:1504505542025154621> NOVA PRIJAVA",
     description: null,
     color: "#9B59B6",
     category: "Log",
@@ -254,18 +254,18 @@ export const DEFAULT_EMBEDS = [
     thumbnail: "{reported.avatar}",
     fields: [
       { name: "<a:571294pinkpaw:1500259928936284211> Prijavio",  value: "{reporter}\nID: `{reporterId}`",  inline: true },
-      { name: "<:617219rolemodpink:1496898535897956373> Prijavljen", value: "{reported}\nID: `{reportedId}`", inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> Kanal",      value: "{channel}",                          inline: true },
-      { name: "<:1111pinkarrow:1496903118108229733> Razlog",    value: "{razlog}",                           inline: false },
+      { name: "<:984706roleadminorange1:1496898583239200819> Prijavljen", value: "{reported}\nID: `{reportedId}`", inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> Kanal",      value: "{channel}",                          inline: true },
+      { name: "<:36802redarrow:1504505542025154621> Razlog",    value: "{razlog}",                           inline: false },
       { name: "<:8526link:1504505939917803620> Poruka",   value: "[Idi na poruku]({jumpUrl})",        inline: false },
     ],
   },
   // ─── MODERACIJA (Purple) ───────────────────────────────────────
   {
     name: "warn",
-    title: "<:518169rolemodpurple:1496901673426096158> Upozorenje",
+    title: "<:994180roleadminred1:1496902197605306461> Upozorenje",
     description:
-      "<:1111pinkarrow:1496903118108229733> **{user}** je upozoren/a od strane moderatora. <a:64382pinksparkles:1500259869259988033>",
+      "<:36802redarrow:1504505542025154621> **{user}** je upozoren/a od strane moderatora. <a:64382pinksparkles:1500259869259988033>",
     color: "#9B59B6",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Moderacija",
@@ -273,24 +273,24 @@ export const DEFAULT_EMBEDS = [
     fields: [
       { name: "<a:571294pinkpaw:1500259928936284211> Korisnik",  value: "{user}",    inline: true },
       { name: "<:864113ownerpinkcrownwithheart:1496899493130539008> Moderator",  value: "{mod}",     inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> Upozorenja", value: "`{warnCount}/3`", inline: true },
-      { name: "<:1111pinkarrow:1496903118108229733> Razlog",    value: "{razlog}",  inline: false },
+      { name: "<:994180roleadminred1:1496902197605306461> Upozorenja", value: "`{warnCount}/3`", inline: true },
+      { name: "<:36802redarrow:1504505542025154621> Razlog",    value: "{razlog}",  inline: false },
     ],
   },
   {
     name: "ban",
-    title: "<:518169rolemodpurple:1496901673426096158> Član Banovan",
+    title: "<:994180roleadminred1:1496902197605306461> Član Banovan",
     description:
-      "<a:44503lockkey:1500444008760217641> **{user}** je zauvijek banovan/a sa servera. <:1111pinkarrow:1496903118108229733>",
+      "<a:44503lockkey:1500444008760217641> **{user}** je zauvijek banovan/a sa servera. <:36802redarrow:1504505542025154621>",
     color: "#9B59B6",
     category: "Moderacija",
     footer: null,
     thumbnail: null,
     fields: [
       { name: "<a:571294pinkpaw:1500259928936284211> Korisnik",  value: "{user}",    inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> ID",         value: "`{userId}`",inline: true },
+      { name: "<:994180roleadminred1:1496902197605306461> ID",         value: "`{userId}`",inline: true },
       { name: "<:864113ownerpinkcrownwithheart:1496899493130539008> Moderator",  value: "{mod}",     inline: true },
-      { name: "<:1111pinkarrow:1496903118108229733> Razlog",    value: "{razlog}",  inline: false },
+      { name: "<:36802redarrow:1504505542025154621> Razlog",    value: "{razlog}",  inline: false },
     ],
   },
   // ─── XP (Pink) ────────────────────────────────────────────────
@@ -313,22 +313,22 @@ export const DEFAULT_EMBEDS = [
     name: "vatrica-nova",
     title: "<:2084purplestar:1504504848375349388> ɴᴏᴠᴀ ᴠᴀᴛʀɪᴄᴀ! <a:793429sparkles:1496899433634201611>",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━\n<a:giveaways5:1500203902446997586> Čestitamo {user}!\nImaš sada **`{vatriceCount}`** <:2084purplestar:1504504848375349388>\n━━━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> Zadrži aktivnost i skupljaj vatrice! <:518169rolemodpurple:1496901673426096158>",
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:giveaways5:1500203902446997586> Čestitamo {user}!\nImaš sada **`{vatriceCount}`** <:2084purplestar:1504504848375349388>\n━━━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> Zadrži aktivnost i skupljaj vatrice! <:367280roleadmingreen:1496898579720044706>",
     color: "#FF85C8",
     category: "XP",
     footer: "GIANNI (Custom) • Vatrice sistem",
     thumbnail: "{user.avatar}",
     fields: [
       { name: "<:2084purplestar:1504504848375349388> Vatrice", value: "`{vatriceCount}`", inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> Level",     value: "`{level}`",         inline: true },
-      { name: "<:4558purplecheck:1504504889706020995> Status",  value: "`Aktivan <a:3599pinkheart:1504504866700132534>`",    inline: true },
+      { name: "<:367280roleadmingreen:1496898579720044706> Level",     value: "`{level}`",         inline: true },
+      { name: "<:428758neonverifiedcheck:1496898532559421571> Status",  value: "`Aktivan <a:3599pinkheart:1504504866700132534>`",    inline: true },
     ],
   },
   {
     name: "aktivnost",
-    title: "<:518169rolemodpurple:1496901673426096158> ᴀᴋᴛɪᴠɴᴏsᴛ",
+    title: "<:367280roleadmingreen:1496898579720044706> ᴀᴋᴛɪᴠɴᴏsᴛ",
     description:
-      "━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **{user}**\n━━━━━━━━━━━━━━━━━━━━\n<:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>  `{progress}/100`\n<a:44503lockkey:1500444008760217641> Još **`{doSljedeceg}`** poruka do sljedećeg levela",
+      "━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **{user}**\n━━━━━━━━━━━━━━━━━━━━\n<:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>  `{progress}/100`\n<a:44503lockkey:1500444008760217641> Još **`{doSljedeceg}`** poruka do sljedećeg levela",
     color: "#9B59B6",
     category: "XP",
     footer: "GIANNI (Custom) • Aktivnost • Svakih 100 poruka novi level!",
@@ -343,9 +343,9 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rank",
-    title: "<:518169rolemodpurple:1496901673426096158> Rank Profil",
+    title: "<:367280roleadmingreen:1496898579720044706> Rank Profil",
     description:
-      "<:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>\n`▰▰▰▰▱▱▱▱▱▱` **{pct}%**",
+      "<:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>\n`▰▰▰▰▱▱▱▱▱▱` **{pct}%**",
     color: "#9B59B6",
     category: "XP",
     footer: null,
@@ -355,14 +355,14 @@ export const DEFAULT_EMBEDS = [
       { name: "<:2084purplestar:1504504848375349388> XP",      value: "```py\n{xp}/{needed}\n```",inline: true },
       { name: "<a:793429sparkles:1496899433634201611> Progres", value: "```css\n[{pct}%]\n```",  inline: true },
       { name: "<:32467lovetalk:1504505532323594321> Poruke",  value: "```ini\n[{poruke}]\n```",inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> Rank",      value: "```fix\n#{rank}\n```",   inline: true },
+      { name: "<:367280roleadmingreen:1496898579720044706> Rank",      value: "```fix\n#{rank}\n```",   inline: true },
     ],
   },
   {
     name: "leaderboard-xp",
     title: "<:79529shinycrown:1496899185516216400> Top Lista — XP",
     description:
-      "<:79529shinycrown:1496899185516216400> **{top1}** — Level `{lvl1}` • `{xp1} XP`\n<:2084purplestar:1504504848375349388> **{top2}** — Level `{lvl2}` • `{xp2} XP`\n<:4558purplecheck:1504504889706020995> **{top3}** — Level `{lvl3}` • `{xp3} XP`\n<:518169rolemodpurple:1496901673426096158> **{top4}** — Level `{lvl4}` • `{xp4} XP`\n<a:15072animatedarrowpink2:1496898801556914236> **{top5}** — Level `{lvl5}` • `{xp5} XP`",
+      "<:79529shinycrown:1496899185516216400> **{top1}** — Level `{lvl1}` • `{xp1} XP`\n<:2084purplestar:1504504848375349388> **{top2}** — Level `{lvl2}` • `{xp2} XP`\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** — Level `{lvl3}` • `{xp3} XP`\n<:367280roleadmingreen:1496898579720044706> **{top4}** — Level `{lvl4}` • `{xp4} XP`\n<a:68523animatedarrowgreen:1496899143338033173> **{top5}** — Level `{lvl5}` • `{xp5} XP`",
     color: "#9B59B6",
     category: "XP",
     footer: null,
@@ -373,7 +373,7 @@ export const DEFAULT_EMBEDS = [
     name: "leaderboard-novac",
     title: "<:79529shinycrown:1496899185516216400> Top Lista — Bogatstvo",
     description:
-      "<:79529shinycrown:1496899185516216400> **{top1}** — `{coins1} <a:529977coin:1500444133389635704>`\n<:2084purplestar:1504504848375349388> **{top2}** — `{coins2} <a:529977coin:1500444133389635704>`\n<:4558purplecheck:1504504889706020995> **{top3}** — `{coins3} <a:529977coin:1500444133389635704>`\n<:518169rolemodpurple:1496901673426096158> **{top4}** — `{coins4} <a:529977coin:1500444133389635704>`\n<a:15072animatedarrowpink2:1496898801556914236> **{top5}** — `{coins5} <a:529977coin:1500444133389635704>`",
+      "<:79529shinycrown:1496899185516216400> **{top1}** — `{coins1} <a:529977coin:1500444133389635704>`\n<:2084purplestar:1504504848375349388> **{top2}** — `{coins2} <a:529977coin:1500444133389635704>`\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** — `{coins3} <a:529977coin:1500444133389635704>`\n<:367280roleadmingreen:1496898579720044706> **{top4}** — `{coins4} <a:529977coin:1500444133389635704>`\n<a:68523animatedarrowgreen:1496899143338033173> **{top5}** — `{coins5} <a:529977coin:1500444133389635704>`",
     color: "#FF85C8",
     category: "XP",
     footer: null,
@@ -383,9 +383,9 @@ export const DEFAULT_EMBEDS = [
   // ─── EKONOMIJA (Purple) ───────────────────────────────────────
   {
     name: "heist",
-    title: "<:518169rolemodpurple:1496901673426096158> RAZBOJ U PRIPREMI",
+    title: "<:984706roleadminorange1:1496898583239200819> RAZBOJ U PRIPREMI",
     description:
-      "<a:44503lockkey:1500444008760217641> **{user}** organizuje razboj! <a:15072animatedarrowpink2:1496898801556914236>\n<:518169rolemodpurple:1496901673426096158> **Klikni dugme da se pridružiš** (treba 3+ ljudi)\n<a:64382pinksparkles:1500259869259988033> 30 sekundi do akcije!",
+      "<a:44503lockkey:1500444008760217641> **{user}** organizuje razboj! <a:28079animatedarroworange:1496898931790057472>\n<:984706roleadminorange1:1496898583239200819> **Klikni dugme da se pridružiš** (treba 3+ ljudi)\n<a:64382pinksparkles:1500259869259988033> 30 sekundi do akcije!",
     color: "#9B59B6",
     category: "Ekonomija",
     footer: null,
@@ -398,7 +398,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "lottery",
-    title: "<:518169rolemodpurple:1496901673426096158> Sedmična Loto",
+    title: "<:984706roleadminorange1:1496898583239200819> Sedmična Loto",
     description:
       "<a:giveaways5:1500203902446997586> Kupi tiket i osvoji jackpot! <a:64382pinksparkles:1500259869259988033>",
     color: "#9B59B6",
@@ -414,9 +414,9 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "quests",
-    title: "<:518169rolemodpurple:1496901673426096158> Dnevni Zadaci",
+    title: "<:984706roleadminorange1:1496898583239200819> Dnevni Zadaci",
     description:
-      "<:268961empty:1496899316596605142> **Pošalji 10 poruka** — Budi aktivan u chatu\n`░░░░░░░░░░` `0/10` • <a:529977coin:1500444133389635704> `+200`\n\n<:4558purplecheck:1504504889706020995> **Odigraj 3 igre** — Posjeti #igre kanal\n`<:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:268961empty:1496899316596605142><:268961empty:1496899316596605142>` `3/5` • <a:529977coin:1500444133389635704> `+500`\n\n<:617219rolemodpink:1496898535897956373> **Pošalji kompliment** — Koristi /kompli\n`<:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158>` `5/5` • <a:529977coin:1500444133389635704> `+300`",
+      "<:268961empty:1496899316596605142> **Pošalji 10 poruka** — Budi aktivan u chatu\n`░░░░░░░░░░` `0/10` • <a:529977coin:1500444133389635704> `+200`\n\n<:4558purplecheck:1504504889706020995> **Odigraj 3 igre** — Posjeti #igre kanal\n`<:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:268961empty:1496899316596605142><:268961empty:1496899316596605142>` `3/5` • <a:529977coin:1500444133389635704> `+500`\n\n<:984706roleadminorange1:1496898583239200819> **Pošalji kompliment** — Koristi /kompli\n`<:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819>` `5/5` • <a:529977coin:1500444133389635704> `+300`",
     color: "#9B59B6",
     category: "Ekonomija",
     footer: "Resetuju se u ponoć UTC • GIANNI (Custom)",
@@ -431,7 +431,7 @@ export const DEFAULT_EMBEDS = [
     name: "giveaway",
     title: "<:79529shinycrown:1496899185516216400> NAGRADNA IGRA!",
     description:
-      "## <:79529shinycrown:1496899185516216400>  {nagrada}\n\n<:518169rolemodpurple:1496901673426096158> Klikni dugme **<a:giveaways5:1500203902446997586> Učestvuj** da se prijaviš!",
+      "## <:79529shinycrown:1496899185516216400>  {nagrada}\n\n<:984706roleadminorange1:1496898583239200819> Klikni dugme **<a:giveaways5:1500203902446997586> Učestvuj** da se prijaviš!",
     color: "#9B59B6",
     category: "Ekonomija",
     footer: "Završava se automatski • GIANNI (Custom)",
@@ -447,7 +447,7 @@ export const DEFAULT_EMBEDS = [
   // ─── IGRE ─────────────────────────────────────────────────────
   {
     name: "slots",
-    title: "<:518169rolemodpurple:1496901673426096158>  S L O T  M A Š I N A",
+    title: "<:479765rolemodblue:1496901403669565580>  S L O T  M A Š I N A",
     description: "𓉘  <:58390neoncherry:1496902029363249212>  │  <:58390neoncherry:1496902029363249212>  │  <:58390neoncherry:1496902029363249212>  𓉝\n\n<a:giveaways5:1500203902446997586> Sva tri ista — **JACKPOT!**",
     color: "#9B59B6",
     category: "Igre",
@@ -455,13 +455,13 @@ export const DEFAULT_EMBEDS = [
     thumbnail: null,
     fields: [
       { name: "<a:529977coin:1500444133389635704> Ulog",     value: "`{ulog} <a:529977coin:1500444133389635704>`",          inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> Rezultat",  value: "<a:giveaways5:1500203902446997586> **+{dobitak} <a:529977coin:1500444133389635704>** *(×3)*", inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> Rezultat",  value: "<a:giveaways5:1500203902446997586> **+{dobitak} <a:529977coin:1500444133389635704>** *(×3)*", inline: true },
       { name: "<a:44503lockkey:1500444008760217641> Balans",   value: "`{balans} <a:529977coin:1500444133389635704>`",         inline: true },
     ],
   },
   {
     name: "blackjack",
-    title: "<:2084purplestar:1504504848375349388> Blackjack",
+    title: "<:8891bluestar:1504507192038916187> Blackjack",
     description: null,
     color: "#9B59B6",
     category: "Igre",
@@ -475,7 +475,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-lobby",
-    title: "<:2084purplestar:1504504848375349388> POKER — Texas Hold'em",
+    title: "<:8891bluestar:1504507192038916187> POKER — Texas Hold'em",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:529977coin:1500444133389635704> **Ulog po igraču:** `{ulog} <a:529977coin:1500444133389635704>`\n<:79529shinycrown:1496899185516216400> **Trenutni pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **Igrači ({count}/9):**\n▸ **{player1}**\n▸ **{player2}**\n\n▸ Klikni **Ulazi u igru** da se pridružiš\n▸ Domaćin klika **Počni igru** kad je spreman\n▸ Igra automatski kreće za **60 sekundi**",
     color: "#9B59B6",
@@ -486,9 +486,9 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-game",
-    title: "<:2084purplestar:1504504848375349388> Pre-Flop — Kartice podijeljene",
+    title: "<:8891bluestar:1504507192038916187> Pre-Flop — Kartice podijeljene",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:2084purplestar:1504504848375349388> **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n<a:529977coin:1500444133389635704> **Pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **Aktivni:**\n<:4558purplecheck:1504504889706020995> **{player1}**\n<:4558purplecheck:1504504889706020995> **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:44503lockkey:1500444008760217641> **Čekamo potez:**\n<:518169rolemodpurple:1496901673426096158> {player1}",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:8891bluestar:1504507192038916187> **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n<a:529977coin:1500444133389635704> **Pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **Aktivni:**\n<:428758neonverifiedcheck:1496898532559421571> **{player1}**\n<:428758neonverifiedcheck:1496898532559421571> **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:44503lockkey:1500444008760217641> **Čekamo potez:**\n<:479765rolemodblue:1496901403669565580> {player1}",
     color: "#FF85C8",
     category: "Igre",
     footer: "GIANNI (Custom) • Klikni 'Vidi kartice' za svoju ruku",
@@ -499,7 +499,7 @@ export const DEFAULT_EMBEDS = [
     name: "poker-showdown",
     title: "<:79529shinycrown:1496899185516216400> SHOWDOWN — Poker",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:2084purplestar:1504504848375349388> **Zajedničke kartice:**\n🂡 🂺 🂳 🃈 🃑\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{winner}**\n   Ruka: 🂡 🂮\n   → **Royal Flush**\n\n<:518169rolemodpurple:1496901673426096158> **{loser}**\n   Ruka: 🃁 🃎\n   → **Dva Para**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:529977coin:1500444133389635704> **Dobitak:** `{dobitak} <a:529977coin:1500444133389635704>` po pobjedniku",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:8891bluestar:1504507192038916187> **Zajedničke kartice:**\n🂡 🂺 🂳 🃈 🃑\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{winner}**\n   Ruka: 🂡 🂮\n   → **Royal Flush**\n\n<:479765rolemodblue:1496901403669565580> **{loser}**\n   Ruka: 🃁 🃎\n   → **Dva Para**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:529977coin:1500444133389635704> **Dobitak:** `{dobitak} <a:529977coin:1500444133389635704>` po pobjedniku",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) • Poker završen",
@@ -508,7 +508,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-lobby",
-    title: "<:518169rolemodpurple:1496901673426096158> Among Us — Lobby",
+    title: "<:479765rolemodblue:1496901403669565580> Among Us — Lobby",
     description: "Pridruži se i čekaj da host pokrene igru!\n**Min 4 • Max 10 igrača**",
     color: "#9B59B6",
     category: "Igre",
@@ -520,7 +520,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-game",
-    title: "<:518169rolemodpurple:1496901673426096158> Among Us — U Toku",
+    title: "<:479765rolemodblue:1496901403669565580> Among Us — U Toku",
     description: null,
     color: "#9B59B6",
     category: "Igre",
@@ -528,25 +528,25 @@ export const DEFAULT_EMBEDS = [
     thumbnail: null,
     fields: [
       { name: "<a:571294pinkpaw:1500259928936284211> Igrači",  value: "<:994180roleadminred1:1496902197605306461> Player1\n<:11309roleadminblue2:1496898576150954165> Player2\n<a:44503lockkey:1500444008760217641> ~~Player3~~", inline: false },
-      { name: "<:4558purplecheck:1504504889706020995> Zadaci", value: "<:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142> `3/10`", inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> Živi",     value: "2 crew | 1 imp", inline: true },
+      { name: "<:428758neonverifiedcheck:1496898532559421571> Zadaci", value: "<:479765rolemodblue:1496901403669565580><:479765rolemodblue:1496901403669565580><:479765rolemodblue:1496901403669565580><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142> `3/10`", inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> Živi",     value: "2 crew | 1 imp", inline: true },
     ],
   },
   {
     name: "among-us-end",
-    title: "<:4558purplecheck:1504504889706020995> CREWMATI POBIJEDE!",
-    description: "Svi impostori eliminirani! <:4558purplecheck:1504504889706020995>",
+    title: "<:428758neonverifiedcheck:1496898532559421571> CREWMATI POBIJEDE!",
+    description: "Svi impostori eliminirani! <:428758neonverifiedcheck:1496898532559421571>",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) • Among Us",
     thumbnail: null,
     fields: [
-      { name: "<a:571294pinkpaw:1500259928936284211> Otkrivene uloge", value: "<:518169rolemodpurple:1496901673426096158> **Player1** — CREWMATE\n<a:44503lockkey:1500444008760217641> **Player2** — IMPOSTOR", inline: false },
+      { name: "<a:571294pinkpaw:1500259928936284211> Otkrivene uloge", value: "<:479765rolemodblue:1496901403669565580> **Player1** — CREWMATE\n<a:44503lockkey:1500444008760217641> **Player2** — IMPOSTOR", inline: false },
     ],
   },
   {
     name: "kaladont-start",
-    title: "<:2084purplestar:1504504848375349388>  K A L A D O N T",
+    title: "<:8891bluestar:1504507192038916187>  K A L A D O N T",
     description:
       "━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Igra je počela! Prva riječ:\n## <:32467lovetalk:1504505532323594321>  **BALKAN**\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -554,20 +554,20 @@ export const DEFAULT_EMBEDS = [
     footer: "Pokrenuo/la: {user}  •  Pritisni dugme za kraj",
     thumbnail: null,
     fields: [
-      { name: "<a:15072animatedarrowpink2:1496898801556914236>  Sljedeća počinje sa", value: "## **`AN`**",                  inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158>  Težina",                value: "<:2084purplestar:1504504848375349388> Normalno · 2 slova",    inline: true },
+      { name: "<a:91490animatedarrowblue:1496899222023176233>  Sljedeća počinje sa", value: "## **`AN`**",                  inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580>  Težina",                value: "<:8891bluestar:1504507192038916187> Normalno · 2 slova",    inline: true },
       { name: "<:8526link:1504505939917803620>  Niz",                 value: "**#1**",                        inline: true },
       {
-        name: "<:1111pinkarrow:1496903118108229733>  Pravila igre",
+        name: "<:70920bluearrow:1504507388386869280>  Pravila igre",
         value:
-          "<:4558purplecheck:1504504889706020995> Svaka riječ počinje traženim slovima\n<a:44503lockkey:1500444008760217641> Ista osoba **ne može** igrati iza sebe\n<a:15072animatedarrowpink2:1496898801556914236> Ponavljanje iste riječi nije dozvoljeno\n<a:64382pinksparkles:1500259869259988033> **50/50 sudbina** — čak i ispravna može propasti!\n<:1111pinkarrow:1496903118108229733> Pritisni **Pomoć** za primjer riječi\n<:79529shinycrown:1496899185516216400> Upiši **`KALADONT`** i osvoji **1500** <a:529977coin:1500444133389635704>!",
+          "<:428758neonverifiedcheck:1496898532559421571> Svaka riječ počinje traženim slovima\n<a:44503lockkey:1500444008760217641> Ista osoba **ne može** igrati iza sebe\n<a:91490animatedarrowblue:1496899222023176233> Ponavljanje iste riječi nije dozvoljeno\n<a:64382pinksparkles:1500259869259988033> **50/50 sudbina** — čak i ispravna može propasti!\n<:70920bluearrow:1504507388386869280> Pritisni **Pomoć** za primjer riječi\n<:79529shinycrown:1496899185516216400> Upiši **`KALADONT`** i osvoji **1500** <a:529977coin:1500444133389635704>!",
         inline: false,
       },
     ],
   },
   {
     name: "kaladont-active",
-    title: "<:2084purplestar:1504504848375349388>  K A L A D O N T  —  aktivna igra",
+    title: "<:8891bluestar:1504507192038916187>  K A L A D O N T  —  aktivna igra",
     description: "━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Igre",
@@ -577,7 +577,7 @@ export const DEFAULT_EMBEDS = [
       { name: "<a:64382pinksparkles:1500259869259988033>  Zadnja riječ",         value: "**`ANKETA`**",  inline: true },
       { name: "<:32467lovetalk:1504505532323594321>  Odigrao/la",           value: "Korisnik",      inline: true },
       { name: "<:8526link:1504505939917803620>  Niz",                  value: "**#5**",        inline: true },
-      { name: "<a:15072animatedarrowpink2:1496898801556914236>  Sljedeća počinje sa",  value: "## **`TA`**",   inline: false },
+      { name: "<a:91490animatedarrowblue:1496899222023176233>  Sljedeća počinje sa",  value: "## **`TA`**",   inline: false },
     ],
   },
   {
@@ -589,7 +589,7 @@ export const DEFAULT_EMBEDS = [
     footer: "GIANNI Kaladont  •  #6",
     thumbnail: null,
     fields: [
-      { name: "<a:15072animatedarrowpink2:1496898801556914236>  Sljedeća počinje sa", value: "## **`KA`**", inline: true },
+      { name: "<a:91490animatedarrowblue:1496899222023176233>  Sljedeća počinje sa", value: "## **`KA`**", inline: true },
       { name: "<:8526link:1504505939917803620>  Niz",                 value: "**#6**",       inline: true },
     ],
   },
@@ -603,16 +603,16 @@ export const DEFAULT_EMBEDS = [
     thumbnail: "{user.avatar}",
     fields: [
       { name: "<:79529shinycrown:1496899185516216400>  Pobjednik/ca",  value: "**{user}**",     inline: true },
-      { name: "<:2084purplestar:1504504848375349388>  Riječi u nizu",  value: "**{count}**",    inline: true },
+      { name: "<:8891bluestar:1504507192038916187>  Riječi u nizu",  value: "**{count}**",    inline: true },
       { name: "<a:529977coin:1500444133389635704>  Nagrada",        value: "**+1.500 <a:529977coin:1500444133389635704>**",inline: true },
       { name: "<a:505993sparkle1:1496899369939636295>  XP",             value: "**+200**",          inline: true },
     ],
   },
   {
     name: "bingo",
-    title: "<:2084purplestar:1504504848375349388>  B  I  N  G  O",
+    title: "<:8891bluestar:1504507192038916187>  B  I  N  G  O",
     description:
-      "<:1111pinkarrow:1496903118108229733> **Klikni dugme ispod i unesi 5 brojeva (1–75)!**\n<a:ticket:1500196243853541397> Tiket košta samo **500 coina** <a:529977coin:1500444133389635704>\n\n<a:44503lockkey:1500444008760217641> Imaš **2 minute** za tiket!\n<a:64382pinksparkles:1500259869259988033> Rezultati se objavljuju **javno** za sve",
+      "<:70920bluearrow:1504507388386869280> **Klikni dugme ispod i unesi 5 brojeva (1–75)!**\n<a:ticket:1500196243853541397> Tiket košta samo **500 coina** <a:529977coin:1500444133389635704>\n\n<a:44503lockkey:1500444008760217641> Imaš **2 minute** za tiket!\n<a:64382pinksparkles:1500259869259988033> Rezultati se objavljuju **javno** za sve",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI Bingo • Cijena tiketa: 500 coina",
@@ -621,7 +621,7 @@ export const DEFAULT_EMBEDS = [
       {
         name: "<:79529shinycrown:1496899185516216400>  Nagradna lista",
         value:
-          "<:4558purplecheck:1504504889706020995> `2 pogotka`  ──  **10.000** <a:529977coin:1500444133389635704>\n<:518169rolemodpurple:1496901673426096158> `3 pogotka`  ──  **30.000** <a:529977coin:1500444133389635704>\n<:2084purplestar:1504504848375349388> `4 pogotka`  ──  **75.000** <a:529977coin:1500444133389635704>\n<:79529shinycrown:1496899185516216400> `5 pogodaka` ── **250.000** <a:529977coin:1500444133389635704>  **JACKPOT!**",
+          "<:428758neonverifiedcheck:1496898532559421571> `2 pogotka`  ──  **10.000** <a:529977coin:1500444133389635704>\n<:479765rolemodblue:1496901403669565580> `3 pogotka`  ──  **30.000** <a:529977coin:1500444133389635704>\n<:8891bluestar:1504507192038916187> `4 pogotka`  ──  **75.000** <a:529977coin:1500444133389635704>\n<:79529shinycrown:1496899185516216400> `5 pogodaka` ── **250.000** <a:529977coin:1500444133389635704>  **JACKPOT!**",
         inline: false,
       },
     ],
@@ -832,7 +832,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "invite",
-    title: "<:518169rolemodpurple:1496901673426096158> Statistika — {user}",
+    title: "<:479765rolemodblue:1496901403669565580> Statistika — {user}",
     description: null,
     color: "#9B59B6",
     category: "Info",
@@ -848,27 +848,27 @@ export const DEFAULT_EMBEDS = [
   {
     name: "avatar",
     title: "<:2084purplestar:1504504848375349388> {user}",
-    description: "<a:15072animatedarrowpink2:1496898801556914236> [PNG]({png}) **·** <:2084purplestar:1504504848375349388> [JPG]({jpg}) **·** <:518169rolemodpurple:1496901673426096158> [WEBP]({webp})",
+    description: "<a:32877animatedarrowbluelite:1496898954783096933> [PNG]({png}) **·** <:2084purplestar:1504504848375349388> [JPG]({jpg}) **·** <:479765rolemodblue:1496901403669565580> [WEBP]({webp})",
     color: "#9B59B6",
     category: "Info",
     footer: null,
     thumbnail: null,
     fields: [
       { name: "<a:571294pinkpaw:1500259928936284211> Korisnik", value: "{user}",     inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> ID",        value: "`{userId}`", inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> ID",        value: "`{userId}`", inline: true },
     ],
   },
   {
     name: "brojanje-info",
     title: "<:2084purplestar:1504504848375349388> Brojanje — stanje",
     description:
-      "<a:15072animatedarrowpink2:1496898801556914236> **Kanal:** {channel}\n<:32467lovetalk:1504505532323594321> **Trenutno:** `{current}`\n<:518169rolemodpurple:1496901673426096158> **Sljedeći broj:** `{next}`\n<a:571294pinkpaw:1500259928936284211> **Zadnji brojao:** {lastUser}\n<:79529shinycrown:1496899185516216400> **Rekord:** `{highScore}`",
+      "<a:32877animatedarrowbluelite:1496898954783096933> **Kanal:** {channel}\n<:32467lovetalk:1504505532323594321> **Trenutno:** `{current}`\n<:479765rolemodblue:1496901403669565580> **Sljedeći broj:** `{next}`\n<a:571294pinkpaw:1500259928936284211> **Zadnji brojao:** {lastUser}\n<:79529shinycrown:1496899185516216400> **Rekord:** `{highScore}`",
     color: "#9B59B6",
     category: "Info",
     footer: "GIANNI (Custom) v2.0",
     thumbnail: null,
     fields: [
-      { name: "<:4558purplecheck:1504504889706020995> Status",         value: "`{status}`",  inline: true },
+      { name: "<:428758neonverifiedcheck:1496898532559421571> Status",         value: "`{status}`",  inline: true },
       { name: "<:79529shinycrown:1496899185516216400> Rekord",        value: "`{record}`",  inline: true },
       { name: "<a:44503lockkey:1500444008760217641> Zadnji propust", value: "{lastFail}",  inline: true },
     ],
@@ -878,7 +878,7 @@ export const DEFAULT_EMBEDS = [
     name: "vatrice-pup",
     title: "<:2084purplestar:1504504848375349388> Top Lista — Vatrice",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Najpopularniji članovi po vatricama:\n━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{top1}** — <:2084purplestar:1504504848375349388> `{top1count}`\n<:2084purplestar:1504504848375349388> **{top2}** — <:518169rolemodpurple:1496901673426096158> `{top2count}`\n<:4558purplecheck:1504504889706020995> **{top3}** — <a:3599pinkheart:1504504866700132534> `{top3count}`\n<:518169rolemodpurple:1496901673426096158> **{top4}** — <a:15072animatedarrowpink2:1496898801556914236> `{top4count}`\n<a:15072animatedarrowpink2:1496898801556914236> **{top5}** — <a:571294pinkpaw:1500259928936284211> `{top5count}`\n━━━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> Tvoje mjesto: **#{rank}** | Imaš: **{myCount}** <:2084purplestar:1504504848375349388>",
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Najpopularniji članovi po vatricama:\n━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{top1}** — <:2084purplestar:1504504848375349388> `{top1count}`\n<:2084purplestar:1504504848375349388> **{top2}** — <:984706roleadminorange1:1496898583239200819> `{top2count}`\n<:4558purplecheck:1504504889706020995> **{top3}** — <a:3599pinkheart:1504504866700132534> `{top3count}`\n<:984706roleadminorange1:1496898583239200819> **{top4}** — <a:28079animatedarroworange:1496898931790057472> `{top4count}`\n<a:28079animatedarroworange:1496898931790057472> **{top5}** — <a:571294pinkpaw:1500259928936284211> `{top5count}`\n━━━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> Tvoje mjesto: **#{rank}** | Imaš: **{myCount}** <:2084purplestar:1504504848375349388>",
     color: "#9B59B6",
     category: "Vatrice",
     footer: "GIANNI (Custom) • Vatrice Top Lista",
@@ -889,21 +889,21 @@ export const DEFAULT_EMBEDS = [
     name: "vatrice-start",
     title: "<:2084purplestar:1504504848375349388> Vatrica Sistem — Aktiviran!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━\n<:4558purplecheck:1504504889706020995> Vatrica sistem je uspješno aktiviran!\n━━━━━━━━━━━━━━━━━━━━━━\n<:2084purplestar:1504504848375349388> Svako **{prag}** poruka, član dobija **1 vatricu**\n<:518169rolemodpurple:1496901673426096158> Nick se automatski ažurira\n<a:15072animatedarrowpink2:1496898801556914236> Objave se šalju u {kanal}\n━━━━━━━━━━━━━━━━━━━━━━",
+      "━━━━━━━━━━━━━━━━━━━━━━\n<:4558purplecheck:1504504889706020995> Vatrica sistem je uspješno aktiviran!\n━━━━━━━━━━━━━━━━━━━━━━\n<:2084purplestar:1504504848375349388> Svako **{prag}** poruka, član dobija **1 vatricu**\n<:984706roleadminorange1:1496898583239200819> Nick se automatski ažurira\n<a:28079animatedarroworange:1496898931790057472> Objave se šalju u {kanal}\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Vatrice",
     footer: "GIANNI (Custom) • Vatrice Sistem",
     thumbnail: null,
     fields: [
       { name: "<:2084purplestar:1504504848375349388> Emoji", value: "`{emoji}`",    inline: true },
-      { name: "<a:15072animatedarrowpink2:1496898801556914236> Kanal", value: "{kanal}",      inline: true },
+      { name: "<a:28079animatedarroworange:1496898931790057472> Kanal", value: "{kanal}",      inline: true },
       { name: "<a:793429sparkles:1496899433634201611> Prag",  value: "`{prag}` poruka", inline: true },
     ],
   },
   {
     name: "vatrice-kanal",
     title: "<:4558purplecheck:1504504889706020995> Vatrica Kanal Postavljen",
-    description: "<a:15072animatedarrowpink2:1496898801556914236> Objave vatrica će se od sada slati u {kanal}.",
+    description: "<a:28079animatedarroworange:1496898931790057472> Objave vatrica će se od sada slati u {kanal}.",
     color: "#9B59B6",
     category: "Vatrice",
     footer: "GIANNI (Custom) • Vatrice Sistem",
@@ -941,9 +941,9 @@ export const DEFAULT_EMBEDS = [
   // ─── IGRE dopune ─────────────────────────────────────────────
   {
     name: "vjasala",
-    title: "<:2084purplestar:1504504848375349388>  V J E Š A L A",
+    title: "<:8891bluestar:1504507192038916187>  V J E Š A L A",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n<:518169rolemodpurple:1496901673426096158> Pogodi skrivenu riječ!\n\n```\n_ _ _ _ _ _\n```\n━━━━━━━━━━━━━━━━━━━━━",
+      "━━━━━━━━━━━━━━━━━━━━━\n<:479765rolemodblue:1496901403669565580> Pogodi skrivenu riječ!\n\n```\n_ _ _ _ _ _\n```\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) • /vjasala",
@@ -957,7 +957,7 @@ export const DEFAULT_EMBEDS = [
   {
     name: "vjasala-kraj",
     title: "<a:giveaways5:1500203902446997586> Vješala — Pogodak!",
-    description: "<:4558purplecheck:1504504889706020995> Čestitamo {user}! Pogodio/la si **{rijec}**! <a:64382pinksparkles:1500259869259988033>\n<a:529977coin:1500444133389635704> **Nagrada:** `+{nagrada} <a:529977coin:1500444133389635704>`",
+    description: "<:428758neonverifiedcheck:1496898532559421571> Čestitamo {user}! Pogodio/la si **{rijec}**! <a:64382pinksparkles:1500259869259988033>\n<a:529977coin:1500444133389635704> **Nagrada:** `+{nagrada} <a:529977coin:1500444133389635704>`",
     color: "#FF85C8",
     category: "Igre",
     footer: "GIANNI (Custom) • /vjasala",
@@ -966,56 +966,56 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "toplo-hladno",
-    title: "<:518169rolemodpurple:1496901673426096158>  T O P L O  •  H L A D N O",
+    title: "<:479765rolemodblue:1496901403669565580>  T O P L O  •  H L A D N O",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n<:2084purplestar:1504504848375349388> Pogodi tajni broj (1–{max})!\n\n<:518169rolemodpurple:1496901673426096158> **Hladno** — daleko si\n<:617219rolemodpink:1496898535897956373> **Toplo** — bliže si\n<a:3599pinkheart:1504504866700132534> **Vrelo** — skoro!\n━━━━━━━━━━━━━━━━━━━━━",
+      "━━━━━━━━━━━━━━━━━━━━━\n<:8891bluestar:1504507192038916187> Pogodi tajni broj (1–{max})!\n\n<:479765rolemodblue:1496901403669565580> **Hladno** — daleko si\n<:479765rolemodblue:1496901403669565580> **Toplo** — bliže si\n<a:3599pinkheart:1504504866700132534> **Vrelo** — skoro!\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) • /toplo-hladno",
     thumbnail: null,
     fields: [
-      { name: "<:2084purplestar:1504504848375349388> Maksimum", value: "`{max}`",      inline: true },
-      { name: "<:518169rolemodpurple:1496901673426096158> Pokušaji",   value: "`{pokusaji}`", inline: true },
+      { name: "<:8891bluestar:1504507192038916187> Maksimum", value: "`{max}`",      inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> Pokušaji",   value: "`{pokusaji}`", inline: true },
       { name: "<a:3599pinkheart:1504504866700132534> Status",   value: "{status}",      inline: true },
     ],
   },
   {
     name: "kviz",
-    title: "<:2084purplestar:1504504848375349388>  K V I Z  —  Balkan Pitanje",
+    title: "<:8891bluestar:1504507192038916187>  K V I Z  —  Balkan Pitanje",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n<:1111pinkarrow:1496903118108229733> **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
+      "━━━━━━━━━━━━━━━━━━━━━\n<:70920bluearrow:1504507388386869280> **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) • /kviz • Oklada: {oklada} <a:529977coin:1500444133389635704>",
     thumbnail: null,
     fields: [
-      { name: "<:518169rolemodpurple:1496901673426096158> A",   value: "{a}", inline: true },
-      { name: "<:617219rolemodpink:1496898535897956373> B",   value: "{b}", inline: true },
-      { name: "<:2084purplestar:1504504848375349388> C", value: "{c}", inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> A",   value: "{a}", inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> B",   value: "{b}", inline: true },
+      { name: "<:8891bluestar:1504507192038916187> C", value: "{c}", inline: true },
       { name: "<a:3599pinkheart:1504504866700132534> D", value: "{d}", inline: true },
     ],
   },
   {
     name: "geografija",
-    title: "<:2084purplestar:1504504848375349388>  G E O G R A F I J A  —  Kviz",
+    title: "<:8891bluestar:1504507192038916187>  G E O G R A F I J A  —  Kviz",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n<:518169rolemodpurple:1496901673426096158> **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
+      "━━━━━━━━━━━━━━━━━━━━━\n<:479765rolemodblue:1496901403669565580> **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) • /geografija • Oklada: {oklada} <a:529977coin:1500444133389635704>",
     thumbnail: null,
     fields: [
-      { name: "<:518169rolemodpurple:1496901673426096158> A",   value: "{a}", inline: true },
-      { name: "<:617219rolemodpink:1496898535897956373> B",   value: "{b}", inline: true },
-      { name: "<:2084purplestar:1504504848375349388> C", value: "{c}", inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> A",   value: "{a}", inline: true },
+      { name: "<:479765rolemodblue:1496901403669565580> B",   value: "{b}", inline: true },
+      { name: "<:8891bluestar:1504507192038916187> C", value: "{c}", inline: true },
       { name: "<a:3599pinkheart:1504504866700132534> D", value: "{d}", inline: true },
     ],
   },
   {
     name: "mafia-lobby",
-    title: "<:2084purplestar:1504504848375349388>  M A F I A  —  Lobby",
+    title: "<:8891bluestar:1504507192038916187>  M A F I A  —  Lobby",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Mafia igra se priprema!\n**Pridruži se klikom na dugme.**\n━━━━━━━━━━━━━━━━━━━━━━━\n<:518169rolemodpurple:1496901673426096158> Min: **5** | Max: **12** igrača\n<a:44503lockkey:1500444008760217641> Igra kreće automatski za **60s** ili kad host klikne Start",
+      "━━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Mafia igra se priprema!\n**Pridruži se klikom na dugme.**\n━━━━━━━━━━━━━━━━━━━━━━━\n<:479765rolemodblue:1496901403669565580> Min: **5** | Max: **12** igrača\n<a:44503lockkey:1500444008760217641> Igra kreće automatski za **60s** ili kad host klikne Start",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) • Mafia",
@@ -1156,66 +1156,66 @@ export const DEFAULT_EMBEDS = [
     name: "mod-kick",
     title: "<:994180roleadminred1:1496902197605306461> Član Kickovan",
     description:
-      "<a:15072animatedarrowpink2:1496898801556914236> **{target}** je kickovan sa servera.\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
+      "<a:73288animatedarrowred:1496899179560304783> **{target}** je kickovan sa servera.\n<:994180roleadminred1:1496902197605306461> Razlog: **{reason}**",
     color: "#dc2626",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Moderacija",
     thumbnail: "{target.avatar}",
     fields: [
-      { name: "<:617219rolemodpink:1496898535897956373> Izvršio",  value: "{mod}",    inline: true },
+      { name: "<:994180roleadminred1:1496902197605306461> Izvršio",  value: "{mod}",    inline: true },
       { name: "<:2261bell:1504505860720820395> Datum",            value: "{date}",   inline: true },
       { name: "<:268961empty:1496899316596605142>",               value: "",         inline: true },
     ],
   },
   {
     name: "mod-mute",
-    title: "<:518169rolemodpurple:1496901673426096158> Član Mutovan",
+    title: "<:994180roleadminred1:1496902197605306461> Član Mutovan",
     description:
-      "<a:15072animatedarrowpink2:1496898801556914236> **{target}** je mutovan na **{duration}**.\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
+      "<a:73288animatedarrowred:1496899179560304783> **{target}** je mutovan na **{duration}**.\n<:994180roleadminred1:1496902197605306461> Razlog: **{reason}**",
     color: "#9B59B6",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Moderacija",
     thumbnail: "{target.avatar}",
     fields: [
-      { name: "<:617219rolemodpink:1496898535897956373> Izvršio",   value: "{mod}",      inline: true },
+      { name: "<:994180roleadminred1:1496902197605306461> Izvršio",   value: "{mod}",      inline: true },
       { name: "<:2261bell:1504505860720820395> Trajanje",           value: "{duration}", inline: true },
-      { name: "<:4558purplecheck:1504504889706020995> Ističe",      value: "{expires}",  inline: true },
+      { name: "<a:8055redcheck:1504505449062465597> Ističe",      value: "{expires}",  inline: true },
     ],
   },
   {
     name: "mod-unmute",
-    title: "<:4558purplecheck:1504504889706020995> Član Odmutovan",
+    title: "<a:8055redcheck:1504505449062465597> Član Odmutovan",
     description:
-      "<a:64382pinksparkles:1500259869259988033> **{target}** je odmutovan.\n<:518169rolemodpurple:1496901673426096158> Može ponovo pisati na serveru.",
+      "<a:64382pinksparkles:1500259869259988033> **{target}** je odmutovan.\n<:994180roleadminred1:1496902197605306461> Može ponovo pisati na serveru.",
     color: "#059669",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Moderacija",
     thumbnail: "{target.avatar}",
     fields: [
-      { name: "<:617219rolemodpink:1496898535897956373> Izvršio", value: "{mod}",  inline: true },
+      { name: "<:994180roleadminred1:1496902197605306461> Izvršio", value: "{mod}",  inline: true },
       { name: "<:2261bell:1504505860720820395> Datum",            value: "{date}", inline: true },
     ],
   },
   {
     name: "mod-timeout",
-    title: "<:518169rolemodpurple:1496901673426096158> Timeout",
+    title: "<:994180roleadminred1:1496902197605306461> Timeout",
     description:
-      "<a:15072animatedarrowpink2:1496898801556914236> **{target}** je stavljen u timeout na **{duration}**.\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
+      "<a:73288animatedarrowred:1496899179560304783> **{target}** je stavljen u timeout na **{duration}**.\n<:994180roleadminred1:1496902197605306461> Razlog: **{reason}**",
     color: "#d97706",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Moderacija",
     thumbnail: "{target.avatar}",
     fields: [
-      { name: "<:617219rolemodpink:1496898535897956373> Izvršio",  value: "{mod}",      inline: true },
+      { name: "<:994180roleadminred1:1496902197605306461> Izvršio",  value: "{mod}",      inline: true },
       { name: "<:2261bell:1504505860720820395> Trajanje",          value: "{duration}", inline: true },
-      { name: "<:4558purplecheck:1504504889706020995> Ističe",     value: "{expires}",  inline: true },
+      { name: "<a:8055redcheck:1504505449062465597> Ističe",     value: "{expires}",  inline: true },
     ],
   },
   {
     name: "mod-purge",
-    title: "<:617219rolemodpink:1496898535897956373> Poruke Obrisane",
+    title: "<:994180roleadminred1:1496902197605306461> Poruke Obrisane",
     description:
-      "<a:15072animatedarrowpink2:1496898801556914236> Obrisano **{count}** poruka u <#{channel}>.\n<:518169rolemodpurple:1496901673426096158> Izvršio: **{mod}**",
+      "<a:73288animatedarrowred:1496899179560304783> Obrisano **{count}** poruka u <#{channel}>.\n<:994180roleadminred1:1496902197605306461> Izvršio: **{mod}**",
     color: "#9B59B6",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Purge",
@@ -1224,9 +1224,9 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-unban",
-    title: "<:4558purplecheck:1504504889706020995> Član Odbanovan",
+    title: "<a:8055redcheck:1504505449062465597> Član Odbanovan",
     description:
-      "<a:64382pinksparkles:1500259869259988033> **{target}** je odbanovan sa servera.\n<:518169rolemodpurple:1496901673426096158> Izvršio: **{mod}**",
+      "<a:64382pinksparkles:1500259869259988033> **{target}** je odbanovan sa servera.\n<:994180roleadminred1:1496902197605306461> Izvršio: **{mod}**",
     color: "#059669",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Moderacija",
@@ -1256,7 +1256,7 @@ export const DEFAULT_EMBEDS = [
     name: "eco-daily",
     title: "<a:529977coin:1500444133389635704> Dnevna Nagrada",
     description:
-      "<a:64382pinksparkles:1500259869259988033> **{user}** je uzeo/la dnevnu nagradu!\n<:518169rolemodpurple:1496901673426096158> Streak: **{streak} dana** zaredom <a:3599pinkheart:1504504866700132534>",
+      "<a:64382pinksparkles:1500259869259988033> **{user}** je uzeo/la dnevnu nagradu!\n<:984706roleadminorange1:1496898583239200819> Streak: **{streak} dana** zaredom <a:3599pinkheart:1504504866700132534>",
     color: "#FF85C8",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Ekonomija • Sutra možeš ponovo",
@@ -1269,9 +1269,9 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-work",
-    title: "<:518169rolemodpurple:1496901673426096158> Posao — {job}",
+    title: "<:984706roleadminorange1:1496898583239200819> Posao — {job}",
     description:
-      "<a:15072animatedarrowpink2:1496898801556914236> **{user}** je radio/la kao **{job}** i zaradio/la:\n<a:529977coin:1500444133389635704> **{amount}** kovanica!",
+      "<a:28079animatedarroworange:1496898931790057472> **{user}** je radio/la kao **{job}** i zaradio/la:\n<a:529977coin:1500444133389635704> **{amount}** kovanica!",
     color: "#9B59B6",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Ekonomija • Sljedeći posao za {cooldown}",
@@ -1285,13 +1285,13 @@ export const DEFAULT_EMBEDS = [
     name: "eco-shop",
     title: "<:2084purplestar:1504504848375349388>  S H O P",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> Dobrodošao/la u shop! Kupi role, iteme i više.\n━━━━━━━━━━━━━━━━━━━━━━",
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:28079animatedarroworange:1496898931790057472> Dobrodošao/la u shop! Kupi role, iteme i više.\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Shop",
     thumbnail: null,
     fields: [
-      { name: "<:617219rolemodpink:1496898535897956373> VIP Role",      value: "`5.000` 🪙",  inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> VIP Role",      value: "`5.000` 🪙",  inline: true },
       { name: "<:864113ownerpinkcrownwithheart:1496899493130539008> Premium", value: "`10.000` 🪙", inline: true },
       { name: "<:33927diamond:1496898969052381407> Dijamant",            value: "`25.000` 🪙", inline: true },
     ],
@@ -1300,7 +1300,7 @@ export const DEFAULT_EMBEDS = [
     name: "eco-buy",
     title: "<:4558purplecheck:1504504889706020995> Kupovina Uspješna",
     description:
-      "<a:64382pinksparkles:1500259869259988033> **{user}** je kupio/la **{item}**!\n<:518169rolemodpurple:1496901673426096158> Cijena: **{price}** 🪙",
+      "<a:64382pinksparkles:1500259869259988033> **{user}** je kupio/la **{item}**!\n<:984706roleadminorange1:1496898583239200819> Cijena: **{price}** 🪙",
     color: "#FF85C8",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Shop",
@@ -1321,7 +1321,7 @@ export const DEFAULT_EMBEDS = [
     thumbnail: null,
     fields: [
       { name: "<a:529977coin:1500444133389635704> Iznos",  value: "`{amount}` 🪙",    inline: true },
-      { name: "<:617219rolemodpink:1496898535897956373> Od", value: "{from}",          inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> Od", value: "{from}",          inline: true },
       { name: "<:2084purplestar:1504504848375349388> Za",   value: "{to}",             inline: true },
     ],
   },
@@ -1329,7 +1329,7 @@ export const DEFAULT_EMBEDS = [
     name: "eco-rob",
     title: "<:994180roleadminred1:1496902197605306461> Pljačka!",
     description:
-      "<a:15072animatedarrowpink2:1496898801556914236> **{user}** je pokušao/la opljačkati **{target}**!\n{result}",
+      "<a:28079animatedarroworange:1496898931790057472> **{user}** je pokušao/la opljačkati **{target}**!\n{result}",
     color: "#dc2626",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Ekonomija",
@@ -1418,9 +1418,9 @@ export const DEFAULT_EMBEDS = [
   // ─── VERIFIKACIJA ────────────────────────────────────────────
   {
     name: "verify-panel",
-    title: "<:4558purplecheck:1504504889706020995>  V E R I F I K A C I J A",
+    title: "<:428758neonverifiedcheck:1496898532559421571>  V E R I F I K A C I J A",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> Klikni dugme ispod da potvrdiš da nisi bot!\n<:518169rolemodpurple:1496901673426096158> Nakon verifikacije dobijate pristup svim kanalima.\n━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> **discord.gg/gian**",
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:91490animatedarrowblue:1496899222023176233> Klikni dugme ispod da potvrdiš da nisi bot!\n<:479765rolemodblue:1496901403669565580> Nakon verifikacije dobijate pristup svim kanalima.\n━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> **discord.gg/gian**",
     color: "#9B59B6",
     category: "Verifikacija",
     footer: "GIANNI (Custom) • Verifikacija",
@@ -1429,9 +1429,9 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "verify-success",
-    title: "<:4558purplecheck:1504504889706020995> Verifikacija Uspješna!",
+    title: "<:428758neonverifiedcheck:1496898532559421571> Verifikacija Uspješna!",
     description:
-      "<a:64382pinksparkles:1500259869259988033> **{user}** — Dobrodošao/la! <a:3599pinkheart:1504504866700132534>\n<:518169rolemodpurple:1496901673426096158> Verifikacija je prošla. Uživaj na serveru!\n<a:15072animatedarrowpink2:1496898801556914236> Dobio/la si ulogu: <@&{roleId}>",
+      "<a:64382pinksparkles:1500259869259988033> **{user}** — Dobrodošao/la! <a:3599pinkheart:1504504866700132534>\n<:479765rolemodblue:1496901403669565580> Verifikacija je prošla. Uživaj na serveru!\n<a:91490animatedarrowblue:1496899222023176233> Dobio/la si ulogu: <@&{roleId}>",
     color: "#FF85C8",
     category: "Verifikacija",
     footer: "GIANNI (Custom) • Verifikacija",
@@ -1442,7 +1442,7 @@ export const DEFAULT_EMBEDS = [
     name: "verify-fail",
     title: "<:994180roleadminred1:1496902197605306461> Verifikacija Neuspješna",
     description:
-      "<:518169rolemodpurple:1496901673426096158> Verifikacija nije prošla. Pokušaj ponovo!\n<a:15072animatedarrowpink2:1496898801556914236> Ako imaš problema, kontaktiraj staff.",
+      "<:479765rolemodblue:1496901403669565580> Verifikacija nije prošla. Pokušaj ponovo!\n<a:91490animatedarrowblue:1496899222023176233> Ako imaš problema, kontaktiraj staff.",
     color: "#dc2626",
     category: "Verifikacija",
     footer: "GIANNI (Custom) • Verifikacija",
@@ -1455,7 +1455,7 @@ export const DEFAULT_EMBEDS = [
     name: "poll-create",
     title: "<:2084purplestar:1504504848375349388>  A N K E T A",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> **{question}**\n━━━━━━━━━━━━━━━━━━━━━━\n<:1111pinkarrow:1496903118108229733> Glasaj koristeći reakcije ispod!",
+      "━━━━━━━━━━━━━━━━━━━━━━\n<a:73288animatedarrowred:1496899179560304783> **{question}**\n━━━━━━━━━━━━━━━━━━━━━━\n<:1111pinkarrow:1496903118108229733> Glasaj koristeći reakcije ispod!",
     color: "#9B59B6",
     category: "Ankete",
     footer: "GIANNI (Custom) • Anketa • Završava za {duration}",
@@ -1506,7 +1506,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rr-remove",
-    title: "<:617219rolemodpink:1496898535897956373> Uloga Skinuta",
+    title: "<:518169rolemodpurple:1496901673426096158> Uloga Skinuta",
     description:
       "<:518169rolemodpurple:1496901673426096158> **{user}** — uloga <@&{roleId}> je skinuta.",
     color: "#9B59B6",
