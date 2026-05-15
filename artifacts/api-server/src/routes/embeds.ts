@@ -1,8 +1,27 @@
 import { Router } from "express";
-import { db, embedsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 
 const router = Router();
+
+// Lazy DB — works fine when DATABASE_URL is set, falls back silently when not.
+let _db: typeof import("@workspace/db").db | null = null;
+let _embedsTable: typeof import("@workspace/db").embedsTable | null = null;
+let _dbAvailable: boolean | null = null;
+
+async function getDb() {
+  if (_dbAvailable === false) return null;
+  if (_db && _embedsTable) return { db: _db, embedsTable: _embedsTable };
+  try {
+    const mod = await import("@workspace/db");
+    _db = mod.db;
+    _embedsTable = mod.embedsTable;
+    _dbAvailable = true;
+    return { db: _db, embedsTable: _embedsTable };
+  } catch {
+    _dbAvailable = false;
+    return null;
+  }
+}
 
 export const DEFAULT_EMBEDS = [
   // ─── SISTEM ───────────────────────────────────────────────────────────────
@@ -1064,6 +1083,10 @@ export const DEFAULT_EMBEDS = [
 ];
 
 async function loadEmbeds(): Promise<typeof DEFAULT_EMBEDS> {
+  const conn = await getDb();
+  if (!conn) return DEFAULT_EMBEDS;
+
+  const { db, embedsTable } = conn;
   const rows = await db.select().from(embedsTable);
   const savedMap = new Map(rows.map((r) => [r.name, r.data as (typeof DEFAULT_EMBEDS)[number]]));
 
@@ -1076,7 +1099,6 @@ async function loadEmbeds(): Promise<typeof DEFAULT_EMBEDS> {
     missing.forEach((e) => savedMap.set(e.name, e));
   }
 
-  // Preserve default ordering
   return DEFAULT_EMBEDS.map((def) => savedMap.get(def.name) ?? def);
 }
 
@@ -1085,21 +1107,25 @@ router.get("/embeds", async (req, res) => {
     res.json(await loadEmbeds());
   } catch (err) {
     req.log.error(err, "Failed to load embeds");
-    res.status(500).json({ error: "Database error" });
+    res.json(DEFAULT_EMBEDS);
   }
 });
 
 router.get("/embeds/:name", async (req, res) => {
   try {
-    const rows = await db.select().from(embedsTable).where(eq(embedsTable.name, req.params.name));
-    if (rows.length > 0) return res.json(rows[0].data);
-    // Fall back to default
+    const conn = await getDb();
+    if (conn) {
+      const { db, embedsTable } = conn;
+      const rows = await db.select().from(embedsTable).where(eq(embedsTable.name, req.params.name));
+      if (rows.length > 0) return res.json(rows[0].data);
+    }
     const def = DEFAULT_EMBEDS.find((e) => e.name === req.params.name);
     if (!def) return res.status(404).json({ error: "Embed not found" });
     return res.json(def);
   } catch (err) {
     req.log.error(err, "Failed to get embed");
-    return res.status(500).json({ error: "Database error" });
+    const def = DEFAULT_EMBEDS.find((e) => e.name === req.params.name);
+    return def ? res.json(def) : res.status(404).json({ error: "Embed not found" });
   }
 });
 
@@ -1108,7 +1134,13 @@ router.put("/embeds/:name", async (req, res) => {
     const existing = DEFAULT_EMBEDS.find((e) => e.name === req.params.name);
     if (!existing) return res.status(404).json({ error: "Embed not found" });
 
-    // Get current saved version (or fall back to default)
+    const conn = await getDb();
+    if (!conn) {
+      // No DB — return merged but warn it won't persist
+      return res.json({ ...existing, ...req.body });
+    }
+
+    const { db, embedsTable } = conn;
     const rows = await db.select().from(embedsTable).where(eq(embedsTable.name, req.params.name));
     const current = rows.length > 0 ? (rows[0].data as (typeof DEFAULT_EMBEDS)[number]) : existing;
     const updated = { ...current, ...req.body };
