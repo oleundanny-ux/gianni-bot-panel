@@ -1734,6 +1734,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
           <div className="mt-4 text-[11px] text-[#949BA4] space-y-1">
             <div>Varijable poput <code className="bg-[#1E1F22] px-1 rounded text-[#F1C40F]">{"{user}"}</code> zamjenjuje bot pri slanju.</div>
             <div>Emoji format: <code className="bg-[#1E1F22] px-1 rounded text-[#F1C40F]">{"<:ime:id>"}</code> — koristi pikač desno od polja.</div>
+            <div>Tag format: <code className="bg-[#1E1F22] px-1 rounded text-[#5865F2]">{"<#kanal-id>"}</code> <code className="bg-[#1E1F22] px-1 rounded text-[#5865F2]">{"<@&uloga-id>"}</code> — koristi <code className="bg-[#1E1F22] px-1 rounded">@</code> pikač desno od polja.</div>
           </div>
         </div>
       </div>
