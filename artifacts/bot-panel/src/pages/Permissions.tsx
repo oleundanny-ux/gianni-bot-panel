@@ -12,79 +12,88 @@ import {
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 // ─── Discord permission definitions ───────────────────────────────────────────
+type Safety = "safe" | "moderate" | "danger";
+
 interface PermDef {
   bit: bigint;
   label: string;
   description: string;
   danger?: boolean;
+  safety: Safety;
 }
 
 type Category = { label: string; icon: React.ReactNode; perms: PermDef[] };
+
+const SAFETY_BADGE: Record<Safety, { label: string; bg: string; color: string }> = {
+  safe:     { label: "Bezbjedno", bg: "rgba(59,165,92,0.12)",   color: "#3ba55c" },
+  moderate: { label: "Umjereno",  bg: "rgba(251,191,36,0.12)",  color: "#fbbf24" },
+  danger:   { label: "Opasno",    bg: "rgba(248,113,113,0.12)", color: "#f87171" },
+};
 
 const CATEGORIES: Category[] = [
   {
     label: "Generalno",
     icon: <Settings2 size={14} />,
     perms: [
-      { bit: 1n << 3n,  label: "Administrator",           description: "Sve permisije — pazi!", danger: true },
-      { bit: 1n << 5n,  label: "Upravljaj serverom",      description: "Mijenja ime, region, ikonu servera" },
-      { bit: 1n << 7n,  label: "Vidi audit log",          description: "Pristup historiji akcija na serveru" },
-      { bit: 1n << 19n, label: "Vidi statistike servera", description: "Discord Insights analitika" },
-      { bit: 1n << 30n, label: "Upravljaj webhookovima",  description: "Kreira, uređuje i briše webhookove" },
-      { bit: 1n << 29n, label: "Upravljaj emojima",       description: "Dodaje i briše serverske emojije" },
+      { bit: 1n << 3n,  label: "Administrator",           description: "Sve permisije — nikad davati normalnim korisnicima!", danger: true, safety: "danger" },
+      { bit: 1n << 5n,  label: "Upravljaj serverom",      description: "Mijenja ime, region, ikonu servera", safety: "danger" },
+      { bit: 1n << 7n,  label: "Vidi audit log",          description: "Pristup historiji akcija na serveru", safety: "moderate" },
+      { bit: 1n << 19n, label: "Vidi statistike servera", description: "Discord Insights analitika", safety: "safe" },
+      { bit: 1n << 30n, label: "Upravljaj webhookovima",  description: "Kreira, uređuje i briše webhookove", safety: "moderate" },
+      { bit: 1n << 29n, label: "Upravljaj emojima",       description: "Dodaje i briše serverske emojije", safety: "moderate" },
     ],
   },
   {
     label: "Kanali i uloge",
     icon: <Lock size={14} />,
     perms: [
-      { bit: 1n << 4n,  label: "Upravljaj kanalima",   description: "Kreira, briše i uređuje kanale" },
-      { bit: 1n << 28n, label: "Upravljaj ulogama",     description: "Kreira i uređuje uloge ispod ove", danger: true },
-      { bit: 1n << 0n,  label: "Kreira pozivnice",      description: "Generiše invite linkove" },
-      { bit: 1n << 10n, label: "Vidi kanale",           description: "Vidi tekstualne i voice kanale" },
+      { bit: 1n << 4n,  label: "Upravljaj kanalima",   description: "Kreira, briše i uređuje kanale", safety: "danger" },
+      { bit: 1n << 28n, label: "Upravljaj ulogama",     description: "Kreira i uređuje uloge ispod ove — može eskalirati permisije!", danger: true, safety: "danger" },
+      { bit: 1n << 0n,  label: "Kreira pozivnice",      description: "Generiše invite linkove", safety: "safe" },
+      { bit: 1n << 10n, label: "Vidi kanale",           description: "Vidi tekstualne i voice kanale", safety: "safe" },
     ],
   },
   {
     label: "Tekst",
     icon: <MessageSquare size={14} />,
     perms: [
-      { bit: 1n << 11n, label: "Šalje poruke",         description: "Piše u tekstualnim kanalima" },
-      { bit: 1n << 16n, label: "Čita historiju",        description: "Vidi starije poruke u kanalima" },
-      { bit: 1n << 13n, label: "Upravlja porukama",     description: "Briše i pini poruke drugih korisnika", danger: true },
-      { bit: 1n << 12n, label: "TTS poruke",            description: "Šalje text-to-speech poruke" },
-      { bit: 1n << 14n, label: "Embed linkove",         description: "Linkovi generišu pregled" },
-      { bit: 1n << 15n, label: "Priloži fajlove",       description: "Upload fajlova i slika" },
-      { bit: 1n << 6n,  label: "Dodaje reakcije",       description: "Reaguje na poruke emoji-jem" },
-      { bit: 1n << 17n, label: "Taguje @everyone",      description: "Može tagovati cio server", danger: true },
-      { bit: 1n << 18n, label: "Eksterni emoji",        description: "Koristi emojije s drugih servera" },
-      { bit: 1n << 38n, label: "Eksterni stikeri",      description: "Koristi stikere s drugih servera" },
-      { bit: 1n << 32n, label: "Šalje ankete",          description: "Kreira Discord ankete" },
-      { bit: 1n << 34n, label: "Koristi aplikacije",    description: "Slash komande i aplikacije u kanalu" },
+      { bit: 1n << 11n, label: "Šalje poruke",         description: "Piše u tekstualnim kanalima", safety: "safe" },
+      { bit: 1n << 16n, label: "Čita historiju",        description: "Vidi starije poruke u kanalima", safety: "safe" },
+      { bit: 1n << 13n, label: "Upravlja porukama",     description: "Briše i pini poruke drugih korisnika", danger: true, safety: "moderate" },
+      { bit: 1n << 12n, label: "TTS poruke",            description: "Šalje text-to-speech poruke — može biti dosadno", safety: "moderate" },
+      { bit: 1n << 14n, label: "Embed linkove",         description: "Linkovi generišu pregled", safety: "safe" },
+      { bit: 1n << 15n, label: "Priloži fajlove",       description: "Upload fajlova i slika", safety: "safe" },
+      { bit: 1n << 6n,  label: "Dodaje reakcije",       description: "Reaguje na poruke emoji-jem", safety: "safe" },
+      { bit: 1n << 17n, label: "Taguje @everyone",      description: "Može tagovati cio server — nikad davati normalnim korisnicima!", danger: true, safety: "danger" },
+      { bit: 1n << 18n, label: "Eksterni emoji",        description: "Koristi emojije s drugih servera", safety: "safe" },
+      { bit: 1n << 38n, label: "Eksterni stikeri",      description: "Koristi stikere s drugih servera", safety: "safe" },
+      { bit: 1n << 32n, label: "Šalje ankete",          description: "Kreira Discord ankete", safety: "safe" },
+      { bit: 1n << 34n, label: "Koristi aplikacije",    description: "Slash komande i aplikacije u kanalu", safety: "safe" },
     ],
   },
   {
     label: "Voice",
     icon: <Mic size={14} />,
     perms: [
-      { bit: 1n << 20n, label: "Spoji se",             description: "Ulazi u voice kanale" },
-      { bit: 1n << 21n, label: "Govori",                description: "Govori u voice kanalima" },
-      { bit: 1n << 25n, label: "Voice aktivacija",      description: "Govori bez push-to-talk" },
-      { bit: 1n << 8n,  label: "Prioritetni govor",     description: "Smanjuje glasnoću ostalih dok govori" },
-      { bit: 1n << 9n,  label: "Video streaming",       description: "Dijeli ekran/kameru u voice" },
-      { bit: 1n << 22n, label: "Utišaj članove",        description: "Mute server-wide za druge", danger: true },
-      { bit: 1n << 23n, label: "Zaguši članove",        description: "Deafen server-wide za druge", danger: true },
-      { bit: 1n << 24n, label: "Premjesti članove",     description: "Prebacuje korisnike između kanala" },
+      { bit: 1n << 20n, label: "Spoji se",             description: "Ulazi u voice kanale", safety: "safe" },
+      { bit: 1n << 21n, label: "Govori",                description: "Govori u voice kanalima", safety: "safe" },
+      { bit: 1n << 25n, label: "Voice aktivacija",      description: "Govori bez push-to-talk", safety: "safe" },
+      { bit: 1n << 8n,  label: "Prioritetni govor",     description: "Smanjuje glasnoću ostalih dok govori", safety: "moderate" },
+      { bit: 1n << 9n,  label: "Video streaming",       description: "Dijeli ekran/kameru u voice", safety: "safe" },
+      { bit: 1n << 22n, label: "Utišaj članove",        description: "Mute server-wide za druge", danger: true, safety: "danger" },
+      { bit: 1n << 23n, label: "Zaguši članove",        description: "Deafen server-wide za druge", danger: true, safety: "danger" },
+      { bit: 1n << 24n, label: "Premjesti članove",     description: "Prebacuje korisnike između kanala", safety: "moderate" },
     ],
   },
   {
     label: "Članovi",
     icon: <Users size={14} />,
     perms: [
-      { bit: 1n << 1n,  label: "Kickuj članove",        description: "Izbacuje korisnike sa servera", danger: true },
-      { bit: 1n << 2n,  label: "Banuj članove",         description: "Trajno ili privremeno bani korisnike", danger: true },
-      { bit: 1n << 40n, label: "Timeout članove",       description: "Stavlja korisnike u timeout", danger: true },
-      { bit: 1n << 26n, label: "Mijenja vlastiti nick",  description: "Može promijeniti vlastiti nadimak" },
-      { bit: 1n << 27n, label: "Upravljaj nickovima",   description: "Mijenja nadimke drugima" },
+      { bit: 1n << 1n,  label: "Kickuj članove",        description: "Izbacuje korisnike sa servera — samo za modove/admne", danger: true, safety: "danger" },
+      { bit: 1n << 2n,  label: "Banuj članove",         description: "Trajno ili privremeno bani korisnike — samo za admne", danger: true, safety: "danger" },
+      { bit: 1n << 40n, label: "Timeout članove",       description: "Stavlja korisnike u timeout — samo za modove", danger: true, safety: "moderate" },
+      { bit: 1n << 26n, label: "Mijenja vlastiti nick",  description: "Može promijeniti vlastiti nadimak", safety: "safe" },
+      { bit: 1n << 27n, label: "Upravljaj nickovima",   description: "Mijenja nadimke drugima", safety: "moderate" },
     ],
   },
 ];
@@ -453,6 +462,14 @@ export default function Permissions() {
                                     {forcedByAdmin && (
                                       <span className="text-[9px] px-1 py-0.5 rounded" style={{ background: "rgba(248,113,113,0.12)", color: "#f87171" }}>Admin</span>
                                     )}
+                                    {!forcedByAdmin && (() => {
+                                      const b = SAFETY_BADGE[perm.safety];
+                                      return (
+                                        <span className="text-[9px] px-1.5 py-0.5 rounded-full font-semibold" style={{ background: b.bg, color: b.color }}>
+                                          {b.label}
+                                        </span>
+                                      );
+                                    })()}
                                   </div>
                                   <div className="text-[10px] mt-0.5 truncate" style={{ color: on ? "#4b5563" : "#374151" }}>{perm.description}</div>
                                 </div>
