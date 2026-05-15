@@ -118,27 +118,42 @@ router.get("/discord/emojis", async (req, res) => {
       }
     }
 
-    // 1. Application emojis (853 custom emojis from Dev Portal) — retry up to 3x on 502/503
-    let appFetched = false;
-    for (let attempt = 0; attempt < 3 && !appFetched; attempt++) {
-      if (attempt > 0) await new Promise(r => setTimeout(r, 1500 * attempt));
-      try {
-        const r = await fetch(`${DISCORD_API}/applications/${APPLICATION_ID}/emojis?limit=200`, { headers });
-        if (r.ok) {
-          const body = (await r.json()) as { items?: Array<{ id: string; name: string; animated?: boolean }> };
-          add(Array.isArray(body.items) ? body.items : [], "app");
-          appFetched = true;
-        } else if (r.status === 429) {
-          const retry = r.headers.get("retry-after");
-          req.log.warn({ attempt, retryAfter: retry }, "App emoji rate limited, waiting");
-          await new Promise(r2 => setTimeout(r2, (Number(retry) || 5) * 1000));
-        } else {
-          req.log.warn({ attempt, status: r.status }, "App emoji fetch failed");
-          if (r.status < 500) break; // 4xx — no point retrying
+    // 1. Application emojis — paginate with cursor (after=<last_id>) up to 2000 emojis
+    try {
+      let after: string | undefined;
+      let page = 0;
+      const MAX_PAGES = 15; // 15 × 200 = 3000 — well above Discord's 2000 limit
+
+      while (page < MAX_PAGES) {
+        const url = `${DISCORD_API}/applications/${APPLICATION_ID}/emojis?limit=200${after ? `&after=${after}` : ""}`;
+        let fetched = false;
+        for (let attempt = 0; attempt < 3 && !fetched; attempt++) {
+          if (attempt > 0) await new Promise(r => setTimeout(r, 1500 * attempt));
+          try {
+            const r = await fetch(url, { headers });
+            if (r.ok) {
+              const body = (await r.json()) as { items?: Array<{ id: string; name: string; animated?: boolean }> };
+              const items = Array.isArray(body.items) ? body.items : [];
+              add(items, "app");
+              fetched = true;
+              if (items.length < 200) { page = MAX_PAGES; break; } // last page
+              after = items[items.length - 1].id;
+            } else if (r.status === 429) {
+              const retry = r.headers.get("retry-after");
+              req.log.warn({ attempt, retryAfter: retry }, "App emoji rate limited");
+              await new Promise(r2 => setTimeout(r2, (Number(retry) || 5) * 1000));
+            } else {
+              req.log.warn({ attempt, status: r.status }, "App emoji fetch failed");
+              if (r.status < 500) { page = MAX_PAGES; break; }
+            }
+          } catch (e: any) {
+            req.log.warn({ attempt, err: (e as Error).message }, "App emoji fetch exception");
+          }
         }
-      } catch (e: any) {
-        req.log.warn({ attempt, err: e.message }, "App emoji fetch exception");
+        page++;
       }
+    } catch (e: any) {
+      req.log.warn({ err: (e as Error).message }, "App emoji pagination error");
     }
 
     // 2. Guild emojis (185 custom guild emojis)
