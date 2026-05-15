@@ -47874,16 +47874,57 @@ router5.get("/discord/roles", async (req, res) => {
       return res.status(response.status).json({ error: err });
     }
     const roles = await response.json();
-    const mapped = roles.filter((r) => r.name !== "@everyone").sort((a, b) => b.position - a.position).map((r) => ({
+    const mapped = roles.sort((a, b) => b.position - a.position).map((r) => ({
       id: r.id,
       name: r.name,
       color: r.color ? `#${r.color.toString(16).padStart(6, "0")}` : "#5865F2",
       position: r.position,
-      managed: r.managed
+      managed: r.managed,
+      permissions: r.permissions,
+      // bigint string from Discord
+      hoist: r.hoist,
+      mentionable: r.mentionable
     }));
     return res.json(mapped);
   } catch (err) {
     req.log.error({ err }, "Failed to fetch roles");
+    return res.status(500).json({ error: err.message });
+  }
+});
+router5.patch("/discord/roles/:roleId", async (req, res) => {
+  const { roleId } = req.params;
+  const guildId = req.query.guild || PRIMARY_GUILD_ID;
+  const { permissions, color, hoist, mentionable } = req.body;
+  const patch = {};
+  if (permissions !== void 0) patch.permissions = permissions;
+  if (hoist !== void 0) patch.hoist = hoist;
+  if (mentionable !== void 0) patch.mentionable = mentionable;
+  if (color !== void 0) {
+    patch.color = color === "transparent" || color === "none" ? 0 : parseInt(color.replace("#", ""), 16);
+  }
+  try {
+    const r = await fetch(`${DISCORD_API}/guilds/${guildId}/roles/${roleId}`, {
+      method: "PATCH",
+      headers: botHeaders(),
+      body: JSON.stringify(patch)
+    });
+    if (!r.ok) {
+      const err = await r.text();
+      req.log.warn({ roleId, status: r.status, err }, "Role PATCH failed");
+      return res.status(r.status).json({ error: err });
+    }
+    const updated = await r.json();
+    req.log.info({ roleId, permissions }, "Role updated");
+    return res.json({
+      id: updated.id,
+      name: updated.name,
+      color: updated.color ? `#${updated.color.toString(16).padStart(6, "0")}` : "#5865F2",
+      permissions: updated.permissions,
+      hoist: updated.hoist,
+      mentionable: updated.mentionable
+    });
+  } catch (err) {
+    req.log.error({ err }, "Failed to patch role");
     return res.status(500).json({ error: err.message });
   }
 });
