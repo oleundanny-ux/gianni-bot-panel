@@ -6,7 +6,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Save, Smile, X, Search, RefreshCw, LayoutTemplate, Maximize2, Minimize2 } from "lucide-react";
+import {
+  Save, Smile, X, Search, RefreshCw, LayoutTemplate, Maximize2, Minimize2,
+  Settings, ScrollText, Shield, Zap, DollarSign, Gamepad2, Sparkles, Heart,
+  Info, Music, BadgeCheck, BarChart2, Tag, Flame, Star, Archive, Wrench, Leaf,
+  UserPlus, UserMinus, LogOut, MessageCircle, Rocket, Gift, Crown, Ticket,
+  CheckCircle, ClipboardList, Mic, AlertTriangle, Ban, UserX, VolumeX, Volume2,
+  Clock, TrendingUp, Activity, Trophy, Target, ListChecks, Layers, Users, BookOpen,
+  Grid3x3, Hash, HelpCircle, Globe, Bird, Swords, MessageSquare, HeartHandshake,
+  Hand, Diamond, User, Wallet, Briefcase, ShoppingCart, ShoppingBag, ArrowLeftRight,
+  AlertOctagon, Play, ListMusic, SkipForward, Pause, Square, ShieldCheck, ShieldX,
+  Plus, Minus, RotateCcw, Database, FileText, PencilLine, Trash2, UserCheck,
+  type LucideIcon,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import type { EmbedTemplate, EmbedField } from "@workspace/api-client-react";
 
@@ -144,157 +156,156 @@ const EMBED_DISPLAY_NAMES: Record<string, string> = {
   "rr-remove":      "Reaction Roles — Uloga Skinuta",
 };
 
-/** Discord CDN emoji per embed — each unique & colorful */
-const EMBED_ICONS: Record<string, { id: string; gif: boolean }> = {
-  // Sistem — purple/pink tones
-  welcome:           { id: "1500259928936284211", gif: true  }, // pinkpaw
-  leave:             { id: "1500446088434552974", gif: true  }, // mute
-  "dm-welcome":      { id: "1500259869259989033", gif: true  }, // pinksparkles
-  boost:             { id: "1500460793584681021", gif: true  }, // boostgemsmonth24
-  birthday:          { id: "1500461835860709487", gif: true  }, // bluepresent
-  starboard:         { id: "1496899369939636295", gif: true  }, // sparkle1
-  aotw:              { id: "1496899185516216400", gif: false }, // shinycrown
-  ticket:            { id: "1500196243853541397", gif: true  }, // ticket
-  "ticket-otvoren":  { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  "staff-prijava":   { id: "1496898576150954165", gif: false }, // roleadminblue2
-  "private-vc":      { id: "1500444008760217641", gif: true  }, // lockkey
-  // Log — blue tones
-  "log-join":        { id: "1504505910314405888", gif: false }, // members
-  "log-edit":        { id: "1504505912939909141", gif: false }, // announcement
-  "log-delete":      { id: "1500443837452255302", gif: true  }, // cancel
-  report:            { id: "1496899181674238053", gif: false }, // warningids
-  // Moderacija — red tones
-  warn:              { id: "1496899181674238053", gif: false }, // warningids
-  ban:               { id: "1500446026715103253", gif: true  }, // ban
-  // XP — green tones
-  levelup:           { id: "1496899433634201611", gif: true  }, // sparkles
-  "vatrica-nova":    { id: "1496898836155596962", gif: true  }, // VATRICE fire
-  aktivnost:         { id: "1500203557134270534", gif: true  }, // aktivnost
-  rank:              { id: "1500203403362435234", gif: true  }, // aktivnost1
-  "leaderboard-xp":  { id: "1496899185516216400", gif: false }, // shinycrown
-  "leaderboard-novac":{ id: "1500444133389635704", gif: true }, // coin gif
-  // Ekonomija — orange/gold
-  heist:             { id: "1500443902182948954", gif: true  }, // gun
-  lottery:           { id: "1500443990129115196", gif: true  }, // slots
-  quests:            { id: "1500196243853541397", gif: true  }, // ticket
-  giveaway:          { id: "1500203902446997586", gif: true  }, // giveaways5
-  // Igre — yellow/blue
-  slots:             { id: "1500443990129115196", gif: true  }, // slots machine
-  blackjack:         { id: "1500260185510248448", gif: true  }, // dice
-  "poker-lobby":     { id: "1500443897489526965", gif: true  }, // dice1
-  "poker-game":      { id: "1500443897489526965", gif: true  }, // dice1
-  "poker-showdown":  { id: "1496899493130539008", gif: false }, // pinkcrownwithheart
-  "among-us-lobby":  { id: "1500461621800337448", gif: true  }, // amongusfloss
-  "among-us-game":   { id: "1500461621800337448", gif: true  }, // amongusfloss
-  "among-us-end":    { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  "kaladont-start":  { id: "1504506083094565125", gif: true  }, // spellbook
-  "kaladont-active": { id: "1504506083094565125", gif: true  }, // spellbook
-  "kaladont-word":   { id: "1504506110478913536", gif: false }, // book
-  "kaladont-win":    { id: "1496899185516216400", gif: false }, // shinycrown
-  bingo:             { id: "1500260185510248448", gif: true  }, // dice
-  // Fun — butterfly/sparkle
-  hunt:              { id: "1500262801862824047", gif: true  }, // bow
-  zoo:               { id: "1496899500160192562", gif: true  }, // butterfly
-  battle:            { id: "1500462011648049192", gif: true  }, // flamingfiresword
-  pray:              { id: "1500259869259989033", gif: true  }, // pinksparkles
-  vers:              { id: "1500459145382592602", gif: true  }, // music2
-  kompli:            { id: "1496899433634201611", gif: true  }, // sparkles
-  fora:              { id: "1496898747018379305", gif: true  }, // oof
-  muv:               { id: "1496898915176415413", gif: true  }, // sleepyhellokitty
-  crush:             { id: "1504504866700132534", gif: true  }, // pinkheart
-  // Ljubavne — pink/heart
-  zagrljaj:          { id: "1500203677917511741", gif: true  }, // zagrljaj
-  poljubac:          { id: "1500203685450617032", gif: true  }, // poljubac
-  mazi:              { id: "1500203682199896245", gif: true  }, // mazi
-  tapsi:             { id: "1500259928936284211", gif: true  }, // pinkpaw
-  high5:             { id: "1496899299487907870", gif: true  }, // heartpop
-  cudan:             { id: "1496899399077330994", gif: true  }, // annoyedgojo
-  srce:              { id: "1500197728267927734", gif: true  }, // srce heart
-  brak:              { id: "1496898969052381407", gif: false }, // diamond
-  // Info — blue star
-  spotify:           { id: "1500459145382592602", gif: true  }, // music2
-  invite:            { id: "1500203557134270534", gif: true  }, // aktivnost
-  avatar:            { id: "1504505910314405888", gif: false }, // members
-  "brojanje-info":   { id: "1500059790376697988", gif: true  }, // brojanje
-  // Extra
-  "voice-pravila":   { id: "1500444008760217641", gif: true  }, // lockkey
-  "vatrice-pup":     { id: "1496898836155596962", gif: true  }, // VATRICE
-  "vatrice-start":   { id: "1496898836155596962", gif: true  }, // VATRICE
-  "vatrice-kanal":   { id: "1496898836155596962", gif: true  }, // VATRICE
-  "vatrice-oblik":   { id: "1496898836155596962", gif: true  }, // VATRICE
-  "giveaway-end":    { id: "1496899185516216400", gif: false }, // shinycrown
-  "vjasala":         { id: "1504506083094565125", gif: true  }, // spellbook
-  "vjasala-kraj":    { id: "1496899433634201611", gif: true  }, // sparkles
-  "toplo-hladno":    { id: "1500203557134270534", gif: true  }, // aktivnost
-  "kviz":            { id: "1504506083094565125", gif: true  }, // spellbook
-  "geografija":      { id: "1500261783141875814", gif: false }, // Members0
-  "mafia-lobby":     { id: "1500443897489526965", gif: true  }, // dice1
-  "mafia-end":       { id: "1496899185516216400", gif: false }, // shinycrown
-  "poo-hrani":       { id: "1500259928936284211", gif: true  }, // pinkpaw
-  "poo-info":        { id: "1500203557134270534", gif: true  }, // aktivnost
-  backup:            { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  "backup-restore":  { id: "1500443837452255302", gif: true  }, // cancel
-  "backup-status":   { id: "1500203557134270534", gif: true  }, // aktivnost
-  "report-closed":   { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  // Moderacija (kompletno)
-  "mod-kick":        { id: "1500446026715103253", gif: true  }, // ban
-  "mod-mute":        { id: "1500443837452255302", gif: true  }, // cancel
-  "mod-unmute":      { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  "mod-timeout":     { id: "1500203557134270534", gif: true  }, // aktivnost
-  "mod-purge":       { id: "1500443837452255302", gif: true  }, // cancel
-  "mod-unban":       { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  // Ekonomija (kompletno)
-  "eco-balance":     { id: "1500444133389635704", gif: true  }, // coin
-  "eco-daily":       { id: "1500444133389635704", gif: true  }, // coin
-  "eco-work":        { id: "1496898969052381407", gif: false }, // diamond
-  "eco-shop":        { id: "1500444133389635704", gif: true  }, // coin
-  "eco-buy":         { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  "eco-transfer":    { id: "1500444133389635704", gif: true  }, // coin
-  "eco-rob":         { id: "1500443902182948954", gif: true  }, // gun
+/** Lucide icon per embed name */
+const EMBED_ICONS: Record<string, LucideIcon> = {
+  // Sistem
+  welcome:            UserPlus,
+  leave:              LogOut,
+  "dm-welcome":       MessageCircle,
+  boost:              Rocket,
+  birthday:           Gift,
+  starboard:          Star,
+  aotw:               Crown,
+  ticket:             Ticket,
+  "ticket-otvoren":   CheckCircle,
+  "staff-prijava":    ClipboardList,
+  "private-vc":       Mic,
+  "voice-pravila":    ScrollText,
+  // Log
+  "log-join":         UserPlus,
+  "log-edit":         PencilLine,
+  "log-delete":       Trash2,
+  report:             AlertTriangle,
+  "report-closed":    CheckCircle,
+  // Moderacija
+  warn:               AlertTriangle,
+  ban:                Ban,
+  "mod-kick":         UserX,
+  "mod-mute":         VolumeX,
+  "mod-unmute":       Volume2,
+  "mod-timeout":      Clock,
+  "mod-purge":        Trash2,
+  "mod-unban":        UserCheck,
+  // XP
+  levelup:            TrendingUp,
+  "vatrica-nova":     Flame,
+  aktivnost:          Activity,
+  rank:               BarChart2,
+  "leaderboard-xp":   Trophy,
+  "leaderboard-novac": DollarSign,
+  // Ekonomija
+  heist:              Target,
+  lottery:            Ticket,
+  quests:             ListChecks,
+  giveaway:           Gift,
+  "giveaway-end":     Trophy,
+  "eco-balance":      Wallet,
+  "eco-daily":        Star,
+  "eco-work":         Briefcase,
+  "eco-shop":         ShoppingCart,
+  "eco-buy":          ShoppingBag,
+  "eco-transfer":     ArrowLeftRight,
+  "eco-rob":          AlertOctagon,
+  // Igre
+  slots:              Layers,
+  blackjack:          Layers,
+  "poker-lobby":      Layers,
+  "poker-game":       Layers,
+  "poker-showdown":   Crown,
+  "among-us-lobby":   Users,
+  "among-us-game":    Users,
+  "among-us-end":     CheckCircle,
+  "kaladont-start":   BookOpen,
+  "kaladont-active":  BookOpen,
+  "kaladont-word":    BookOpen,
+  "kaladont-win":     Trophy,
+  bingo:              Grid3x3,
+  "vjasala":          Hash,
+  "vjasala-kraj":     CheckCircle,
+  "toplo-hladno":     HelpCircle,
+  kviz:               HelpCircle,
+  geografija:         Globe,
+  "mafia-lobby":      Users,
+  "mafia-end":        Crown,
+  // Fun
+  hunt:               Target,
+  zoo:                Bird,
+  battle:             Swords,
+  pray:               Star,
+  vers:               Music,
+  kompli:             MessageSquare,
+  fora:               Smile,
+  muv:                Heart,
+  crush:              HeartHandshake,
+  // Ljubavne
+  zagrljaj:           HeartHandshake,
+  poljubac:           Heart,
+  mazi:               Smile,
+  tapsi:              Hand,
+  high5:              Star,
+  cudan:              HelpCircle,
+  srce:               Heart,
+  brak:               Diamond,
+  // Info
+  spotify:            Music,
+  invite:             BarChart2,
+  avatar:             User,
+  "brojanje-info":    Hash,
+  // Vatrice
+  "vatrice-pup":      Trophy,
+  "vatrice-start":    Flame,
+  "vatrice-kanal":    Flame,
+  "vatrice-oblik":    Flame,
+  // Poo
+  poo:                Leaf,
+  "poo-zadaci":       ListChecks,
+  "poo-top":          Trophy,
+  "poo-hrani":        Heart,
+  "poo-info":         BarChart2,
+  // Admin
+  backup:             Archive,
+  "backup-restore":   RotateCcw,
+  "backup-status":    Database,
   // Muzika
-  "music-play":      { id: "1500459145382592602", gif: true  }, // music2
-  "music-queue":     { id: "1500459145382592602", gif: true  }, // music2
-  "music-skip":      { id: "1500259869259988033", gif: true  }, // pinksparkles
-  "music-pause":     { id: "1500444022622130196", gif: true  }, // pinknotes
-  "music-stop":      { id: "1500443837452255302", gif: true  }, // cancel
-  "music-lyrics":    { id: "1504506110478913536", gif: false }, // book
+  "music-play":       Play,
+  "music-queue":      ListMusic,
+  "music-skip":       SkipForward,
+  "music-pause":      Pause,
+  "music-stop":       Square,
+  "music-lyrics":     FileText,
   // Verifikacija
-  "verify-panel":    { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  "verify-success":  { id: "1504504889706020995", gif: false }, // purplecheck
-  "verify-fail":     { id: "1496899181674238053", gif: false }, // warningids
+  "verify-panel":     ShieldCheck,
+  "verify-success":   BadgeCheck,
+  "verify-fail":      ShieldX,
   // Ankete
-  "poll-create":     { id: "1496899433634201611", gif: true  }, // sparkles
-  "poll-results":    { id: "1496899185516216400", gif: false }, // shinycrown
+  "poll-create":      BarChart2,
+  "poll-results":     Trophy,
   // Reaction Roles
-  "rr-panel":        { id: "1504505863032012832", gif: false }, // settings
-  "rr-add":          { id: "1504504889706020995", gif: false }, // purplecheck
-  "rr-remove":       { id: "1500443837452255302", gif: true  }, // cancel
+  "rr-panel":         Tag,
+  "rr-add":           Plus,
+  "rr-remove":        Minus,
 };
 
-/** Discord CDN emoji per category header */
-const EMBED_CAT_ICONS: Record<string, { id: string; gif: boolean }> = {
-  Sistem:           { id: "1504505863032012832", gif: false }, // settings
-  Log:              { id: "1504505912939909141", gif: false }, // announcement
-  Moderacija:       { id: "1496898603246161970", gif: false }, // twopartshieldids
-  XP:               { id: "1496899433634201611", gif: true  }, // sparkles
-  Ekonomija:        { id: "1500444133389635704", gif: true  }, // coin
-  Igre:             { id: "1500260185510248448", gif: true  }, // dice
-  Fun:              { id: "1496899500160192562", gif: true  }, // butterfly
-  Ljubavne:         { id: "1504504866700132534", gif: true  }, // pinkheart
-  Info:             { id: "1496898993395859457", gif: false }, // blueneonstar
-  Muzika:           { id: "1500459145382592602", gif: true  }, // music2
-  Verifikacija:     { id: "1496898532559421571", gif: false }, // neonverifiedcheck
-  Ankete:           { id: "1496899433634201611", gif: true  }, // sparkles
-  "Reaction Roles": { id: "1504505863032012832", gif: false }, // settings
-  Admin:            { id: "1496899181674238053", gif: false }, // warningids
-  Vatrice:          { id: "1496898836155596962", gif: true  }, // vatrice
-  Poo:              { id: "1500259928936284211", gif: true  }, // pinkpaw
-  "Sistem paneli":  { id: "1500196243853541397", gif: true  }, // ticket
+/** Lucide icon per category */
+const EMBED_CAT_ICONS: Record<string, LucideIcon> = {
+  "Sistem":          Settings,
+  "Log":             ScrollText,
+  "Moderacija":      Shield,
+  "XP":              Zap,
+  "Ekonomija":       DollarSign,
+  "Igre":            Gamepad2,
+  "Fun":             Sparkles,
+  "Ljubavne":        Heart,
+  "Info":            Info,
+  "Muzika":          Music,
+  "Verifikacija":    BadgeCheck,
+  "Ankete":          BarChart2,
+  "Reaction Roles":  Tag,
+  "Admin":           Wrench,
+  "Vatrice":         Flame,
+  "Poo":             Leaf,
+  "Sistem paneli":   LayoutTemplate,
 };
-
-function embedIconUrl(icon: { id: string; gif: boolean }) {
-  return `https://cdn.discordapp.com/emojis/${icon.id}.${icon.gif ? "gif" : "png"}?size=32`;
-}
 
 interface DiscordEmoji {
   id: string;
@@ -1628,16 +1639,9 @@ export default function Embeds() {
                 <div key={cat}>
                   {/* Category header */}
                   <div className="flex items-center gap-2 px-1 mb-1.5">
-                    <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 overflow-hidden"
-                      style={{ background: `${color}15`, border: `1px solid ${color}25` }}>
-                      {EMBED_CAT_ICONS[cat] ? (
-                        <img
-                          src={embedIconUrl(EMBED_CAT_ICONS[cat])}
-                          width={16} height={16}
-                          className="object-contain"
-                          alt={cat}
-                        />
-                      ) : "📌"}
+                    <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${color}20`, border: `1px solid ${color}40` }}>
+                      {(() => { const CatIcon = EMBED_CAT_ICONS[cat]; return CatIcon ? <CatIcon style={{ width: 11, height: 11, color, strokeWidth: 2.5 }} /> : null; })()}
                     </div>
                     <span className="text-[10px] font-black uppercase tracking-wider" style={{ color }}>{cat}</span>
                     <div className="flex-1 h-px" style={{ background: `linear-gradient(90deg, ${color}30, transparent)` }} />
@@ -1672,20 +1676,24 @@ export default function Embeds() {
                             }
                           }}
                         >
-                          {EMBED_ICONS[embed.name] ? (
-                            <img
-                              src={embedIconUrl(EMBED_ICONS[embed.name])}
-                              width={18} height={18}
-                              className="flex-shrink-0 object-contain rounded"
-                              style={{ opacity: isSelected ? 1 : 0.75 }}
-                              alt=""
-                            />
-                          ) : (
-                            <div
-                              className="w-2 h-2 rounded-full flex-shrink-0"
-                              style={{ backgroundColor: isSelected ? color : embed.color ?? color, opacity: isSelected ? 1 : 0.6 }}
-                            />
-                          )}
+                          {(() => {
+                            const EmbedIcon = EMBED_ICONS[embed.name] ?? EMBED_CAT_ICONS[cat];
+                            return EmbedIcon ? (
+                              <div
+                                className="flex items-center justify-center rounded-md flex-shrink-0 transition-all"
+                                style={{
+                                  width: 22, height: 22,
+                                  background: isSelected ? `${color}30` : `${color}15`,
+                                  border: `1px solid ${isSelected ? color + "60" : color + "30"}`,
+                                }}
+                              >
+                                <EmbedIcon style={{ width: 12, height: 12, color: isSelected ? color : color + "cc", strokeWidth: 2.2 }} />
+                              </div>
+                            ) : (
+                              <div className="w-2 h-2 rounded-full flex-shrink-0"
+                                style={{ backgroundColor: color, opacity: isSelected ? 1 : 0.5 }} />
+                            );
+                          })()}
                           <span className="truncate font-medium">
                             {EMBED_DISPLAY_NAMES[embed.name] ?? embed.title ?? embed.name}
                           </span>
