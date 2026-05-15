@@ -31,7 +31,7 @@
   },
   {
     "name": "boost",
-    "title": "<a:srce:1500197728267927734> Novi Boost!",
+    "title": "<:518169rolemodpurple:1496901673426096158> Novi Boost!",
     "description": "{user} je upravo **boostovao server**! <a:aktivnost:1500203557134270534>\nHvala ti na podršci — server je sad još jači! <a:387466flamingfiresword:1500462011648049192>",
     "color": "#F47FFF",
     "category": "Sistem",
@@ -44,7 +44,7 @@
         "inline": true
       },
       {
-        "name": "<:79529shinycrown:1496899185516216400> Tier",
+        "name": "<:864113ownerpinkcrownwithheart:1496899493130539008> Tier",
         "value": "`Lvl {tier}`",
         "inline": true
       },
@@ -57,7 +57,7 @@
   },
   {
     "name": "birthday",
-    "title": "<a:210963bluepresent:1500461835860709487> Sretan Rođendan!",
+    "title": "<:518169rolemodpurple:1496901673426096158> Sretan Rođendan!",
     "description": "Danas je rođendan od {user}! <a:giveaways5:1500203902446997586>\nSvi mu/joj čestitajte! <a:giveaways5:1500203902446997586>",
     "color": "#2B2D42",
     "category": "Sistem",
@@ -71,7 +71,7 @@
     "description": "{content}",
     "color": "#F1C40F",
     "category": "Sistem",
-    "footer": "<:40197blueneonstar:1496898993395859457> {count} | #{channel}",
+    "footer": "<:2084purplestar:1504504848375349388> {count} | #{channel}",
     "thumbnail": null,
     "fields": [
       {
@@ -83,8 +83,8 @@
   },
   {
     "name": "aotw",
-    "title": "<:79529shinycrown:1496899185516216400> Aktivni Član Sedmice",
-    "description": "━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> Najaktivniji član ove sedmice je:\n\n## {user}\n\n<:32467lovetalk:1504505532323594321> Napisao/la **{count}** poruka u zadnjih 7 dana!\n━━━━━━━━━━━━━━━━━━━━━━\n<a:210963bluepresent:1500461835860709487> **Nagrada:** `+500 coina` <a:529977coin:1500444133389635704> + `+100 XP` <a:aktivnost:1500203557134270534>\n<a:srce:1500197728267927734> Hvala što si dio × GIANNI porodice!",
+    "title": "<:864113ownerpinkcrownwithheart:1496899493130539008> Aktivni Član Sedmice",
+    "description": "━━━━━━━━━━━━━━━━━━━━━━\n<:864113ownerpinkcrownwithheart:1496899493130539008> Najaktivniji član ove sedmice je:\n\n## {user}\n\n<:32467lovetalk:1504505532323594321> Napisao/la **{count}** poruka u zadnjih 7 dana!\n━━━━━━━━━━━━━━━━━━━━━━\n<a:210963bluepresent:1500461835860709487> **Nagrada:** `+500 coina` <a:529977coin:1500444133389635704> + `+100 XP` <a:aktivnost:1500203557134270534>\n<a:srce:1500197728267927734> Hvala što si dio × GIANNI porodice!",
     "color": "#FFD700",
     "category": "Sistem",
     "footer": "GIANNI (Custom) • Sljedeći AOTW za 7 dana <:2261bell:1504505860720820395>",
@@ -92,14 +92,14 @@
     "fields": [
       {
         "name": "<a:aktivnost:1500203557134270534> Top 3 sedmice",
-        "value": "<:79529shinycrown:1496899185516216400> **{top1}** — `{top1count}` poruka\n<:40197blueneonstar:1496898993395859457> **{top2}** — `{top2count}` poruka\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** — `{top3count}` poruka",
+        "value": "<:864113ownerpinkcrownwithheart:1496899493130539008> **{top1}** — `{top1count}` poruka\n<:2084purplestar:1504504848375349388> **{top2}** — `{top2count}` poruka\n<:4558purplecheck:1504504889706020995> **{top3}** — `{top3count}` poruka",
         "inline": false
       }
     ]
   },
   {
     "name": "log-join",
-    "title": "<:7289announcement:1504505912939909141> Novi Član",
+    "title": "<:11309roleadminblue2:1496898576150954165> Novi Član",
     "description": "",
     "color": "#43B581",
     "category": "Log",
@@ -125,7 +125,7 @@
   },
   {
     "name": "log-edit",
-    "title": "<:7289announcement:1504505912939909141> Poruka Editovana",
+    "title": "<:11309roleadminblue2:1496898576150954165> Poruka Editovana",
     "description": "",
     "color": "#F39C12",
     "category": "Log",
@@ -156,7 +156,7 @@
   },
   {
     "name": "log-delete",
-    "title": "<a:3485cancel:1500443837452255302> Poruka Obrisana",
+    "title": "<:11309roleadminblue2:1496898576150954165> Poruka Obrisana",
     "description": "",
     "color": "#E74C3C",
     "category": "Log",
@@ -177,7 +177,7 @@
   },
   {
     "name": "report",
-    "title": "<:73535warningids:1496899181674238053> NOVA PRIJAVA",
+    "title": "<:11309roleadminblue2:1496898576150954165> NOVA PRIJAVA",
     "description": "",
     "color": "#E74C3C",
     "category": "Log",
@@ -208,7 +208,7 @@
   },
   {
     "name": "warn",
-    "title": "<:73535warningids:1496899181674238053> Upozorenje",
+    "title": "<:994180roleadminred1:1496902197605306461> Upozorenje",
     "description": "{user} je upozoren/a od strane moderatora.",
     "color": "#F39C12",
     "category": "Moderacija",
@@ -216,7 +216,7 @@
     "thumbnail": null,
     "fields": [
       {
-        "name": "<:7188members:1504505910314405888> Korisnik",
+        "name": "<:32673memberred:1504505534273949848> Korisnik",
         "value": "{user}",
         "inline": true
       },
@@ -234,7 +234,7 @@
   },
   {
     "name": "ban",
-    "title": "<a:760912ban:1500446026715103253> Član Banovan",
+    "title": "<:994180roleadminred1:1496902197605306461> Član Banovan",
     "description": "",
     "color": "#E74C3C",
     "category": "Moderacija",
@@ -250,7 +250,7 @@
   },
   {
     "name": "levelup",
-    "title": "<a:505993sparkle1:1496899369939636295> ʟᴇᴠᴇʟ ᴜᴘ! <a:505993sparkle1:1496899369939636295>",
+    "title": "<:40197blueneonstar:1496898993395859457> ʟᴇᴠᴇʟ ᴜᴘ! <a:505993sparkle1:1496899369939636295>",
     "description": "━━━━━━━━━━━━━━━━━━━━\n<a:giveaways5:1500203902446997586> Čestitamo {user}!\nDostigao/la si **`<:40197blueneonstar:1496898993395859457> LEVEL {level} <:40197blueneonstar:1496898993395859457>`**\n━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> **+100 XP** • <a:vatrice1:1500466044429664256> **+1 vatrica**\n<:7289announcement:1504505912939909141> Sljedeći level: još `100` poruka!\n\n<a:aktivnost:1500203557134270534> Provjeri statistiku sa `/aktivnost` ili `/rank`",
     "color": "#FFD700",
     "category": "XP",
@@ -260,7 +260,7 @@
   },
   {
     "name": "vatrica-nova",
-    "title": "<a:VATRICE:1496898836155596962> ɴᴏᴠᴀ ᴠᴀᴛʀɪᴄᴀ! <a:VATRICE:1496898836155596962>",
+    "title": "<a:165313greenday:1496899279518830693> ɴᴏᴠᴀ ᴠᴀᴛʀɪᴄᴀ! <a:VATRICE:1496898836155596962>",
     "description": "━━━━━━━━━━━━━━━━━━━━━━\n<a:giveaways5:1500203902446997586> Čestitamo {user}!\nImaš sada **`{vatriceCount}`** <a:VATRICE:1496898836155596962>\n━━━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> Zarađeno aktivnošću u chatu (svakih 150 poruka)\n<a:aktivnost:1500203557134270534> Tvoje mjesto: **#{rank}** od **{total}**\n\n**Do sljedeće vatrice:** `░░░░░░░░░░`  `{progress}/150`\n\n**<:79529shinycrown:1496899185516216400> Trenutni podij:**\n<:79529shinycrown:1496899185516216400> **{top1}** — <a:VATRICE:1496898836155596962> {top1count}\n<:40197blueneonstar:1496898993395859457> **{top2}** — <a:VATRICE:1496898836155596962> {top2count}\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** — <a:VATRICE:1496898836155596962> {top3count}\n━━━━━━━━━━━━━━━━━━━━━━\n_Pogledaj kompletnu top listu sa_ `/vatrice pup`",
     "color": "#FF6A00",
     "category": "XP",
@@ -270,7 +270,7 @@
   },
   {
     "name": "aktivnost",
-    "title": "<a:aktivnost:1500203557134270534> ᴀᴋᴛɪᴠɴᴏsᴛ",
+    "title": "<:367280roleadmingreen:1496898579720044706> ᴀᴋᴛɪᴠɴᴏsᴛ",
     "description": "━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **{user}**\n━━━━━━━━━━━━━━━━━━━━\n🟧🟧🟧⬛⬛⬛⬛⬛⬛⬛  `{progress}/100`\n<a:44503lockkey:1500444008760217641> Još **`{doSljedeceg}`** poruka do sljedećeg levela!",
     "color": "#FFA500",
     "category": "XP",
@@ -306,7 +306,7 @@
   },
   {
     "name": "rank",
-    "title": "<a:aktivnost1:1500203403362435234> Rank Profil",
+    "title": "<:367280roleadmingreen:1496898579720044706> Rank Profil",
     "description": "🟪🟪🟪🟪⬛⬛⬛⬛⬛⬛\n`▰▰▰▰▱▱▱▱▱▱` **40%**",
     "color": "#9B59B6",
     "category": "XP",
@@ -352,7 +352,7 @@
   },
   {
     "name": "heist",
-    "title": "<a:529977coin:1500444133389635704> RAZBOJ U PRIPREMI",
+    "title": "<:984706roleadminorange1:1496898583239200819> RAZBOJ U PRIPREMI",
     "description": "{user} organizuje razboj!\n**Klikni dugme da se pridružiš** (treba 3+ ljudi za uspjeh)\n<a:44503lockkey:1500444008760217641> 30 sekundi do akcije!",
     "color": "#F39C12",
     "category": "Ekonomija",
@@ -362,7 +362,7 @@
   },
   {
     "name": "lottery",
-    "title": "<a:43091slots:1500443990129115196> Sedmična Loto",
+    "title": "<:984706roleadminorange1:1496898583239200819> Sedmična Loto",
     "description": "",
     "color": "#2B2D42",
     "category": "Ekonomija",
@@ -393,7 +393,7 @@
   },
   {
     "name": "quests",
-    "title": "<:7289announcement:1504505912939909141> Dnevni Zadaci",
+    "title": "<:984706roleadminorange1:1496898583239200819> Dnevni Zadaci",
     "description": "⬜ **Pošalji 10 poruka** — Budi aktivan u chatu\n`░░░░░░░░░░` `0/10` • <a:529977coin:1500444133389635704> `+200`\n\n<:428758neonverifiedcheck:1496898532559421571> **Odigraj slots** — Probaj sreću na slot mašini\n`██████████` `1/1` • <a:529977coin:1500444133389635704> `+150`\n\n⬜ **Uhvati 5 životinja** — Idi u /hunt\n`███░░░░░░░` `3/5` • <a:529977coin:1500444133389635704> `+300`",
     "color": "#2B2D42",
     "category": "Ekonomija",
@@ -409,7 +409,7 @@
   },
   {
     "name": "giveaway",
-    "title": "<a:giveaways5:1500203902446997586> NAGRADNA IGRA!",
+    "title": "<:79529shinycrown:1496899185516216400> NAGRADNA IGRA!",
     "description": "## <:79529shinycrown:1496899185516216400>  {nagrada}\n\nKlikni dugme **<a:giveaways5:1500203902446997586> Učestvuj** da se prijaviš!",
     "color": "#F1C40F",
     "category": "Ekonomija",
@@ -440,7 +440,7 @@
   },
   {
     "name": "slots",
-    "title": "<a:43091slots:1500443990129115196>  S L O T  M A Š I N A",
+    "title": "<a:39865dice:1500260185510248448>  S L O T  M A Š I N A",
     "description": "𓉘  🍒  │  🍒  │  🍒  𓉝\n\n<a:43091slots:1500443990129115196> Sva tri ista — **JACKPOT!**",
     "color": "#F1C40F",
     "category": "Igre",
@@ -466,7 +466,7 @@
   },
   {
     "name": "blackjack",
-    "title": "🃏 Blackjack",
+    "title": "<a:39865dice:1500260185510248448> 🃏 Blackjack",
     "description": "",
     "color": "#2B2D42",
     "category": "Igre",
@@ -492,7 +492,7 @@
   },
   {
     "name": "poker-lobby",
-    "title": "🃏 POKER — Texas Hold'em",
+    "title": "<a:39865dice:1500260185510248448> 🃏 POKER — Texas Hold'em",
     "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:529977coin:1500444133389635704> **Ulog po igraču:** `{ulog} <a:529977coin:1500444133389635704>`\n<:79529shinycrown:1496899185516216400> **Trenutni pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **Igrači ({count}/9):**\n▸ **{player1}**\n▸ **{player2}**\n\n▸ Klikni **Ulazi u igru** da se pridružiš\n▸ Domaćin klika **Počni igru** kad je spreman\n▸ Igra automatski kreće za **60 sekundi**",
     "color": "#2ECC71",
     "category": "Igre",
@@ -502,7 +502,7 @@
   },
   {
     "name": "poker-game",
-    "title": "🃏 Pre-Flop — Kartice podijeljene",
+    "title": "<a:39865dice:1500260185510248448> 🃏 Pre-Flop — Kartice podijeljene",
     "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n🃏 **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n<a:529977coin:1500444133389635704> **Pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:7188members:1504505910314405888> **Aktivni:**\n<:428758neonverifiedcheck:1496898532559421571> **{player1}**\n<:428758neonverifiedcheck:1496898532559421571> **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:44503lockkey:1500444008760217641> **Čekamo potez:**\n<a:44503lockkey:1500444008760217641> {player1}",
     "color": "#F39C12",
     "category": "Igre",
@@ -522,7 +522,7 @@
   },
   {
     "name": "among-us-lobby",
-    "title": "<a:aktivnost:1500203557134270534> Among Us — Lobby",
+    "title": "<a:39865dice:1500260185510248448> Among Us — Lobby",
     "description": "Pridruži se i čekaj da host pokrene igru!\n**Min 4 • Max 10 igrača**",
     "color": "#1B1B2F",
     "category": "Igre",
@@ -538,7 +538,7 @@
   },
   {
     "name": "among-us-game",
-    "title": "<a:aktivnost:1500203557134270534> Among Us — U Toku",
+    "title": "<a:39865dice:1500260185510248448> Among Us — U Toku",
     "description": "",
     "color": "#1B1B2F",
     "category": "Igre",
@@ -580,7 +580,7 @@
   },
   {
     "name": "kaladont-start",
-    "title": "<a:42985spellbook:1504506083094565125>  K A L A D O N T",
+    "title": "<a:39865dice:1500260185510248448>  K A L A D O N T",
     "description": "━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259989033> Igra je počela! Prva riječ:\n## <:32467lovetalk:1504505532323594321>  **BALKAN**\n━━━━━━━━━━━━━━━━━━━━━",
     "color": "#00BCD4",
     "category": "Igre",
@@ -588,7 +588,7 @@
     "thumbnail": null,
     "fields": [
       {
-        "name": "<a:15072animatedarrowpink2:1496898801556914236>  Sljedeća počinje sa",
+        "name": "<a:15770animatedarrowyellow:1496898815502844025>  Sljedeća počinje sa",
         "value": "## **`AN`**",
         "inline": true
       },
@@ -611,7 +611,7 @@
   },
   {
     "name": "kaladont-active",
-    "title": "<a:42985spellbook:1504506083094565125>  K A L A D O N T  —  aktivna igra",
+    "title": "<a:39865dice:1500260185510248448>  K A L A D O N T  —  aktivna igra",
     "description": "━━━━━━━━━━━━━━━━━━━━━",
     "color": "#00BCD4",
     "category": "Igre",
@@ -634,7 +634,7 @@
         "inline": true
       },
       {
-        "name": "<a:15072animatedarrowpink2:1496898801556914236>  Sljedeća počinje sa",
+        "name": "<a:15770animatedarrowyellow:1496898815502844025>  Sljedeća počinje sa",
         "value": "## **`TA`**",
         "inline": false
       }
@@ -650,7 +650,7 @@
     "thumbnail": null,
     "fields": [
       {
-        "name": "<a:15072animatedarrowpink2:1496898801556914236>  Sljedeća počinje sa",
+        "name": "<a:15770animatedarrowyellow:1496898815502844025>  Sljedeća počinje sa",
         "value": "## **`KA`**",
         "inline": true
       },
@@ -710,7 +710,7 @@
   },
   {
     "name": "hunt",
-    "title": "<a:79705bow:1500262801862824047>  Uhvatio si životinje!",
+    "title": "<a:874347butterfly:1496899500160192562>  Uhvatio si životinje!",
     "description": "## <a:874347butterfly:1496899500160192562>  Vuk\n<:40197blueneonstar:1496898993395859457> **Uncommon**  ·  <a:387466flamingfiresword:1500462011648049192> Snaga `15`",
     "color": "#9B59B6",
     "category": "Fun",
@@ -752,7 +752,7 @@
   },
   {
     "name": "battle",
-    "title": "<a:387466flamingfiresword:1500462011648049192>  BITKA!",
+    "title": "<a:874347butterfly:1496899500160192562>  BITKA!",
     "description": "**{player1}** vs **{player2}**\n`████████████░░░░░░░░`\n<a:387466flamingfiresword:1500462011648049192> `{score1}` vs `{score2}` <a:387466flamingfiresword:1500462011648049192>",
     "color": "#F1C40F",
     "category": "Fun",
@@ -918,7 +918,7 @@
   },
   {
     "name": "spotify",
-    "title": "<a:music2:1500459145382592602> {trackTitle}",
+    "title": "<:40197blueneonstar:1496898993395859457> {trackTitle}",
     "description": "**Izvođač:** {artist}\n**Album:** {album}\n\n`0:45` ▰▰▰▰▰▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱ `3:22`",
     "color": "#1DB954",
     "category": "Info",
@@ -928,7 +928,7 @@
   },
   {
     "name": "invite",
-    "title": "<a:aktivnost:1500203557134270534> Statistika — {user}",
+    "title": "<:40197blueneonstar:1496898993395859457> Statistika — {user}",
     "description": "",
     "color": "#2B2D42",
     "category": "Info",
@@ -959,7 +959,7 @@
   },
   {
     "name": "avatar",
-    "title": "<:7188members:1504505910314405888> {user}",
+    "title": "<:40197blueneonstar:1496898993395859457> {user}",
     "description": "[PNG]({png}) • [JPG]({jpg}) • [WEBP]({webp})",
     "color": "#2B2D42",
     "category": "Info",
@@ -969,8 +969,8 @@
   },
   {
     "name": "brojanje-info",
-    "title": "<a:brojanje:1500059790376697988> Brojanje — stanje",
-    "description": "<:5145modernserverguide:1504506880423231508> **Kanal:** {channel}\n<a:brojanje:1500059790376697988> **Trenutno:** `{current}`\n<a:15072animatedarrowpink2:1496898801556914236> **Sljedeći broj:** `{next}`\n<:7188members:1504505910314405888> **Zadnji brojao:** {lastUser}\n<:79529shinycrown:1496899185516216400> **Rekord:** `{highScore}`",
+    "title": "<:40197blueneonstar:1496898993395859457> Brojanje — stanje",
+    "description": "<:5145modernserverguide:1504506880423231508> **Kanal:** {channel}\n<a:brojanje:1500059790376697988> **Trenutno:** `{current}`\n<a:32877animatedarrowbluelite:1496898954783096933> **Sljedeći broj:** `{next}`\n<:7188members:1504505910314405888> **Zadnji brojao:** {lastUser}\n<:79529shinycrown:1496899185516216400> **Rekord:** `{highScore}`",
     "color": "#2B2D42",
     "category": "Info",
     "footer": "GIANNI (Custom) v2.0",
@@ -979,7 +979,7 @@
   },
   {
     "name": "ticket",
-    "title": "<a:ticket:1500196243853541397>  Otvori Tiket",
+    "title": "<:518169rolemodpurple:1496901673426096158>  Otvori Tiket",
     "description": "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:ticket:1500196243853541397> Trebaš pomoć? **Otvori tiket**!\n\n<:7289announcement:1504505912939909141> Popuni formu i naš staff će ti odgovoriti što prije.\n<a:44503lockkey:1500444008760217641> Prosječno vrijeme odgovora: **< 30 minuta**\n━━━━━━━━━━━━━━━━━━━━━━━━━━",
     "color": "#00BCD4",
     "category": "Sistem",
@@ -988,14 +988,14 @@
     "fields": [
       {
         "name": "<:7289announcement:1504505912939909141> Šta ćeš dobiti",
-        "value": "<:3409locked:1504509321613148342> Privatni kanal samo za tebe i staff\n<:428758neonverifiedcheck:1496898532559421571> Pomoć od iskusnog tima\n<:8526link:1504505939917803620> Možeš priložiti slike/screenshote",
+        "value": "<:3409locked:1504509321613148342> Privatni kanal samo za tebe i staff\n<:4558purplecheck:1504504889706020995> Pomoć od iskusnog tima\n<:8526link:1504505939917803620> Možeš priložiti slike/screenshote",
         "inline": false
       }
     ]
   },
   {
     "name": "ticket-otvoren",
-    "title": "<:428758neonverifiedcheck:1496898532559421571>  Tiket otvoren!",
+    "title": "<:4558purplecheck:1504504889706020995>  Tiket otvoren!",
     "description": "## <a:giveaways5:1500203902446997586> Tvoj tiket je kreiran!\nPrivatni kanal: {channel}\n\n<a:44503lockkey:1500444008760217641> Staff će ti odgovoriti uskoro. Budemo te obavijestili! <:7289announcement:1504505912939909141>",
     "color": "#00BCD4",
     "category": "Sistem",
@@ -1004,7 +1004,7 @@
     "fields": [
       {
         "name": "<:7289announcement:1504505912939909141>  Šta dalje?",
-        "value": "<:32467lovetalk:1504505532323594321> Idi u kanal i čekaj odgovor staffa\n<:8526link:1504505939917803620> Možeš priložiti slike/screenshote\n<:3409locked:1504509321613148342> Kanal je **privatan** — samo ti i staff\n<:428758neonverifiedcheck:1496898532559421571> Ticket se zatvara kad je problem riješen",
+        "value": "<:32467lovetalk:1504505532323594321> Idi u kanal i čekaj odgovor staffa\n<:8526link:1504505939917803620> Možeš priložiti slike/screenshote\n<:3409locked:1504509321613148342> Kanal je **privatan** — samo ti i staff\n<:4558purplecheck:1504504889706020995> Ticket se zatvara kad je problem riješen",
         "inline": false
       }
     ]
