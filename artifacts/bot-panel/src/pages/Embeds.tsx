@@ -789,21 +789,57 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
             multiline
             testId="input-embed-description"
           />
-          <div className="space-y-1.5">
-            <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Boja</Label>
+          <div className="space-y-2">
+            <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Boja embeda</Label>
+            {/* Preset palette */}
+            <div className="grid grid-cols-10 gap-1.5">
+              {[
+                "#5865F2","#57F287","#FEE75C","#ED4245","#EB459E",
+                "#F1C40F","#F97316","#E67E22","#9B59B6","#3498DB",
+                "#2ECC71","#1ABC9C","#E74C3C","#2C3E50","#FF6A00",
+                "#FF4D6D","#00BCD4","#8E44AD","#27AE60","#2B2D42",
+              ].map(preset => (
+                <button
+                  key={preset}
+                  type="button"
+                  title={preset}
+                  onClick={() => setColor(preset)}
+                  className="w-6 h-6 rounded-full border-2 transition-all hover:scale-110 focus:outline-none"
+                  style={{
+                    backgroundColor: preset,
+                    borderColor: color.toLowerCase() === preset.toLowerCase() ? "#fff" : "transparent",
+                    boxShadow: color.toLowerCase() === preset.toLowerCase() ? `0 0 0 1px ${preset}` : "none",
+                  }}
+                />
+              ))}
+            </div>
+            {/* Custom picker + hex input */}
             <div className="flex gap-2 items-center">
-              <input
-                type="color"
-                value={color}
-                onChange={e => setColor(e.target.value)}
-                className="w-9 h-9 p-0.5 rounded cursor-pointer border-0 bg-transparent"
-                data-testid="input-embed-color-picker"
-              />
+              <div className="relative w-9 h-9 flex-shrink-0">
+                <div
+                  className="w-9 h-9 rounded-lg border-2 border-[#404249] cursor-pointer overflow-hidden"
+                  style={{ backgroundColor: color }}
+                />
+                <input
+                  type="color"
+                  value={color}
+                  onChange={e => setColor(e.target.value)}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  data-testid="input-embed-color-picker"
+                  title="Odaberi prilagođenu boju"
+                />
+              </div>
               <Input
                 value={color}
                 onChange={e => setColor(e.target.value)}
                 className="flex-1 bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] font-mono text-sm uppercase"
                 data-testid="input-embed-color-text"
+                placeholder="#2B2D42"
+              />
+              <div
+                className="w-9 h-9 rounded-lg flex-shrink-0 border border-white/10"
+                style={{ backgroundColor: color }}
+                title="Pregled boje"
               />
             </div>
           </div>
