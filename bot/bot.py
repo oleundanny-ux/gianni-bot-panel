@@ -1301,7 +1301,7 @@ async def on_ready():
         bot.add_view(PrivateVCPanel())
         bot.add_view(StaffVoteView())
         bot.add_view(VoiceCreateButton())
-        print("  ✔ Persistent views aktivni (giveaway / ticket / staff-vote / privatni VC)")
+        print("  ✔ Persistent views aktivni (giveaway / ticket / staff-vote / privatni VC / panel-role)")
     except Exception as e:
         print(f"  ✘ Persistent views: {e}")
     # ── Smart sync: samo ako je broj komandi promijenjen ──
@@ -9585,6 +9585,54 @@ async def pravila_cmd(ctx: commands.Context):
 
 
 # ─── 🔊 PRAVILA VOICE (privatni voice kanali) ───
+# ─── Panel Role Button — daje/uzima ulogu na klik ───────────────────────────
+@bot.event
+async def on_interaction(interaction: discord.Interaction):
+    """Hvataj panel_role_{roleId} dugmad poslana iz GIANNI panela."""
+    if interaction.type != discord.InteractionType.component:
+        return
+    custom_id = (interaction.data or {}).get("custom_id", "")
+    if not custom_id.startswith("panel_role_"):
+        return
+    parts = custom_id.split("_")
+    if len(parts) < 3:
+        return await interaction.response.send_message("❌ Nevalidan ID dugmeta.", ephemeral=True)
+    try:
+        role_id = int(parts[2])
+    except ValueError:
+        return await interaction.response.send_message("❌ Nevalidan ID uloge.", ephemeral=True)
+
+    guild  = interaction.guild
+    member = interaction.user
+    if not guild or not isinstance(member, discord.Member):
+        return await interaction.response.send_message("❌ Greška — pokušaj na serveru.", ephemeral=True)
+
+    role = guild.get_role(role_id)
+    if not role:
+        return await interaction.response.send_message("❌ Uloga ne postoji!", ephemeral=True)
+    if role >= guild.me.top_role:
+        return await interaction.response.send_message(
+            f"❌ Ne mogu dodijeliti **{role.name}** — uloga je viša od moje. Admin: pomjeri me iznad nje.",
+            ephemeral=True,
+        )
+
+    try:
+        if role in member.roles:
+            await member.remove_roles(role, reason="Panel role button — uklanjanje")
+            await interaction.response.send_message(
+                f"✅ Uloga **{role.name}** je uklonjena.", ephemeral=True
+            )
+        else:
+            await member.add_roles(role, reason="Panel role button — dodavanje")
+            await interaction.response.send_message(
+                f"✅ Dobio si ulogu **{role.name}**!", ephemeral=True
+            )
+    except discord.Forbidden:
+        await interaction.response.send_message("❌ Bot nema permisiju za upravljanje ulogama.", ephemeral=True)
+    except Exception as ex:
+        await interaction.response.send_message(f"❌ Greška: `{ex}`", ephemeral=True)
+
+
 class VoiceCreateButton(discord.ui.View):
     """Dugme ispod /pravila-voice — kreira privatni VC na klik."""
     def __init__(self):
