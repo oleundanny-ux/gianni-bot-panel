@@ -1480,19 +1480,38 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
       <div className="flex items-center justify-between px-5 py-3.5"
         style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0"
-            style={{ background: `${catColor}15`, border: `1px solid ${catColor}30` }}>
-            📝
-          </div>
+          {(() => {
+            const EmbedIcon = EMBED_ICONS[embed.name] ?? EMBED_CAT_ICONS[embed.category ?? ""];
+            return (
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{
+                  background: `${catColor}20`,
+                  border: `1.5px solid ${catColor}50`,
+                  boxShadow: `0 0 10px ${catColor}25`,
+                }}>
+                {EmbedIcon
+                  ? <EmbedIcon style={{ width: 18, height: 18, color: catColor, strokeWidth: 2 }} />
+                  : <span style={{ fontSize: 16 }}>📝</span>
+                }
+              </div>
+            );
+          })()}
           <div>
             <span className="font-black text-white text-sm">
               {EMBED_DISPLAY_NAMES[embed.name] ?? embed.title ?? embed.name}
             </span>
             <div className="flex items-center gap-1.5 mt-0.5">
-              <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: catColor }} />
+              {(() => {
+                const CatIcon = EMBED_CAT_ICONS[embed.category ?? ""];
+                return CatIcon
+                  ? <CatIcon style={{ width: 10, height: 10, color: catColor, strokeWidth: 2.5 }} />
+                  : <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: catColor }} />;
+              })()}
               <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: catColor }}>
                 {embed.category}
               </span>
+              <span className="text-[10px]" style={{ color: `${catColor}60` }}>·</span>
+              <span className="text-[10px] font-mono" style={{ color: "#4b5563" }}>{embed.name}</span>
             </div>
           </div>
         </div>
