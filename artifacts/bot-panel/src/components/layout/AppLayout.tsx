@@ -12,6 +12,7 @@ const NAV = [
   { href: "/members", label: "Članovi", icon: Users, emoji: "👥" },
   { href: "/server", label: "Server", icon: Server, emoji: "🌐" },
   { href: "/permissions", label: "Permisije", icon: Shield, emoji: "🛡️" },
+  { href: "/protection", label: "Zaštita", icon: Shield, emoji: "🔒" },
   { href: "/settings", label: "Podešavanja", icon: Settings, emoji: "⚙️" },
 ];
 
