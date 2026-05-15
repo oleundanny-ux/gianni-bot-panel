@@ -6,7 +6,7 @@ const router = Router();
 
 const EMBEDS_FILE = path.join(process.cwd(), "data", "embeds.json");
 
-const DEFAULT_EMBEDS = [
+export const DEFAULT_EMBEDS = [
   // ─── SISTEM ───────────────────────────────────────────────────────────────
   {
     name: "welcome",
