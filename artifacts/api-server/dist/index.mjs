@@ -32457,7 +32457,7 @@ var ALL_COMMANDS = [
       { name: "warnings", description: "Upozorenja korisnika", usage: "/warnings <korisnik>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "clearwarnings", description: "Obri\u0161i upozorenja korisnika", usage: "/clearwarnings <korisnik>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "clear", description: "Obri\u0161i poruke iz kanala", usage: "/clear [kolicina]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
-      { name: "report", description: "Prijavi \u010Dlana staffu (1x u minuti)", usage: "/report <korisnik>", prefix: false, adminOnly: false, cooldown: 60, aliases: [] }
+      { name: "report", description: "Prijavi \u010Dlana staffu (1x u minuti)", usage: "/report <korisnik> <razlog>", prefix: false, adminOnly: false, cooldown: 60, aliases: [] }
     ]
   },
   {
@@ -32469,13 +32469,15 @@ var ALL_COMMANDS = [
       { name: "daily", description: "Nagrada svakih 30 minuta", usage: "/daily", prefix: false, adminOnly: false, cooldown: 1800, aliases: [] },
       { name: "daj", description: "Po\u0161alji pare drugaru", usage: "/daj <korisnik> <iznos>", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "kradi", description: "Poku\u0161aj ukrasti (rizi\u010Dno!)", usage: "/kradi <korisnik>", prefix: true, adminOnly: false, cooldown: 300, aliases: [] },
-      { name: "bank", description: "Banka \u2014 deposit/withdraw/balance (5% nedjeljna kamata)", usage: "/bank", prefix: true, adminOnly: false, cooldown: null, aliases: ["b"] },
-      { name: "lottery", description: "Sedmi\u010Dna loto \u2014 kupi tiket za 100 coina", usage: "/lottery", prefix: true, adminOnly: false, cooldown: null, aliases: ["lot"] },
+      { name: "bank", description: "Banka \u2014 deposit/withdraw/balance (5% nedjeljna kamata)", usage: "/bank [akcija] [iznos]", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "lottery", description: "Sedmi\u010Dna loto \u2014 kupi tiket za 100 coina", usage: "/lottery [akcija]", prefix: true, adminOnly: false, cooldown: null, aliases: ["lot"] },
       { name: "heist", description: "Timski razboj \u2014 okupi 3+ ljudi i dobijte 1000-5000", usage: "/heist", prefix: false, adminOnly: false, cooldown: 600, aliases: [] },
       { name: "shop", description: "Pogledaj \u0161ta mo\u017Ee\u0161 kupiti", usage: "/shop", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "kupi", description: "Kupi predmet iz shopa", usage: "/kupi <id>", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "quests", description: "Pogledaj svoje dnevne zadatke", usage: "/quests", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
-      { name: "novac", description: "Dodaj ili oduzmi coina korisniku [OWNER]", usage: "/novac <korisnik> <iznos>", prefix: false, adminOnly: true, cooldown: null, aliases: [] }
+      { name: "giveaway", description: "Pokreni giveaway [ADMIN]", usage: "/giveaway <nagrada> [minuta] [kanal]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "giveaway-end", description: "Zavr\u0161i aktivni giveaway i izvuci pobjednika [ADMIN]", usage: "/giveaway-end", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "novac", description: "Dodaj ili oduzmi coina korisniku [OWNER]", usage: "/novac <akcija> <korisnik> <iznos>", prefix: false, adminOnly: true, cooldown: null, aliases: [] }
     ]
   },
   {
@@ -32489,21 +32491,32 @@ var ALL_COMMANDS = [
     ]
   },
   {
+    category: "Vatrice \u{1F525}",
+    icon: "Flame",
+    commands: [
+      { name: "vatrice-ember", description: "Daj vatricu(e) \u010Dlanu \u2014 a\u017Eurira nick i \u0161alje objavu [VLASNIK]", usage: "/vatrice ember <korisnik> [kolicina]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "vatrice-pup", description: "Top lista \u2014 najpopularniji \u010Dlanovi po vatricama", usage: "/vatrice pup", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "vatrice-kanal", description: "Postavi kanal za objave vatrica [VLASNIK]", usage: "/vatrice kanal <kanal>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "vatrice-oblik", description: "Promijeni emoji koji predstavlja vatricu [VLASNIK]", usage: "/vatrice oblik [emoji]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "vatrice-start", description: "Pokreni / resetuj vatrica sistem na serveru [VLASNIK]", usage: "/vatrice start", prefix: false, adminOnly: true, cooldown: null, aliases: [] }
+    ]
+  },
+  {
     category: "Igre",
     icon: "Gamepad2",
     commands: [
       { name: "kpm", description: "Kamen-Papir-Makaze", usage: "/kpm", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "slots", description: "Slot ma\u0161ina \u2014 ulo\u017Ei od 20 do 1.000.000.000", usage: "/slots [ulog]", prefix: true, adminOnly: false, cooldown: 30, aliases: [] },
-      { name: "blackjack", description: "Igraj Blackjack protiv dilera", usage: "/blackjack [ulog]", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "blackjack", description: "Igraj Blackjack protiv dilera", usage: "/blackjack <oklada>", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "vjasala", description: "Igra Vje\u0161ala \u2014 pogodi skrivenu rije\u010D!", usage: "/vjasala", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "kaladont", description: "Pokretanje igre Kaladont \u2014 ulan\u010Daj rije\u010Di!", usage: "/kaladont [slova]", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "kaladont-stop", description: "Zaustavi trenutnu Kaladont igru u ovom kanalu", usage: "/kaladont-stop", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "toplo-hladno", description: "Pogodi tajni broj \u2014 Toplo ili Hladno!", usage: "/toplo-hladno [maksimum]", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "kviz", description: "Odgovori na Balkan pitanje i osvoji pare!", usage: "/kviz [oklada]", prefix: true, adminOnly: false, cooldown: 30, aliases: [] },
+      { name: "geografija", description: "Geografski kviz \u2014 pogodi i osvoji pare!", usage: "/geografija [oklada]", prefix: true, adminOnly: false, cooldown: 30, aliases: [] },
       { name: "amogus", description: "Pokreni Among Us igru!", usage: "/amogus", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "amogus-stop", description: "Zaustavi Among Us igru [HOST/ADMIN]", usage: "/amogus-stop", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "poker", description: "Pokreni Texas Hold'em Poker za pravi novac (2-9 igra\u010Da)", usage: "/poker [ulog]", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
-      { name: "kviz", description: "Odgovori na Balkan pitanje i osvoji pare!", usage: "/kviz", prefix: true, adminOnly: false, cooldown: 30, aliases: [] },
-      { name: "geografija", description: "Geografski kviz \u2014 pogodi i osvoji pare!", usage: "/geografija", prefix: true, adminOnly: false, cooldown: 30, aliases: [] },
       { name: "bingo", description: "Pokreni Bingo \u2014 unesi 5 brojeva i osvoji nagradu!", usage: "/bingo", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "mafia", description: "Pokreni Mafia igru u ovom kanalu", usage: "/mafia", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "mafia-stop", description: "Prekini Mafia igru u ovom kanalu [DOMA\u0106IN]", usage: "/mafia-stop", prefix: false, adminOnly: false, cooldown: null, aliases: [] }
@@ -32534,7 +32547,7 @@ var ALL_COMMANDS = [
       { name: "hunt", description: "Idi u lov na \u017Eivotinje!", usage: "/hunt", prefix: false, adminOnly: false, cooldown: 30, aliases: [] },
       { name: "zoo", description: "Pogledaj svoju zbirku \u017Eivotinja", usage: "/zoo [korisnik]", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "battle", description: "Bori se sa nekim", usage: "/battle <korisnik>", prefix: false, adminOnly: false, cooldown: 30, aliases: [] },
-      { name: "sell", description: "Prodaj \u017Eivotinje iz zoo-a", usage: "/sell <\u017Eivotinja>", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "sell", description: "Prodaj \u017Eivotinje iz zoo-a", usage: "/sell <\u017Eivotinja> [kolicina]", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "animals", description: "Lista svih \u017Eivotinja i raritet", usage: "/animals", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "pray", description: "Pomoli se za nekoga", usage: "/pray <korisnik>", prefix: false, adminOnly: false, cooldown: 30, aliases: [] },
       { name: "meme", description: "Po\u0161alji balkanski mem u kanal", usage: "/meme", prefix: true, adminOnly: false, cooldown: 15, aliases: [] },
@@ -32546,7 +32559,7 @@ var ALL_COMMANDS = [
     icon: "Target",
     commands: [
       { name: "poo", description: "Stanje Poo kreature na serveru", usage: "/poo", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
-      { name: "poo-zadaci", description: "Lista Poo zadataka (10 po stranici, ukupno 100)", usage: "/poo-zadaci", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "poo-zadaci", description: "Lista Poo zadataka (10 po stranici, ukupno 100)", usage: "/poo-zadaci [stranica]", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "poo-top", description: "Top lista cuvara Poo-a na serveru", usage: "/poo-top", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "poo-hrani", description: "Nahrani Poo-a direktno (ko\u0161ta 200 coina)", usage: "/poo-hrani", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "poo-info", description: "Tvoj licni doprinos i napredak zadataka", usage: "/poo-info", prefix: false, adminOnly: false, cooldown: null, aliases: [] }
@@ -32562,15 +32575,18 @@ var ALL_COMMANDS = [
       { name: "setup-leave", description: "Postavi leave kanal [ADMIN]", usage: "/setup-leave <kanal>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "setup-autorole", description: "Postavi automatsku ulogu pri ulasku [ADMIN]", usage: "/setup-autorole <uloga>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "setup-log", description: "Postavi log kanal [ADMIN]", usage: "/setup-log <kanal>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
-      { name: "setup-starboard", description: "Postavi starboard kanal [ADMIN]", usage: "/setup-starboard <kanal>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "setup-starboard", description: "Postavi starboard kanal (min. zvjezdice) [ADMIN]", usage: "/setup-starboard <kanal> [zvjezdice]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "setup-levelrole", description: "Postavi ulogu za odre\u0111eni level [ADMIN]", usage: "/setup-levelrole <level> <uloga>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
-      { name: "setup-panels", description: "Auto-kreiraj sva 3 self-role panela odjednom [ADMIN]", usage: "/setup-panels", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "setup-panels", description: "Auto-kreiraj sva 3 self-role panela odjednom [ADMIN]", usage: "/setup-panels [kanal]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "aktivnost-setup", description: "Postavi kanal za XP level-up i aktivnost [ADMIN]", usage: "/aktivnost-setup <kanal>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
-      { name: "ticket-setup", description: "Postavi ticket sistem u ovaj kanal", usage: "/ticket-setup", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "ticket-setup", description: "Postavi ticket sistem u ovaj kanal [ADMIN]", usage: "/ticket-setup", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "server-config", description: "Pregled konfiguracije servera [ADMIN]", usage: "/server-config", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "setchannel", description: "Postavi confess/report/birthday/staff-apps kanal [ADMIN]", usage: "/setchannel <tip> <kanal>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
-      { name: "reset-gw", description: "Resetuj i ponovo pokreni giveaway za 5 minuta [ADMIN]", usage: "/reset-gw", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
-      { name: "sync", description: "Force-sync svih slash komandi (samo vlasnik)", usage: "/sync", prefix: false, adminOnly: true, cooldown: null, aliases: [] }
+      { name: "reset-gw", description: "Resetuj i ponovo pokreni giveaway za 5 minuta [ADMIN]", usage: "/reset-gw <nagrada> [kanal]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "backup", description: "Odmah snimi backup podataka bota [OWNER]", usage: "/backup", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "backup-restore", description: "Vrati zadnji cloud backup bota [OWNER]", usage: "/backup-restore", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "backup-status", description: "Pregled cloud backup statusa i istorije [OWNER]", usage: "/backup-status", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "sync", description: "Force-sync svih slash komandi [OWNER]", usage: "/sync [scope]", prefix: false, adminOnly: true, cooldown: null, aliases: [] }
     ]
   },
   {
@@ -32580,11 +32596,16 @@ var ALL_COMMANDS = [
       { name: "brojanje-postavi", description: "Postavi kanal za brojanje [ADMIN]", usage: "/brojanje-postavi <kanal> [pocetak]", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
       { name: "brojanje-info", description: "Poka\u017Ei stanje brojanja", usage: "/brojanje-info", prefix: false, adminOnly: false, cooldown: null, aliases: [] },
       { name: "brojanje-reset", description: "Resetuj brojanje na 0 [ADMIN]", usage: "/brojanje-reset", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
-      { name: "poll", description: "Napravi glasanje sa reakcijama", usage: "/poll <pitanje>", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "poll", description: "Napravi glasanje sa do 4 opcije", usage: "/poll <pitanje> <opcija1> <opcija2> [opcija3] [opcija4]", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "tiket", description: "Otvori tiket za podr\u0161ku", usage: "/tiket", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
-      { name: "afk", description: "Postavi AFK status", usage: "/afk [poruka]", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "afk", description: "Postavi AFK status", usage: "/afk [razlog]", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
       { name: "qr", description: "Generi\u0161i QR kod iz teksta ili URL-a", usage: "/qr <tekst>", prefix: true, adminOnly: false, cooldown: null, aliases: ["qrcode"] },
-      { name: "event", description: "Objavi event na serveru (samo vlasnik)", usage: "/event <naslov>", prefix: false, adminOnly: true, cooldown: null, aliases: [] }
+      { name: "event", description: "Objavi event na serveru [OWNER]", usage: "/event <naslov> <opis>", prefix: false, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "sort-roles", description: "Sortiraj uloge na serveru [prefix only]", usage: ".sort-roles", prefix: true, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "info", description: "Informacije o botu i serveru [prefix]", usage: ".info", prefix: true, adminOnly: false, cooldown: null, aliases: [] },
+      { name: "pravila", description: "Objavi pravila u kanal [prefix only]", usage: ".pravila", prefix: true, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "pravila-voice", description: "Objavi voice pravila u kanal [prefix]", usage: ".pravila-voice", prefix: true, adminOnly: true, cooldown: null, aliases: [] },
+      { name: "tiketstaff", description: "Staff tiket panel u kanal [prefix only]", usage: ".tiketstaff", prefix: true, adminOnly: true, cooldown: null, aliases: [] }
     ]
   }
 ];
