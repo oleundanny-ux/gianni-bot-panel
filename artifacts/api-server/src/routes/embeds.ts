@@ -60,7 +60,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "boost",
-    title: "<:518169rolemodpurple:1496901673426096158> Novi Boost!",
+    title: "<:zap:1504850589815930950> Novi Boost!",
     description:
       "<a:3747purplesparkles:1504504869724098620> **{user}** je upravo **boostovao server**! <a:505993sparkle1:1496899369939636295>\n<:518169rolemodpurple:1496901673426096158> Hvala ti na podršci — server je sad još jači! <:864113ownerpinkcrownwithheart:1496899493130539008>",
     color: "#9B59B6",
@@ -75,7 +75,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "birthday",
-    title: "<:864113ownerpinkcrownwithheart:1496899493130539008> Sretan Rođendan!",
+    title: "<:gift:1504852256317636670> Sretan Rođendan!",
     description:
       "<a:64382pinksparkles:1500259869259988033> Danas je rođendan od **{user}**! <a:giveaways5:1500203902446997586>\n\n<a:3599pinkheart:1504504866700132534> Svi mu/joj čestitajte! <a:3747purplesparkles:1504504869724098620>\n<:518169rolemodpurple:1496901673426096158> Neka ti je srećan i blagoslovljen dan! <:864113ownerpinkcrownwithheart:1496899493130539008>",
     color: "#FF85C8",
@@ -102,7 +102,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "aotw",
-    title: "<:864113ownerpinkcrownwithheart:1496899493130539008> Aktivni Član Sedmice",
+    title: "<:award:1504852238688977176> Aktivni Član Sedmice",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<:864113ownerpinkcrownwithheart:1496899493130539008> Najaktivniji član ove sedmice je:\n\n## {user}\n\n<:32467lovetalk:1504505532323594321> Napisao/la **{count}** poruka u zadnjih 7 dana!\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -116,7 +116,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "ticket",
-    title: "<:518169rolemodpurple:1496901673426096158>  Otvori Tiket",
+    title: "<a:ticket:1500196243853541397> Otvori Tiket",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:ticket:1500196243853541397> Trebaš pomoć? **Otvori tiket**!\n\n<a:15072animatedarrowpink2:1496898801556914236> Popuni formu i naš staff će ti odgovoriti što prije.\n<a:44503lockkey:1500444008760217641> Svaki tiket je privatan — samo ti i staff vidite.\n━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -133,7 +133,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "ticket-otvoren",
-    title: "<:4558purplecheck:1504504889706020995>  Tiket otvoren!",
+    title: "<:checkcircle:1504852246809149450> Tiket otvoren!",
     description:
       "## <a:giveaways5:1500203902446997586> Tvoj tiket je kreiran!\n<a:15072animatedarrowpink2:1496898801556914236> Privatni kanal: {channel}\n\n<a:44503lockkey:1500444008760217641> Staff će ti odgovoriti uskoro! <:518169rolemodpurple:1496901673426096158>",
     color: "#FF85C8",
@@ -150,7 +150,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "staff-prijava",
-    title: "<:1111pinkarrow:1496903118108229733>  STAFF PRIJAVA",
+    title: "<:briefcase:1504852244225462303> STAFF PRIJAVA",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nOtvorene su prijave za **Staff tim** servera!\n\n<:4558purplecheck:1504504889706020995> **Kako se prijaviti:**\n<a:15072animatedarrowpink2:1496898801556914236> Klikni redom na **5 dugmadi** ispod i upiši svoje podatke\n<:518169rolemodpurple:1496901673426096158> Kad popuniš **sva polja**, klikni **Pošalji prijavu**\n<:864113ownerpinkcrownwithheart:1496899493130539008> Bot će ti otvoriti **privatni kanal** sa staff timom\n\n<a:44503lockkey:1500444008760217641> Tvoji odgovori su privatni dok ne pošalješ prijavu.\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -167,7 +167,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "private-vc",
-    title: "<:2084purplestar:1504504848375349388> Dobrodošao u svoj kanal, {user}!",
+    title: "<:headphones:1504852261241884692> Dobrodošao u svoj kanal, {user}!",
     description:
       "**Ti si vlasnik!** <:864113ownerpinkcrownwithheart:1496899493130539008> Koristi dugmad ispod:\n\n<a:44503lockkey:1500444008760217641> **Lock** — niko ne može ući\n<:4558purplecheck:1504504889706020995> **Unlock** — svi mogu ući\n<:518169rolemodpurple:1496901673426096158> **Hide / Show** — sakrij/pokaži kanal\n<:1111pinkarrow:1496903118108229733> **Rename** — promijeni ime\n<a:571294pinkpaw:1500259928936284211> **Limit** — postavi max članova\n<a:15072animatedarrowpink2:1496898801556914236> **Kick** — izbaci nekog iz kanala\n<:864113ownerpinkcrownwithheart:1496899493130539008> **Owner** — prebaci vlasništvo\n<a:3599pinkheart:1504504866700132534> **Delete** — obriši kanal\n\n*Kanal se automatski briše kad ostane prazan.*",
     color: "#9B59B6",
@@ -179,7 +179,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "voice-pravila",
-    title: "<:518169rolemodpurple:1496901673426096158>  P R I V A T N I  V O I C E  K A N A L I",
+    title: "<:headphones:1504852261241884692> P R I V A T N I  V O I C E  K A N A L I",
     description:
       "Uđi u <#1494043959213953114> i bot ti **automatski** kreira vlastiti voice kanal.\nPostaješ **vlasnik** <:864113ownerpinkcrownwithheart:1496899493130539008> i dobijaš puni kontrolni panel.",
     color: "#9B59B6",
@@ -200,7 +200,7 @@ export const DEFAULT_EMBEDS = [
   // ─── LOG (Pink) ────────────────────────────────────────────────
   {
     name: "log-join",
-    title: "<:984706roleadminorange1:1496898583239200819> Novi Član",
+    title: "<:login:1504852265926787072> Novi Član",
     description:
       "<a:3599pinkheart:1504504866700132534> Novi član se pridružio serveru! <a:28079animatedarroworange:1496898931790057472>",
     color: "#FF85C8",
@@ -216,7 +216,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "log-edit",
-    title: "<:984706roleadminorange1:1496898583239200819> Poruka Editovana",
+    title: "<:file:1504850549059883008> Poruka Editovana",
     description: null,
     color: "#FF85C8",
     category: "Log",
@@ -232,7 +232,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "log-delete",
-    title: "<:984706roleadminorange1:1496898583239200819> Poruka Obrisana",
+    title: "<:trash2:1504852288567640146> Poruka Obrisana",
     description: null,
     color: "#FF85C8",
     category: "Log",
@@ -246,7 +246,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "report",
-    title: "<:36802redarrow:1504505542025154621> NOVA PRIJAVA",
+    title: "<:shieldalert:1504850577237086248> NOVA PRIJAVA",
     description: null,
     color: "#9B59B6",
     category: "Log",
@@ -263,7 +263,7 @@ export const DEFAULT_EMBEDS = [
   // ─── MODERACIJA (Purple) ───────────────────────────────────────
   {
     name: "warn",
-    title: "<:994180roleadminred1:1496902197605306461> Upozorenje",
+    title: "<:shieldalert:1504850577237086248> Upozorenje",
     description:
       "<:36802redarrow:1504505542025154621> **{user}** je upozoren/a od strane moderatora. <a:64382pinksparkles:1500259869259988033>",
     color: "#9B59B6",
@@ -279,7 +279,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "ban",
-    title: "<:994180roleadminred1:1496902197605306461> Član Banovan",
+    title: "<:hammer:1504852258779697192> Član Banovan",
     description:
       "<a:44503lockkey:1500444008760217641> **{user}** je zauvijek banovan/a sa servera. <:36802redarrow:1504505542025154621>",
     color: "#9B59B6",
@@ -296,7 +296,7 @@ export const DEFAULT_EMBEDS = [
   // ─── XP (Pink) ────────────────────────────────────────────────
   {
     name: "levelup",
-    title: "<:2084purplestar:1504504848375349388> ʟᴇᴠᴇʟ ᴜᴘ! <a:505993sparkle1:1496899369939636295>",
+    title: "<:star:1504850583557771345> ʟᴇᴠᴇʟ ᴜᴘ! <a:505993sparkle1:1496899369939636295>",
     description:
       "━━━━━━━━━━━━━━━━━━━━\n<a:giveaways5:1500203902446997586> Čestitamo {user}!\nDostigao/la si **`<:2084purplestar:1504504848375349388> LEVEL {level} <:2084purplestar:1504504848375349388>`**\n━━━━━━━━━━━━━━━━━━━━",
     color: "#FF85C8",
@@ -311,7 +311,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrica-nova",
-    title: "<:2084purplestar:1504504848375349388> ɴᴏᴠᴀ ᴠᴀᴛʀɪᴄᴀ! <a:793429sparkles:1496899433634201611>",
+    title: "<a:VATRICE:1496898836155596962> ɴᴏᴠᴀ ᴠᴀᴛʀɪᴄᴀ! <a:793429sparkles:1496899433634201611>",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:giveaways5:1500203902446997586> Čestitamo {user}!\nImaš sada **`{vatriceCount}`** <:2084purplestar:1504504848375349388>\n━━━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> Zadrži aktivnost i skupljaj vatrice! <:367280roleadmingreen:1496898579720044706>",
     color: "#FF85C8",
@@ -326,7 +326,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "aktivnost",
-    title: "<:367280roleadmingreen:1496898579720044706> ᴀᴋᴛɪᴠɴᴏsᴛ",
+    title: "<:zap:1504850589815930950> ᴀᴋᴛɪᴠɴᴏsᴛ",
     description:
       "━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **{user}**\n━━━━━━━━━━━━━━━━━━━━\n<:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>  `{progress}/100`\n<a:44503lockkey:1500444008760217641> Još **`{doSljedeceg}`** poruka do sljedećeg levela",
     color: "#9B59B6",
@@ -343,7 +343,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rank",
-    title: "<:367280roleadmingreen:1496898579720044706> Rank Profil",
+    title: "<:barchart:1504852242233032865> Rank Profil",
     description:
       "<:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>\n`▰▰▰▰▱▱▱▱▱▱` **{pct}%**",
     color: "#9B59B6",
@@ -360,7 +360,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "leaderboard-xp",
-    title: "<:79529shinycrown:1496899185516216400> Top Lista — XP",
+    title: "<:award:1504852238688977176> Top Lista — XP",
     description:
       "<:79529shinycrown:1496899185516216400> **{top1}** — Level `{lvl1}` • `{xp1} XP`\n<:2084purplestar:1504504848375349388> **{top2}** — Level `{lvl2}` • `{xp2} XP`\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** — Level `{lvl3}` • `{xp3} XP`\n<:367280roleadmingreen:1496898579720044706> **{top4}** — Level `{lvl4}` • `{xp4} XP`\n<a:68523animatedarrowgreen:1496899143338033173> **{top5}** — Level `{lvl5}` • `{xp5} XP`",
     color: "#9B59B6",
@@ -371,7 +371,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "leaderboard-novac",
-    title: "<:79529shinycrown:1496899185516216400> Top Lista — Bogatstvo",
+    title: "<:wallet:1504852300030673027> Top Lista — Bogatstvo",
     description:
       "<:79529shinycrown:1496899185516216400> **{top1}** — `{coins1} <a:529977coin:1500444133389635704>`\n<:2084purplestar:1504504848375349388> **{top2}** — `{coins2} <a:529977coin:1500444133389635704>`\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** — `{coins3} <a:529977coin:1500444133389635704>`\n<:367280roleadmingreen:1496898579720044706> **{top4}** — `{coins4} <a:529977coin:1500444133389635704>`\n<a:68523animatedarrowgreen:1496899143338033173> **{top5}** — `{coins5} <a:529977coin:1500444133389635704>`",
     color: "#FF85C8",
@@ -383,7 +383,7 @@ export const DEFAULT_EMBEDS = [
   // ─── EKONOMIJA (Purple) ───────────────────────────────────────
   {
     name: "heist",
-    title: "<:984706roleadminorange1:1496898583239200819> RAZBOJ U PRIPREMI",
+    title: "<:briefcase:1504852244225462303> RAZBOJ U PRIPREMI",
     description:
       "<a:44503lockkey:1500444008760217641> **{user}** organizuje razboj! <a:28079animatedarroworange:1496898931790057472>\n<:984706roleadminorange1:1496898583239200819> **Klikni dugme da se pridružiš** (treba 3+ ljudi)\n<a:64382pinksparkles:1500259869259988033> 30 sekundi do akcije!",
     color: "#9B59B6",
@@ -398,7 +398,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "lottery",
-    title: "<:984706roleadminorange1:1496898583239200819> Sedmična Loto",
+    title: "<:gift:1504852256317636670> Sedmična Loto",
     description:
       "<a:giveaways5:1500203902446997586> Kupi tiket i osvoji jackpot! <a:64382pinksparkles:1500259869259988033>",
     color: "#9B59B6",
@@ -414,7 +414,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "quests",
-    title: "<:984706roleadminorange1:1496898583239200819> Dnevni Zadaci",
+    title: "<:checkcircle:1504852246809149450> Dnevni Zadaci",
     description:
       "<:268961empty:1496899316596605142> **Pošalji 10 poruka** — Budi aktivan u chatu\n`░░░░░░░░░░` `0/10` • <a:529977coin:1500444133389635704> `+200`\n\n<:4558purplecheck:1504504889706020995> **Odigraj 3 igre** — Posjeti #igre kanal\n`<:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:268961empty:1496899316596605142><:268961empty:1496899316596605142>` `3/5` • <a:529977coin:1500444133389635704> `+500`\n\n<:984706roleadminorange1:1496898583239200819> **Pošalji kompliment** — Koristi /kompli\n`<:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819>` `5/5` • <a:529977coin:1500444133389635704> `+300`",
     color: "#9B59B6",
@@ -429,7 +429,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "giveaway",
-    title: "<:79529shinycrown:1496899185516216400> NAGRADNA IGRA!",
+    title: "<a:giveaways:1500195717187244232> NAGRADNA IGRA!",
     description:
       "## <:79529shinycrown:1496899185516216400>  {nagrada}\n\n<:984706roleadminorange1:1496898583239200819> Klikni dugme **<a:giveaways5:1500203902446997586> Učestvuj** da se prijaviš!",
     color: "#9B59B6",
@@ -447,7 +447,7 @@ export const DEFAULT_EMBEDS = [
   // ─── IGRE ─────────────────────────────────────────────────────
   {
     name: "slots",
-    title: "<:479765rolemodblue:1496901403669565580>  S L O T  M A Š I N A",
+    title: "<:gamepad:1504850554113884240> S L O T  M A Š I N A",
     description: "𓉘  <:58390neoncherry:1496902029363249212>  │  <:58390neoncherry:1496902029363249212>  │  <:58390neoncherry:1496902029363249212>  𓉝\n\n<a:giveaways5:1500203902446997586> Sva tri ista — **JACKPOT!**",
     color: "#9B59B6",
     category: "Igre",
@@ -461,7 +461,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "blackjack",
-    title: "<:8891bluestar:1504507192038916187> Blackjack",
+    title: "<:gamepad:1504850554113884240> Blackjack",
     description: null,
     color: "#9B59B6",
     category: "Igre",
@@ -475,7 +475,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-lobby",
-    title: "<:8891bluestar:1504507192038916187> POKER — Texas Hold'em",
+    title: "<:gamepad:1504850554113884240> POKER — Texas Hold'em",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:529977coin:1500444133389635704> **Ulog po igraču:** `{ulog} <a:529977coin:1500444133389635704>`\n<:79529shinycrown:1496899185516216400> **Trenutni pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **Igrači ({count}/9):**\n▸ **{player1}**\n▸ **{player2}**\n\n▸ Klikni **Ulazi u igru** da se pridružiš\n▸ Domaćin klika **Počni igru** kad je spreman\n▸ Igra automatski kreće za **60 sekundi**",
     color: "#9B59B6",
@@ -486,7 +486,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-game",
-    title: "<:8891bluestar:1504507192038916187> Pre-Flop — Kartice podijeljene",
+    title: "<:gamepad:1504850554113884240> Pre-Flop — Kartice podijeljene",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:8891bluestar:1504507192038916187> **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n<a:529977coin:1500444133389635704> **Pot:** `{pot} <a:529977coin:1500444133389635704>`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **Aktivni:**\n<:428758neonverifiedcheck:1496898532559421571> **{player1}**\n<:428758neonverifiedcheck:1496898532559421571> **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:44503lockkey:1500444008760217641> **Čekamo potez:**\n<:479765rolemodblue:1496901403669565580> {player1}",
     color: "#FF85C8",
@@ -497,7 +497,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-showdown",
-    title: "<:79529shinycrown:1496899185516216400> SHOWDOWN — Poker",
+    title: "<:crown:1504850546849349803> SHOWDOWN — Poker",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:8891bluestar:1504507192038916187> **Zajedničke kartice:**\n🂡 🂺 🂳 🃈 🃑\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{winner}**\n   Ruka: 🂡 🂮\n   → **Royal Flush**\n\n<:479765rolemodblue:1496901403669565580> **{loser}**\n   Ruka: 🃁 🃎\n   → **Dva Para**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n<a:529977coin:1500444133389635704> **Dobitak:** `{dobitak} <a:529977coin:1500444133389635704>` po pobjedniku",
     color: "#9B59B6",
@@ -508,7 +508,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-lobby",
-    title: "<:479765rolemodblue:1496901403669565580> Among Us — Lobby",
+    title: "<:gamepad:1504850554113884240> Among Us — Lobby",
     description: "Pridruži se i čekaj da host pokrene igru!\n**Min 4 • Max 10 igrača**",
     color: "#9B59B6",
     category: "Igre",
@@ -520,7 +520,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-game",
-    title: "<:479765rolemodblue:1496901403669565580> Among Us — U Toku",
+    title: "<:gamepad:1504850554113884240> Among Us — U Toku",
     description: null,
     color: "#9B59B6",
     category: "Igre",
@@ -534,7 +534,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-end",
-    title: "<:428758neonverifiedcheck:1496898532559421571> CREWMATI POBIJEDE!",
+    title: "<:award:1504852238688977176> CREWMATI POBIJEDE!",
     description: "Svi impostori eliminirani! <:428758neonverifiedcheck:1496898532559421571>",
     color: "#9B59B6",
     category: "Igre",
@@ -546,7 +546,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kaladont-start",
-    title: "<:8891bluestar:1504507192038916187>  K A L A D O N T",
+    title: "<:gamepad:1504850554113884240> K A L A D O N T",
     description:
       "━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Igra je počela! Prva riječ:\n## <:32467lovetalk:1504505532323594321>  **BALKAN**\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -567,7 +567,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kaladont-active",
-    title: "<:8891bluestar:1504507192038916187>  K A L A D O N T  —  aktivna igra",
+    title: "<:gamepad:1504850554113884240> K A L A D O N T  —  aktivna igra",
     description: "━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Igre",
@@ -595,7 +595,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kaladont-win",
-    title: "<:79529shinycrown:1496899185516216400>  K A L A D O N T  —  P O B J E D A !",
+    title: "<:crown:1504850546849349803> K A L A D O N T  —  P O B J E D A !",
     description: "<a:giveaways5:1500203902446997586> {user} je izrekao/la magičnu riječ!",
     color: "#FF85C8",
     category: "Igre",
@@ -610,7 +610,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "bingo",
-    title: "<:8891bluestar:1504507192038916187>  B  I  N  G  O",
+    title: "<:gamepad:1504850554113884240> B  I  N  G  O",
     description:
       "<:70920bluearrow:1504507388386869280> **Klikni dugme ispod i unesi 5 brojeva (1–75)!**\n<a:ticket:1500196243853541397> Tiket košta samo **500 coina** <a:529977coin:1500444133389635704>\n\n<a:44503lockkey:1500444008760217641> Imaš **2 minute** za tiket!\n<a:64382pinksparkles:1500259869259988033> Rezultati se objavljuju **javno** za sve",
     color: "#9B59B6",
@@ -629,7 +629,7 @@ export const DEFAULT_EMBEDS = [
   // ─── FUN (Pink) ───────────────────────────────────────────────
   {
     name: "hunt",
-    title: "<a:874347butterfly:1496899500160192562>  Uhvatio si životinju!",
+    title: "<:gamepad:1504850554113884240> Uhvatio si životinju!",
     description: "## <a:874347butterfly:1496899500160192562>  {animal}\n<:2084purplestar:1504504848375349388> **{rarity}**  ·  <:33927diamond:1496898969052381407> Snaga `{power}`",
     color: "#FF85C8",
     category: "Fun",
@@ -642,7 +642,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "zoo",
-    title: "<a:874347butterfly:1496899500160192562> {user} — Zoo",
+    title: "<:globe:1504850556311834825> {user} — Zoo",
     description:
       "<a:505993sparkle1:1496899369939636295> **Legendary**\n<:2084purplestar:1504504848375349388> **Zmaj** `×1`\n\n<:4558purplecheck:1504504889706020995> **Uncommon**\n<a:874347butterfly:1496899500160192562> **Vuk** `×3`  <a:874347butterfly:1496899500160192562> **Lisica** `×2`\n\n<:518169rolemodpurple:1496901673426096158> **Common**\n<a:571294pinkpaw:1500259928936284211> **Riba** `×7`  <a:571294pinkpaw:1500259928936284211> **Zec** `×5`",
     color: "#FF85C8",
@@ -657,7 +657,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "battle",
-    title: "<:33927diamond:1496898969052381407>  BITKA!",
+    title: "<:zap:1504850589815930950> BITKA!",
     description:
       "<a:571294pinkpaw:1500259928936284211> **{player1}** vs <:518169rolemodpurple:1496901673426096158> **{player2}**\n`████████████░░░░░░░░`\n<:33927diamond:1496898969052381407> `{score1}` vs `{score2}` <:33927diamond:1496898969052381407>",
     color: "#9B59B6",
@@ -817,7 +817,7 @@ export const DEFAULT_EMBEDS = [
   // ─── INFO (Purple) ────────────────────────────────────────────
   {
     name: "spotify",
-    title: "<:2084purplestar:1504504848375349388> {trackTitle}",
+    title: "<:music:1504850566415782098> {trackTitle}",
     description:
       "<a:music2:1500459145382592602> **Izvođač:** {artist}\n<a:85034pinknotes:1500444022622130196> **Album:** {album}\n\n`0:45` ▰▰▰▰▰▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱ `3:22`",
     color: "#9B59B6",
@@ -832,7 +832,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "invite",
-    title: "<:479765rolemodblue:1496901403669565580> Statistika — {user}",
+    title: "<:users:1504850587643154472> Statistika — {user}",
     description: null,
     color: "#9B59B6",
     category: "Info",
@@ -847,7 +847,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "avatar",
-    title: "<:2084purplestar:1504504848375349388> {user}",
+    title: "<:search:1504850568714256485> {user}",
     description: "<a:32877animatedarrowbluelite:1496898954783096933> [PNG]({png}) **·** <:2084purplestar:1504504848375349388> [JPG]({jpg}) **·** <:479765rolemodblue:1496901403669565580> [WEBP]({webp})",
     color: "#9B59B6",
     category: "Info",
@@ -860,7 +860,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "brojanje-info",
-    title: "<:2084purplestar:1504504848375349388> Brojanje — stanje",
+    title: "<:barchart:1504852242233032865> Brojanje — stanje",
     description:
       "<a:32877animatedarrowbluelite:1496898954783096933> **Kanal:** {channel}\n<:32467lovetalk:1504505532323594321> **Trenutno:** `{current}`\n<:479765rolemodblue:1496901403669565580> **Sljedeći broj:** `{next}`\n<a:571294pinkpaw:1500259928936284211> **Zadnji brojao:** {lastUser}\n<:79529shinycrown:1496899185516216400> **Rekord:** `{highScore}`",
     color: "#9B59B6",
@@ -876,7 +876,7 @@ export const DEFAULT_EMBEDS = [
   // ─── VATRICE ─────────────────────────────────────────────────
   {
     name: "vatrice-pup",
-    title: "<:2084purplestar:1504504848375349388> Top Lista — Vatrice",
+    title: "<:award:1504852238688977176> Top Lista — Vatrice",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Najpopularniji članovi po vatricama:\n━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{top1}** — <:2084purplestar:1504504848375349388> `{top1count}`\n<:2084purplestar:1504504848375349388> **{top2}** — <:984706roleadminorange1:1496898583239200819> `{top2count}`\n<:4558purplecheck:1504504889706020995> **{top3}** — <a:3599pinkheart:1504504866700132534> `{top3count}`\n<:984706roleadminorange1:1496898583239200819> **{top4}** — <a:28079animatedarroworange:1496898931790057472> `{top4count}`\n<a:28079animatedarroworange:1496898931790057472> **{top5}** — <a:571294pinkpaw:1500259928936284211> `{top5count}`\n━━━━━━━━━━━━━━━━━━━━━━\n<:32467lovetalk:1504505532323594321> Tvoje mjesto: **#{rank}** | Imaš: **{myCount}** <:2084purplestar:1504504848375349388>",
     color: "#9B59B6",
@@ -887,7 +887,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrice-start",
-    title: "<:2084purplestar:1504504848375349388> Vatrica Sistem — Aktiviran!",
+    title: "<a:VATRICE:1496898836155596962> Vatrica Sistem — Aktiviran!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<:4558purplecheck:1504504889706020995> Vatrica sistem je uspješno aktiviran!\n━━━━━━━━━━━━━━━━━━━━━━\n<:2084purplestar:1504504848375349388> Svako **{prag}** poruka, član dobija **1 vatricu**\n<:984706roleadminorange1:1496898583239200819> Nick se automatski ažurira\n<a:28079animatedarroworange:1496898931790057472> Objave se šalju u {kanal}\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -902,7 +902,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrice-kanal",
-    title: "<:4558purplecheck:1504504889706020995> Vatrica Kanal Postavljen",
+    title: "<:checkcircle:1504852246809149450> Vatrica Kanal Postavljen",
     description: "<a:28079animatedarroworange:1496898931790057472> Objave vatrica će se od sada slati u {kanal}.",
     color: "#9B59B6",
     category: "Vatrice",
@@ -912,7 +912,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrice-oblik",
-    title: "<:2084purplestar:1504504848375349388> Vatrica Emoji Promijenjen",
+    title: "<a:VATRICE:1496898836155596962> Vatrica Emoji Promijenjen",
     description: "━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Emoji vatrice je promijenjen!\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Vatrice",
@@ -926,7 +926,7 @@ export const DEFAULT_EMBEDS = [
   // ─── EKONOMIJA dopune ─────────────────────────────────────────
   {
     name: "giveaway-end",
-    title: "<:79529shinycrown:1496899185516216400> Nagradna Igra — ZAVRŠENA!",
+    title: "<:award:1504852238688977176> Nagradna Igra — ZAVRŠENA!",
     description: "## <a:3599pinkheart:1504504866700132534>  {nagrada}\n\nČestitamo pobjedniku — pratite objavu! <a:64382pinksparkles:1500259869259988033>",
     color: "#9B59B6",
     category: "Ekonomija",
@@ -941,7 +941,7 @@ export const DEFAULT_EMBEDS = [
   // ─── IGRE dopune ─────────────────────────────────────────────
   {
     name: "vjasala",
-    title: "<:8891bluestar:1504507192038916187>  V J E Š A L A",
+    title: "<:gamepad:1504850554113884240> V J E Š A L A",
     description:
       "━━━━━━━━━━━━━━━━━━━━━\n<:479765rolemodblue:1496901403669565580> Pogodi skrivenu riječ!\n\n```\n_ _ _ _ _ _\n```\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -956,7 +956,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vjasala-kraj",
-    title: "<a:giveaways5:1500203902446997586> Vješala — Pogodak!",
+    title: "<:crown:1504850546849349803> Vješala — Pogodak!",
     description: "<:428758neonverifiedcheck:1496898532559421571> Čestitamo {user}! Pogodio/la si **{rijec}**! <a:64382pinksparkles:1500259869259988033>\n<a:529977coin:1500444133389635704> **Nagrada:** `+{nagrada} <a:529977coin:1500444133389635704>`",
     color: "#FF85C8",
     category: "Igre",
@@ -966,7 +966,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "toplo-hladno",
-    title: "<:479765rolemodblue:1496901403669565580>  T O P L O  •  H L A D N O",
+    title: "<:gamepad:1504850554113884240> T O P L O  •  H L A D N O",
     description:
       "━━━━━━━━━━━━━━━━━━━━━\n<:8891bluestar:1504507192038916187> Pogodi tajni broj (1–{max})!\n\n<:479765rolemodblue:1496901403669565580> **Hladno** — daleko si\n<:479765rolemodblue:1496901403669565580> **Toplo** — bliže si\n<a:3599pinkheart:1504504866700132534> **Vrelo** — skoro!\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -981,7 +981,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kviz",
-    title: "<:8891bluestar:1504507192038916187>  K V I Z  —  Balkan Pitanje",
+    title: "<:gamepad:1504850554113884240> K V I Z  —  Balkan Pitanje",
     description:
       "━━━━━━━━━━━━━━━━━━━━━\n<:70920bluearrow:1504507388386869280> **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -997,7 +997,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "geografija",
-    title: "<:8891bluestar:1504507192038916187>  G E O G R A F I J A  —  Kviz",
+    title: "<:globe:1504850556311834825> G E O G R A F I J A  —  Kviz",
     description:
       "━━━━━━━━━━━━━━━━━━━━━\n<:479765rolemodblue:1496901403669565580> **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -1013,7 +1013,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mafia-lobby",
-    title: "<:8891bluestar:1504507192038916187>  M A F I A  —  Lobby",
+    title: "<:gamepad:1504850554113884240> M A F I A  —  Lobby",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> Mafia igra se priprema!\n**Pridruži se klikom na dugme.**\n━━━━━━━━━━━━━━━━━━━━━━━\n<:479765rolemodblue:1496901403669565580> Min: **5** | Max: **12** igrača\n<a:44503lockkey:1500444008760217641> Igra kreće automatski za **60s** ili kad host klikne Start",
     color: "#9B59B6",
@@ -1026,7 +1026,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mafia-end",
-    title: "<:79529shinycrown:1496899185516216400>  M A F I A  —  Kraj Igre",
+    title: "<:crown:1504850546849349803> M A F I A  —  Kraj Igre",
     description: "## {rezultat}\n\n{opis}",
     color: "#FF85C8",
     category: "Igre",
@@ -1041,7 +1041,7 @@ export const DEFAULT_EMBEDS = [
   // ─── POO ────────────────────────────────────────────────────
   {
     name: "poo",
-    title: "<a:793429sparkles:1496899433634201611>  P O O  —  Stanje Kreature",
+    title: "<:heart:1504850560007012383> P O O  —  Stanje Kreature",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n{emojiBar}\n<:4558purplecheck:1504504889706020995> **Zdravlje:** `{zdravlje}/100`\n<a:3599pinkheart:1504504866700132534> **Raspoloženje:** `{raspolozenje}`\n━━━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> Ukupno čuvara: **{cuvari}**\n<:32467lovetalk:1504505532323594321> Završenih zadataka: **{zadaci}/100**",
     color: "#9B59B6",
@@ -1056,7 +1056,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-zadaci",
-    title: "<:2084purplestar:1504504848375349388>  P O O  —  Zadaci",
+    title: "<:checkcircle:1504852246809149450> P O O  —  Zadaci",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<:518169rolemodpurple:1496901673426096158> Lista Poo zadataka — stranica **{str}/{ukupnoStr}**\n━━━━━━━━━━━━━━━━━━━━━━\n{zadaci}",
     color: "#9B59B6",
@@ -1067,7 +1067,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-top",
-    title: "<:79529shinycrown:1496899185516216400>  P O O  —  Top Čuvari",
+    title: "<:crown:1504850546849349803> P O O  —  Top Čuvari",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<:79529shinycrown:1496899185516216400> **{top1}** — `{top1pts}` pts\n<:2084purplestar:1504504848375349388> **{top2}** — `{top2pts}` pts\n<:4558purplecheck:1504504889706020995> **{top3}** — `{top3pts}` pts\n<:518169rolemodpurple:1496901673426096158> **{top4}** — `{top4pts}` pts\n<a:15072animatedarrowpink2:1496898801556914236> **{top5}** — `{top5pts}` pts\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -1078,7 +1078,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-hrani",
-    title: "<a:3599pinkheart:1504504866700132534>  P O O  —  Hranjen!",
+    title: "<:heart:1504850560007012383> P O O  —  Hranjen!",
     description:
       "<a:571294pinkpaw:1500259928936284211> {user} je hranio/la Poo-a! <a:giveaways5:1500203902446997586>\nPotrošeno: **200 coina**\n\n{emojiBar}\n<:4558purplecheck:1504504889706020995> **Zdravlje:** `{zdravlje}/100` **(+{bonus})**",
     color: "#FF85C8",
@@ -1092,7 +1092,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-info",
-    title: "<a:793429sparkles:1496899433634201611>  P O O  —  Moj Doprinos",
+    title: "<:barchart:1504852242233032865> P O O  —  Moj Doprinos",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:571294pinkpaw:1500259928936284211> **{user}**\n━━━━━━━━━━━━━━━━━━━━━━\n{progres}",
     color: "#9B59B6",
@@ -1108,7 +1108,7 @@ export const DEFAULT_EMBEDS = [
   // ─── ADMIN ──────────────────────────────────────────────────
   {
     name: "backup",
-    title: "<:4558purplecheck:1504504889706020995>  B A C K U P  —  Snimljen",
+    title: "<:terminal:1504850585248071890> B A C K U P  —  Snimljen",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<:4558purplecheck:1504504889706020995> Backup je uspješno snimljen!\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -1123,7 +1123,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "backup-restore",
-    title: "<a:64382pinksparkles:1500259869259988033>  B A C K U P  —  Vraćen",
+    title: "<:terminal:1504850585248071890> B A C K U P  —  Vraćen",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<:4558purplecheck:1504504889706020995> Backup je uspješno vraćen!\n━━━━━━━━━━━━━━━━━━━━━━\n<:1111pinkarrow:1496903118108229733> Svi podaci su prepisani backupom od **{datum}**.",
     color: "#FF85C8",
@@ -1137,7 +1137,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "backup-status",
-    title: "<a:793429sparkles:1496899433634201611>  B A C K U P  —  Status",
+    title: "<:terminal:1504850585248071890> B A C K U P  —  Status",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> Cloud backup istorija:\n━━━━━━━━━━━━━━━━━━━━━━\n{historija}",
     color: "#9B59B6",
@@ -1154,7 +1154,7 @@ export const DEFAULT_EMBEDS = [
   // ─── MODERACIJA (kompletno) ────────────────────────────────────
   {
     name: "mod-kick",
-    title: "<:994180roleadminred1:1496902197605306461> Član Kickovan",
+    title: "<:userx:1504852293319655604> Član Kickovan",
     description:
       "<a:73288animatedarrowred:1496899179560304783> **{target}** je kickovan sa servera.\n<:994180roleadminred1:1496902197605306461> Razlog: **{reason}**",
     color: "#dc2626",
@@ -1169,7 +1169,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-mute",
-    title: "<:994180roleadminred1:1496902197605306461> Član Mutovan",
+    title: "<:volumex:1504852298072064120> Član Mutovan",
     description:
       "<a:73288animatedarrowred:1496899179560304783> **{target}** je mutovan na **{duration}**.\n<:994180roleadminred1:1496902197605306461> Razlog: **{reason}**",
     color: "#9B59B6",
@@ -1184,7 +1184,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-unmute",
-    title: "<a:8055redcheck:1504505449062465597> Član Odmutovan",
+    title: "<:volumeup:1504852295416807534> Član Odmutovan",
     description:
       "<a:64382pinksparkles:1500259869259988033> **{target}** je odmutovan.\n<:994180roleadminred1:1496902197605306461> Može ponovo pisati na serveru.",
     color: "#059669",
@@ -1198,7 +1198,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-timeout",
-    title: "<:994180roleadminred1:1496902197605306461> Timeout",
+    title: "<:clockx:1504852248683876433> Timeout",
     description:
       "<a:73288animatedarrowred:1496899179560304783> **{target}** je stavljen u timeout na **{duration}**.\n<:994180roleadminred1:1496902197605306461> Razlog: **{reason}**",
     color: "#d97706",
@@ -1213,7 +1213,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-purge",
-    title: "<:994180roleadminred1:1496902197605306461> Poruke Obrisane",
+    title: "<:trash2:1504852288567640146> Poruke Obrisane",
     description:
       "<a:73288animatedarrowred:1496899179560304783> Obrisano **{count}** poruka u <#{channel}>.\n<:994180roleadminred1:1496902197605306461> Izvršio: **{mod}**",
     color: "#9B59B6",
@@ -1224,7 +1224,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-unban",
-    title: "<a:8055redcheck:1504505449062465597> Član Odbanovan",
+    title: "<:badgecheck:1504852240404320356> Član Odbanovan",
     description:
       "<a:64382pinksparkles:1500259869259988033> **{target}** je odbanovan sa servera.\n<:994180roleadminred1:1496902197605306461> Izvršio: **{mod}**",
     color: "#059669",
@@ -1239,7 +1239,7 @@ export const DEFAULT_EMBEDS = [
   // ─── EKONOMIJA (kompletno) ────────────────────────────────────
   {
     name: "eco-balance",
-    title: "<:2084purplestar:1504504848375349388> Balans — {user}",
+    title: "<:wallet:1504852300030673027> Balans — {user}",
     description:
       "<a:529977coin:1500444133389635704> Pregled tvog novčanika na serveru:",
     color: "#9B59B6",
@@ -1254,7 +1254,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-daily",
-    title: "<a:529977coin:1500444133389635704> Dnevna Nagrada",
+    title: "<:coins:1504852251053658227> Dnevna Nagrada",
     description:
       "<a:64382pinksparkles:1500259869259988033> **{user}** je uzeo/la dnevnu nagradu!\n<:984706roleadminorange1:1496898583239200819> Streak: **{streak} dana** zaredom <a:3599pinkheart:1504504866700132534>",
     color: "#FF85C8",
@@ -1269,7 +1269,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-work",
-    title: "<:984706roleadminorange1:1496898583239200819> Posao — {job}",
+    title: "<:briefcase:1504852244225462303> Posao — {job}",
     description:
       "<a:28079animatedarroworange:1496898931790057472> **{user}** je radio/la kao **{job}** i zaradio/la:\n<a:529977coin:1500444133389635704> **{amount}** kovanica!",
     color: "#9B59B6",
@@ -1283,7 +1283,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-shop",
-    title: "<:2084purplestar:1504504848375349388>  S H O P",
+    title: "<:shoppingcart:1504852275628081283> S H O P",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:28079animatedarroworange:1496898931790057472> Dobrodošao/la u shop! Kupi role, iteme i više.\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -1298,7 +1298,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-buy",
-    title: "<:4558purplecheck:1504504889706020995> Kupovina Uspješna",
+    title: "<:shoppingcart:1504852275628081283> Kupovina Uspješna",
     description:
       "<a:64382pinksparkles:1500259869259988033> **{user}** je kupio/la **{item}**!\n<:984706roleadminorange1:1496898583239200819> Cijena: **{price}** 🪙",
     color: "#FF85C8",
@@ -1312,7 +1312,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-transfer",
-    title: "<:8526link:1504505939917803620> Transfer Kovanica",
+    title: "<:moneybag:1504852270561362010> Transfer Kovanica",
     description:
       "<a:529977coin:1500444133389635704> **{from}** je poslao/la **{amount}** 🪙 → **{to}**\n<:4558purplecheck:1504504889706020995> Transfer uspješan!",
     color: "#9B59B6",
@@ -1327,7 +1327,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-rob",
-    title: "<:994180roleadminred1:1496902197605306461> Pljačka!",
+    title: "<:moneybag:1504852270561362010> Pljačka!",
     description:
       "<a:28079animatedarroworange:1496898931790057472> **{user}** je pokušao/la opljačkati **{target}**!\n{result}",
     color: "#dc2626",
@@ -1343,7 +1343,7 @@ export const DEFAULT_EMBEDS = [
   // ─── MUZIKA ──────────────────────────────────────────────────
   {
     name: "music-play",
-    title: "<a:85034pinknotes:1500444022622130196> Reprodukcija",
+    title: "<:music:1504850566415782098> Reprodukcija",
     description:
       "<a:15072animatedarrowpink2:1496898801556914236> Sada svira: **[{title}]({url})**\n<:518169rolemodpurple:1496901673426096158> Autor: **{author}** · Trajanje: `{duration}`",
     color: "#9B59B6",
@@ -1358,7 +1358,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-queue",
-    title: "<a:85034pinknotes:1500444022622130196>  R E D  —  Muzika",
+    title: "<:listmusic:1504852263556878417> R E D  —  Muzika",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> **Trenutno svira:**\n**[{currentTitle}]({currentUrl})** · `{currentDuration}`\n━━━━━━━━━━━━━━━━━━━━━━\n{queueList}",
     color: "#9B59B6",
@@ -1372,7 +1372,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-skip",
-    title: "<:1111pinkarrow:1496903118108229733> Preskočeno",
+    title: "<:skipforward:1504852277570048211> Preskočeno",
     description:
       "<a:64382pinksparkles:1500259869259988033> **{user}** je preskočio/la: **{title}**\n<a:85034pinknotes:1500444022622130196> Sljedeće: **{next}**",
     color: "#FF85C8",
@@ -1383,7 +1383,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-pause",
-    title: "<a:85034pinknotes:1500444022622130196> Pauzirano",
+    title: "<:pausecircle:1504852273627529266> Pauzirano",
     description:
       "<:518169rolemodpurple:1496901673426096158> Muzika je pauzirana.\n<a:15072animatedarrowpink2:1496898801556914236> Napiši `/resume` da nastaviš.",
     color: "#9B59B6",
@@ -1394,7 +1394,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-stop",
-    title: "<:2261bell:1504505860720820395> Muzika Zaustavljena",
+    title: "<:volumex:1504852298072064120> Muzika Zaustavljena",
     description:
       "<:518169rolemodpurple:1496901673426096158> **{user}** je zaustavio/la muziku i obrisao/la red.\n<a:571294pinkpaw:1500259928936284211> Vidimo se sljedeći put!",
     color: "#9B59B6",
@@ -1405,7 +1405,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-lyrics",
-    title: "<a:85034pinknotes:1500444022622130196> Tekst Pjesme — {title}",
+    title: "<:headphones:1504852261241884692> Tekst Pjesme — {title}",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n{lyrics}\n━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
@@ -1418,7 +1418,7 @@ export const DEFAULT_EMBEDS = [
   // ─── VERIFIKACIJA ────────────────────────────────────────────
   {
     name: "verify-panel",
-    title: "<:428758neonverifiedcheck:1496898532559421571>  V E R I F I K A C I J A",
+    title: "<:shieldcheck:1504850579556532314> V E R I F I K A C I J A",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:91490animatedarrowblue:1496899222023176233> Klikni dugme ispod da potvrdiš da nisi bot!\n<:479765rolemodblue:1496901403669565580> Nakon verifikacije dobijate pristup svim kanalima.\n━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> **discord.gg/gian**",
     color: "#9B59B6",
@@ -1429,7 +1429,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "verify-success",
-    title: "<:428758neonverifiedcheck:1496898532559421571> Verifikacija Uspješna!",
+    title: "<:badgecheck:1504852240404320356> Verifikacija Uspješna!",
     description:
       "<a:64382pinksparkles:1500259869259988033> **{user}** — Dobrodošao/la! <a:3599pinkheart:1504504866700132534>\n<:479765rolemodblue:1496901403669565580> Verifikacija je prošla. Uživaj na serveru!\n<a:91490animatedarrowblue:1496899222023176233> Dobio/la si ulogu: <@&{roleId}>",
     color: "#FF85C8",
@@ -1440,7 +1440,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "verify-fail",
-    title: "<:994180roleadminred1:1496902197605306461> Verifikacija Neuspješna",
+    title: "<:shieldalert:1504850577237086248> Verifikacija Neuspješna",
     description:
       "<:479765rolemodblue:1496901403669565580> Verifikacija nije prošla. Pokušaj ponovo!\n<a:91490animatedarrowblue:1496899222023176233> Ako imaš problema, kontaktiraj staff.",
     color: "#dc2626",
@@ -1453,7 +1453,7 @@ export const DEFAULT_EMBEDS = [
   // ─── ANKETE ──────────────────────────────────────────────────
   {
     name: "poll-create",
-    title: "<:2084purplestar:1504504848375349388>  A N K E T A",
+    title: "<:barchart:1504852242233032865> A N K E T A",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:73288animatedarrowred:1496899179560304783> **{question}**\n━━━━━━━━━━━━━━━━━━━━━━\n<:1111pinkarrow:1496903118108229733> Glasaj koristeći reakcije ispod!",
     color: "#9B59B6",
@@ -1468,7 +1468,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poll-results",
-    title: "<:79529shinycrown:1496899185516216400> Anketa — Rezultati",
+    title: "<:barchart:1504852242233032865> Anketa — Rezultati",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:64382pinksparkles:1500259869259988033> **{question}**\n━━━━━━━━━━━━━━━━━━━━━━\n{resultsBar}",
     color: "#FF85C8",
@@ -1484,7 +1484,7 @@ export const DEFAULT_EMBEDS = [
   // ─── REACTION ROLES ──────────────────────────────────────────
   {
     name: "rr-panel",
-    title: "<:2084purplestar:1504504848375349388>  U L O G E  —  Odaberi",
+    title: "<:tag:1504852279524593814> U L O G E  —  Odaberi",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> Klikni na reakciju da dobiješ/skineš ulogu!\n━━━━━━━━━━━━━━━━━━━━━━\n{roleList}",
     color: "#9B59B6",
@@ -1495,7 +1495,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rr-add",
-    title: "<:4558purplecheck:1504504889706020995> Uloga Dodana",
+    title: "<:usercheck:1504852290710798467> Uloga Dodana",
     description:
       "<a:64382pinksparkles:1500259869259988033> **{user}** — dobio/la si ulogu <@&{roleId}>! <a:3599pinkheart:1504504866700132534>",
     color: "#FF85C8",
@@ -1506,7 +1506,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rr-remove",
-    title: "<:518169rolemodpurple:1496901673426096158> Uloga Skinuta",
+    title: "<:userx:1504852293319655604> Uloga Skinuta",
     description:
       "<:518169rolemodpurple:1496901673426096158> **{user}** — uloga <@&{roleId}> je skinuta.",
     color: "#9B59B6",
@@ -1519,7 +1519,7 @@ export const DEFAULT_EMBEDS = [
   // ─── REPORT (Admin) ──────────────────────────────────────────
   {
     name: "report-nova",
-    title: "<:994180roleadminred1:1496902197605306461> Nova Prijava — Report",
+    title: "<:shieldalert:1504850577237086248> Nova Prijava — Report",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━\n<a:15072animatedarrowpink2:1496898801556914236> **{reporter}** je prijavio/la **{target}**\n━━━━━━━━━━━━━━━━━━━━━━\n<:518169rolemodpurple:1496901673426096158> Razlog: **{reason}**",
     color: "#dc2626",
@@ -1534,7 +1534,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "report-closed",
-    title: "<:4558purplecheck:1504504889706020995> Report Zatvoren",
+    title: "<:checkcircle:1504852246809149450> Report Zatvoren",
     description:
       "<a:64382pinksparkles:1500259869259988033> Report #**{id}** je zatvoren od strane **{mod}**.\n<:518169rolemodpurple:1496901673426096158> Akcija: **{action}**",
     color: "#9B59B6",
