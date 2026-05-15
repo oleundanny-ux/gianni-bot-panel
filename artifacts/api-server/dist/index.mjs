@@ -47215,7 +47215,27 @@ var DEFAULT_EMBEDS = [
     category: "Sistem",
     footer: "GIANNI (Custom) \u2022 Privatni Voice Sistem",
     thumbnail: null,
-    fields: []
+    fields: [],
+    buttons: []
+  },
+  {
+    name: "voice-pravila",
+    title: "\u{1F50A}  P R I V A T N I  V O I C E  K A N A L I",
+    description: "U\u0111i u <#1494043959213953114> i bot ti **automatski** kreira vlastiti voice kanal.\nPostaje\u0161 **vlasnik** \u{1F451} i dobija\u0161 puni kontrolni panel.",
+    color: "#2B2D3A",
+    category: "Sistem paneli",
+    footer: "\u{1F50A} GIANNI \u2022 Voice Pravila",
+    thumbnail: null,
+    fields: [
+      { name: "\u{1F91D}  Pona\u0161anje", value: "\u{1F6AB} Bez vrije\u0111anja, maltretiranja i rasizma\n\u{1F399}\uFE0F Ne prekidaj druge dok pri\u010Daju\n\u{1F507} Ne lupaj mikrofonom bez razloga", inline: true },
+      { name: "\u{1F451}  Vlasni\u0161tvo", value: "\u{1F39B}\uFE0F Samo vlasnik koristi Lock / Hide / Kick panel\n\u{1F501} Prebaci vlasni\u0161tvo prije izlaska\n\u2696\uFE0F Ne koristi panel za maltretiranje", inline: true },
+      { name: "\u{1F51E}  Sadr\u017Eaj & Imena", value: "\u{1F6AB} Bez NSFW sadr\u017Eaja i streaminga\n\u270F\uFE0F Ime kanala mora biti pristojno\n\u{1F4CB} Vrijede sva op\u0161ta pravila servera", inline: true },
+      { name: "\u{1F5D1}\uFE0F  Automatsko brisanje", value: "Kad svi iza\u0111u, bot **automatski bri\u0161e** kanal.\n\u{1F46E} Staff ima pristup svim kanalima zbog moderacije.", inline: false },
+      { name: "\u26A0\uFE0F  Kazne", value: "`1.` \u26A0\uFE0F Upozorenje  `2.` \u{1F507} Voice mute  `3.` \u{1F6AB} Zabrana voice-a  `4.` \u{1F462} Kick / \u{1F528} Ban", inline: false }
+    ],
+    buttons: [
+      { label: "\u{1F50A} Kreiraj svoj voice", style: "success", customId: "vc_create_btn" }
+    ]
   },
   // ─── VATRICE ──────────────────────────────────────────────────────────────
   {
