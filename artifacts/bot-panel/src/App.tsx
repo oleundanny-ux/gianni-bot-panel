@@ -3,6 +3,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppLayout } from "@/components/layout/AppLayout";
+import { AuthProvider, useAuth } from "@/context/AuthContext";
+import Login from "@/pages/Login";
 import Dashboard from "@/pages/Dashboard";
 import Commands from "@/pages/Commands";
 import Embeds from "@/pages/Embeds";
@@ -33,13 +35,42 @@ function Router() {
   );
 }
 
+function AuthGate() {
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center" style={{ background: "#080910" }}>
+        <div className="flex flex-col items-center gap-4">
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center font-black text-lg"
+            style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", boxShadow: "0 0 24px rgba(99,102,241,0.5)" }}
+          >
+            G
+          </div>
+          <div className="flex gap-1">
+            {[0, 1, 2].map(i => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full animate-bounce" style={{ background: "#6366f1", animationDelay: `${i * 0.15}s` }} />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) return <Login />;
+  return <Router />;
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
+        <AuthProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <AuthGate />
+          </WouterRouter>
+        </AuthProvider>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
