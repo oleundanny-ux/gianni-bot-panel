@@ -1763,9 +1763,28 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
 
 export default function Embeds() {
   const { data: embeds, isLoading } = useListEmbeds();
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
   const [selectedEmbed, setSelectedEmbed] = useState<EmbedTemplate | null>(null);
   const [sidebarSearch, setSidebarSearch] = useState("");
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
+
+  const handleResetAll = async () => {
+    if (!confirm("Resetovati SVE embede na podrazumijevane vrijednosti? Sve promjene bit će izgubljene.")) return;
+    setIsResetting(true);
+    try {
+      const res = await fetch(`${BASE_URL}/api/embeds/reset-all`, { method: "POST" });
+      if (!res.ok) throw new Error("Reset failed");
+      const json = await res.json();
+      await queryClient.invalidateQueries({ queryKey: getListEmbedsQueryKey() });
+      toast({ title: `✅ ${json.updated ?? "Svi"} embeda resetovano na defaults` });
+    } catch {
+      toast({ title: "❌ Greška pri resetu", variant: "destructive" });
+    } finally {
+      setIsResetting(false);
+    }
+  };
 
   // Escape to exit fullscreen
   useEffect(() => {
@@ -1807,10 +1826,15 @@ export default function Embeds() {
     };
   }, []);
 
-  // Auto-select first embed once loaded
+  // Auto-select first embed once loaded; re-sync selected embed when data refreshes (e.g. after reset)
   useEffect(() => {
-    if (embeds && embeds.length > 0 && !selectedEmbed) {
+    if (!embeds || embeds.length === 0) return;
+    if (!selectedEmbed) {
       setSelectedEmbed(embeds[0]);
+    } else {
+      // Keep selected embed in sync with freshly fetched data
+      const fresh = embeds.find(e => e.name === selectedEmbed.name);
+      if (fresh) setSelectedEmbed(fresh);
     }
   }, [embeds]);
 
@@ -1872,10 +1896,21 @@ export default function Embeds() {
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#6366f1" }}>
                 Embed Templates
               </span>
-              <div className="ml-auto px-1.5 py-0.5 rounded-full text-[10px] font-bold"
+              <div className="px-1.5 py-0.5 rounded-full text-[10px] font-bold"
                 style={{ background: "rgba(99,102,241,0.15)", color: "#818cf8", border: "1px solid rgba(99,102,241,0.2)" }}>
                 {embeds?.length ?? 0}
               </div>
+              <button
+                onClick={handleResetAll}
+                disabled={isResetting}
+                title="Učitaj sve embede — Reset na podrazumijevane vrijednosti"
+                className="ml-auto p-1.5 rounded-md transition-all disabled:opacity-50"
+                style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)", color: "#f87171" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(239,68,68,0.2)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(239,68,68,0.1)"; }}
+              >
+                <RotateCcw className={`w-3 h-3 ${isResetting ? "animate-spin" : ""}`} />
+              </button>
             </div>
             {/* Search */}
             <div className="relative">
