@@ -122,7 +122,9 @@ function RoleDot({ color }: { color: string }) {
 }
 
 // ─── Toggle Switch ────────────────────────────────────────────────────────────
-function Toggle({ checked, onChange, disabled }: { checked: boolean; onChange: (v: boolean) => void; disabled?: boolean }) {
+function Toggle({ checked, onChange, disabled, danger }: { checked: boolean; onChange: (v: boolean) => void; disabled?: boolean; danger?: boolean }) {
+  const activeColor = danger ? "#f87171" : "#3ba55c";
+  const activeGlow  = danger ? "rgba(248,113,113,0.35)" : "rgba(59,165,92,0.35)";
   return (
     <button
       type="button"
@@ -130,18 +132,18 @@ function Toggle({ checked, onChange, disabled }: { checked: boolean; onChange: (
       aria-checked={checked}
       disabled={disabled}
       onClick={() => !disabled && onChange(!checked)}
-      className="relative inline-flex w-9 h-5 rounded-full transition-all duration-200 flex-shrink-0 focus:outline-none"
+      className="relative inline-flex w-11 h-6 rounded-full transition-all duration-200 flex-shrink-0 focus:outline-none"
       style={{
-        background: checked ? "linear-gradient(90deg,#6366f1,#8b5cf6)" : "rgba(255,255,255,0.08)",
-        border: checked ? "none" : "1px solid rgba(255,255,255,0.1)",
-        boxShadow: checked ? "0 0 12px rgba(99,102,241,0.4)" : "none",
-        opacity: disabled ? 0.4 : 1,
+        background: checked ? activeColor : "rgba(255,255,255,0.07)",
+        border: checked ? "none" : "1px solid rgba(255,255,255,0.12)",
+        boxShadow: checked ? `0 0 14px ${activeGlow}` : "none",
+        opacity: disabled ? 0.45 : 1,
         cursor: disabled ? "not-allowed" : "pointer",
       }}
     >
       <span
-        className="absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform duration-200"
-        style={{ transform: checked ? "translateX(18px)" : "translateX(2px)", boxShadow: "0 1px 4px rgba(0,0,0,0.4)" }}
+        className="absolute top-0.5 w-5 h-5 rounded-full bg-white transition-transform duration-200"
+        style={{ transform: checked ? "translateX(22px)" : "translateX(2px)", boxShadow: "0 1px 4px rgba(0,0,0,0.45)" }}
       />
     </button>
   );
@@ -427,28 +429,38 @@ export default function Permissions() {
                             const on = hasPermission(localPerms, perm.bit);
                             const isAdminBit = perm.bit === (1n << 3n);
                             const forcedByAdmin = !isAdminBit && adminOn;
+                            const rowColor = on
+                              ? perm.danger ? "rgba(248,113,113,0.07)" : "rgba(59,165,92,0.07)"
+                              : "transparent";
+                            const labelColor = on
+                              ? perm.danger ? "#fca5a5" : "#86efac"
+                              : "#9ca3af";
                             return (
                               <div
                                 key={String(perm.bit)}
-                                className="flex items-center justify-between px-4 py-2.5"
-                                style={{ background: on ? "rgba(99,102,241,0.04)" : "transparent" }}
+                                className="flex items-center justify-between px-4 py-2.5 transition-colors duration-150"
+                                style={{ background: rowColor }}
                               >
                                 <div className="flex-1 min-w-0 mr-4">
-                                  <div className="flex items-center gap-1.5 text-xs font-medium" style={{ color: on ? "#e2e8f0" : "#9ca3af" }}>
+                                  <div className="flex items-center gap-1.5 text-xs font-medium" style={{ color: labelColor }}>
+                                    {on && !perm.danger && (
+                                      <span style={{ color: "#3ba55c", fontSize: 11 }}>✓</span>
+                                    )}
                                     {perm.label}
-                                    {perm.danger && (
+                                    {perm.danger && on && (
                                       <span style={{ color: "#f87171" }}><ShieldAlert size={10} /></span>
                                     )}
                                     {forcedByAdmin && (
                                       <span className="text-[9px] px-1 py-0.5 rounded" style={{ background: "rgba(248,113,113,0.12)", color: "#f87171" }}>Admin</span>
                                     )}
                                   </div>
-                                  <div className="text-[10px] mt-0.5 truncate" style={{ color: "#4b5563" }}>{perm.description}</div>
+                                  <div className="text-[10px] mt-0.5 truncate" style={{ color: on ? "#4b5563" : "#374151" }}>{perm.description}</div>
                                 </div>
                                 <Toggle
                                   checked={on}
                                   onChange={() => togglePerm(perm.bit)}
                                   disabled={selected.managed || forcedByAdmin}
+                                  danger={perm.danger}
                                 />
                               </div>
                             );
