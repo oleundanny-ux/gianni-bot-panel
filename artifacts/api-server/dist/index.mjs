@@ -33781,18 +33781,9 @@ router4.get("/stats", (req, res) => {
     commandsByCategory[cat.category] = cat.commands.length;
     total += cat.commands.length;
   }
-  let totalEmbeds = 15;
-  try {
-    const embedsFile = path2.join(process.cwd(), "data", "embeds.json");
-    if (fs2.existsSync(embedsFile)) {
-      const raw = JSON.parse(fs2.readFileSync(embedsFile, "utf-8"));
-      totalEmbeds = raw.length;
-    }
-  } catch {
-  }
   res.json({
     totalCommands: total,
-    totalEmbeds,
+    totalEmbeds: DEFAULT_EMBEDS.length,
     categories: ALL_COMMANDS.length,
     commandsByCategory
   });
