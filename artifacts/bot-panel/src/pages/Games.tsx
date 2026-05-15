@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { CEmoji, CE } from "@/lib/cemoji";
-import { Search, X, Plus } from "lucide-react";
+import {
+  Search, X, Plus, Gamepad2, DollarSign, Layers, Bird, Heart,
+  Briefcase, Gift, Swords, Star, HelpCircle, Globe, BookOpen,
+  Flame, AlertTriangle, Target, Users, ShoppingCart, Sparkles,
+  Trophy, TrendingUp, Activity, ClipboardList, Crown, Wallet,
+  CheckCircle, Music, Save, Dices,
+} from "lucide-react";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -297,7 +302,7 @@ function InfoCard({ icon, name, cmd, desc, info }: { icon: React.ReactNode; name
       </div>
       <p className="text-xs" style={{ color: "#6b7280" }}>{info}</p>
       <div className="mt-2 text-[10px] px-2 py-1 rounded inline-flex items-center gap-1" style={{ background: "rgba(34,197,94,0.08)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.15)" }}>
-        <CEmoji e={CE.check} size={12} /> Uvijek aktivno
+        <CheckCircle className="w-3 h-3" /> Uvijek aktivno
       </div>
     </div>
   );
@@ -360,31 +365,31 @@ export default function Games() {
   const ani = cfg.animals;
 
   const gameCmds: { key: string; icon: React.ReactNode; name: string; badge: string }[] = [
-    { key: "slots",        icon: <CEmoji e={CE.slots}     size={20} />, name: "Slots",              badge: "/slots"         },
-    { key: "blackjack",    icon: <CEmoji e={CE.dice}      size={20} />, name: "Blackjack",          badge: "/blackjack"     },
-    { key: "poker",        icon: <CEmoji e={CE.dice2}     size={20} />, name: "Poker",              badge: "/poker"         },
-    { key: "kviz",         icon: <CEmoji e={CE.question}  size={20} />, name: "Kviz",               badge: "/kviz"          },
-    { key: "geografija",   icon: <CEmoji e={CE.globe}     size={20} />, name: "Geografija",         badge: "/geografija"    },
-    { key: "kpm",          icon: <CEmoji e={CE.sword}     size={20} />, name: "Kamen-Papir-Makaze", badge: "/kpm"           },
-    { key: "vjasala",      icon: <CEmoji e={CE.spellbook} size={20} />, name: "Vješala",            badge: "/vjasala"       },
-    { key: "kaladont",     icon: <CEmoji e={CE.spellbook} size={20} />, name: "Kaladont",           badge: "/kaladont"      },
-    { key: "toplo_hladno", icon: <CEmoji e={CE.potion}    size={20} />, name: "Toplo-Hladno",       badge: "/toplo-hladno"  },
-    { key: "amogus",       icon: <CEmoji e={CE.amogus}    size={20} />, name: "Among Us",           badge: "/amogus"        },
+    { key: "slots",        icon: <Star         className="w-5 h-5" style={{ color: "#f59e0b" }} />, name: "Slots",              badge: "/slots"         },
+    { key: "blackjack",    icon: <Layers       className="w-5 h-5" style={{ color: "#3b82f6" }} />, name: "Blackjack",          badge: "/blackjack"     },
+    { key: "poker",        icon: <Trophy       className="w-5 h-5" style={{ color: "#f59e0b" }} />, name: "Poker",              badge: "/poker"         },
+    { key: "kviz",         icon: <HelpCircle   className="w-5 h-5" style={{ color: "#8b5cf6" }} />, name: "Kviz",               badge: "/kviz"          },
+    { key: "geografija",   icon: <Globe        className="w-5 h-5" style={{ color: "#22c55e" }} />, name: "Geografija",         badge: "/geografija"    },
+    { key: "kpm",          icon: <Swords       className="w-5 h-5" style={{ color: "#ef4444" }} />, name: "Kamen-Papir-Makaze", badge: "/kpm"           },
+    { key: "vjasala",      icon: <BookOpen     className="w-5 h-5" style={{ color: "#a5b4fc" }} />, name: "Vješala",            badge: "/vjasala"       },
+    { key: "kaladont",     icon: <BookOpen     className="w-5 h-5" style={{ color: "#818cf8" }} />, name: "Kaladont",           badge: "/kaladont"      },
+    { key: "toplo_hladno", icon: <Flame        className="w-5 h-5" style={{ color: "#f97316" }} />, name: "Toplo-Hladno",       badge: "/toplo-hladno"  },
+    { key: "amogus",       icon: <AlertTriangle className="w-5 h-5" style={{ color: "#ef4444" }} />, name: "Among Us",          badge: "/amogus"        },
   ];
 
   const socialCmds = [
-    { icon: <CEmoji e={CE.zagrljaj}  size={22} />, name: "/zagrljaj", desc: "Zagrli korisnika"          },
-    { icon: <CEmoji e={CE.poljubac}  size={22} />, name: "/poljubac", desc: "Poljubi korisnika"          },
-    { icon: <CEmoji e={CE.mazi}      size={22} />, name: "/mazi",     desc: "Pogali korisnika"           },
-    { icon: <CEmoji e={CE.paw}       size={22} />, name: "/tapsi",    desc: "Tapni korisnika"            },
-    { icon: <CEmoji e={CE.heartpop}  size={22} />, name: "/high5",    desc: "High five!"                 },
-    { icon: <CEmoji e={CE.annoyed}   size={22} />, name: "/cudan",    desc: "Diraj korisnika"            },
-    { icon: <CEmoji e={CE.srce}      size={22} />, name: "/srce",     desc: "Pošalji srce"               },
-    { icon: <CEmoji e={CE.diamond}   size={22} />, name: "/brak",     desc: "Zaprositi korisnika"        },
-    { icon: <CEmoji e={CE.sparkles}  size={22} />, name: "/kompli",   desc: "Kompliment"                 },
-    { icon: <CEmoji e={CE.oof}       size={22} />, name: "/fora",     desc: "Ispričaj foru"              },
-    { icon: <CEmoji e={CE.sleepy}    size={22} />, name: "/muv",      desc: "Napravi muv"                },
-    { icon: <CEmoji e={CE.pinkheart} size={22} />, name: "/crush",    desc: "Nasumičan crush sa servera" },
+    { icon: <Heart      className="w-5 h-5" style={{ color: "#f472b6" }} />, name: "/zagrljaj", desc: "Zagrli korisnika"          },
+    { icon: <Heart      className="w-5 h-5" style={{ color: "#fb7185" }} />, name: "/poljubac", desc: "Poljubi korisnika"          },
+    { icon: <Sparkles   className="w-5 h-5" style={{ color: "#c084fc" }} />, name: "/mazi",     desc: "Pogali korisnika"           },
+    { icon: <Heart      className="w-5 h-5" style={{ color: "#f9a8d4" }} />, name: "/tapsi",    desc: "Tapni korisnika"            },
+    { icon: <Users      className="w-5 h-5" style={{ color: "#60a5fa" }} />, name: "/high5",    desc: "High five!"                 },
+    { icon: <AlertTriangle className="w-5 h-5" style={{ color: "#fbbf24" }} />, name: "/cudan", desc: "Diraj korisnika"            },
+    { icon: <Heart      className="w-5 h-5" style={{ color: "#ef4444" }} />, name: "/srce",     desc: "Pošalji srce"               },
+    { icon: <Sparkles   className="w-5 h-5" style={{ color: "#f59e0b" }} />, name: "/brak",     desc: "Zaprositi korisnika"        },
+    { icon: <Star       className="w-5 h-5" style={{ color: "#a78bfa" }} />, name: "/kompli",   desc: "Kompliment"                 },
+    { icon: <Music      className="w-5 h-5" style={{ color: "#818cf8" }} />, name: "/fora",     desc: "Ispričaj foru"              },
+    { icon: <Heart      className="w-5 h-5" style={{ color: "#f472b6" }} />, name: "/muv",      desc: "Napravi muv"                },
+    { icon: <Heart      className="w-5 h-5" style={{ color: "#ec4899" }} />, name: "/crush",    desc: "Nasumičan crush sa servera" },
   ];
 
   return (
@@ -396,7 +401,7 @@ export default function Games() {
           <div className="flex items-center gap-3.5">
             <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{ background: "rgba(99,102,241,0.18)", border: "1px solid rgba(99,102,241,0.3)", boxShadow: "0 0 16px rgba(99,102,241,0.15)" }}>
-              <CEmoji e={CE.games} size={26} />
+              <Gamepad2 className="w-6 h-6 text-[#a5b4fc]" />
             </div>
             <div>
               <h1 className="text-lg font-black text-white tracking-tight">Igre & Ekonomija</h1>
@@ -416,7 +421,7 @@ export default function Games() {
             <button onClick={handleSave} disabled={saving}
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all"
               style={{ background: "linear-gradient(135deg,#6366f1,#8b5cf6)", color: "white", opacity: saving ? 0.7 : 1, boxShadow: "0 2px 12px rgba(99,102,241,0.3)" }}>
-              <CEmoji e={CE.check} size={15} />
+              <Save className="w-4 h-4" />
               {saving ? "Čuvanje..." : "Sačuvaj"}
             </button>
           </div>
@@ -425,15 +430,13 @@ export default function Games() {
         {/* ── Tabs ── */}
         <div className="flex gap-1 px-3 py-2 overflow-x-auto">
           {([
-            { key: "ekonomija", icon: CE.coin,     label: "Ekonomija" },
-            { key: "kockanje",  icon: CE.dice,     label: "Kockanje"  },
-            { key: "zivotinje", icon: CE.bow,      label: "Životinje" },
-            { key: "socijalno", icon: CE.zagrljaj, label: "Socijalno" },
-          ] as const).map(t => (
+            { key: "ekonomija", icon: <DollarSign className="w-4 h-4" />, label: "Ekonomija" },
+            { key: "kockanje",  icon: <Dices      className="w-4 h-4" />, label: "Kockanje"  },
+            { key: "zivotinje", icon: <Bird       className="w-4 h-4" />, label: "Životinje" },
+            { key: "socijalno", icon: <Heart      className="w-4 h-4" />, label: "Socijalno" },
+          ] as { key: Tab; icon: React.ReactNode; label: string }[]).map(t => (
             <TabBtn key={t.key} active={tab === t.key} onClick={() => setTab(t.key)}>
-              <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0">
-                <CEmoji e={t.icon} size={18} />
-              </span>
+              {t.icon}
               {t.label}
             </TabBtn>
           ))}
@@ -443,7 +446,7 @@ export default function Games() {
       {/* ── EKONOMIJA ── */}
       {tab === "ekonomija" && (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          <Card icon={<CEmoji e={CE.commands} size={22} />} title="Posao" badge="/posao" enabled={eco.posao.enabled} onToggle={v => setEco("posao", "enabled", v)}>
+          <Card icon={<Briefcase className="w-5 h-5 text-[#a5b4fc]" />} title="Posao" badge="/posao" enabled={eco.posao.enabled} onToggle={v => setEco("posao", "enabled", v)}>
             <Row label="Cooldown"><NumInput value={eco.posao.cooldown_min} onChange={v => setEco("posao","cooldown_min",v)} min={1} max={1440} suffix="min" /></Row>
             <Row label="Min nagrada"><NumInput value={eco.posao.reward_min} onChange={v => setEco("posao","reward_min",v)} min={1} suffix="novca" /></Row>
             <Row label="Max nagrada"><NumInput value={eco.posao.reward_max} onChange={v => setEco("posao","reward_max",v)} min={1} suffix="novca" /></Row>
@@ -452,7 +455,7 @@ export default function Games() {
             </div>
           </Card>
 
-          <Card icon={<CEmoji e={CE.present} size={22} />} title="Daily" badge="/daily" enabled={eco.daily.enabled} onToggle={v => setEco("daily","enabled",v)}>
+          <Card icon={<Gift className="w-5 h-5 text-[#f472b6]" />} title="Daily" badge="/daily" enabled={eco.daily.enabled} onToggle={v => setEco("daily","enabled",v)}>
             <Row label="Cooldown"><NumInput value={eco.daily.cooldown_hours} onChange={v => setEco("daily","cooldown_hours",v)} min={1} max={72} suffix="h" /></Row>
             <Row label="Min nagrada"><NumInput value={eco.daily.reward_min} onChange={v => setEco("daily","reward_min",v)} min={1} suffix="novca" /></Row>
             <Row label="Max nagrada"><NumInput value={eco.daily.reward_max} onChange={v => setEco("daily","reward_max",v)} min={1} suffix="novca" /></Row>
@@ -461,7 +464,7 @@ export default function Games() {
             </div>
           </Card>
 
-          <Card icon={<CEmoji e={CE.gun} size={22} />} title="Kradi" badge="/kradi" enabled={eco.kradi.enabled} onToggle={v => setEco("kradi","enabled",v)}>
+          <Card icon={<Swords className="w-5 h-5 text-[#ef4444]" />} title="Kradi" badge="/kradi" enabled={eco.kradi.enabled} onToggle={v => setEco("kradi","enabled",v)}>
             <Row label="Cooldown"><NumInput value={eco.kradi.cooldown_hours} onChange={v => setEco("kradi","cooldown_hours",v)} min={1} max={48} suffix="h" /></Row>
             <Row label="Šansa uspjeha"><NumInput value={eco.kradi.success_rate} onChange={v => setEco("kradi","success_rate",v)} min={1} max={99} suffix="%" /></Row>
             <Row label="Min krađa"><NumInput value={eco.kradi.steal_min} onChange={v => setEco("kradi","steal_min",v)} min={1} suffix="novca" /></Row>
@@ -472,23 +475,24 @@ export default function Games() {
           </Card>
 
           {([
-            { ce: CE.coin,        name: "/baki",       desc: "Provjera balansa",  info: "Prikazuje balans i zadnji rad"          },
-            { ce: CE.love,        name: "/daj",        desc: "Transfer para",     info: "Pošalji pare drugaru"                   },
-            { ce: CE.rank,        name: "/rank",       desc: "Level & XP",        info: "Prikazuje tvoj rank i napredak"         },
-            { ce: CE.aktivnost,   name: "/aktivnost",  desc: "Aktivnost",         info: "Detaljna statistika aktivnosti"         },
-            { ce: CE.leaderboard, name: "/leaderboard",desc: "Top lista",         info: "Top 10 po XP-u ili bogatstvu"           },
-            { ce: CE.shop,        name: "/shop",       desc: "Shop",              info: "Kupovina boost predmeta"                },
-            { ce: CE.quests,      name: "/quests",     desc: "Zadaci",            info: "3 dnevna zadatka s nagradama"           },
-          ] as const).map(c => (
-            <InfoCard key={c.name} icon={<CEmoji e={c.ce} size={22} />} name={c.name} cmd={c.name} desc={c.desc} info={c.info} />
-          ))}
+            { icon: <Wallet        className="w-5 h-5 text-[#a5b4fc]" />, name: "/baki",        desc: "Provjera balansa",  info: "Prikazuje balans i zadnji rad"       },
+            { icon: <Heart         className="w-5 h-5 text-[#f472b6]" />, name: "/daj",         desc: "Transfer para",     info: "Pošalji pare drugaru"                },
+            { icon: <TrendingUp    className="w-5 h-5 text-[#22c55e]" />, name: "/rank",        desc: "Level & XP",        info: "Prikazuje tvoj rank i napredak"      },
+            { icon: <Activity      className="w-5 h-5 text-[#60a5fa]" />, name: "/aktivnost",   desc: "Aktivnost",         info: "Detaljna statistika aktivnosti"      },
+            { icon: <Trophy        className="w-5 h-5 text-[#f59e0b]" />, name: "/leaderboard", desc: "Top lista",         info: "Top 10 po XP-u ili bogatstvu"        },
+            { icon: <ShoppingCart  className="w-5 h-5 text-[#c084fc]" />, name: "/shop",        desc: "Shop",              info: "Kupovina boost predmeta"             },
+            { icon: <ClipboardList className="w-5 h-5 text-[#818cf8]" />, name: "/quests",      desc: "Zadaci",            info: "3 dnevna zadatka s nagradama"        },
+          ].map(c => (
+            <InfoCard key={c.name} icon={c.icon} name={c.name} cmd={c.name} desc={c.desc} info={c.info} />
+          )))}
+
         </div>
       )}
 
       {/* ── KOCKANJE ── */}
       {tab === "kockanje" && (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          <Card icon={<CEmoji e={CE.slots} size={22} />} title="Slots" badge="/slots" enabled={gam.slots.enabled} onToggle={v => setGamble("slots","enabled",v)}>
+          <Card icon={<Star className="w-5 h-5 text-[#f59e0b]" />} title="Slots" badge="/slots" enabled={gam.slots.enabled} onToggle={v => setGamble("slots","enabled",v)}>
             <Row label="Cooldown"><NumInput value={gam.slots.cooldown_sec} onChange={v => setGamble("slots","cooldown_sec",v)} min={1} max={3600} suffix="sek" /></Row>
             <Row label="Max opklada"><NumInput value={gam.slots.max_bet} onChange={v => setGamble("slots","max_bet",v)} min={20} suffix="novca" /></Row>
             <div className="text-[10px] px-2 py-1.5 rounded" style={{ background: "rgba(99,102,241,0.08)", color: "#818cf8" }}>
@@ -500,14 +504,14 @@ export default function Games() {
             />
           </Card>
 
-          <Card icon={<CEmoji e={CE.dice} size={22} />} title="Blackjack" badge="/blackjack" enabled={gam.blackjack.enabled} onToggle={v => setGamble("blackjack","enabled",v)}>
+          <Card icon={<Layers className="w-5 h-5 text-[#3b82f6]" />} title="Blackjack" badge="/blackjack" enabled={gam.blackjack.enabled} onToggle={v => setGamble("blackjack","enabled",v)}>
             <Row label="Cooldown"><NumInput value={gam.blackjack.cooldown_sec} onChange={v => setGamble("blackjack","cooldown_sec",v)} min={1} max={3600} suffix="sek" /></Row>
             <div className="text-[10px] px-2 py-1.5 rounded" style={{ background: "rgba(99,102,241,0.08)", color: "#818cf8" }}>
               CD: <b>{gam.blackjack.cooldown_sec}s</b>
             </div>
           </Card>
 
-          <Card icon={<CEmoji e={CE.dice2} size={22} />} title="Poker" badge="/poker" enabled={gam.poker.enabled} onToggle={v => setGamble("poker","enabled",v)}>
+          <Card icon={<Trophy className="w-5 h-5 text-[#f59e0b]" />} title="Poker" badge="/poker" enabled={gam.poker.enabled} onToggle={v => setGamble("poker","enabled",v)}>
             <Row label="Min opklada"><NumInput value={gam.poker.min_bet} onChange={v => setGamble("poker","min_bet",v)} min={1} suffix="novca" /></Row>
             <Row label="Max opklada"><NumInput value={gam.poker.max_bet} onChange={v => setGamble("poker","max_bet",v)} min={1} suffix="novca" /></Row>
             <div className="text-[10px] px-2 py-1.5 rounded" style={{ background: "rgba(99,102,241,0.08)", color: "#818cf8" }}>
@@ -515,15 +519,15 @@ export default function Games() {
             </div>
           </Card>
 
-          <Card icon={<CEmoji e={CE.question} size={22} />} title="Kviz" badge="/kviz" enabled={gam.kviz.enabled} onToggle={v => setGamble("kviz","enabled",v)}>
+          <Card icon={<HelpCircle className="w-5 h-5 text-[#8b5cf6]" />} title="Kviz" badge="/kviz" enabled={gam.kviz.enabled} onToggle={v => setGamble("kviz","enabled",v)}>
             <Row label="Min opklada"><NumInput value={gam.kviz.min_bet} onChange={v => setGamble("kviz","min_bet",v)} min={1} suffix="novca" /></Row>
           </Card>
 
-          <Card icon={<CEmoji e={CE.globe} size={22} />} title="Geografija" badge="/geografija" enabled={gam.geografija.enabled} onToggle={v => setGamble("geografija","enabled",v)}>
+          <Card icon={<Globe className="w-5 h-5 text-[#22c55e]" />} title="Geografija" badge="/geografija" enabled={gam.geografija.enabled} onToggle={v => setGamble("geografija","enabled",v)}>
             <Row label="Min opklada"><NumInput value={gam.geografija.min_bet} onChange={v => setGamble("geografija","min_bet",v)} min={1} suffix="novca" /></Row>
           </Card>
 
-          <Card icon={<CEmoji e={CE.spellbook} size={22} />} title="Kaladont" badge="/kaladont" enabled={gam.kaladont.enabled} onToggle={v => setGamble("kaladont","enabled",v)}>
+          <Card icon={<BookOpen className="w-5 h-5 text-[#818cf8]" />} title="Kaladont" badge="/kaladont" enabled={gam.kaladont.enabled} onToggle={v => setGamble("kaladont","enabled",v)}>
             <Row label="Nagrada za pobjedu"><NumInput value={gam.kaladont.reward} onChange={v => setGamble("kaladont","reward",v)} min={0} suffix="novca" /></Row>
             <div className="text-[10px] px-2 py-1.5 rounded" style={{ background: "rgba(99,102,241,0.08)", color: "#818cf8" }}>
               Pobjednička nagrada: <b>{gam.kaladont.reward} novca + 200 XP</b>
@@ -543,7 +547,7 @@ export default function Games() {
       {tab === "zivotinje" && (
         <div className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            <Card icon={<CEmoji e={CE.bow} size={22} />} title="Hunt" badge="/hunt" enabled={ani.hunt.enabled} onToggle={v => setAnimals("enabled",v)}>
+            <Card icon={<Target className="w-5 h-5 text-[#22c55e]" />} title="Hunt" badge="/hunt" enabled={ani.hunt.enabled} onToggle={v => setAnimals("enabled",v)}>
               <Row label="Cooldown"><NumInput value={ani.hunt.cooldown_sec} onChange={v => setAnimals("cooldown_sec",v)} min={1} max={600} suffix="sek" /></Row>
               <div className="text-[10px] px-2 py-1.5 rounded" style={{ background: "rgba(99,102,241,0.08)", color: "#818cf8" }}>
                 CD: <b>{ani.hunt.cooldown_sec}s</b> · Lovstvo od Common do Mythical
@@ -551,33 +555,33 @@ export default function Games() {
             </Card>
 
             {([
-              { ce: CE.butterfly, name: "Zoo",     cmd: "/zoo",     desc: "Prikazuje kolekciju uhvaćenih životinja i ukupnu moć" },
-              { ce: CE.sword,     name: "Battle",  cmd: "/battle",  desc: "Dvoboj sa drugim korisnikom na osnovu Zoo Power-a"    },
-              { ce: CE.coin,      name: "Sell",    cmd: "/sell",    desc: "Prodaj životinje za novac"                            },
-              { ce: CE.spellbook, name: "Animals", cmd: "/animals", desc: "Lista svih životinja s raritetom i vrijednostima"     },
-              { ce: CE.sparkles,  name: "Pray",    cmd: "/pray",    desc: "Pomoli se za korisnika — nasumičan bonus 20–100"      },
-            ] as const).map(c => (
-              <InfoCard key={c.cmd} icon={<CEmoji e={c.ce} size={22} />} name={c.name} cmd={c.cmd} desc={c.name} info={c.desc} />
+              { icon: <Users        className="w-5 h-5 text-[#22c55e]" />, name: "Zoo",     cmd: "/zoo",     desc: "Prikazuje kolekciju uhvaćenih životinja i ukupnu moć" },
+              { icon: <Swords       className="w-5 h-5 text-[#ef4444]" />, name: "Battle",  cmd: "/battle",  desc: "Dvoboj sa drugim korisnikom na osnovu Zoo Power-a"    },
+              { icon: <ShoppingCart className="w-5 h-5 text-[#a5b4fc]" />, name: "Sell",    cmd: "/sell",    desc: "Prodaj životinje za novac"                            },
+              { icon: <BookOpen     className="w-5 h-5 text-[#818cf8]" />, name: "Animals", cmd: "/animals", desc: "Lista svih životinja s raritetom i vrijednostima"     },
+              { icon: <Sparkles     className="w-5 h-5 text-[#f472b6]" />, name: "Pray",    cmd: "/pray",    desc: "Pomoli se za korisnika — nasumičan bonus 20–100"      },
+            ]).map(c => (
+              <InfoCard key={c.cmd} icon={c.icon} name={c.name} cmd={c.cmd} desc={c.name} info={c.desc} />
             ))}
           </div>
 
           {/* Rarity table */}
           <div className="rounded-xl p-5" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
             <div className="flex items-center gap-2 mb-4">
-              <CEmoji e={CE.crown} size={18} />
+              <Crown className="w-4 h-4 text-[#f59e0b]" />
               <span className="text-sm font-semibold text-white">Raritet životinja</span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
               {[
-                { r: "Common",    color: "#9ca3af", ce: CE.bow       },
-                { r: "Uncommon",  color: "#22c55e", ce: CE.butterfly  },
-                { r: "Rare",      color: "#3b82f6", ce: CE.sword      },
-                { r: "Epic",      color: "#8b5cf6", ce: CE.crown      },
-                { r: "Legendary", color: "#f59e0b", ce: CE.coin       },
-                { r: "Mythical",  color: "#ef4444", ce: CE.vatrice    },
+                { r: "Common",    color: "#9ca3af", emoji: "🐇" },
+                { r: "Uncommon",  color: "#22c55e", emoji: "🦊" },
+                { r: "Rare",      color: "#3b82f6", emoji: "🐺" },
+                { r: "Epic",      color: "#8b5cf6", emoji: "🦁" },
+                { r: "Legendary", color: "#f59e0b", emoji: "🐉" },
+                { r: "Mythical",  color: "#ef4444", emoji: "🔥" },
               ].map(x => (
                 <div key={x.r} className="rounded-lg p-3 text-center" style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${x.color}33` }}>
-                  <div className="flex justify-center mb-1.5"><CEmoji e={x.ce} size={28} /></div>
+                  <div className="flex justify-center mb-1.5 text-2xl">{x.emoji}</div>
                   <div className="text-xs font-semibold" style={{ color: x.color }}>{x.r}</div>
                 </div>
               ))}
@@ -613,20 +617,20 @@ export default function Games() {
           {/* Specijalne komande */}
           <div className="rounded-xl p-5" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
             <div className="flex items-center gap-2 mb-3">
-              <CEmoji e={CE.music} size={18} />
+              <Music className="w-4 h-4 text-[#818cf8]" />
               <span className="text-sm font-semibold text-white">Specijalne komande</span>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-lg p-3" style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.15)" }}>
                 <div className="flex items-center gap-2 mb-1">
-                  <CEmoji e={CE.music} size={20} />
+                  <Music className="w-5 h-5 text-[#818cf8]" />
                   <span className="font-mono text-sm" style={{ color: "#a5b4fc" }}>/vers</span>
                 </div>
                 <p className="text-xs" style={{ color: "#6b7280" }}>Pošalji hip-hop vers u poseban kanal (VERS_CHANNEL_ID)</p>
               </div>
               <div className="rounded-lg p-3" style={{ background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.15)" }}>
                 <div className="flex items-center gap-2 mb-1">
-                  <CEmoji e={CE.giveaway} size={20} />
+                  <Gift className="w-5 h-5 text-[#f472b6]" />
                   <span className="font-mono text-sm" style={{ color: "#a5b4fc" }}>/giveaway</span>
                 </div>
                 <p className="text-xs" style={{ color: "#6b7280" }}>Pokretanje i završetak nagradnih igara</p>
