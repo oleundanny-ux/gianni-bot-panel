@@ -46,6 +46,51 @@ async def get_panel_embed(name: str) -> dict | None:
         print(f"[panel-embed] Cannot fetch '{name}': {_pe}")
     return None
 
+# ── Panel protection config (anti-raid + anti-nsfw settings) ─────────────────
+_prot_cfg: dict = {}
+
+async def get_panel_protection() -> dict:
+    """Fetch protection settings from panel API. Falls back to defaults on error."""
+    global _prot_cfg
+    try:
+        async with aiohttp.ClientSession() as _s:
+            async with _s.get(f"{PANEL_API_URL}/api/protection",
+                              timeout=aiohttp.ClientTimeout(total=3)) as _r:
+                if _r.status == 200:
+                    _prot_cfg = await _r.json()
+                    print(f"[panel-protection] Config refreshed — antiRaid={_prot_cfg.get('antiRaid',{}).get('enabled')}, antiNsfw={_prot_cfg.get('antiNsfw',{}).get('enabled')}")
+    except Exception as _pe:
+        print(f"[panel-protection] Fetch error (using last/defaults): {_pe}")
+    return _prot_cfg
+
+def _prot_raid() -> dict:
+    ar = _prot_cfg.get("antiRaid", {})
+    return {
+        "enabled":      ar.get("enabled", True),
+        "window":       ar.get("windowSeconds", 30),
+        "limit":        ar.get("joinLimit", 5),
+        "age_days":     ar.get("suspiciousAgeDays", 7),
+        "lockdown_min": ar.get("lockdownMinutes", 5),
+        "action":       ar.get("action", "kick"),
+    }
+
+def _prot_nsfw() -> dict:
+    an = _prot_cfg.get("antiNsfw", {})
+    return {
+        "enabled":       an.get("enabled", True),
+        "strikes":       an.get("strikesBeforeTimeout", 3),
+        "timeout_min":   an.get("timeoutMinutes", 60),
+        "extra_sites":   [s.lower() for s in an.get("extraBlockedSites", [])],
+        "extra_keywords": [k.lower() for k in an.get("extraBlockedKeywords", [])],
+    }
+
+async def _protection_refresh_loop():
+    """Osvježava protection config svakih 5 minuta."""
+    await bot.wait_until_ready()
+    while not bot.is_closed():
+        await get_panel_protection()
+        await asyncio.sleep(300)
+
 def _ev(text: str, member, count: int) -> str:
     """Replace panel template variables in embed text."""
     if not text: return text
@@ -1304,6 +1349,13 @@ async def on_ready():
         print("  ✔ Persistent views aktivni (giveaway / ticket / staff-vote / privatni VC / panel-role)")
     except Exception as e:
         print(f"  ✘ Persistent views: {e}")
+    # ── Protection config (anti-raid + anti-nsfw) ──
+    try:
+        await get_panel_protection()
+        bot.loop.create_task(_protection_refresh_loop())
+        print("  ✔ Protection config učitan — refresh loop aktivan (svakih 5 min)")
+    except Exception as e:
+        print(f"  ✘ Protection config: {e}")
     # ── Smart sync: samo ako je broj komandi promijenjen ──
     cur_cmds = len(bot.tree.get_commands())
     last_cmds = data.get("_last_synced_count", -1)
@@ -2178,40 +2230,49 @@ join_tracker: dict = defaultdict(deque)   # guild_id -> deque[(timestamp, member
 raid_mode: dict = {}        # guild_id -> until_timestamp (period gdje se sumnjivi auto-kickaju)
 
 def is_suspicious_account(member) -> bool:
-    """Nalog je sumnjiv ako je: < 7 dana star, default avatar, prazan profil"""
+    """Nalog je sumnjiv ako je mlađi od konfiguriranog praga."""
     age_days = (datetime.now(timezone.utc) - member.created_at).days
-    if age_days < SUSPICIOUS_AGE_DAYS:
-        return True
-    return False
+    return age_days < _prot_raid().get("age_days", SUSPICIOUS_AGE_DAYS)
 
 async def antiraid_check(member):
-    """Prati joinove. Ako je raid, ulazi u raid mod gdje se sumnjivi nalozi automatski kickaju."""
+    """Prati joinove. Ako je raid, ulazi u raid mod. Koristi live panel config."""
+    r = _prot_raid()
+    if not r["enabled"]:
+        return False
     now = time.time()
     gid = member.guild.id
     age_days = (datetime.now(timezone.utc) - member.created_at).days
     dq = join_tracker[gid]
     dq.append((now, member.id, age_days))
-    while dq and dq[0][0] < now - RAID_WINDOW:
+    while dq and dq[0][0] < now - r["window"]:
         dq.popleft()
-    # Brojanje SAMO novih naloga (sumnjivih) u prozoru
-    suspicious_recent = sum(1 for _, _, ad in dq if ad < SUSPICIOUS_AGE_DAYS)
-    if suspicious_recent >= RAID_JOIN_LIMIT:
-        # ULAZAK U RAID MOD na 5 minuta
-        raid_mode[gid] = now + 300
+    suspicious_recent = sum(1 for _, _, ad in dq if ad < r["age_days"])
+    if suspicious_recent >= r["limit"]:
+        lockdown_secs = r["lockdown_min"] * 60
+        raid_mode[gid] = now + lockdown_secs
         await audit_log(member.guild, "🚨 RAID DETEKTOVAN!",
-            f"**{suspicious_recent}** sumnjivih naloga (mlađih od {SUSPICIOUS_AGE_DAYS} dana) u zadnjih {RAID_WINDOW}s!\n"
-            f"⚙️ **Raid mode AKTIVAN 5min** — sumnjivi nalozi će biti automatski kickovani.\n"
+            f"**{suspicious_recent}** sumnjivih naloga (mlađih od {r['age_days']} dana) u zadnjih {r['window']}s!\n"
+            f"⚙️ **Raid mode AKTIVAN {r['lockdown_min']}min** — sumnjivi nalozi će biti automatski kickovani.\n"
             f"✅ Stari/legitimni nalozi prolaze normalno.")
-    # Ako smo u raid modu i nalog je sumnjiv → kickuj
     if gid in raid_mode and now < raid_mode[gid] and is_suspicious_account(member):
         try:
             await member.send(embed=em("🛡️ Raid Zaštita", f"Server **{member.guild.name}** je trenutno pod raid zaštitom. Tvoj nalog je premlad ({age_days}d). Pokušaj ponovo kasnije.", color=COLORS["warning"]))
         except: pass
-        try:
-            await member.kick(reason="🛡️ Anti-Raid: sumnjiv nalog tokom raida")
-            await audit_log(member.guild, "🛡️ Anti-Raid Kick", f"Kickovan: `{member}` (`{member.id}`) — nalog star {age_days}d")
-            return True
-        except: pass
+        action = r["action"]
+        if action == "ban":
+            try:
+                await member.ban(reason="🛡️ Anti-Raid: sumnjiv nalog tokom raida")
+                await audit_log(member.guild, "🛡️ Anti-Raid Ban", f"Banovan: `{member}` (`{member.id}`) — nalog star {age_days}d")
+                return True
+            except: pass
+        elif action == "kick":
+            try:
+                await member.kick(reason="🛡️ Anti-Raid: sumnjiv nalog tokom raida")
+                await audit_log(member.guild, "🛡️ Anti-Raid Kick", f"Kickovan: `{member}` (`{member.id}`) — nalog star {age_days}d")
+                return True
+            except: pass
+        else:  # alert_only
+            await audit_log(member.guild, "🛡️ Anti-Raid Upozorenje", f"Sumnjiv nalog: `{member}` (`{member.id}`) — nalog star {age_days}d (akcija: samo upozori)")
     return False
 
 async def audit_log(guild, title, desc):
@@ -5569,35 +5630,54 @@ def _contains_nsfw_filename(text: str) -> str | None:
 async def check_nsfw(message) -> bool:
     """Briše NSFW sadržaj (slike/linkovi). Vraća True ako je obrisao.
     NAPOMENA: Psovke u tekstu su DOZVOLJENE — ne filtriramo tekst poruke."""
+    n = _prot_nsfw()
+    if not n["enabled"]:
+        return False
     if message.channel.is_nsfw():  # NSFW kanal je dozvoljen
         return False
+    # Merge ugrađene + panel extra liste
+    all_sites    = list(NSFW_SITES)    + n["extra_sites"]
+    all_keywords = list(NSFW_FILENAMES) + n["extra_keywords"]
+
+    def _site_hit(text: str) -> str | None:
+        if not text: return None
+        t = text.lower()
+        for w in all_sites:
+            if w in t: return w
+        return None
+
+    def _kw_hit(text: str) -> str | None:
+        if not text: return None
+        t = text.lower()
+        for w in all_keywords:
+            if w in t: return w
+        return None
+
     found = None
 
     # 1) Pornografski sajtovi u tekstu/linkovima poruke
-    found = _contains_nsfw_site(message.content)
+    found = _site_hit(message.content)
 
     # 2) Attachmenti (slike/videi) — provjeri naziv fajla
     if not found:
         for att in message.attachments:
-            # Discord CDN i sigurni servisi — uvijek OK
             if any(d in att.url.lower() for d in SAFE_DOMAINS):
                 continue
             ext = _os.path.splitext(att.filename.lower())[1]
             if ext in IMAGE_EXTS:
-                found = _contains_nsfw_filename(att.filename)
+                found = _kw_hit(att.filename)
                 if not found:
-                    found = _contains_nsfw_site(att.url)
+                    found = _site_hit(att.url)
             if found: break
 
     # 3) Embeds — provjeri URL i title za NSFW sajtove
-    # GIF-ovi sa Tenor/Giphy (Discord GIF picker) su uvijek OK
     if not found:
         for emb in message.embeds:
             url = emb.url or ""
             if any(d in url.lower() for d in SAFE_DOMAINS):
-                continue  # Tenor / Giphy GIF — preskoci
+                continue
             for field in [url, emb.title, emb.description]:
-                if field and (found := _contains_nsfw_site(str(field))): break
+                if field and (found := _site_hit(str(field))): break
             if found: break
 
     if not found: return False
@@ -5621,16 +5701,19 @@ async def check_nsfw(message) -> bool:
         await audit_log(message.guild, "🔞 Anti-NSFW",
                         f"{message.author.mention} pokušao slati NSFW u {message.channel.mention}\n**Trigger:** `{found}`")
     except: pass
-    # 3+ NSFW = timeout 1h
+    # Dinamičan strikes limit i timeout iz panel konfiguracije
+    nsfw_cfg = _prot_nsfw()
+    strike_limit  = nsfw_cfg["strikes"]
+    timeout_mins  = nsfw_cfg["timeout_min"]
     nsfw_strikes = data.setdefault("nsfw_strikes", {})
     skey = f"{message.guild.id}:{message.author.id}"
     nsfw_strikes[skey] = nsfw_strikes.get(skey, 0) + 1
     save_data()
-    if nsfw_strikes[skey] >= 3:
+    if nsfw_strikes[skey] >= strike_limit:
         try:
-            await message.author.timeout(timedelta(hours=1), reason="Anti-NSFW: 3+ pokušaja")
+            await message.author.timeout(timedelta(minutes=timeout_mins), reason=f"Anti-NSFW: {strike_limit}+ pokušaja")
             await message.channel.send(
-                embed=em("🔇 Timeout", f"{message.author.mention} dobio **1h timeout** zbog ponovljenog NSFW sadržaja!", color=COLORS["error"]),
+                embed=em("🔇 Timeout", f"{message.author.mention} dobio **{timeout_mins}min timeout** zbog ponovljenog NSFW sadržaja!", color=COLORS["error"]),
                 delete_after=15
             )
             nsfw_strikes[skey] = 0; save_data()
