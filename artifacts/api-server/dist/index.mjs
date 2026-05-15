@@ -46530,7 +46530,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "welcome",
     title: null,
-    description: "**wlcm {user}!**\n\n<a:vatrice1:1500466044429664256> #chat **\xB7** <a:vatrice2:1500466048418185246> #info **\xB7** <a:vatrice3:1500466039782113352> #news **\xB7** <a:vatrice4:1500466061970247741> #gws\n\u{1FAB6} **{memberCount} member \xB7 discord.gg/gian**",
+    description: "## <:864113ownerpinkcrownwithheart:1496899493130539008> **Dobrodo\u0161ao/la, {user}!**\n<:518169rolemodpurple:1496901673426096158> Ti si **{memberCount}**. \u010Dlan!\n\n<a:33214animatedarrowpink:1496898966090944542> <:7289announcement:1504505912939909141> #chat **\xB7** <a:3599pinkheart:1504504866700132534> #info **\xB7** <a:music2:1500459145382592602> #news **\xB7** <a:giveaways5:1500203902446997586> #gws\n<:7188members:1504505910314405888> **{memberCount} member \xB7 discord.gg/gian**",
     color: "#2B2D3A",
     category: "Sistem",
     footer: "GIANNI (Custom) \u2022 Welcome",
@@ -46540,7 +46540,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "leave",
     title: null,
-    description: "**bye {user}** \u{1F44B}\n\n<a:vatrice1:1500466044429664256> {user} **je napustio/la server**\n\u{1FAB6} **{memberCount} member \xB7 discord.gg/gian**",
+    description: "**bye {user}** <a:571294pinkpaw:1500259928936284211>\n\n<a:vatrice1:1500466044429664256> {user} **je napustio/la server**\n<:7188members:1504505910314405888> **{memberCount} member \xB7 discord.gg/gian**",
     color: "#2B2D3A",
     category: "Sistem",
     footer: "GIANNI (Custom) \u2022 Leave",
@@ -46550,7 +46550,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "dm-welcome",
     title: null,
-    description: "**wlcm {user}!**\n\n<a:vatrice1:1500466044429664256> <#1496860023706488884> **\xB7** <a:vatrice2:1500466048418185246> <#1496860023093989475> **\xB7** <a:vatrice3:1500466039782113352> <#1501973333195882696> **\xB7** <a:vatrice4:1500466061970247741> <#1496860023480127505>\n\u{1FAB6} **{memberCount} member \xB7 discord.gg/gian**",
+    description: "**wlcm {user}!**\n\n<a:vatrice1:1500466044429664256> <#1496860023706488884> **\xB7** <a:vatrice2:1500466048418185246> <#1496860023093989475> **\xB7** <a:vatrice3:1500466039782113352> <#1501973333195882696> **\xB7** <a:vatrice4:1500466061970247741> <#1496860023480127505>\n<:7188members:1504505910314405888> **{memberCount} member \xB7 discord.gg/gian**",
     color: "#2B2D3A",
     category: "Sistem",
     footer: "GIANNI (Custom) \u2022 Dobrodo\u0161lica DM",
@@ -46559,22 +46559,22 @@ var DEFAULT_EMBEDS = [
   },
   {
     name: "boost",
-    title: "\u{1F49C} Novi Boost!",
-    description: "{user} je upravo **boostovao server**! \u{1F680}\nHvala ti na podr\u0161ci \u2014 server je sad jo\u0161 ja\u010Di! \u{1F4AA}",
+    title: "<:518169rolemodpurple:1496901673426096158> Novi Boost!",
+    description: "{user} je upravo **boostovao server**! <a:32877animatedarrowbluelite:1496898954783096933>\nHvala ti na podr\u0161ci \u2014 server je sad jo\u0161 ja\u010Di! <a:387466flamingfiresword:1500462011648049192>",
     color: "#F47FFF",
     category: "Sistem",
-    footer: "GIANNI (Custom) \u2022 Hvala na podr\u0161ci \u{1F49C}",
+    footer: "GIANNI (Custom) \u2022 Hvala na podr\u0161ci <:518169rolemodpurple:1496901673426096158>",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "\u{1F680} Boostova", value: "`{boostCount}`", inline: true },
-      { name: "\u{1F3C5} Tier", value: "`Lvl {tier}`", inline: true },
-      { name: "\u{1F381} Nagrada", value: "`+2.500 \u{1F4B6}`", inline: true }
+      { name: "<a:32877animatedarrowbluelite:1496898954783096933> Boostova", value: "`{boostCount}`", inline: true },
+      { name: "<:79529shinycrown:1496899185516216400> Tier", value: "`Lvl {tier}`", inline: true },
+      { name: "<a:302883greenpresent:1500461838108721182> Nagrada", value: "`+2.500 <a:529977coin:1500444133389635704>`", inline: true }
     ]
   },
   {
     name: "birthday",
-    title: "\u{1F382} Sretan Ro\u0111endan!",
-    description: "Danas je ro\u0111endan od {user}! \u{1F389}\nSvi mu/joj \u010Destitajte! \u{1F973}",
+    title: "<a:302883greenpresent:1500461838108721182> Sretan Ro\u0111endan!",
+    description: "Danas je ro\u0111endan od {user}! <a:giveaways5:1500203902446997586>\nSvi mu/joj \u010Destitajte! <a:giveaways5:1500203902446997586>",
     color: "#2B2D42",
     category: "Sistem",
     footer: "GIANNI (Custom) \u2022 Ro\u0111endani",
@@ -46587,42 +46587,42 @@ var DEFAULT_EMBEDS = [
     description: "{content}",
     color: "#F1C40F",
     category: "Sistem",
-    footer: "\u2B50 {count} | #{channel}",
+    footer: "<:40197blueneonstar:1496898993395859457> {count} | #{channel}",
     thumbnail: null,
     fields: [
-      { name: "\u{1F4CD} Original", value: "[Idi na poruku]({jumpUrl})", inline: false }
+      { name: "<:1111pinkarrow:1496903118108229733> Original", value: "[Idi na poruku]({jumpUrl})", inline: false }
     ]
   },
   {
     name: "aotw",
-    title: "\u{1F451} Aktivni \u010Clan Sedmice",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F451} Najaktivniji \u010Dlan ove sedmice je:\n\n## {user}\n\n\u{1F4AC} Napisao/la **{count}** poruka u zadnjih 7 dana!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F381} **Nagrada:** `+500 coina` \u{1F4B0} + `+100 XP` \u26A1\n\u{1F49C} Hvala \u0161to si dio \xD7 GIANNI porodice!",
+    title: "<:864113ownerpinkcrownwithheart:1496899493130539008> Aktivni \u010Clan Sedmice",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:864113ownerpinkcrownwithheart:1496899493130539008> Najaktivniji \u010Dlan ove sedmice je:\n\n## {user}\n\n<:32467lovetalk:1504505532323594321> Napisao/la **{count}** poruka u zadnjih 7 dana!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:302883greenpresent:1500461838108721182> **Nagrada:** `+500 coina` <a:529977coin:1500444133389635704> + `+100 XP` <a:68523animatedarrowgreen:1496899143338033173>\n<:518169rolemodpurple:1496901673426096158> Hvala \u0161to si dio \xD7 GIANNI porodice!",
     color: "#FFD700",
     category: "Sistem",
-    footer: "GIANNI (Custom) \u2022 Sljede\u0107i AOTW za 7 dana \u{1F4C5}",
+    footer: "GIANNI (Custom) \u2022 Sljede\u0107i AOTW za 7 dana <:2261bell:1504505860720820395>",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "\u{1F4CA} Top 3 sedmice", value: "\u{1F947} **{top1}** \u2014 `{top1count}` poruka\n\u{1F948} **{top2}** \u2014 `{top2count}` poruka\n\u{1F949} **{top3}** \u2014 `{top3count}` poruka", inline: false }
+      { name: "<a:aktivnost:1500203557134270534> Top 3 sedmice", value: "<:79529shinycrown:1496899185516216400> **{top1}** \u2014 `{top1count}` poruka\n<:40197blueneonstar:1496898993395859457> **{top2}** \u2014 `{top2count}` poruka\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** \u2014 `{top3count}` poruka", inline: false }
     ]
   },
   // ─── LOG ─────────────────────────────────────────────────────────────────
   {
     name: "log-join",
-    title: "\u{1F4E5} Novi \u010Clan",
+    title: "<:11309roleadminblue2:1496898576150954165> Novi \u010Clan",
     description: null,
     color: "#43B581",
     category: "Log",
     footer: null,
     thumbnail: null,
     fields: [
-      { name: "ID", value: "`{userId}`", inline: true },
-      { name: "Nalog kreiran", value: "{createdAt}", inline: true },
-      { name: "Ukupno \u010Dlanova", value: "`{memberCount}`", inline: true }
+      { name: "<:11309roleadminblue2:1496898576150954165> ID", value: "`{userId}`", inline: true },
+      { name: "<a:32877animatedarrowbluelite:1496898954783096933> Nalog kreiran", value: "{createdAt}", inline: true },
+      { name: "<:7188members:1504505910314405888> Ukupno \u010Dlanova", value: "`{memberCount}`", inline: true }
     ]
   },
   {
     name: "log-edit",
-    title: "\u270F\uFE0F Poruka Editovana",
+    title: "<:89292document:1504506160399650907> Poruka Editovana",
     description: null,
     color: "#F39C12",
     category: "Log",
@@ -46630,57 +46630,58 @@ var DEFAULT_EMBEDS = [
     thumbnail: null,
     fields: [
       { name: "Kanal", value: "{channel}", inline: true },
-      { name: "\u{1F4CD} Link", value: "[Idi na poruku]({jumpUrl})", inline: true },
+      { name: "<:1111pinkarrow:1496903118108229733> Link", value: "[Idi na poruku]({jumpUrl})", inline: true },
       { name: "Prije", value: "{before}", inline: false },
       { name: "Poslije", value: "{after}", inline: false }
     ]
   },
   {
     name: "log-delete",
-    title: "\u{1F5D1}\uFE0F Poruka Obrisana",
+    title: "<a:760912ban:1500446026715103253> Poruka Obrisana",
     description: null,
     color: "#E74C3C",
     category: "Log",
     footer: null,
     thumbnail: null,
     fields: [
-      { name: "Kanal", value: "{channel}", inline: true },
-      { name: "Sadr\u017Eaj", value: "{content}", inline: false }
+      { name: "<:7289announcement:1504505912939909141> Kanal", value: "{channel}", inline: true },
+      { name: "<:7188members:1504505910314405888> Autor", value: "{user}", inline: true },
+      { name: "<:89292document:1504506160399650907> Sadr\u017Eaj", value: "{content}", inline: false }
     ]
   },
   {
     name: "report",
-    title: "\u{1F6A8} NOVA PRIJAVA",
+    title: "<:73535warningids:1496899181674238053> NOVA PRIJAVA",
     description: null,
     color: "#E74C3C",
     category: "Log",
     footer: "Server: {guildName}",
     thumbnail: "{reported.avatar}",
     fields: [
-      { name: "\u{1F464} Prijavio", value: "{reporter}\nID: `{reporterId}`", inline: true },
-      { name: "\u{1F3AF} Prijavljen", value: "{reported}\nID: `{reportedId}`", inline: true },
-      { name: "\u{1F4CD} Kanal", value: "{channel}", inline: true },
-      { name: "\u{1F4DD} Razlog", value: "{razlog}", inline: false }
+      { name: "<:7188members:1504505910314405888> Prijavio", value: "{reporter}\nID: `{reporterId}`", inline: true },
+      { name: "<:73535warningids:1496899181674238053> Prijavljen", value: "{reported}\nID: `{reportedId}`", inline: true },
+      { name: "<:1111pinkarrow:1496903118108229733> Kanal", value: "{channel}", inline: true },
+      { name: "<:89292document:1504506160399650907> Razlog", value: "{razlog}", inline: false }
     ]
   },
   // ─── MODERACIJA ───────────────────────────────────────────────────────────
   {
     name: "warn",
-    title: "\u26A0\uFE0F Upozorenje",
+    title: "<:73535warningids:1496899181674238053> Upozorenje",
     description: "{user} je upozoren/a od strane moderatora.",
     color: "#F39C12",
     category: "Moderacija",
     footer: "GIANNI (Custom) \u2022 Moderacija",
     thumbnail: null,
     fields: [
-      { name: "\u{1F464} Korisnik", value: "{user}", inline: true },
-      { name: "\u{1F6E1}\uFE0F Moderator", value: "{mod}", inline: true },
-      { name: "\u{1F4DD} Razlog", value: "{razlog}", inline: false }
+      { name: "<:7188members:1504505910314405888> Korisnik", value: "{user}", inline: true },
+      { name: "<:1998twopartshieldids:1496898603246161970> Moderator", value: "{mod}", inline: true },
+      { name: "<:89292document:1504506160399650907> Razlog", value: "{razlog}", inline: false }
     ]
   },
   {
     name: "ban",
-    title: "\u{1F528} \u010Clan Banovan",
+    title: "<a:760912ban:1500446026715103253> \u010Clan Banovan",
     description: null,
     color: "#E74C3C",
     category: "Moderacija",
@@ -46693,58 +46694,58 @@ var DEFAULT_EMBEDS = [
   // ─── XP / AKTIVNOST ───────────────────────────────────────────────────────
   {
     name: "levelup",
-    title: "\u{1F31F} \u029F\u1D07\u1D20\u1D07\u029F \u1D1C\u1D18! \u{1F31F}",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F389} \u010Cestitamo {user}!\nDostigao/la si **`\u2605 LEVEL {level} \u2605`**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F4AC} **+100 XP** \u2022 <a:vatrice1:1500466044429664256> **+1 vatrica**\n\u{1F4E8} Sljede\u0107i level: jo\u0161 `100` poruka!\n\n\u{1F4CA} Provjeri statistiku sa `/aktivnost` ili `/rank`",
+    title: "<a:793429sparkles:1496899433634201611> \u029F\u1D07\u1D20\u1D07\u029F \u1D1C\u1D18! <a:793429sparkles:1496899433634201611>",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:giveaways5:1500203902446997586> \u010Cestitamo {user}!\nDostigao/la si **`\u2605 LEVEL {level} \u2605`**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:32467lovetalk:1504505532323594321> **+100 XP** \u2022 <a:vatrice1:1500466044429664256> **+1 vatrica**\n\u{1F4E8} Sljede\u0107i level: jo\u0161 `100` poruka!\n\n<a:aktivnost:1500203557134270534> Provjeri statistiku sa `/aktivnost` ili `/rank`",
     color: "#FFD700",
     category: "XP",
-    footer: "\u26A1 GIANNI (Custom) \u2022 XP Sistem (svakih 100 poruka)",
+    footer: "<a:68523animatedarrowgreen:1496899143338033173> GIANNI (Custom) \u2022 XP Sistem (svakih 100 poruka)",
     thumbnail: "{user.avatar}",
     fields: []
   },
   {
     name: "vatrica-nova",
-    title: "\u{1F525} \u0274\u1D0F\u1D20\u1D00 \u1D20\u1D00\u1D1B\u0280\u026A\u1D04\u1D00! \u{1F525}",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F389} \u010Cestitamo {user}!\nIma\u0161 sada **`{vatriceCount}`** \u{1F525}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F4AC} Zara\u0111eno aktivno\u0161\u0107u u chatu (svakih 150 poruka)\n\u{1F4CA} Tvoje mjesto: **#{rank}** od **{total}**\n\n**Do sljede\u0107e vatrice:** `\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591`  `{progress}/150`\n\n**\u{1F3C6} Trenutni podij:**\n\u{1F947} **{top1}** \u2014 \u{1F525} {top1count}\n\u{1F948} **{top2}** \u2014 \u{1F525} {top2count}\n\u{1F949} **{top3}** \u2014 \u{1F525} {top3count}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n_Pogledaj kompletnu top listu sa_ `/vatrice pup`",
+    title: "<a:VATRICE:1496898836155596962> \u0274\u1D0F\u1D20\u1D00 \u1D20\u1D00\u1D1B\u0280\u026A\u1D04\u1D00! <a:VATRICE:1496898836155596962>",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:giveaways5:1500203902446997586> \u010Cestitamo {user}!\nIma\u0161 sada **`{vatriceCount}`** <a:VATRICE:1496898836155596962>\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:32467lovetalk:1504505532323594321> Zara\u0111eno aktivno\u0161\u0107u u chatu (svakih 150 poruka)\n<a:aktivnost:1500203557134270534> Tvoje mjesto: **#{rank}** od **{total}**\n\n**Do sljede\u0107e vatrice:** `\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591`  `{progress}/150`\n\n**<:79529shinycrown:1496899185516216400> Trenutni podij:**\n<:79529shinycrown:1496899185516216400> **{top1}** \u2014 <a:VATRICE:1496898836155596962> {top1count}\n<:40197blueneonstar:1496898993395859457> **{top2}** \u2014 <a:VATRICE:1496898836155596962> {top2count}\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** \u2014 <a:VATRICE:1496898836155596962> {top3count}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n_Pogledaj kompletnu top listu sa_ `/vatrice pup`",
     color: "#FF6A00",
     category: "XP",
-    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice sistem",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Vatrice sistem",
     thumbnail: "{user.avatar}",
     fields: []
   },
   {
     name: "aktivnost",
-    title: "\u{1F4CA} \u1D00\u1D0B\u1D1B\u026A\u1D20\u0274\u1D0Fs\u1D1B",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F464} **{user}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F7E7}\u{1F7E7}\u{1F7E7}\u2B1B\u2B1B\u2B1B\u2B1B\u2B1B\u2B1B\u2B1B  `{progress}/100`\n\u23F3 Jo\u0161 **`{doSljedeceg}`** poruka do sljede\u0107eg levela!",
+    title: "<a:aktivnost:1500203557134270534> \u1D00\u1D0B\u1D1B\u026A\u1D20\u0274\u1D0Fs\u1D1B",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:7188members:1504505910314405888> **{user}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:984706roleadminorange1:1496898583239200819><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>  `{progress}/100`\n<a:44503lockkey:1500444008760217641> Jo\u0161 **`{doSljedeceg}`** poruka do sljede\u0107eg levela!",
     color: "#FFA500",
     category: "XP",
-    footer: "\u26A1 GIANNI (Custom) \u2022 Aktivnost \u2022 Svakih 100 poruka novi level!",
+    footer: "<a:68523animatedarrowgreen:1496899143338033173> GIANNI (Custom) \u2022 Aktivnost \u2022 Svakih 100 poruka novi level!",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "\u{1F3C6} Level", value: "```fix\n\u2605 {level} \u2605\n```", inline: true },
-      { name: "\u2B50 XP", value: "```py\n{xp}\n```", inline: true },
-      { name: "\u{1F4AC} Poruke", value: "```css\n{poruke}\n```", inline: true },
-      { name: "\u{1F525} Vatrice", value: "```yaml\n{vatrice}\n```", inline: true },
-      { name: "\u{1F4C8} Sistem", value: "```ini\n[100 poruka = 1 LVL + 1 vatrica + 100 XP]\n```", inline: false }
+      { name: "<:79529shinycrown:1496899185516216400> Level", value: "```fix\n\u2605 {level} \u2605\n```", inline: true },
+      { name: "<:40197blueneonstar:1496898993395859457> XP", value: "```py\n{xp}\n```", inline: true },
+      { name: "<:32467lovetalk:1504505532323594321> Poruke", value: "```css\n{poruke}\n```", inline: true },
+      { name: "<a:VATRICE:1496898836155596962> Vatrice", value: "```yaml\n{vatrice}\n```", inline: true },
+      { name: "<a:aktivnost1:1500203403362435234> Sistem", value: "```ini\n[100 poruka = 1 LVL + 1 vatrica + 100 XP]\n```", inline: false }
     ]
   },
   {
     name: "rank",
-    title: "\u{1F4C8} Rank Profil",
-    description: "\u{1F7EA}\u{1F7EA}\u{1F7EA}\u{1F7EA}\u2B1B\u2B1B\u2B1B\u2B1B\u2B1B\u2B1B\n`\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1` **40%**",
+    title: "<a:aktivnost1:1500203403362435234> Rank Profil",
+    description: "<:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:518169rolemodpurple:1496901673426096158><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142>\n`\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1` **40%**",
     color: "#9B59B6",
     category: "XP",
     footer: null,
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "\u{1F3C6} Level", value: "```fix\n{level}\n```", inline: true },
-      { name: "\u2B50 XP", value: "```py\n{xp}/{needed}\n```", inline: true },
-      { name: "\u{1F4CA} Progres", value: "```css\n[{pct}%]\n```", inline: true }
+      { name: "<:79529shinycrown:1496899185516216400> Level", value: "```fix\n{level}\n```", inline: true },
+      { name: "<:40197blueneonstar:1496898993395859457> XP", value: "```py\n{xp}/{needed}\n```", inline: true },
+      { name: "<a:aktivnost:1500203557134270534> Progres", value: "```css\n[{pct}%]\n```", inline: true }
     ]
   },
   {
     name: "leaderboard-xp",
-    title: "\u{1F3C5} Top Lista \u2014 XP",
-    description: "\u{1F947} **ImeKorisnika** \u2014 Level `10` \u2022 `980 XP`\n\u{1F948} **ImeKorisnika2** \u2014 Level `8` \u2022 `650 XP`\n\u{1F949} **ImeKorisnika3** \u2014 Level `7` \u2022 `420 XP`\n`4.` **ImeKorisnika4** \u2014 Level `6` \u2022 `310 XP`",
+    title: "<:79529shinycrown:1496899185516216400> Top Lista \u2014 XP",
+    description: "<:79529shinycrown:1496899185516216400> **ImeKorisnika** \u2014 Level `10` \u2022 `980 XP`\n<:40197blueneonstar:1496898993395859457> **ImeKorisnika2** \u2014 Level `8` \u2022 `650 XP`\n<:428758neonverifiedcheck:1496898532559421571> **ImeKorisnika3** \u2014 Level `7` \u2022 `420 XP`\n`4.` **ImeKorisnika4** \u2014 Level `6` \u2022 `310 XP`",
     color: "#9B59B6",
     category: "XP",
     footer: null,
@@ -46753,8 +46754,8 @@ var DEFAULT_EMBEDS = [
   },
   {
     name: "leaderboard-novac",
-    title: "\u{1F3C5} Top Lista \u2014 Bogatstvo",
-    description: "\u{1F947} **ImeKorisnika** \u2014 `25.000 \u{1F4B6}`\n\u{1F948} **ImeKorisnika2** \u2014 `18.500 \u{1F4B6}`\n\u{1F949} **ImeKorisnika3** \u2014 `12.000 \u{1F4B6}`\n`4.` **ImeKorisnika4** \u2014 `8.750 \u{1F4B6}`",
+    title: "<:79529shinycrown:1496899185516216400> Top Lista \u2014 Bogatstvo",
+    description: "<:79529shinycrown:1496899185516216400> **ImeKorisnika** \u2014 `25.000 <a:529977coin:1500444133389635704>`\n<:40197blueneonstar:1496898993395859457> **ImeKorisnika2** \u2014 `18.500 <a:529977coin:1500444133389635704>`\n<:428758neonverifiedcheck:1496898532559421571> **ImeKorisnika3** \u2014 `12.000 <a:529977coin:1500444133389635704>`\n`4.` **ImeKorisnika4** \u2014 `8.750 <a:529977coin:1500444133389635704>`",
     color: "#F1C40F",
     category: "XP",
     footer: null,
@@ -46764,8 +46765,8 @@ var DEFAULT_EMBEDS = [
   // ─── EKONOMIJA ────────────────────────────────────────────────────────────
   {
     name: "heist",
-    title: "\u{1F4B0} RAZBOJ U PRIPREMI",
-    description: "{user} organizuje razboj!\n**Klikni dugme da se pridru\u017Ei\u0161** (treba 3+ ljudi za uspjeh)\n\u23F0 30 sekundi do akcije!",
+    title: "<a:529977coin:1500444133389635704> RAZBOJ U PRIPREMI",
+    description: "{user} organizuje razboj!\n**Klikni dugme da se pridru\u017Ei\u0161** (treba 3+ ljudi za uspjeh)\n<:2261bell:1504505860720820395> 30 sekundi do akcije!",
     color: "#F39C12",
     category: "Ekonomija",
     footer: null,
@@ -46774,217 +46775,217 @@ var DEFAULT_EMBEDS = [
   },
   {
     name: "lottery",
-    title: "\u{1F3B0} Sedmi\u010Dna Loto",
+    title: "<a:43091slots:1500443990129115196> Sedmi\u010Dna Loto",
     description: null,
     color: "#2B2D42",
     category: "Ekonomija",
     footer: "/lottery buy \u2014 kupi tiket za 100 coina",
     thumbnail: null,
     fields: [
-      { name: "\u{1F4B0} Pot", value: "`{pot}` coina", inline: true },
-      { name: "\u{1F3AB} Tvoji tiketi", value: "`{my}` / `{total}`", inline: true },
-      { name: "\u{1F3AF} \u0160ansa", value: "`{chance}%`", inline: true },
-      { name: "\u23F0 Sljede\u0107i \u017Erijeb", value: "{nextDraw}", inline: false }
+      { name: "<a:529977coin:1500444133389635704> Pot", value: "`{pot}` coina", inline: true },
+      { name: "<a:ticket:1500196243853541397> Tvoji tiketi", value: "`{my}` / `{total}`", inline: true },
+      { name: "<:73535warningids:1496899181674238053> \u0160ansa", value: "`{chance}%`", inline: true },
+      { name: "<:2261bell:1504505860720820395> Sljede\u0107i \u017Erijeb", value: "{nextDraw}", inline: false }
     ]
   },
   {
     name: "quests",
-    title: "\u{1F4CB} Dnevni Zadaci",
-    description: "\u2B1C **Po\u0161alji 10 poruka** \u2014 Budi aktivan u chatu\n`\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591` `0/10` \u2022 \u{1F4B6} `+200`\n\n\u2705 **Odigraj slots** \u2014 Probaj sre\u0107u na slot ma\u0161ini\n`\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588` `1/1` \u2022 \u{1F4B6} `+150`\n\n\u2B1C **Uhvati 5 \u017Eivotinja** \u2014 Idi u /hunt\n`\u2588\u2588\u2588\u2591\u2591\u2591\u2591\u2591\u2591\u2591` `3/5` \u2022 \u{1F4B6} `+300`",
+    title: "<:89292document:1504506160399650907> Dnevni Zadaci",
+    description: "<:268961empty:1496899316596605142> **Po\u0161alji 10 poruka** \u2014 Budi aktivan u chatu\n`\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591` `0/10` \u2022 <a:529977coin:1500444133389635704> `+200`\n\n<:428758neonverifiedcheck:1496898532559421571> **Odigraj slots** \u2014 Probaj sre\u0107u na slot ma\u0161ini\n`\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588` `1/1` \u2022 <a:529977coin:1500444133389635704> `+150`\n\n<:268961empty:1496899316596605142> **Uhvati 5 \u017Eivotinja** \u2014 Idi u /hunt\n`\u2588\u2588\u2588\u2591\u2591\u2591\u2591\u2591\u2591\u2591` `3/5` \u2022 <a:529977coin:1500444133389635704> `+300`",
     color: "#2B2D42",
     category: "Ekonomija",
     footer: "Resetuju se u pono\u0107 UTC \u2022 GIANNI (Custom)",
     thumbnail: null,
     fields: [
-      { name: "\u2705 Zavr\u0161eno", value: "`1/3`", inline: true }
+      { name: "<:428758neonverifiedcheck:1496898532559421571> Zavr\u0161eno", value: "`1/3`", inline: true }
     ]
   },
   {
     name: "giveaway",
-    title: "\u{1F389} NAGRADNA IGRA!",
-    description: "## \u{1F3C6}  {nagrada}\n\nKlikni dugme **\u{1F389} U\u010Destvuj** da se prijavi\u0161!",
+    title: "<a:giveaways5:1500203902446997586> NAGRADNA IGRA!",
+    description: "## <:79529shinycrown:1496899185516216400>  {nagrada}\n\nKlikni dugme **<a:giveaways5:1500203902446997586> U\u010Destvuj** da se prijavi\u0161!",
     color: "#F1C40F",
     category: "Ekonomija",
     footer: "Zavr\u0161ava se automatski \u2022 GIANNI (Custom)",
     thumbnail: null,
     fields: [
       { name: "\u{1F552} Trajanje", value: "`{trajanje}`", inline: true },
-      { name: "\u{1F465} U\u010Desnici", value: "`{ucesnici}`", inline: true },
-      { name: "\u{1F39F}\uFE0F Doma\u0107in", value: "{doma\u0107in}", inline: true },
-      { name: "\u{1F4C5} Zavr\u0161ava", value: "{kraj}", inline: false }
+      { name: "<:7188members:1504505910314405888> U\u010Desnici", value: "`{ucesnici}`", inline: true },
+      { name: "<a:ticket:1500196243853541397> Doma\u0107in", value: "{doma\u0107in}", inline: true },
+      { name: "<:2261bell:1504505860720820395> Zavr\u0161ava", value: "{kraj}", inline: false }
     ]
   },
   // ─── IGRE ────────────────────────────────────────────────────────────────
   {
     name: "slots",
-    title: "\u{1F3B0}  S L O T  M A \u0160 I N A",
-    description: "\u{13258}  \u{1F352}  \u2502  \u{1F352}  \u2502  \u{1F352}  \u{1325D}\n\n\u{1F3B0} Sva tri ista \u2014 **JACKPOT!**",
+    title: "<a:43091slots:1500443990129115196>  S L O T  M A \u0160 I N A",
+    description: "\u{13258}  \u{1F352}  \u2502  \u{1F352}  \u2502  \u{1F352}  \u{1325D}\n\n<a:43091slots:1500443990129115196> Sva tri ista \u2014 **JACKPOT!**",
     color: "#F1C40F",
     category: "Igre",
-    footer: "GIANNI (Custom) \u2022 \u{1F352}\xD73 \u{1F34B}\xD73.5 \u{1F34A}\xD74 \u{1F347}\xD75 \u{1F514}\xD76 \u2B50\xD78 \u{1F48E}\xD715 7\uFE0F\u20E3\xD750",
+    footer: "GIANNI (Custom) \u2022 \u{1F352}\xD73 \u{1F34B}\xD73.5 \u{1F34A}\xD74 \u{1F347}\xD75 <:2261bell:1504505860720820395>\xD76 <:40197blueneonstar:1496898993395859457>\xD78 \u{1F48E}\xD715 7\uFE0F\u20E3\xD750",
     thumbnail: null,
     fields: [
-      { name: "\u{1F4B0} Ulog", value: "`{ulog} \u{1F4B6}`", inline: true },
-      { name: "\u{1F3AF} Rezultat", value: "\u{1F38A} **+{dobitak} \u{1F4B6}** *(\xD73)*", inline: true },
-      { name: "\u{1F3E6} Balans", value: "`{balans} \u{1F4B6}`", inline: true }
+      { name: "<a:529977coin:1500444133389635704> Ulog", value: "`{ulog} <a:529977coin:1500444133389635704>`", inline: true },
+      { name: "<:73535warningids:1496899181674238053> Rezultat", value: "<a:giveaways5:1500203902446997586> **+{dobitak} <a:529977coin:1500444133389635704>** *(\xD73)*", inline: true },
+      { name: "\u{1F3E6} Balans", value: "`{balans} <a:529977coin:1500444133389635704>`", inline: true }
     ]
   },
   {
     name: "blackjack",
-    title: "\u{1F0CF} Blackjack",
+    title: "<a:39865dice1:1500443897489526965> Blackjack",
     description: null,
     color: "#2B2D42",
     category: "Igre",
-    footer: "Oklada: {oklada} \u{1F4B6} \u2022 GIANNI (Custom)",
+    footer: "Oklada: {oklada} <a:529977coin:1500444133389635704> \u2022 GIANNI (Custom)",
     thumbnail: null,
     fields: [
       { name: "Tvoje karte  (17)", value: "\u{1F0A1} \u{1F0AE}", inline: false },
       { name: "Dealer  (?)", value: "\u{1F0AB} \u{1F3B4}", inline: false },
-      { name: "Rezultat", value: "\u{1F389} **BLACKJACK!** `+{dobitak} \u{1F4B6}`!", inline: false }
+      { name: "Rezultat", value: "<a:giveaways5:1500203902446997586> **BLACKJACK!** `+{dobitak} <a:529977coin:1500444133389635704>`!", inline: false }
     ]
   },
   {
     name: "poker-lobby",
-    title: "\u{1F0CF} POKER \u2014 Texas Hold'em",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F4B0} **Ulog po igra\u010Du:** `{ulog} \u{1F4B6}`\n\u{1F3C6} **Trenutni pot:** `{pot} \u{1F4B6}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F465} **Igra\u010Di ({count}/9):**\n\u25B8 **{player1}**\n\u25B8 **{player2}**\n\n\u25B8 Klikni **Ulazi u igru** da se pridru\u017Ei\u0161\n\u25B8 Doma\u0107in klika **Po\u010Dni igru** kad je spreman\n\u25B8 Igra automatski kre\u0107e za **60 sekundi**",
+    title: "<a:39865dice1:1500443897489526965> POKER \u2014 Texas Hold'em",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:529977coin:1500444133389635704> **Ulog po igra\u010Du:** `{ulog} <a:529977coin:1500444133389635704>`\n<:79529shinycrown:1496899185516216400> **Trenutni pot:** `{pot} <a:529977coin:1500444133389635704>`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:7188members:1504505910314405888> **Igra\u010Di ({count}/9):**\n\u25B8 **{player1}**\n\u25B8 **{player2}**\n\n\u25B8 Klikni **Ulazi u igru** da se pridru\u017Ei\u0161\n\u25B8 Doma\u0107in klika **Po\u010Dni igru** kad je spreman\n\u25B8 Igra automatski kre\u0107e za **60 sekundi**",
     color: "#2ECC71",
     category: "Igre",
-    footer: "\u{1F0CF} GIANNI (Custom) \u2022 Poker \u2022 Min 2, Max 9 igra\u010Da",
+    footer: "<a:39865dice1:1500443897489526965> GIANNI (Custom) \u2022 Poker \u2022 Min 2, Max 9 igra\u010Da",
     thumbnail: null,
     fields: []
   },
   {
     name: "poker-game",
-    title: "\u{1F0CF} Pre-Flop \u2014 Kartice podijeljene",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F0CF} **Zajedni\u010Dke kartice:**\n`?` `?` `?` `?` `?`\n\u{1F4B0} **Pot:** `{pot} \u{1F4B6}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F465} **Aktivni:**\n\u2705 **{player1}**\n\u2705 **{player2}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u23F3 **\u010Cekamo potez:**\n\u23F3 {player1}",
+    title: "<a:39865dice1:1500443897489526965> Pre-Flop \u2014 Kartice podijeljene",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:39865dice1:1500443897489526965> **Zajedni\u010Dke kartice:**\n`?` `?` `?` `?` `?`\n<a:529977coin:1500444133389635704> **Pot:** `{pot} <a:529977coin:1500444133389635704>`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:7188members:1504505910314405888> **Aktivni:**\n<:428758neonverifiedcheck:1496898532559421571> **{player1}**\n<:428758neonverifiedcheck:1496898532559421571> **{player2}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:44503lockkey:1500444008760217641> **\u010Cekamo potez:**\n<a:44503lockkey:1500444008760217641> {player1}",
     color: "#F39C12",
     category: "Igre",
-    footer: "\u{1F0CF} GIANNI (Custom) \u2022 Klikni 'Vidi kartice' za svoju ruku \u2022 Pot: {pot} \u{1F4B6}",
+    footer: "<a:39865dice1:1500443897489526965> GIANNI (Custom) \u2022 Klikni 'Vidi kartice' za svoju ruku \u2022 Pot: {pot} <a:529977coin:1500444133389635704>",
     thumbnail: null,
     fields: []
   },
   {
     name: "poker-showdown",
-    title: "\u{1F3C6} SHOWDOWN \u2014 Poker",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F0CF} **Zajedni\u010Dke kartice:**\n\u{1F0A1} \u{1F0BA} \u{1F0B3} \u{1F0C8} \u{1F0D1}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F3C6} **{winner}**\n   Ruka: \u{1F0A1} \u{1F0AE}\n   \u2192 **Royal Flush** | \u{1F0A1} \u{1F0BA} \u{1F0B3} \u{1F0C8} \u{1F0D1}\n\n  **{loser}**\n   Ruka: \u{1F0C1} \u{1F0CE}\n   \u2192 **Dva Para** | \u{1F0A1} \u{1F0BA} \u{1F0C1} \u{1F0CE} \u{1F0B3}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F3C6} **Pobjednik:** {winner}\n\u{1F4B0} **Dobitak:** `{dobitak} \u{1F4B6}` po pobjedniku",
+    title: "<:79529shinycrown:1496899185516216400> SHOWDOWN \u2014 Poker",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:39865dice1:1500443897489526965> **Zajedni\u010Dke kartice:**\n\u{1F0A1} \u{1F0BA} \u{1F0B3} \u{1F0C8} \u{1F0D1}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:79529shinycrown:1496899185516216400> **{winner}**\n   Ruka: \u{1F0A1} \u{1F0AE}\n   \u2192 **Royal Flush** | \u{1F0A1} \u{1F0BA} \u{1F0B3} \u{1F0C8} \u{1F0D1}\n\n  **{loser}**\n   Ruka: \u{1F0C1} \u{1F0CE}\n   \u2192 **Dva Para** | \u{1F0A1} \u{1F0BA} \u{1F0C1} \u{1F0CE} \u{1F0B3}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:79529shinycrown:1496899185516216400> **Pobjednik:** {winner}\n<a:529977coin:1500444133389635704> **Dobitak:** `{dobitak} <a:529977coin:1500444133389635704>` po pobjedniku",
     color: "#F1C40F",
     category: "Igre",
-    footer: "\u{1F0CF} GIANNI (Custom) \u2022 Poker zavr\u0161en \u2022 Ukupni pot: {pot} \u{1F4B6}",
+    footer: "<a:39865dice1:1500443897489526965> GIANNI (Custom) \u2022 Poker zavr\u0161en \u2022 Ukupni pot: {pot} <a:529977coin:1500444133389635704>",
     thumbnail: null,
     fields: []
   },
   {
     name: "among-us-lobby",
-    title: "\u{1F680} Among Us \u2014 Lobby",
+    title: "<a:32877animatedarrowbluelite:1496898954783096933> Among Us \u2014 Lobby",
     description: "Pridru\u017Ei se i \u010Dekaj da host pokrene igru!\n**Min 4 \u2022 Max 10 igra\u010Da**",
     color: "#1B1B2F",
     category: "Igre",
     footer: "Host: klikni \u25B6\uFE0F Pokreni igru kad ste svi tu!",
     thumbnail: null,
     fields: [
-      { name: "\u{1F465} Igra\u010Di (2/10)", value: "\u{1F7E5} Player1\n\u{1F535} Player2", inline: false }
+      { name: "<:7188members:1504505910314405888> Igra\u010Di (2/10)", value: "<:994180roleadminred1:1496902197605306461> Player1\n<:11309roleadminblue2:1496898576150954165> Player2", inline: false }
     ]
   },
   {
     name: "among-us-game",
-    title: "\u{1F680} Among Us \u2014 U Toku",
+    title: "<a:32877animatedarrowbluelite:1496898954783096933> Among Us \u2014 U Toku",
     description: null,
     color: "#1B1B2F",
     category: "Igre",
-    footer: "\u{1F4CB} Zadatak \u2022 \u{1F6A8} Alarm \u2022 \u{1F52A} Akcija \u2022 \u{1F6D1} Sabotiraj \u2022 \u{1F3AD} La\u017Eni alarm \u2022 \u{1F52B} \u0160erif \u2022 \u{1F47B} Ghost",
+    footer: "<:89292document:1504506160399650907> Zadatak \u2022 <:73535warningids:1496899181674238053> Alarm \u2022 \u{1F52A} Akcija \u2022 \u{1F6D1} Sabotiraj \u2022 <:7188members:1504505910314405888> La\u017Eni alarm \u2022 \u{1F52B} \u0160erif \u2022 \u{1F47B} Ghost",
     thumbnail: null,
     fields: [
-      { name: "\u{1F465} Igra\u010Di", value: "\u{1F7E5} Player1\n\u{1F535} Player2\n\u{1F480} ~~Player3~~", inline: false },
-      { name: "\u{1F4CB} Zadaci", value: "\u{1F7E9}\u{1F7E9}\u{1F7E9}\u2B1C\u2B1C\u2B1C\u2B1C\u2B1C\u2B1C\u2B1C `3/10`", inline: true },
-      { name: "\u{1F3AD} \u017Divi", value: "\u{1F535} 2 crew | \u{1F534} 1 imp", inline: true }
+      { name: "<:7188members:1504505910314405888> Igra\u010Di", value: "<:994180roleadminred1:1496902197605306461> Player1\n<:11309roleadminblue2:1496898576150954165> Player2\n<:32673memberred:1504505534273949848> ~~Player3~~", inline: false },
+      { name: "<:89292document:1504506160399650907> Zadaci", value: "<:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:367280roleadmingreen:1496898579720044706><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142><:268961empty:1496899316596605142> `3/10`", inline: true },
+      { name: "<:7188members:1504505910314405888> \u017Divi", value: "<:11309roleadminblue2:1496898576150954165> 2 crew | <:994180roleadminred1:1496902197605306461> 1 imp", inline: true }
     ]
   },
   {
     name: "among-us-end",
-    title: "\u{1F3C1} \u{1F535} CREWMATI POBIJEDE!",
-    description: "Svi impostori eliminirani! \u2705",
+    title: "<:428758neonverifiedcheck:1496898532559421571> <:11309roleadminblue2:1496898576150954165> CREWMATI POBIJEDE!",
+    description: "Svi impostori eliminirani! <:428758neonverifiedcheck:1496898532559421571>",
     color: "#43B581",
     category: "Igre",
     footer: "GIANNI (Custom) \u2022 Among Us",
     thumbnail: null,
     fields: [
-      { name: "\u{1F3AD} Otkrivene uloge", value: "\u{1F535} \u{1F7E5} **Player1** \u2014 CREWMATE\n\u{1F534} \u{1F535} **Player2** \u2014 IMPOSTOR", inline: false }
+      { name: "<:7188members:1504505910314405888> Otkrivene uloge", value: "<:11309roleadminblue2:1496898576150954165> <:994180roleadminred1:1496902197605306461> **Player1** \u2014 CREWMATE\n<:994180roleadminred1:1496902197605306461> <:11309roleadminblue2:1496898576150954165> **Player2** \u2014 IMPOSTOR", inline: false }
     ]
   },
   {
     name: "kaladont-start",
-    title: "\u{1F524}  K A L A D O N T",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2728 Igra je po\u010Dela! Prva rije\u010D:\n## \u{1F4AC}  **BALKAN**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<a:42985spellbook:1504506083094565125>  K A L A D O N T",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:64382pinksparkles:1500259869259989033> Igra je po\u010Dela! Prva rije\u010D:\n## <:32467lovetalk:1504505532323594321>  **BALKAN**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#00BCD4",
     category: "Igre",
-    footer: "\u{1F524} Pokrenuo/la: {user}  \u2022  \u{1F3C1} Pritisni dugme za kraj",
+    footer: "<a:42985spellbook:1504506083094565125> Pokrenuo/la: {user}  \u2022  <:428758neonverifiedcheck:1496898532559421571> Pritisni dugme za kraj",
     thumbnail: null,
     fields: [
-      { name: "\u27A1\uFE0F  Sljede\u0107a po\u010Dinje sa", value: "## **`AN`**", inline: true },
-      { name: "\u2699\uFE0F  Te\u017Eina", value: "\u{1F7E1} Normalno \xB7 2 slova", inline: true },
-      { name: "\u{1F517}  Niz", value: "**#1**", inline: true },
+      { name: "<a:32877animatedarrowbluelite:1496898954783096933>  Sljede\u0107a po\u010Dinje sa", value: "## **`AN`**", inline: true },
+      { name: "<:2711settings:1504505863032012832>  Te\u017Eina", value: "<:4082signalbaryellow:1500260022846881862> Normalno \xB7 2 slova", inline: true },
+      { name: "<:8526link:1504505939917803620>  Niz", value: "**#1**", inline: true },
       {
         name: "\u{1F4D6}  Pravila igre",
-        value: "\u2705  Svaka rije\u010D po\u010Dinje tra\u017Eenim slovima\n\u{1F6AB}  Ista osoba **ne mo\u017Ee** igrati iza sebe\n\u{1F501}  Ponavljanje iste rije\u010Di nije dozvoljeno\n\u{1F3B2}  **50/50 sudbina** \u2014 \u010Dak i ispravna rije\u010D mo\u017Ee propasti!\n\u{1F198}  Pritisni **Pomo\u0107** za primjer rije\u010Di\n\u{1F3C6}  Upi\u0161i **`KALADONT`** i osvoji **1500** \u{1FA99} + **200** \u2728 XP!",
+        value: "<:428758neonverifiedcheck:1496898532559421571>  Svaka rije\u010D po\u010Dinje tra\u017Eenim slovima\n<a:760912ban:1500446026715103253>  Ista osoba **ne mo\u017Ee** igrati iza sebe\n\u{1F501}  Ponavljanje iste rije\u010Di nije dozvoljeno\n<a:39865dice:1500260185510248448>  **50/50 sudbina** \u2014 \u010Dak i ispravna rije\u010D mo\u017Ee propasti!\n\u{1F198}  Pritisni **Pomo\u0107** za primjer rije\u010Di\n<:79529shinycrown:1496899185516216400>  Upi\u0161i **`KALADONT`** i osvoji **1500** <a:529977coin:1500444133389635704> + **200** <a:64382pinksparkles:1500259869259989033> XP!",
         inline: false
       }
     ]
   },
   {
     name: "kaladont-active",
-    title: "\u{1F524}  K A L A D O N T  \u2014  aktivna igra",
+    title: "<a:42985spellbook:1504506083094565125>  K A L A D O N T  \u2014  aktivna igra",
     description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#00BCD4",
     category: "Igre",
-    footer: "\u{1F3C1} Pritisni dugme za kraj igre",
+    footer: "<:428758neonverifiedcheck:1496898532559421571> Pritisni dugme za kraj igre",
     thumbnail: null,
     fields: [
-      { name: "\u2728  Zadnja rije\u010D", value: "**`ANKETA`**", inline: true },
-      { name: "\u{1F5E3}\uFE0F  Odigrao/la", value: "Korisnik", inline: true },
-      { name: "\u{1F517}  Niz", value: "**#5**", inline: true },
-      { name: "\u27A1\uFE0F  Sljede\u0107a po\u010Dinje sa", value: "## **`TA`**", inline: false }
+      { name: "<a:64382pinksparkles:1500259869259989033>  Zadnja rije\u010D", value: "**`ANKETA`**", inline: true },
+      { name: "<:32467lovetalk:1504505532323594321>  Odigrao/la", value: "Korisnik", inline: true },
+      { name: "<:8526link:1504505939917803620>  Niz", value: "**#5**", inline: true },
+      { name: "<a:32877animatedarrowbluelite:1496898954783096933>  Sljede\u0107a po\u010Dinje sa", value: "## **`TA`**", inline: false }
     ]
   },
   {
     name: "kaladont-word",
     title: null,
-    description: "## \u2728  **TA\u010CKA**\n*\u{1F5E3}\uFE0F Korisnik*",
+    description: "## <a:64382pinksparkles:1500259869259989033>  **TA\u010CKA**\n*<:32467lovetalk:1504505532323594321> Korisnik*",
     color: "#00BCD4",
     category: "Igre",
-    footer: "\u{1F524} GIANNI Kaladont  \u2022  #6",
+    footer: "<a:42985spellbook:1504506083094565125> GIANNI Kaladont  \u2022  #6",
     thumbnail: null,
     fields: [
-      { name: "\u27A1\uFE0F  Sljede\u0107a po\u010Dinje sa", value: "## **`KA`**", inline: true },
-      { name: "\u{1F517}  Niz", value: "**#6**", inline: true }
+      { name: "<a:32877animatedarrowbluelite:1496898954783096933>  Sljede\u0107a po\u010Dinje sa", value: "## **`KA`**", inline: true },
+      { name: "<:8526link:1504505939917803620>  Niz", value: "**#6**", inline: true }
     ]
   },
   {
     name: "kaladont-win",
-    title: "\u{1F451}  K A L A D O N T  \u2014  P O B J E D A !",
-    description: "\u{1F389} {user} je izrekao/la magi\u010Dnu rije\u010D!",
+    title: "<:864113ownerpinkcrownwithheart:1496899493130539008>  K A L A D O N T  \u2014  P O B J E D A !",
+    description: "<a:giveaways5:1500203902446997586> {user} je izrekao/la magi\u010Dnu rije\u010D!",
     color: "#FFD700",
     category: "Igre",
     footer: "GIANNI (Custom) \u2022 Kaladont pobjeda",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "\u{1F3C6}  Pobjednik/ca", value: "**{user}**", inline: true },
-      { name: "\u{1F4CA}  Rije\u010Di u nizu", value: "**{count}**", inline: true },
-      { name: "\u{1F4B0}  Nagrada", value: "**+1.500 \u{1F4B6}**", inline: true },
-      { name: "\u2B50  XP", value: "**+200**", inline: true }
+      { name: "<:79529shinycrown:1496899185516216400>  Pobjednik/ca", value: "**{user}**", inline: true },
+      { name: "<a:aktivnost:1500203557134270534>  Rije\u010Di u nizu", value: "**{count}**", inline: true },
+      { name: "<a:529977coin:1500444133389635704>  Nagrada", value: "**+1.500 <a:529977coin:1500444133389635704>**", inline: true },
+      { name: "<:40197blueneonstar:1496898993395859457>  XP", value: "**+200**", inline: true }
     ]
   },
   {
     name: "bingo",
-    title: "\u{1F3B1}  \u2726  B  I  N  G  O  \u2726  \u{1F3B1}",
-    description: "\u{1F3AF} **Klikni dugme ispod i unesi 5 brojeva (1\u201375)!**\n\u{1F3AB} Tiket ko\u0161ta samo **500 coina** \u{1FA99}\n\n\u23F1\uFE0F Ima\u0161 **2 minute** za tiket \u2014 brzo! \u{1F525}\n\u{1F4E2} Rezultati se objavljuju **javno** za sve \u{1F30D}",
+    title: "<a:39865dice:1500260185510248448>  \u2726  B  I  N  G  O  \u2726  <a:39865dice:1500260185510248448>",
+    description: "<:73535warningids:1496899181674238053> **Klikni dugme ispod i unesi 5 brojeva (1\u201375)!**\n<a:ticket:1500196243853541397> Tiket ko\u0161ta samo **500 coina** <a:529977coin:1500444133389635704>\n\n<:2261bell:1504505860720820395> Ima\u0161 **2 minute** za tiket \u2014 brzo! <a:VATRICE:1496898836155596962>\n<:7289announcement:1504505912939909141> Rezultati se objavljuju **javno** za sve <:7289announcement:1504505912939909141>",
     color: "#00BCD4",
     category: "Igre",
-    footer: "\u{1F3B1} \xD7 GIANNI Bingo \u2022 Cijena tiketa: 500 coina \u{1FA99}",
+    footer: "<a:39865dice:1500260185510248448> \xD7 GIANNI Bingo \u2022 Cijena tiketa: 500 coina <a:529977coin:1500444133389635704>",
     thumbnail: null,
     fields: [
       {
-        name: "\u{1F3C6}  Nagradna lista",
-        value: "\u{1F949} `2 pogotka`  \u2500\u2500  **10.000** coina\n\u{1F948} `3 pogotka`  \u2500\u2500  **30.000** coina\n\u{1F947} `4 pogotka`  \u2500\u2500  **75.000** coina\n\u{1F451} `5 pogodaka` \u2500\u2500 **250.000** coina  \u{1F3C6} **JACKPOT!**",
+        name: "<:79529shinycrown:1496899185516216400>  Nagradna lista",
+        value: "<:428758neonverifiedcheck:1496898532559421571> `2 pogotka`  \u2500\u2500  **10.000** coina\n<:40197blueneonstar:1496898993395859457> `3 pogotka`  \u2500\u2500  **30.000** coina\n<:79529shinycrown:1496899185516216400> `4 pogotka`  \u2500\u2500  **75.000** coina\n<:864113ownerpinkcrownwithheart:1496899493130539008> `5 pogodaka` \u2500\u2500 **250.000** coina  <:79529shinycrown:1496899185516216400> **JACKPOT!**",
         inline: false
       }
     ]
@@ -46992,48 +46993,48 @@ var DEFAULT_EMBEDS = [
   // ─── FUN / ŽIVOTINJE ──────────────────────────────────────────────────────
   {
     name: "hunt",
-    title: "\u{1F3F9}  Uhvatio si \u017Eivotinje!",
-    description: "## \u{1F43A}  Vuk\n\u2B50 **Uncommon**  \xB7  \u2694\uFE0F Snaga `15`",
+    title: "<a:79705bow:1500262801862824047>  Uhvatio si \u017Eivotinje!",
+    description: "## <a:874347butterfly:1496899500160192562>  Vuk\n<:40197blueneonstar:1496898993395859457> **Uncommon**  \xB7  <a:387466flamingfiresword:1500462011648049192> Snaga `15`",
     color: "#9B59B6",
     category: "Fun",
     footer: "{user} \u2022 GIANNI (Custom) v2.0",
     thumbnail: null,
     fields: [
-      { name: "\u{1F522} Ima\u0161 ukupno", value: "`1x \u{1F43A} Vuk`", inline: true },
-      { name: "\u{1F4B6} Vrijednost", value: "`80 \u{1F4B6}`", inline: true }
+      { name: "<a:brojanje:1500059790376697988> Ima\u0161 ukupno", value: "`1x <a:874347butterfly:1496899500160192562> Vuk`", inline: true },
+      { name: "<a:529977coin:1500444133389635704> Vrijednost", value: "`80 <a:529977coin:1500444133389635704>`", inline: true }
     ]
   },
   {
     name: "zoo",
-    title: "\u{1F981} {user} \u2014 Zoo",
-    description: "\u{1F31F} **Legendary**\n\u{1F409} **Zmaj** `\xD71`\n\n\u2B50 **Uncommon**\n\u{1F43A} **Vuk** `\xD73`  \u{1F98A} **Lisica** `\xD72`\n\n\u{1F7E2} **Common**\n\u{1F41F} **Riba** `\xD77`  \u{1F407} **Zec** `\xD75`",
+    title: "<a:874347butterfly:1496899500160192562> {user} \u2014 Zoo",
+    description: "<a:793429sparkles:1496899433634201611> **Legendary**\n<a:VATRICE:1496898836155596962> **Zmaj** `\xD71`\n\n<:40197blueneonstar:1496898993395859457> **Uncommon**\n<a:874347butterfly:1496899500160192562> **Vuk** `\xD73`  \u{1F98A} **Lisica** `\xD72`\n\n<:367280roleadmingreen:1496898579720044706> **Common**\n\u{1F41F} **Riba** `\xD77`  \u{1F407} **Zec** `\xD75`",
     color: "#9B59B6",
     category: "Fun",
     footer: "GIANNI (Custom) v2.0 \u2022 /hunt za loviti!",
     thumbnail: null,
     fields: [
-      { name: "\u{1F522} Ukupno", value: "`18` \u017Eivotinja", inline: true },
-      { name: "\u2694\uFE0F Snaga", value: "`145`", inline: true }
+      { name: "<a:brojanje:1500059790376697988> Ukupno", value: "`18` \u017Eivotinja", inline: true },
+      { name: "<a:387466flamingfiresword:1500462011648049192> Snaga", value: "`145`", inline: true }
     ]
   },
   {
     name: "battle",
-    title: "\u2694\uFE0F  BITKA!",
-    description: "**{player1}** vs **{player2}**\n`\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591`\n\u2694\uFE0F `{score1}` vs `{score2}` \u2694\uFE0F",
+    title: "<a:387466flamingfiresword:1500462011648049192>  BITKA!",
+    description: "**{player1}** vs **{player2}**\n`\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591`\n<a:387466flamingfiresword:1500462011648049192> `{score1}` vs `{score2}` <a:387466flamingfiresword:1500462011648049192>",
     color: "#F1C40F",
     category: "Fun",
     footer: "GIANNI (Custom) v2.0",
     thumbnail: "{winner.avatar}",
     fields: [
-      { name: "\u{1F3C6} Pobjednik", value: "**{winner}**", inline: true },
-      { name: "\u{1F480} Pora\u017Een", value: "{loser}", inline: true },
-      { name: "\u{1F4B6} Nagrada", value: "`+{nagrada} \u{1F4B6}`", inline: false }
+      { name: "<:79529shinycrown:1496899185516216400> Pobjednik", value: "**{winner}**", inline: true },
+      { name: "<:32673memberred:1504505534273949848> Pora\u017Een", value: "{loser}", inline: true },
+      { name: "<a:529977coin:1500444133389635704> Nagrada", value: "`+{nagrada} <a:529977coin:1500444133389635704>`", inline: false }
     ]
   },
   {
     name: "pray",
     title: null,
-    description: "\u{1F64F} {user} moli se za {target}! Nebo \u010Duje \u2014 `+{bonus} \u{1F4B6}` palo s neba!",
+    description: "<a:64382pinksparkles:1500259869259989033> {user} moli se za {target}! Nebo \u010Duje \u2014 `+{bonus} <a:529977coin:1500444133389635704>` palo s neba!",
     color: "#FFD700",
     category: "Fun",
     footer: "GIANNI (Custom) v2.0",
@@ -47043,10 +47044,10 @@ var DEFAULT_EMBEDS = [
   {
     name: "vers",
     title: null,
-    description: "> \u{1F399}\uFE0F\n> *Ovo je primjer versa koji korisnik po\u0161alje*\n> *Svaki red je jedan stih*\n> \u{1F3A4}",
+    description: "> <a:music2:1500459145382592602>\n> *Ovo je primjer versa koji korisnik po\u0161alje*\n> *Svaki red je jedan stih*\n> <a:music2:1500459145382592602>",
     color: "#9B30FF",
     category: "Fun",
-    footer: "\u{1F3A7} vers \u2022 drop the mic",
+    footer: "<a:music2:1500459145382592602> vers \u2022 drop the mic",
     thumbnail: null,
     fields: []
   },
@@ -47054,7 +47055,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "zagrljaj",
     title: null,
-    description: "\u{1F917} {from} grli {to}! Aww, tako slatko! \u{1F495}",
+    description: "<a:64382pinksparkles:1500259869259989033> {from} grli {to}! Aww, tako slatko! <a:3599pinkheart:1504504866700132534>",
     color: "#FF4D6D",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47064,7 +47065,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "poljubac",
     title: null,
-    description: "\u{1F48B} {from} \u0161alje poljubac {to}! \u{1F618}",
+    description: "<a:3599pinkheart:1504504866700132534> {from} \u0161alje poljubac {to}! <a:3599pinkheart:1504504866700132534>",
     color: "#FF4D6D",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47074,7 +47075,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "mazi",
     title: null,
-    description: "\u{1F970} {from} mazi {to} nje\u017Eno! Aww! \u{1F495}",
+    description: "<a:3599pinkheart:1504504866700132534> {from} mazi {to} nje\u017Eno! Aww! <a:3599pinkheart:1504504866700132534>",
     color: "#FF4D6D",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47084,7 +47085,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "tapsi",
     title: null,
-    description: "\u{1F44B} {from} tap\u0161e {to} prijateljski! \u{1F91D}",
+    description: "<a:571294pinkpaw:1500259928936284211> {from} tap\u0161e {to} prijateljski! <:428758neonverifiedcheck:1496898532559421571>",
     color: "#FF4D6D",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47094,7 +47095,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "high5",
     title: null,
-    description: "\u{1F64C} {from} daje peticu {to}! HIGH FIVE! \u270B",
+    description: "<a:236855heartpop:1496899299487907870> {from} daje peticu {to}! HIGH FIVE! \u270B",
     color: "#FF4D6D",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47104,7 +47105,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "cudan",
     title: null,
-    description: "\u{1F620} {from} je \u0107udan prema {to}! Ajde, brate... \u{1F624}",
+    description: "<a:568481annoyedgojo:1496899399077330994> {from} je \u0107udan prema {to}! Ajde, brate... <a:568481annoyedgojo:1496899399077330994>",
     color: "#F39C12",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47114,7 +47115,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "srce",
     title: null,
-    description: "\u2764\uFE0F {from} \u0161alje srce {to}! Aww! \u{1F97A}",
+    description: "<a:3599pinkheart:1504504866700132534> {from} \u0161alje srce {to}! Aww! <a:3599pinkheart:1504504866700132534>",
     color: "#FF4D6D",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47124,7 +47125,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "brak",
     title: null,
-    description: "\u{1F48D} {from} zaprosio {to}! \u{1F60D} Ho\u0107e\u0161 li? \u{1F942}",
+    description: "<:33927diamond:1496898969052381407> {from} zaprosio {to}! <a:3599pinkheart:1504504866700132534> Ho\u0107e\u0161 li? \u{1F942}",
     color: "#FF4D6D",
     category: "Ljubavne",
     footer: "GIANNI (Custom) v2.0",
@@ -47134,37 +47135,37 @@ var DEFAULT_EMBEDS = [
   {
     name: "kompli",
     title: null,
-    description: "\u{1F339} {from} ka\u017Ee {to}: 'Ti si razlog za\u0161to dan po\u010Dinje sa osmijehom. \u{1F60D}'",
+    description: "<a:124071redrose:1496899261651226766> {from} ka\u017Ee {to}: 'Ti si razlog za\u0161to dan po\u010Dinje sa osmijehom. <a:3599pinkheart:1504504866700132534>'",
     color: "#FF85C8",
     category: "Fun",
-    footer: "GIANNI (Custom) \u2022 Muvanje 101 \u{1F495}",
+    footer: "GIANNI (Custom) \u2022 Muvanje 101 <a:3599pinkheart:1504504866700132534>",
     thumbnail: "{to.avatar}",
     fields: []
   },
   {
     name: "fora",
     title: null,
-    description: "\u{1F602} {from} je pogledao/la {to} i shvatio/la: 'Brate/sestro, ti si dokaz da evolucija nije uvijek napredak.' \u{1F412}",
+    description: "<a:6796oof:1496898747018379305> {from} je pogledao/la {to} i shvatio/la: 'Brate/sestro, ti si dokaz da evolucija nije uvijek napredak.' \u{1F412}",
     color: "#2B2D42",
     category: "Fun",
-    footer: "GIANNI (Custom) \u2022 Sve u \u0161ali! \u{1F602}",
+    footer: "GIANNI (Custom) \u2022 Sve u \u0161ali! <a:6796oof:1496898747018379305>",
     thumbnail: "{to.avatar}",
     fields: []
   },
   {
     name: "muv",
     title: null,
-    description: "\u{1F60F} {from} {to}: 'Jesi li ti WiFi? Jer osje\u0107am konekciju izme\u0111u nas.' \u{1F4F6}\u{1F495}",
+    description: "<a:24420sleepyhellokitty:1496898915176415413> {from} {to}: 'Jesi li ti WiFi? Jer osje\u0107am konekciju izme\u0111u nas.' <a:64382pinksparkles:1500259869259989033><a:3599pinkheart:1504504866700132534>",
     color: "#FF4D6D",
     category: "Fun",
-    footer: "GIANNI (Custom) \u2022 Balkan Muvanje\u2122 \u{1F60F}",
+    footer: "GIANNI (Custom) \u2022 Balkan Muvanje\u2122 <a:24420sleepyhellokitty:1496898915176415413>",
     thumbnail: "{to.avatar}",
     fields: []
   },
   {
     name: "crush",
     title: null,
-    description: "\u{1F498} Po zvijezdama i kafanskim ra\u010Dunima, tvoj tajni crush je... **{crush}**! \u{1F633}",
+    description: "<a:3599pinkheart:1504504866700132534> Po zvijezdama i kafanskim ra\u010Dunima, tvoj tajni crush je... **{crush}**! \u{1F633}",
     color: "#FF4D6D",
     category: "Fun",
     footer: "GIANNI (Custom) v2.0",
@@ -47174,8 +47175,8 @@ var DEFAULT_EMBEDS = [
   // ─── INFO ─────────────────────────────────────────────────────────────────
   {
     name: "spotify",
-    title: "\u{1F3B5} {trackTitle}",
-    description: "**Izvo\u0111a\u010D:** {artist}\n**Album:** {album}\n\n`0:45` \u25B0\u25B0\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1 `3:22`",
+    title: "<:40197blueneonstar:1496898993395859457> {trackTitle}",
+    description: "<a:music2:1500459145382592602> **Izvo\u0111a\u010D:** {artist}\n<a:85034pinknotes:1500444022622130196> **Album:** {album}\n\n`0:45` \u25B0\u25B0\u25B0\u25B0\u25B0\u25B0\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1\u25B1 `3:22`",
     color: "#1DB954",
     category: "Info",
     footer: "Spotify \u2022 GIANNI (Custom)",
@@ -47184,23 +47185,23 @@ var DEFAULT_EMBEDS = [
   },
   {
     name: "invite",
-    title: "\u{1F4CA} Statistika \u2014 {user}",
+    title: "<a:aktivnost:1500203557134270534> Statistika \u2014 {user}",
     description: null,
     color: "#2B2D42",
     category: "Info",
     footer: "Korisnik: {user} \u2022 ID: {userId}",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "\u270D\uFE0F Poruke poslato", value: "`{poruke}`", inline: true },
-      { name: "\u{1F465} Doveo \u010Dlanova", value: "`{invites}`", inline: true },
-      { name: "\u{1F4C5} Pridru\u017Eio", value: "{joinedAt}", inline: true },
-      { name: "\u{1F517} Tvoj invite", value: "`{inviteUses}` kori\u0161\u0107enja", inline: false }
+      { name: "<:7289announcement:1504505912939909141> Poruke poslato", value: "`{poruke}`", inline: true },
+      { name: "<:7188members:1504505910314405888> Doveo \u010Dlanova", value: "`{invites}`", inline: true },
+      { name: "<:2261bell:1504505860720820395> Pridru\u017Eio", value: "{joinedAt}", inline: true },
+      { name: "<:8526link:1504505939917803620> Tvoj invite", value: "`{inviteUses}` kori\u0161\u0107enja", inline: false }
     ]
   },
   {
     name: "avatar",
-    title: "\u{1F5BC}\uFE0F {user}",
-    description: "[PNG]({png}) \u2022 [JPG]({jpg}) \u2022 [WEBP]({webp})",
+    title: "<:40197blueneonstar:1496898993395859457> {user}",
+    description: "<a:32877animatedarrowbluelite:1496898954783096933> [PNG]({png}) **\xB7** <:40197blueneonstar:1496898993395859457> [JPG]({jpg}) **\xB7** <:40197blueneonstar:1496898993395859457> [WEBP]({webp})",
     color: "#2B2D42",
     category: "Info",
     footer: null,
@@ -47209,8 +47210,8 @@ var DEFAULT_EMBEDS = [
   },
   {
     name: "brojanje-info",
-    title: "\u{1F522} Brojanje \u2014 stanje",
-    description: "\u{1F4CD} **Kanal:** {channel}\n\u{1F522} **Trenutno:** `{current}`\n\u27A1\uFE0F **Sljede\u0107i broj:** `{next}`\n\u{1F464} **Zadnji brojao:** {lastUser}\n\u{1F3C6} **Rekord:** `{highScore}`",
+    title: "<a:brojanje:1500059790376697988> Brojanje \u2014 stanje",
+    description: "<:7289announcement:1504505912939909141> **Kanal:** {channel}\n<a:brojanje:1500059790376697988> **Trenutno:** `{current}`\n<a:32877animatedarrowbluelite:1496898954783096933> **Sljede\u0107i broj:** `{next}`\n<:7188members:1504505910314405888> **Zadnji brojao:** {lastUser}\n<:79529shinycrown:1496899185516216400> **Rekord:** `{highScore}`",
     color: "#2B2D42",
     category: "Info",
     footer: "GIANNI (Custom) v2.0",
@@ -47220,48 +47221,48 @@ var DEFAULT_EMBEDS = [
   // ─── SISTEM PANELI ────────────────────────────────────────────────────────
   {
     name: "ticket",
-    title: "\u{1F3AB}  Otvori Tiket",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F3AB} Treba\u0161 pomo\u0107? **Otvori tiket**!\n\n\u{1F4DD} Popuni formu i na\u0161 staff \u0107e ti odgovoriti \u0161to prije.\n\u23F3 Prosje\u010Dno vrijeme odgovora: **< 30 minuta**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<a:ticket:1500196243853541397>  Otvori Tiket",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:ticket:1500196243853541397> Treba\u0161 pomo\u0107? **Otvori tiket**!\n\n<:89292document:1504506160399650907> Popuni formu i na\u0161 staff \u0107e ti odgovoriti \u0161to prije.\n<a:44503lockkey:1500444008760217641> Prosje\u010Dno vrijeme odgovora: **< 30 minuta**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#00BCD4",
     category: "Sistem",
-    footer: "\u{1F3AB} GIANNI Ticket Sistem",
+    footer: "<a:ticket:1500196243853541397> GIANNI Ticket Sistem",
     thumbnail: null,
     fields: [
       {
-        name: "\u{1F4CB} \u0160ta \u0107e\u0161 dobiti",
-        value: "\u{1F512} Privatni kanal samo za tebe i staff\n\u2705 Pomo\u0107 od iskusnog tima\n\u{1F4CE} Mo\u017Ee\u0161 prilo\u017Eiti slike/screenshote",
+        name: "<:89292document:1504506160399650907> \u0160ta \u0107e\u0161 dobiti",
+        value: "<a:44503lockkey:1500444008760217641> Privatni kanal samo za tebe i staff\n<:428758neonverifiedcheck:1496898532559421571> Pomo\u0107 od iskusnog tima\n<:8526link:1504505939917803620> Mo\u017Ee\u0161 prilo\u017Eiti slike/screenshote",
         inline: false
       }
     ]
   },
   {
     name: "ticket-otvoren",
-    title: "\u2705  Tiket otvoren!",
-    description: "## \u{1F389} Tvoj tiket je kreiran!\nPrivatni kanal: {channel}\n\n\u23F3 Staff \u0107e ti odgovoriti uskoro. Budemo te obavijestili! \u{1F4E9}",
+    title: "<:428758neonverifiedcheck:1496898532559421571>  Tiket otvoren!",
+    description: "## <a:giveaways5:1500203902446997586> Tvoj tiket je kreiran!\nPrivatni kanal: {channel}\n\n<a:44503lockkey:1500444008760217641> Staff \u0107e ti odgovoriti uskoro. Budemo te obavijestili! \u{1F4E9}",
     color: "#00BCD4",
     category: "Sistem",
-    footer: "\u{1F3AB} GIANNI  \u2022  Hvala na strpljenju! \u{1F64F}",
+    footer: "<a:ticket:1500196243853541397> GIANNI  \u2022  Hvala na strpljenju! <a:64382pinksparkles:1500259869259989033>",
     thumbnail: null,
     fields: [
       {
-        name: "\u{1F4CB}  \u0160ta dalje?",
-        value: "\u{1F4AC} Idi u kanal i \u010Dekaj odgovor staffa\n\u{1F4CE} Mo\u017Ee\u0161 prilo\u017Eiti slike/screenshote\n\u{1F512} Kanal je **privatan** \u2014 samo ti i staff\n\u2705 Ticket se zatvara kad je problem rije\u0161en",
+        name: "<:89292document:1504506160399650907>  \u0160ta dalje?",
+        value: "<:32467lovetalk:1504505532323594321> Idi u kanal i \u010Dekaj odgovor staffa\n<:8526link:1504505939917803620> Mo\u017Ee\u0161 prilo\u017Eiti slike/screenshote\n<a:44503lockkey:1500444008760217641> Kanal je **privatan** \u2014 samo ti i staff\n<:428758neonverifiedcheck:1496898532559421571> Ticket se zatvara kad je problem rije\u0161en",
         inline: false
       }
     ]
   },
   {
     name: "staff-prijava",
-    title: "\u{1F4CB}  STAFF PRIJAVA",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\nOtvorene su prijave za **Staff tim** servera!\n\n\u{1F4DD} **Kako se prijaviti:**\n1\uFE0F\u20E3  Klikni redom na **5 dugmadi** ispod i upi\u0161i svoje podatke\n2\uFE0F\u20E3  Kad popuni\u0161 **sva polja**, klikni **\u{1F4E4} Po\u0161alji prijavu**\n3\uFE0F\u20E3  Bot \u0107e ti otvoriti **privatni kanal** sa staff timom\n\n\u{1F512} Tvoji odgovori se vide samo tebi dok ne po\u0161alje\u0161 prijavu.\n\u{1F6AB} **Discord invite linkovi nisu dozvoljeni** u poljima!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<:89292document:1504506160399650907>  STAFF PRIJAVA",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\nOtvorene su prijave za **Staff tim** servera!\n\n<:89292document:1504506160399650907> **Kako se prijaviti:**\n<:114060numberone1pink:1500460043575885915>  Klikni redom na **5 dugmadi** ispod i upi\u0161i svoje podatke\n<:2262numbertwo2pink:1500460047424548875>  Kad popuni\u0161 **sva polja**, klikni **<:7289announcement:1504505912939909141> Po\u0161alji prijavu**\n<:113numberthree3pink:1500460051209195571>  Bot \u0107e ti otvoriti **privatni kanal** sa staff timom\n\n<a:44503lockkey:1500444008760217641> Tvoji odgovori se vide samo tebi dok ne po\u0161alje\u0161 prijavu.\n<a:760912ban:1500446026715103253> **Discord invite linkovi nisu dozvoljeni** u poljima!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#00BCD4",
     category: "Sistem",
-    footer: "\u{1F4CB} GIANNI (Custom) \u2022 Staff Prijava",
+    footer: "<:89292document:1504506160399650907> GIANNI (Custom) \u2022 Staff Prijava",
     thumbnail: null,
     fields: [
       {
-        name: "\u{1F4CC} Rubrike",
-        value: "\u{1F522} **Godine** \u2014 koliko ima\u0161 godina\n\u{1F6E1}\uFE0F **Iskustvo** \u2014 prethodno iskustvo\n\u{1F4AD} **Motivacija** \u2014 za\u0161to \u017Eeli\u0161 staff\n\u{1F465} **Igra\u010Di** \u2014 koliko ljudi mo\u017Ee\u0161 dovesti\n\u23F0 **Aktivnost** \u2014 sati dnevno + timezone",
+        name: "<:1111pinkarrow:1496903118108229733> Rubrike",
+        value: "<a:brojanje:1500059790376697988> **Godine** \u2014 koliko ima\u0161 godina\n<:1998twopartshieldids:1496898603246161970> **Iskustvo** \u2014 prethodno iskustvo\n<:32467lovetalk:1504505532323594321> **Motivacija** \u2014 za\u0161to \u017Eeli\u0161 staff\n<:7188members:1504505910314405888> **Igra\u010Di** \u2014 koliko ljudi mo\u017Ee\u0161 dovesti\n<:2261bell:1504505860720820395> **Aktivnost** \u2014 sati dnevno + timezone",
         inline: false
       }
     ]
@@ -47269,7 +47270,7 @@ var DEFAULT_EMBEDS = [
   {
     name: "private-vc",
     title: "\u{1F50A} Dobrodo\u0161ao u svoj kanal, {user}!",
-    description: "**Ti si vlasnik!** \u{1F451} Koristi dugmad ispod:\n\n\u{1F512} **Lock** \u2014 niko ne mo\u017Ee u\u0107i\n\u{1F513} **Unlock** \u2014 svi mogu u\u0107i\n\u{1F441}\uFE0F **Hide / Show** \u2014 sakrij/poka\u017Ei kanal\n\u270F\uFE0F **Rename** \u2014 promijeni ime\n\u{1F465} **Limit** \u2014 postavi max \u010Dlanova\n\u{1F6AB} **Kick** \u2014 izbaci nekog iz kanala\n\u{1F451} **Owner** \u2014 prebaci vlasni\u0161tvo\n\u274C **Delete** \u2014 obri\u0161i kanal\n\n*Kanal se automatski bri\u0161e kad ostane prazan.*",
+    description: "**Ti si vlasnik!** <:864113ownerpinkcrownwithheart:1496899493130539008> Koristi dugmad ispod:\n\n<a:44503lockkey:1500444008760217641> **Lock** \u2014 niko ne mo\u017Ee u\u0107i\n<:28110unlock1:1504509370065752166> **Unlock** \u2014 svi mogu u\u0107i\n<a:44503lockkey:1500444008760217641> **Hide / Show** \u2014 sakrij/poka\u017Ei kanal\n<:89292document:1504506160399650907> **Rename** \u2014 promijeni ime\n<:7188members:1504505910314405888> **Limit** \u2014 postavi max \u010Dlanova\n<a:760912ban:1500446026715103253> **Kick** \u2014 izbaci nekog iz kanala\n<:864113ownerpinkcrownwithheart:1496899493130539008> **Owner** \u2014 prebaci vlasni\u0161tvo\n<a:3485cancel:1500443837452255302> **Delete** \u2014 obri\u0161i kanal\n\n*Kanal se automatski bri\u0161e kad ostane prazan.*",
     color: "#9B59B6",
     category: "Sistem",
     footer: "GIANNI (Custom) \u2022 Privatni Voice Sistem",
@@ -47280,17 +47281,17 @@ var DEFAULT_EMBEDS = [
   {
     name: "voice-pravila",
     title: "\u{1F50A}  P R I V A T N I  V O I C E  K A N A L I",
-    description: "U\u0111i u <#1494043959213953114> i bot ti **automatski** kreira vlastiti voice kanal.\nPostaje\u0161 **vlasnik** \u{1F451} i dobija\u0161 puni kontrolni panel.",
+    description: "U\u0111i u <#1494043959213953114> i bot ti **automatski** kreira vlastiti voice kanal.\nPostaje\u0161 **vlasnik** <:864113ownerpinkcrownwithheart:1496899493130539008> i dobija\u0161 puni kontrolni panel.",
     color: "#2B2D3A",
     category: "Sistem paneli",
     footer: "\u{1F50A} GIANNI \u2022 Voice Pravila",
     thumbnail: null,
     fields: [
-      { name: "\u{1F91D}  Pona\u0161anje", value: "\u{1F6AB} Bez vrije\u0111anja, maltretiranja i rasizma\n\u{1F399}\uFE0F Ne prekidaj druge dok pri\u010Daju\n\u{1F507} Ne lupaj mikrofonom bez razloga", inline: true },
-      { name: "\u{1F451}  Vlasni\u0161tvo", value: "\u{1F39B}\uFE0F Samo vlasnik koristi Lock / Hide / Kick panel\n\u{1F501} Prebaci vlasni\u0161tvo prije izlaska\n\u2696\uFE0F Ne koristi panel za maltretiranje", inline: true },
-      { name: "\u{1F51E}  Sadr\u017Eaj & Imena", value: "\u{1F6AB} Bez NSFW sadr\u017Eaja i streaminga\n\u270F\uFE0F Ime kanala mora biti pristojno\n\u{1F4CB} Vrijede sva op\u0161ta pravila servera", inline: true },
-      { name: "\u{1F5D1}\uFE0F  Automatsko brisanje", value: "Kad svi iza\u0111u, bot **automatski bri\u0161e** kanal.\n\u{1F46E} Staff ima pristup svim kanalima zbog moderacije.", inline: false },
-      { name: "\u26A0\uFE0F  Kazne", value: "`1.` \u26A0\uFE0F Upozorenje  `2.` \u{1F507} Voice mute  `3.` \u{1F6AB} Zabrana voice-a  `4.` \u{1F462} Kick / \u{1F528} Ban", inline: false }
+      { name: "<:428758neonverifiedcheck:1496898532559421571>  Pona\u0161anje", value: "<a:760912ban:1500446026715103253> Bez vrije\u0111anja, maltretiranja i rasizma\n<a:music2:1500459145382592602> Ne prekidaj druge dok pri\u010Daju\n<a:760912ban:1500446026715103253> Ne lupaj mikrofonom bez razloga", inline: true },
+      { name: "<:864113ownerpinkcrownwithheart:1496899493130539008>  Vlasni\u0161tvo", value: "\u{1F39B}\uFE0F Samo vlasnik koristi Lock / Hide / Kick panel\n\u{1F501} Prebaci vlasni\u0161tvo prije izlaska\n\u2696\uFE0F Ne koristi panel za maltretiranje", inline: true },
+      { name: "\u{1F51E}  Sadr\u017Eaj & Imena", value: "<a:760912ban:1500446026715103253> Bez NSFW sadr\u017Eaja i streaminga\n<:89292document:1504506160399650907> Ime kanala mora biti pristojno\n<:89292document:1504506160399650907> Vrijede sva op\u0161ta pravila servera", inline: true },
+      { name: "<a:760912ban:1500446026715103253>  Automatsko brisanje", value: "Kad svi iza\u0111u, bot **automatski bri\u0161e** kanal.\n<:1998twopartshieldids:1496898603246161970> Staff ima pristup svim kanalima zbog moderacije.", inline: false },
+      { name: "<:73535warningids:1496899181674238053>  Kazne", value: "`1.` <:73535warningids:1496899181674238053> Upozorenje  `2.` <a:760912ban:1500446026715103253> Voice mute  `3.` <a:760912ban:1500446026715103253> Zabrana voice-a  `4.` <a:760912ban:1500446026715103253> Kick / <a:760912ban:1500446026715103253> Ban", inline: false }
     ],
     buttons: [
       { label: "\u{1F50A} Kreiraj svoj voice", style: "success", customId: "vc_create_btn" }
@@ -47299,85 +47300,85 @@ var DEFAULT_EMBEDS = [
   // ─── VATRICE ──────────────────────────────────────────────────────────────
   {
     name: "vatrice-pup",
-    title: "\u{1F525} Top Lista \u2014 Vatrice",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F525} Najpopularniji \u010Dlanovi po vatricama:\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F947} **{top1}** \u2014 \u{1F525} `{top1count}`\n\u{1F948} **{top2}** \u2014 \u{1F525} `{top2count}`\n\u{1F949} **{top3}** \u2014 \u{1F525} `{top3count}`\n`4.` **{top4}** \u2014 \u{1F525} `{top4count}`\n`5.` **{top5}** \u2014 \u{1F525} `{top5count}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F4CA} Tvoje mjesto: **#{rank}** | Ima\u0161: **{myCount}** \u{1F525}",
+    title: "<a:VATRICE:1496898836155596962> Top Lista \u2014 Vatrice",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:VATRICE:1496898836155596962> Najpopularniji \u010Dlanovi po vatricama:\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:79529shinycrown:1496899185516216400> **{top1}** \u2014 <a:VATRICE:1496898836155596962> `{top1count}`\n<:40197blueneonstar:1496898993395859457> **{top2}** \u2014 <a:VATRICE:1496898836155596962> `{top2count}`\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** \u2014 <a:VATRICE:1496898836155596962> `{top3count}`\n`4.` **{top4}** \u2014 <a:VATRICE:1496898836155596962> `{top4count}`\n`5.` **{top5}** \u2014 <a:VATRICE:1496898836155596962> `{top5count}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:aktivnost:1500203557134270534> Tvoje mjesto: **#{rank}** | Ima\u0161: **{myCount}** <a:VATRICE:1496898836155596962>",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Top Lista",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Vatrice Top Lista",
     thumbnail: null,
     fields: []
   },
   {
     name: "vatrice-start",
-    title: "\u{1F525} Vatrica Sistem \u2014 Aktiviran!",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2705 Vatrica sistem je uspje\u0161no aktiviran na ovom serveru!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F525} Svako **{prag}** poruka, \u010Dlan dobija **1 vatricu**\n\u{1F4DB} Nick se automatski a\u017Eurira: `\u{1F525}\xD7{count} ImeKorisnika`\n\u{1F4E2} Objave se \u0161alju u {kanal}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<:428758neonverifiedcheck:1496898532559421571> Vatrica Sistem \u2014 Aktiviran!",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:428758neonverifiedcheck:1496898532559421571> Vatrica sistem je uspje\u0161no aktiviran na ovom serveru!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:VATRICE:1496898836155596962> Svako **{prag}** poruka, \u010Dlan dobija **1 vatricu**\n\u{1F4DB} Nick se automatski a\u017Eurira: `<a:VATRICE:1496898836155596962>\xD7{count} ImeKorisnika`\n<:7289announcement:1504505912939909141> Objave se \u0161alju u {kanal}\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Sistem",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Vatrice Sistem",
     thumbnail: null,
     fields: [
-      { name: "\u{1F525} Emoji", value: "`{emoji}`", inline: true },
-      { name: "\u{1F4E2} Kanal", value: "{kanal}", inline: true },
-      { name: "\u{1F4CA} Prag", value: "`{prag}` poruka", inline: true }
+      { name: "<a:VATRICE:1496898836155596962> Emoji", value: "`{emoji}`", inline: true },
+      { name: "<:7289announcement:1504505912939909141> Kanal", value: "{kanal}", inline: true },
+      { name: "<a:aktivnost:1500203557134270534> Prag", value: "`{prag}` poruka", inline: true }
     ]
   },
   {
     name: "vatrice-kanal",
-    title: "\u2705 Vatrica Kanal Postavljen",
+    title: "<:428758neonverifiedcheck:1496898532559421571> Vatrica Kanal Postavljen",
     description: "Objave vatrica \u0107e se od sada slati u {kanal}.",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Sistem",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Vatrice Sistem",
     thumbnail: null,
     fields: []
   },
   {
     name: "vatrice-oblik",
-    title: "\u{1F525} Vatrica Emoji Promijenjen",
+    title: "<a:VATRICE:1496898836155596962> Vatrica Emoji Promijenjen",
     description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\nEmoji vatrice je promijenjen!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "\u{1F525} GIANNI (Custom) \u2022 Vatrice Sistem",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Vatrice Sistem",
     thumbnail: null,
     fields: [
-      { name: "Stari emoji", value: "`{stari}`", inline: true },
-      { name: "Novi emoji", value: "`{novi}`", inline: true }
+      { name: "<a:760912ban:1500446026715103253> Stari emoji", value: "`{stari}`", inline: true },
+      { name: "<:428758neonverifiedcheck:1496898532559421571> Novi emoji", value: "`{novi}`", inline: true }
     ]
   },
   // ─── EKONOMIJA (dopune) ───────────────────────────────────────────────────
   {
     name: "giveaway-end",
-    title: "\u{1F3C6} Nagradna Igra \u2014 ZAVR\u0160ENA!",
-    description: "## \u{1F381}  {nagrada}\n\n\u010Cestitamo pobjedniku \u2014 pratite objavu!",
+    title: "<:79529shinycrown:1496899185516216400> Nagradna Igra \u2014 ZAVR\u0160ENA!",
+    description: "## <a:302883greenpresent:1500461838108721182>  {nagrada}\n\n\u010Cestitamo pobjedniku \u2014 pratite objavu!",
     color: "#2ECC71",
     category: "Ekonomija",
     footer: "GIANNI (Custom) \u2022 Giveaway zavr\u0161en",
     thumbnail: null,
     fields: [
-      { name: "\u{1F3C6} Pobjednik", value: "{pobjednik}", inline: true },
-      { name: "\u{1F465} U\u010Desnici", value: "`{ucesnici}`", inline: true },
-      { name: "\u{1F39F}\uFE0F Doma\u0107in", value: "{doma\u0107in}", inline: true }
+      { name: "<:79529shinycrown:1496899185516216400> Pobjednik", value: "{pobjednik}", inline: true },
+      { name: "<:7188members:1504505910314405888> U\u010Desnici", value: "`{ucesnici}`", inline: true },
+      { name: "<a:ticket:1500196243853541397> Doma\u0107in", value: "{doma\u0107in}", inline: true }
     ]
   },
   // ─── IGRE (dopune) ────────────────────────────────────────────────────────
   {
     name: "vjasala",
-    title: "\u{1F4DD}  V J E \u0160 A L A",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F521} Pogodi skrivenu rije\u010D!\n\n```\n_ _ _ _ _ _\n```\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<:89292document:1504506160399650907>  V J E \u0160 A L A",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:89292document:1504506160399650907> Pogodi skrivenu rije\u010D!\n\n```\n_ _ _ _ _ _\n```\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#9B59B6",
     category: "Igre",
     footer: "GIANNI (Custom) \u2022 /vjasala",
     thumbnail: null,
     fields: [
-      { name: "\u2764\uFE0F \u017Divoti", value: "`{zivoti}/6`", inline: true },
-      { name: "\u{1F524} Pogo\u0111ena slova", value: "`{pogodjena}`", inline: true },
-      { name: "\u274C Proma\u0161aji", value: "`{promasaji}`", inline: true }
+      { name: "<a:3599pinkheart:1504504866700132534> \u017Divoti", value: "`{zivoti}/6`", inline: true },
+      { name: "<a:42985spellbook:1504506083094565125> Pogo\u0111ena slova", value: "`{pogodjena}`", inline: true },
+      { name: "<a:3485cancel:1500443837452255302> Proma\u0161aji", value: "`{promasaji}`", inline: true }
     ]
   },
   {
     name: "vjasala-kraj",
-    title: "\u{1F389} Vje\u0161ala \u2014 Pogodak!",
-    description: "\u010Cestitamo {user}! Pogodio/la si **{rijec}**! \u{1F973}\n\u{1F4B6} **Nagrada:** `+{nagrada} coina`",
+    title: "<a:giveaways5:1500203902446997586> Vje\u0161ala \u2014 Pogodak!",
+    description: "\u010Cestitamo {user}! Pogodio/la si **{rijec}**! <a:giveaways5:1500203902446997586>\n<a:529977coin:1500444133389635704> **Nagrada:** `+{nagrada} coina`",
     color: "#2ECC71",
     category: "Igre",
     footer: "GIANNI (Custom) \u2022 /vjasala",
@@ -47386,176 +47387,176 @@ var DEFAULT_EMBEDS = [
   },
   {
     name: "toplo-hladno",
-    title: "\u{1F321}\uFE0F  T O P L O  \u2022  H L A D N O",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F3AF} Pogodi tajni broj (1\u2013{max})!\n\n\u{1F535} **Hladno** \u2014 daleko si\n\u{1F7E1} **Toplo** \u2014 bli\u017Ee si\n\u{1F534} **Vrelo** \u2014 skoro!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<a:aktivnost:1500203557134270534>  T O P L O  \u2022  H L A D N O",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:73535warningids:1496899181674238053> Pogodi tajni broj (1\u2013{max})!\n\n<:11309roleadminblue2:1496898576150954165> **Hladno** \u2014 daleko si\n<:4082signalbaryellow:1500260022846881862> **Toplo** \u2014 bli\u017Ee si\n<:994180roleadminred1:1496902197605306461> **Vrelo** \u2014 skoro!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#3498DB",
     category: "Igre",
     footer: "GIANNI (Custom) \u2022 /toplo-hladno",
     thumbnail: null,
     fields: [
-      { name: "\u{1F3B2} Maksimum", value: "`{max}`", inline: true },
-      { name: "\u{1F522} Poku\u0161aji", value: "`{pokusaji}`", inline: true },
-      { name: "\u{1F321}\uFE0F Status", value: "{status}", inline: true }
+      { name: "<a:39865dice:1500260185510248448> Maksimum", value: "`{max}`", inline: true },
+      { name: "<a:brojanje:1500059790376697988> Poku\u0161aji", value: "`{pokusaji}`", inline: true },
+      { name: "<a:aktivnost:1500203557134270534> Status", value: "{status}", inline: true }
     ]
   },
   {
     name: "kviz",
-    title: "\u{1F9E0}  K V I Z  \u2014  Balkan Pitanje",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2753 **{pitanje}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<a:42985spellbook:1504506083094565125>  K V I Z  \u2014  Balkan Pitanje",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:73535warningids:1496899181674238053> **{pitanje}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#E74C3C",
     category: "Igre",
-    footer: "GIANNI (Custom) \u2022 /kviz \u2022 Oklada: {oklada} \u{1F4B6}",
+    footer: "GIANNI (Custom) \u2022 /kviz \u2022 Oklada: {oklada} <a:529977coin:1500444133389635704>",
     thumbnail: null,
     fields: [
-      { name: "\u{1F170}\uFE0F A", value: "{a}", inline: true },
-      { name: "\u{1F171}\uFE0F B", value: "{b}", inline: true },
-      { name: "\u{1F172} C", value: "{c}", inline: true },
-      { name: "\u{1F173} D", value: "{d}", inline: true }
+      { name: "<:11309roleadminblue2:1496898576150954165> A", value: "{a}", inline: true },
+      { name: "<:518169rolemodpurple:1496901673426096158> B", value: "{b}", inline: true },
+      { name: "<:367280roleadmingreen:1496898579720044706> C", value: "{c}", inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> D", value: "{d}", inline: true }
     ]
   },
   {
     name: "geografija",
-    title: "\u{1F30D}  G E O G R A F I J A  \u2014  Kviz",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F30D} **{pitanje}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<:7289announcement:1504505912939909141>  G E O G R A F I J A  \u2014  Kviz",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:7289announcement:1504505912939909141> **{pitanje}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#27AE60",
     category: "Igre",
-    footer: "GIANNI (Custom) \u2022 /geografija \u2022 Oklada: {oklada} \u{1F4B6}",
+    footer: "GIANNI (Custom) \u2022 /geografija \u2022 Oklada: {oklada} <a:529977coin:1500444133389635704>",
     thumbnail: null,
     fields: [
-      { name: "\u{1F170}\uFE0F A", value: "{a}", inline: true },
-      { name: "\u{1F171}\uFE0F B", value: "{b}", inline: true },
-      { name: "\u{1F172} C", value: "{c}", inline: true },
-      { name: "\u{1F173} D", value: "{d}", inline: true }
+      { name: "<:11309roleadminblue2:1496898576150954165> A", value: "{a}", inline: true },
+      { name: "<:518169rolemodpurple:1496901673426096158> B", value: "{b}", inline: true },
+      { name: "<:367280roleadmingreen:1496898579720044706> C", value: "{c}", inline: true },
+      { name: "<:984706roleadminorange1:1496898583239200819> D", value: "{d}", inline: true }
     ]
   },
   {
     name: "mafia-lobby",
-    title: "\u{1F575}\uFE0F  M A F I A  \u2014  Lobby",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F3AD} Mafia igra se priprema!\n**Pridru\u017Ei se klikom na dugme.**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2699\uFE0F Min: **5** | Max: **12** igra\u010Da\n\u23F1\uFE0F Igra kre\u0107e automatski za **60s** ili kad host klikne Start",
+    title: "<:7188members:1504505910314405888>  M A F I A  \u2014  Lobby",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:7188members:1504505910314405888> Mafia igra se priprema!\n**Pridru\u017Ei se klikom na dugme.**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:2711settings:1504505863032012832> Min: **5** | Max: **12** igra\u010Da\n<:2261bell:1504505860720820395> Igra kre\u0107e automatski za **60s** ili kad host klikne Start",
     color: "#2C3E50",
     category: "Igre",
-    footer: "\u{1F575}\uFE0F GIANNI (Custom) \u2022 Mafia",
+    footer: "<:7188members:1504505910314405888> GIANNI (Custom) \u2022 Mafia",
     thumbnail: null,
     fields: [
-      { name: "\u{1F465} Igra\u010Di ({count}/12)", value: "{igraci}", inline: false }
+      { name: "<:7188members:1504505910314405888> Igra\u010Di ({count}/12)", value: "{igraci}", inline: false }
     ]
   },
   {
     name: "mafia-end",
-    title: "\u{1F3C6}  M A F I A  \u2014  Kraj Igre",
+    title: "<:79529shinycrown:1496899185516216400>  M A F I A  \u2014  Kraj Igre",
     description: "## {rezultat}\n\n{opis}",
     color: "#F1C40F",
     category: "Igre",
-    footer: "\u{1F575}\uFE0F GIANNI (Custom) \u2022 Mafia zavr\u0161ena",
+    footer: "<:7188members:1504505910314405888> GIANNI (Custom) \u2022 Mafia zavr\u0161ena",
     thumbnail: null,
     fields: [
-      { name: "\u{1F3AD} Uloge", value: "{uloge}", inline: false },
-      { name: "\u{1F3C6} Pobjednici", value: "{pobjednici}", inline: true },
-      { name: "\u{1F480} Eliminirani", value: "{eliminirani}", inline: true }
+      { name: "<:7188members:1504505910314405888> Uloge", value: "{uloge}", inline: false },
+      { name: "<:79529shinycrown:1496899185516216400> Pobjednici", value: "{pobjednici}", inline: true },
+      { name: "<:32673memberred:1504505534273949848> Eliminirani", value: "{eliminirani}", inline: true }
     ]
   },
   // ─── POO ──────────────────────────────────────────────────────────────────
   {
     name: "poo",
-    title: "\u{1F4A9}  P O O  \u2014  Stanje Kreature",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{emojiBar}\n**Zdravlje:** `{zdravlje}/100`\n**Raspolo\u017Eenje:** `{raspolozenje}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F465} Ukupno \u010Duvara: **{cuvari}**\n\u{1F4CB} Zavr\u0161enih zadataka: **{zadaci}/100**",
+    title: "<a:VATRICE:1496898836155596962>  P O O  \u2014  Stanje Kreature",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{emojiBar}\n**Zdravlje:** `{zdravlje}/100`\n**Raspolo\u017Eenje:** `{raspolozenje}`\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:7188members:1504505910314405888> Ukupno \u010Duvara: **{cuvari}**\n<:89292document:1504506160399650907> Zavr\u0161enih zadataka: **{zadaci}/100**",
     color: "#8B4513",
     category: "Poo",
-    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Sistem",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Poo Sistem",
     thumbnail: null,
     fields: [
-      { name: "\u2764\uFE0F Zdravlje", value: "`{zdravlje}/100`", inline: true },
+      { name: "<a:3599pinkheart:1504504866700132534> Zdravlje", value: "`{zdravlje}/100`", inline: true },
       { name: "\u{1F60A} Raspolo\u017Eenje", value: "`{raspolozenje}`", inline: true },
-      { name: "\u{1F4CB} Zadaci", value: "`{zadaci}/100`", inline: true }
+      { name: "<:89292document:1504506160399650907> Zadaci", value: "`{zadaci}/100`", inline: true }
     ]
   },
   {
     name: "poo-zadaci",
-    title: "\u{1F4CB}  P O O  \u2014  Zadaci",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F4CB} Lista Poo zadataka \u2014 stranica **{str}/{ukupnoStr}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{zadaci}",
+    title: "<:89292document:1504506160399650907>  P O O  \u2014  Zadaci",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:89292document:1504506160399650907> Lista Poo zadataka \u2014 stranica **{str}/{ukupnoStr}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{zadaci}",
     color: "#8B4513",
     category: "Poo",
-    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Zadaci \u2022 /poo-zadaci [stranica]",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Poo Zadaci \u2022 /poo-zadaci [stranica]",
     thumbnail: null,
     fields: []
   },
   {
     name: "poo-top",
-    title: "\u{1F3C6}  P O O  \u2014  Top \u010Cuvari",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F947} **{top1}** \u2014 `{top1pts}` pts\n\u{1F948} **{top2}** \u2014 `{top2pts}` pts\n\u{1F949} **{top3}** \u2014 `{top3pts}` pts\n`4.` **{top4}** \u2014 `{top4pts}` pts\n`5.` **{top5}** \u2014 `{top5pts}` pts\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<:79529shinycrown:1496899185516216400>  P O O  \u2014  Top \u010Cuvari",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:79529shinycrown:1496899185516216400> **{top1}** \u2014 `{top1pts}` pts\n<:40197blueneonstar:1496898993395859457> **{top2}** \u2014 `{top2pts}` pts\n<:428758neonverifiedcheck:1496898532559421571> **{top3}** \u2014 `{top3pts}` pts\n`4.` **{top4}** \u2014 `{top4pts}` pts\n`5.` **{top5}** \u2014 `{top5pts}` pts\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#8B4513",
     category: "Poo",
-    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Top Lista",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Poo Top Lista",
     thumbnail: null,
     fields: []
   },
   {
     name: "poo-hrani",
-    title: "\u{1F356}  P O O  \u2014  Hranjen!",
-    description: "{user} je hranio/la Poo-a! \u{1F389}\nPotro\u0161eno: **200 coina**\n\n{emojiBar}\n**Zdravlje:** `{zdravlje}/100` **(+{bonus})**",
+    title: "<:984706roleadminorange1:1496898583239200819>  P O O  \u2014  Hranjen!",
+    description: "{user} je hranio/la Poo-a! <a:giveaways5:1500203902446997586>\nPotro\u0161eno: **200 coina**\n\n{emojiBar}\n**Zdravlje:** `{zdravlje}/100` **(+{bonus})**",
     color: "#8B4513",
     category: "Poo",
-    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Sistem",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Poo Sistem",
     thumbnail: null,
     fields: [
-      { name: "\u2764\uFE0F Novo zdravlje", value: "`{zdravlje}/100`", inline: true },
-      { name: "\u{1F4B6} Tro\u0161ak", value: "`200 coina`", inline: true }
+      { name: "<a:3599pinkheart:1504504866700132534> Novo zdravlje", value: "`{zdravlje}/100`", inline: true },
+      { name: "<a:529977coin:1500444133389635704> Tro\u0161ak", value: "`200 coina`", inline: true }
     ]
   },
   {
     name: "poo-info",
-    title: "\u{1F4CA}  P O O  \u2014  Moj Doprinos",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u{1F464} **{user}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{progres}",
+    title: "<a:aktivnost:1500203557134270534>  P O O  \u2014  Moj Doprinos",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:7188members:1504505910314405888> **{user}**\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{progres}",
     color: "#8B4513",
     category: "Poo",
-    footer: "\u{1F4A9} GIANNI (Custom) \u2022 Poo Sistem",
+    footer: "<a:VATRICE:1496898836155596962> GIANNI (Custom) \u2022 Poo Sistem",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "\u2705 Zavr\u0161enih zadataka", value: "`{zavrseni}`", inline: true },
-      { name: "\u2B50 Bodova ukupno", value: "`{bodovi}`", inline: true },
-      { name: "\u{1F3C5} Rang", value: "`#{rang}`", inline: true }
+      { name: "<:428758neonverifiedcheck:1496898532559421571> Zavr\u0161enih zadataka", value: "`{zavrseni}`", inline: true },
+      { name: "<:40197blueneonstar:1496898993395859457> Bodova ukupno", value: "`{bodovi}`", inline: true },
+      { name: "<:79529shinycrown:1496899185516216400> Rang", value: "`#{rang}`", inline: true }
     ]
   },
   // ─── ADMIN / BACKUP ───────────────────────────────────────────────────────
   {
     name: "backup",
-    title: "\u{1F4BE}  B A C K U P  \u2014  Snimljen",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2705 Backup je uspje\u0161no snimljen!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+    title: "<:428758neonverifiedcheck:1496898532559421571>  B A C K U P  \u2014  Snimljen",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:428758neonverifiedcheck:1496898532559421571> Backup je uspje\u0161no snimljen!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
     color: "#2ECC71",
     category: "Admin",
-    footer: "\u{1F4BE} GIANNI (Custom) \u2022 Backup Sistem",
+    footer: "<:428758neonverifiedcheck:1496898532559421571> GIANNI (Custom) \u2022 Backup Sistem",
     thumbnail: null,
     fields: [
-      { name: "\u{1F4C5} Datum", value: "{datum}", inline: true },
-      { name: "\u{1F4E6} Veli\u010Dina", value: "{velicina}", inline: true },
-      { name: "\u2601\uFE0F Cloud", value: "Discord DM", inline: true }
+      { name: "<:2261bell:1504505860720820395> Datum", value: "{datum}", inline: true },
+      { name: "<:89292document:1504506160399650907> Veli\u010Dina", value: "{velicina}", inline: true },
+      { name: "<a:32877animatedarrowbluelite:1496898954783096933> Cloud", value: "Discord DM", inline: true }
     ]
   },
   {
     name: "backup-restore",
-    title: "\u267B\uFE0F  B A C K U P  \u2014  Vra\u0107en",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2705 Backup je uspje\u0161no vra\u0107en!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u26A0\uFE0F Svi podaci su prepisani backupom od **{datum}**.",
+    title: "<a:68523animatedarrowgreen:1496899143338033173>  B A C K U P  \u2014  Vra\u0107en",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:428758neonverifiedcheck:1496898532559421571> Backup je uspje\u0161no vra\u0107en!\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<:73535warningids:1496899181674238053> Svi podaci su prepisani backupom od **{datum}**.",
     color: "#E67E22",
     category: "Admin",
-    footer: "\u{1F4BE} GIANNI (Custom) \u2022 Backup Vra\u0107en",
+    footer: "<:428758neonverifiedcheck:1496898532559421571> GIANNI (Custom) \u2022 Backup Vra\u0107en",
     thumbnail: null,
     fields: [
-      { name: "\u{1F4C5} Backup datum", value: "{datum}", inline: true },
-      { name: "\u{1F464} Pokrenuo", value: "{korisnik}", inline: true }
+      { name: "<:2261bell:1504505860720820395> Backup datum", value: "{datum}", inline: true },
+      { name: "<:7188members:1504505910314405888> Pokrenuo", value: "{korisnik}", inline: true }
     ]
   },
   {
     name: "backup-status",
-    title: "\u{1F4CA}  B A C K U P  \u2014  Status",
-    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\u2601\uFE0F Cloud backup istorija:\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{historija}",
+    title: "<a:aktivnost:1500203557134270534>  B A C K U P  \u2014  Status",
+    description: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n<a:32877animatedarrowbluelite:1496898954783096933> Cloud backup istorija:\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n{historija}",
     color: "#3498DB",
     category: "Admin",
-    footer: "\u{1F4BE} GIANNI (Custom) \u2022 Backup Sistem",
+    footer: "<:428758neonverifiedcheck:1496898532559421571> GIANNI (Custom) \u2022 Backup Sistem",
     thumbnail: null,
     fields: [
-      { name: "\u{1F4E6} Ukupno backupa", value: "`{ukupno}`", inline: true },
+      { name: "<:89292document:1504506160399650907> Ukupno backupa", value: "`{ukupno}`", inline: true },
       { name: "\u{1F552} Zadnji", value: "{zadnji}", inline: true },
-      { name: "\u{1F4BE} Veli\u010Dina", value: "{velicina}", inline: true }
+      { name: "<:428758neonverifiedcheck:1496898532559421571> Veli\u010Dina", value: "{velicina}", inline: true }
     ]
   }
 ];
