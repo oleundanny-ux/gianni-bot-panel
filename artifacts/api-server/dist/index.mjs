@@ -47761,7 +47761,7 @@ function saveConfigs(data) {
   fs3.writeFileSync(CONFIGS_FILE, JSON.stringify(data, null, 2), "utf-8");
 }
 router6.get("/channel-configs", (req, res) => {
-  res.json(loadConfigs());
+  res.set("Cache-Control", "no-store").json(loadConfigs());
 });
 router6.put("/channel-configs/:channelId", (req, res) => {
   const { channelId } = req.params;
