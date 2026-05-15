@@ -359,12 +359,42 @@ async function forceRefreshEmojis(): Promise<number> {
 }
 
 function emojiUrl(emoji: DiscordEmoji) {
-  const ext = emoji.animated ? "gif" : "png";
-  return `https://cdn.discordapp.com/emojis/${emoji.id}.${ext}?size=32`;
+  return `https://cdn.discordapp.com/emojis/${emoji.id}.png?size=32`;
 }
 
 function emojiMarkdown(emoji: DiscordEmoji) {
   return emoji.animated ? `<a:${emoji.name}:${emoji.id}>` : `<:${emoji.name}:${emoji.id}>`;
+}
+
+function EmojiGridItem({
+  emoji, onSelect, onClose, accent,
+}: { emoji: DiscordEmoji; onSelect: (md: string) => void; onClose: () => void; accent: string }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <button
+      title={`:${emoji.name}:`}
+      data-testid={`emoji-${emoji.name}`}
+      onClick={() => { onSelect(emojiMarkdown(emoji)); onClose(); }}
+      className="w-8 h-8 flex items-center justify-center rounded-md transition-all group"
+      style={{ background: "transparent" }}
+      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `${accent}18`; }}
+      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+    >
+      {failed ? (
+        <div className="flex items-center justify-center rounded" style={{ width: 22, height: 22, background: `${accent}20`, border: `1px solid ${accent}40` }}>
+          <Smile style={{ width: 12, height: 12, color: accent, strokeWidth: 2 }} />
+        </div>
+      ) : (
+        <img
+          src={emojiUrl(emoji)}
+          alt={emoji.name}
+          className="w-6 h-6 object-contain rounded"
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      )}
+    </button>
+  );
 }
 
 interface EmojiPickerProps {
@@ -469,28 +499,16 @@ function EmojiPicker({ onSelect, onClose }: EmojiPickerProps) {
           </div>
         )}
 
-        {/* Animated GIF section */}
+        {/* Animated section — shown as static PNG */}
         {filteredAnimated.length > 0 && (
           <div className="p-2">
-            <div className="text-[10px] text-[#949BA4] uppercase tracking-wider mb-1 px-1">
-              GIF Emojii ({filteredAnimated.length})
+            <div className="text-[10px] uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1.5" style={{ color: "#a78bfa" }}>
+              <Zap style={{ width: 9, height: 9, color: "#a78bfa" }} />
+              Animirani ({filteredAnimated.length})
             </div>
             <div className="grid grid-cols-9 gap-0.5">
               {filteredAnimated.map(emoji => (
-                <button
-                  key={emoji.id}
-                  title={`:${emoji.name}:`}
-                  data-testid={`emoji-${emoji.name}`}
-                  onClick={() => { onSelect(emojiMarkdown(emoji)); onClose(); }}
-                  className="w-8 h-8 flex items-center justify-center rounded hover:bg-[#313338] transition-colors"
-                >
-                  <img
-                    src={emojiUrl(emoji)}
-                    alt={emoji.name}
-                    className="w-6 h-6 object-contain"
-                    loading="lazy"
-                  />
-                </button>
+                <EmojiGridItem key={emoji.id} emoji={emoji} onSelect={onSelect} onClose={onClose} accent="#a78bfa" />
               ))}
             </div>
           </div>
@@ -498,26 +516,14 @@ function EmojiPicker({ onSelect, onClose }: EmojiPickerProps) {
 
         {/* Static section */}
         {filteredStatic.length > 0 && (
-          <div className="p-2 border-t border-[#2B2D31]">
-            <div className="text-[10px] text-[#949BA4] uppercase tracking-wider mb-1 px-1">
+          <div className={`p-2 ${filteredAnimated.length > 0 ? "border-t border-[#2B2D31]" : ""}`}>
+            <div className="text-[10px] uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1.5" style={{ color: "#60a5fa" }}>
+              <Star style={{ width: 9, height: 9, color: "#60a5fa" }} />
               Statični ({filteredStatic.length})
             </div>
             <div className="grid grid-cols-9 gap-0.5">
               {filteredStatic.map(emoji => (
-                <button
-                  key={emoji.id}
-                  title={`:${emoji.name}:`}
-                  data-testid={`emoji-${emoji.name}`}
-                  onClick={() => { onSelect(emojiMarkdown(emoji)); onClose(); }}
-                  className="w-8 h-8 flex items-center justify-center rounded hover:bg-[#313338] transition-colors"
-                >
-                  <img
-                    src={emojiUrl(emoji)}
-                    alt={emoji.name}
-                    className="w-6 h-6 object-contain"
-                    loading="lazy"
-                  />
-                </button>
+                <EmojiGridItem key={emoji.id} emoji={emoji} onSelect={onSelect} onClose={onClose} accent="#60a5fa" />
               ))}
             </div>
           </div>
@@ -624,30 +630,40 @@ function EmojiChip({ token, onReplace }: EmojiChipProps) {
     return () => document.removeEventListener("mousedown", handler);
   }, [open]);
 
-  const display = token.isCustom && token.id ? (
-    <img
-      src={`https://cdn.discordapp.com/emojis/${token.id}.${token.isAnimated ? "gif" : "png"}?size=32`}
-      alt={token.name}
-      className="w-5 h-5 object-contain"
-    />
+  const chipColor = "#5865F2";
+
+  const display = token.isCustom ? (
+    <div
+      className="flex items-center justify-center rounded flex-shrink-0"
+      style={{ width: 18, height: 18, background: `${chipColor}22`, border: `1px solid ${chipColor}44` }}
+    >
+      <Smile style={{ width: 11, height: 11, color: chipColor, strokeWidth: 2.2 }} />
+    </div>
   ) : (
-    <span className="text-base leading-none">{token.raw}</span>
+    <span className="text-sm leading-none">{token.raw}</span>
   );
+
+  const label = token.name ? (
+    <span className="text-[10px] font-semibold max-w-[72px] truncate" style={{ color: open ? chipColor : "#949BA4" }}>
+      :{token.name}:
+    </span>
+  ) : null;
 
   return (
     <div ref={ref} className="relative inline-block">
       <button
         type="button"
         onClick={() => setOpen(p => !p)}
-        title="Zamijeni emoji"
-        className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-[10px] font-medium transition-colors ${
+        title={token.name ? `:${token.name}:` : "Zamijeni emoji"}
+        className={`flex items-center gap-1 px-1.5 py-0.5 rounded-md border text-[10px] font-medium transition-all ${
           open
-            ? "border-[#5865F2] bg-[#5865F2]/20 text-[#5865F2]"
-            : "border-[#404249] bg-[#1E1F22] text-[#949BA4] hover:border-[#5865F2] hover:text-[#5865F2]"
+            ? "border-[#5865F2] bg-[#5865F2]/15 text-[#5865F2]"
+            : "border-[#404249] bg-[#1E1F22] text-[#949BA4] hover:border-[#5865F2]/60 hover:bg-[#5865F2]/08"
         }`}
       >
         {display}
-        <RefreshCw className="w-2.5 h-2.5 flex-shrink-0" />
+        {label}
+        <RefreshCw className="w-2.5 h-2.5 flex-shrink-0 opacity-60" />
       </button>
       {open && (
         <EmojiPicker
