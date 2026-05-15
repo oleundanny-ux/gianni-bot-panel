@@ -14,6 +14,7 @@ import Protection from "@/pages/Protection";
 import Games from "@/pages/Games";
 import Settings from "@/pages/Settings";
 import ServerPage from "@/pages/ServerPage";
+import Icons from "@/pages/Icons";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ function Router() {
         <Route path="/permissions" component={Permissions} />
         <Route path="/protection" component={Protection} />
         <Route path="/games" component={Games} />
+        <Route path="/icons" component={Icons} />
         <Route path="/settings" component={Settings} />
         <Route component={NotFound} />
       </Switch>
