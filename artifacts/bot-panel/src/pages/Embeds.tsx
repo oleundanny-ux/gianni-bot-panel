@@ -550,13 +550,35 @@ function TextFieldWithEmoji({ label, value, onChange, multiline, testId }: TextF
   );
 }
 
+type ButtonType = "voice_create" | "ticket_open" | "ticket_close" | "role" | "link" | "custom";
+
 interface EmbedButton {
+  type?: ButtonType;
   label: string;
   style: "primary" | "secondary" | "success" | "danger" | "link";
   emoji?: string;
   url?: string;
+  roleId?: string;
   customId?: string;
 }
+
+const BUTTON_TYPE_DEFAULTS: Record<ButtonType, Partial<EmbedButton>> = {
+  voice_create:  { label: "🔊 Kreiraj svoj voice", style: "success",   customId: "vc_create_btn" },
+  ticket_open:   { label: "🎫 Otvori Ticket",      style: "primary",   customId: "ticket_open" },
+  ticket_close:  { label: "🔒 Zatvori Ticket",     style: "danger",    customId: "ticket_close" },
+  role:          { label: "Uzmi ulogu",             style: "secondary"  },
+  link:          { label: "Otvori link",            style: "link"       },
+  custom:        { label: "Dugme",                  style: "primary"    },
+};
+
+const BUTTON_TYPE_LABELS: Record<ButtonType, string> = {
+  voice_create: "🔊 Voice",
+  ticket_open:  "🎫 Otvori Tiket",
+  ticket_close: "🔒 Zatvori Tiket",
+  role:         "🏷️ Uloga",
+  link:         "🔗 Link",
+  custom:       "⚙️ Custom",
+};
 
 const BUTTON_STYLE_COLORS: Record<string, string> = {
   primary:   "#5865F2",
@@ -565,6 +587,20 @@ const BUTTON_STYLE_COLORS: Record<string, string> = {
   danger:    "#DA373C",
   link:      "#4E5058",
 };
+
+interface DiscordRole { id: string; name: string; color: string; }
+
+function useDiscordRoles() {
+  return useQuery<DiscordRole[]>({
+    queryKey: ["discord-roles"],
+    queryFn: async () => {
+      const res = await fetch(`${BASE_URL}/api/discord/roles`);
+      if (!res.ok) throw new Error("Failed to fetch roles");
+      return res.json();
+    },
+    staleTime: 5 * 60 * 1000,
+  });
+}
 
 function DiscordEmbedPreview({ embed, title, description, color, bgColor, previewMode, fields: fieldsProp, buttons: buttonsProp }: {
   embed: EmbedTemplate;
@@ -713,6 +749,210 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
   );
 }
 
+function ButtonEditor({ buttons, onChange }: { buttons: EmbedButton[]; onChange: (b: EmbedButton[]) => void }) {
+  const { data: roles } = useDiscordRoles();
+
+  const add = () => {
+    if (buttons.length >= 5) return;
+    onChange([...buttons, { type: "custom", label: "Dugme", style: "primary" }]);
+  };
+
+  const remove = (i: number) => onChange(buttons.filter((_, idx) => idx !== i));
+
+  const update = (i: number, patch: Partial<EmbedButton>) =>
+    onChange(buttons.map((b, idx) => idx === i ? { ...b, ...patch } : b));
+
+  const changeType = (i: number, type: ButtonType) => {
+    const defaults = BUTTON_TYPE_DEFAULTS[type];
+    onChange(buttons.map((b, idx) =>
+      idx === i ? { ...b, type, ...defaults } : b
+    ));
+  };
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center justify-between">
+        <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">
+          Dugmad
+          <span className="ml-1.5 text-[10px] font-normal normal-case text-[#6b7280]">({buttons.length}/5)</span>
+        </Label>
+        {buttons.length < 5 && (
+          <button
+            type="button"
+            onClick={add}
+            className="flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-bold transition-all"
+            style={{ background: "rgba(88,101,242,0.15)", border: "1px solid rgba(88,101,242,0.3)", color: "#a5b4fc" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(88,101,242,0.25)"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(88,101,242,0.15)"; }}
+          >
+            + Dodaj dugme
+          </button>
+        )}
+      </div>
+
+      {buttons.length === 0 && (
+        <div className="text-[11px] text-[#4E5058] italic text-center py-3 rounded-md border border-dashed border-[#2B2D31]">
+          Nema dugmadi — klikni + Dodaj dugme
+        </div>
+      )}
+
+      {buttons.map((btn, i) => (
+        <div key={i} className="bg-[#1E1F22] rounded-md p-3 space-y-2.5 border border-[#2B2D31]">
+          {/* Header row */}
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] font-bold text-[#6b7280] uppercase tracking-wide">Dugme {i + 1}</span>
+            <button
+              type="button"
+              onClick={() => remove(i)}
+              className="text-[#6b7280] hover:text-[#ef4444] transition-colors p-0.5 rounded"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          {/* Type selector */}
+          <div className="space-y-1">
+            <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Tip akcije</Label>
+            <div className="grid grid-cols-3 gap-1">
+              {(Object.keys(BUTTON_TYPE_LABELS) as ButtonType[]).map(t => {
+                const sel = (btn.type ?? "custom") === t;
+                return (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => changeType(i, t)}
+                    className="px-2 py-1.5 rounded text-[10px] font-bold transition-all text-center leading-tight"
+                    style={{
+                      background: sel ? "rgba(88,101,242,0.2)" : "rgba(255,255,255,0.04)",
+                      border: `1px solid ${sel ? "#5865F2" : "rgba(255,255,255,0.08)"}`,
+                      color: sel ? "#a5b4fc" : "#6b7280",
+                    }}
+                  >
+                    {BUTTON_TYPE_LABELS[t]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Label */}
+          <div className="space-y-1">
+            <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Label</Label>
+            <Input
+              value={btn.label}
+              onChange={e => update(i, { label: e.target.value })}
+              placeholder="Tekst na dugmetu..."
+              className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8"
+            />
+          </div>
+
+          {/* Emoji */}
+          <div className="space-y-1">
+            <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Emoji (opcionalno)</Label>
+            <Input
+              value={btn.emoji ?? ""}
+              onChange={e => update(i, { emoji: e.target.value || undefined })}
+              placeholder="🔊 ili <:ime:id>"
+              className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8 font-mono"
+            />
+          </div>
+
+          {/* Role picker — only for "role" type */}
+          {btn.type === "role" && (
+            <div className="space-y-1">
+              <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Uloga</Label>
+              <select
+                value={btn.roleId ?? ""}
+                onChange={e => update(i, { roleId: e.target.value || undefined })}
+                className="w-full bg-[#2B2D31] border border-[#404249] text-[#F2F3F5] text-sm rounded-md px-2 h-8"
+              >
+                <option value="">— Odaberi ulogu —</option>
+                {(roles ?? []).filter(r => !r.name.startsWith("@")).map(r => (
+                  <option key={r.id} value={r.id}>
+                    {r.name}
+                  </option>
+                ))}
+              </select>
+              {btn.roleId && (
+                <p className="text-[10px] text-[#4E5058]">
+                  custom_id: <code className="text-[#F1C40F]">panel_role_{btn.roleId}</code>
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* URL — only for "link" type */}
+          {btn.type === "link" && (
+            <div className="space-y-1">
+              <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">URL</Label>
+              <Input
+                value={btn.url ?? ""}
+                onChange={e => update(i, { url: e.target.value || undefined })}
+                placeholder="https://..."
+                className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8 font-mono"
+              />
+            </div>
+          )}
+
+          {/* Custom ID — only for "custom" type */}
+          {btn.type === "custom" && (
+            <div className="space-y-1">
+              <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Custom ID</Label>
+              <Input
+                value={btn.customId ?? ""}
+                onChange={e => update(i, { customId: e.target.value || undefined })}
+                placeholder="moj_custom_btn"
+                className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8 font-mono"
+              />
+            </div>
+          )}
+
+          {/* Style override */}
+          {btn.type !== "link" && (
+            <div className="space-y-1">
+              <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Boja</Label>
+              <div className="grid grid-cols-4 gap-1">
+                {(["success", "primary", "secondary", "danger"] as const).map(style => {
+                  const styleLabels: Record<string, string> = {
+                    success: "🟢", primary: "🔵", secondary: "⚫", danger: "🔴",
+                  };
+                  const sel = btn.style === style;
+                  return (
+                    <button
+                      key={style}
+                      type="button"
+                      onClick={() => update(i, { style })}
+                      className="px-2 py-1.5 rounded text-[11px] font-bold transition-all"
+                      title={style}
+                      style={{
+                        background: sel ? `${BUTTON_STYLE_COLORS[style]}33` : "rgba(255,255,255,0.04)",
+                        border: `1px solid ${sel ? BUTTON_STYLE_COLORS[style] : "rgba(255,255,255,0.08)"}`,
+                        color: sel ? "#fff" : "#6b7280",
+                      }}
+                    >
+                      {styleLabels[style]}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Preview chip */}
+          <button
+            type="button"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded text-white text-[12px] font-medium select-none cursor-default"
+            style={{ background: BUTTON_STYLE_COLORS[btn.style] ?? "#4E5058" }}
+          >
+            {btn.emoji && <span>{btn.emoji}</span>}
+            <span>{btn.label || "Dugme"}</span>
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
   embed: EmbedTemplate;
   isFullscreen?: boolean;
@@ -774,19 +1014,6 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
 
   const updateField = (i: number, key: "name" | "value", val: string) => {
     setFields((fs: EmbedField[]) => fs.map((f: EmbedField, idx: number) => idx === i ? { ...f, [key]: val } : f));
-  };
-
-  const addButton = () => {
-    if (buttons.length >= 5) return;
-    setButtons(bs => [...bs, { label: "Dugme", style: "primary" }]);
-  };
-
-  const removeButton = (i: number) => {
-    setButtons(bs => bs.filter((_, idx) => idx !== i));
-  };
-
-  const updateButton = (i: number, patch: Partial<EmbedButton>) => {
-    setButtons(bs => bs.map((b, idx) => idx === i ? { ...b, ...patch } : b));
   };
 
   const handleSave = () => {
@@ -1000,136 +1227,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
           )}
 
           {/* ── Dugmad editor ────────────────────────────────────── */}
-          <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">
-                Dugmad
-                <span className="ml-1.5 text-[10px] font-normal normal-case text-[#6b7280]">
-                  ({buttons.length}/5)
-                </span>
-              </Label>
-              {buttons.length < 5 && (
-                <button
-                  type="button"
-                  onClick={addButton}
-                  className="flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-bold transition-all"
-                  style={{ background: "rgba(88,101,242,0.15)", border: "1px solid rgba(88,101,242,0.3)", color: "#a5b4fc" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(88,101,242,0.25)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(88,101,242,0.15)"; }}
-                >
-                  + Dodaj dugme
-                </button>
-              )}
-            </div>
-
-            {buttons.length === 0 && (
-              <div className="text-[11px] text-[#4E5058] italic text-center py-2 rounded-md border border-dashed border-[#2B2D31]">
-                Nema dugmadi — klikni + Dodaj dugme
-              </div>
-            )}
-
-            {buttons.map((btn, i) => (
-              <div key={i} className="bg-[#1E1F22] rounded-md p-3 space-y-2.5 border border-[#2B2D31]">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[11px] font-bold text-[#6b7280] uppercase tracking-wide">
-                    Dugme {i + 1}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => removeButton(i)}
-                    className="text-[#6b7280] hover:text-[#ef4444] transition-colors p-0.5 rounded"
-                    title="Ukloni dugme"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                {/* Label */}
-                <div className="space-y-1">
-                  <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Label</Label>
-                  <Input
-                    value={btn.label}
-                    onChange={e => updateButton(i, { label: e.target.value })}
-                    placeholder="Tekst na dugmetu..."
-                    className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8"
-                  />
-                </div>
-
-                {/* Emoji */}
-                <div className="space-y-1">
-                  <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Emoji (opcionalno)</Label>
-                  <Input
-                    value={btn.emoji ?? ""}
-                    onChange={e => updateButton(i, { emoji: e.target.value || undefined })}
-                    placeholder="🔊 ili <:ime:id>"
-                    className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8 font-mono"
-                  />
-                </div>
-
-                {/* Style */}
-                <div className="space-y-1">
-                  <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">Stil</Label>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {(["success", "primary", "secondary", "danger"] as const).map(style => {
-                      const labels: Record<string, string> = {
-                        success: "🟢 Zeleno",
-                        primary: "🔵 Plavo",
-                        secondary: "⚫ Sivo",
-                        danger:  "🔴 Crveno",
-                      };
-                      const selected = btn.style === style;
-                      return (
-                        <button
-                          key={style}
-                          type="button"
-                          onClick={() => updateButton(i, { style })}
-                          className="px-2 py-1.5 rounded text-[11px] font-bold transition-all text-left"
-                          style={{
-                            background: selected ? `${BUTTON_STYLE_COLORS[style]}22` : "rgba(255,255,255,0.04)",
-                            border: `1px solid ${selected ? BUTTON_STYLE_COLORS[style] : "rgba(255,255,255,0.08)"}`,
-                            color: selected ? "#fff" : "#6b7280",
-                          }}
-                        >
-                          {labels[style]}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* URL (only for link style) */}
-                {btn.style === "link" && (
-                  <div className="space-y-1">
-                    <Label className="text-[#B5BAC1] text-[10px] font-semibold uppercase tracking-wide">URL</Label>
-                    <Input
-                      value={btn.url ?? ""}
-                      onChange={e => updateButton(i, { url: e.target.value || undefined })}
-                      placeholder="https://..."
-                      className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-8 font-mono"
-                    />
-                  </div>
-                )}
-
-                {/* Preview chip */}
-                <div className="pt-1">
-                  <button
-                    type="button"
-                    className="flex items-center gap-1.5 px-3 py-1 rounded text-white text-[12px] font-medium select-none cursor-default"
-                    style={{ background: BUTTON_STYLE_COLORS[btn.style] ?? "#4E5058" }}
-                  >
-                    {btn.emoji && <span>{btn.emoji}</span>}
-                    <span>{btn.label || "Dugme"}</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-
-            {buttons.length > 0 && (
-              <p className="text-[10px] text-[#4E5058] italic">
-                💡 custom_id dugmeta se ne mijenja ovdje — to ostaje hardkodirano u botu.
-              </p>
-            )}
-          </div>
+          <ButtonEditor buttons={buttons} onChange={setButtons} />
         </div>
 
         {/* Resize handle */}
