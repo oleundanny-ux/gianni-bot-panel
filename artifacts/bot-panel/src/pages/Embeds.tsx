@@ -1118,9 +1118,14 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
             let thumbnailEl: React.ReactNode = null;
             if (thumb) {
               if (thumb.startsWith("http")) {
+                // If thumbnail is a gian.today icon URL, rewrite to local /api/icons/... for dev preview
+                const resolvedSrc = thumb.replace(
+                  /^https?:\/\/gian\.today\//,
+                  `${window.location.origin}/`
+                );
                 thumbnailEl = (
                   <img
-                    src={thumb}
+                    src={resolvedSrc}
                     alt="thumbnail"
                     className="rounded object-cover flex-shrink-0"
                     style={{ width: isMobile ? 60 : 80, height: isMobile ? 60 : 80 }}
