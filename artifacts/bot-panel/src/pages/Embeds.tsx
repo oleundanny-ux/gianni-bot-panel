@@ -1632,6 +1632,19 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
       <div className="flex flex-row flex-1 overflow-hidden">
         {/* Form */}
         <div className="flex-shrink-0 p-5 space-y-5 border-r border-[#1E1F22] overflow-y-auto" style={{ width: formWidth }}>
+          <TextFieldWithEmoji
+            label="Naslov"
+            value={title}
+            onChange={setTitle}
+            testId="input-embed-title"
+          />
+          <TextFieldWithEmoji
+            label="Opis"
+            value={description}
+            onChange={setDescription}
+            multiline
+            testId="input-embed-description"
+          />
           {embed.name === "welcome" && (
             <div className="space-y-4">
               <div className="space-y-3">
@@ -1707,19 +1720,6 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
               </div>
             </div>
           )}
-          <TextFieldWithEmoji
-            label="Naslov"
-            value={title}
-            onChange={setTitle}
-            testId="input-embed-title"
-          />
-          <TextFieldWithEmoji
-            label="Opis"
-            value={description}
-            onChange={setDescription}
-            multiline
-            testId="input-embed-description"
-          />
           <div className="space-y-2">
             <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Boja embeda</Label>
             {/* Preset palette */}
