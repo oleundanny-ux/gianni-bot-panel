@@ -1857,38 +1857,6 @@ async def on_member_join(member):
         e.set_footer(text=f"{BOT_NAME} • Welcome",
                      icon_url=member.guild.icon.url if member.guild.icon else None)
 
-    # ── Welcome Card PNG ──
-    _card_file = None
-    try:
-        _btns = (_pw or {}).get("buttons") or []
-        def _blabel(i, default): return (_btns[i].get("label") or default) if len(_btns) > i else default
-        _qs_parts = [
-            f"user={_wev('{user.name}') if _pw else member.display_name}",
-            f"memberCount={member_count:,}".replace(",", "."),
-            f"accountAge={_age_str}",
-            f"joinedAt={_joined_str}",
-            f"count={member_count}",
-            f"desc={_pw.get('cardDesc') or ''}" if _pw else "",
-            f"item1={_pw.get('cardItem1') or ''}" if _pw else "",
-            f"item2={_pw.get('cardItem2') or ''}" if _pw else "",
-            f"item3={_pw.get('cardItem3') or ''}" if _pw else "",
-            f"closing={_pw.get('cardClosing') or ''}" if _pw else "",
-            f"btn1={_blabel(0, 'Pravila')}",
-            f"btn2={_blabel(1, 'Role')}",
-            f"btn3={_blabel(2, 'Pozovi')}",
-            f"btn4={_blabel(3, 'Chat')}",
-            f"avatar={member.display_avatar.url}",
-        ]
-        _qs = "&".join(p for p in _qs_parts if p)
-        _card_url = f"{PANEL_API_URL}/api/welcome-card?{_qs}"
-        async with aiohttp.ClientSession() as _cs:
-            async with _cs.get(_card_url, timeout=aiohttp.ClientTimeout(total=6)) as _cr:
-                if _cr.status == 200:
-                    import io as _io
-                    _card_file = discord.File(_io.BytesIO(await _cr.read()), filename="welcome.png")
-    except Exception as _ce:
-        print(f"[welcome-card] Greška: {_ce}")
-
     # ── Dugmadi ──
     wv = discord.ui.View()
     pw_buttons = (_pw or {}).get("buttons") or []
@@ -1928,15 +1896,7 @@ async def on_member_join(member):
                 style=discord.ButtonStyle.link
             ))
 
-    if _card_file:
-        # Kartica unutar Discord embeda — boja na rubu, footer, dugmad
-        _card_embed = discord.Embed(color=_wc if _pw else 0x2B2D3A)
-        _card_embed.set_image(url="attachment://welcome.png")
-        _footer_text = _wev(_pw.get("footer") or f"{BOT_NAME} • Welcome") if _pw else f"{BOT_NAME} • Welcome"
-        _card_embed.set_footer(text=_footer_text, icon_url=member.guild.icon.url if member.guild.icon else None)
-        await chan.send(content=member.mention, file=_card_file, embed=_card_embed, view=wv)
-    else:
-        await chan.send(content=member.mention, embed=e, view=wv)
+    await chan.send(content=member.mention, embed=e, view=wv)
 
 def _find_boost_channel(guild: discord.Guild):
     """Vraća prvi tekstualni kanal koji u imenu sadrži 'boost' (case-insensitive),
