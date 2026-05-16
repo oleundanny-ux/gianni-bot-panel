@@ -1770,8 +1770,28 @@ async def on_member_join(member):
     # ── Welcome Embed (Panel API → fallback hardkod) ──
     _pw = await get_panel_embed("welcome")
     if _pw:
-        _wd = _ev(_pw.get("description") or "", member, member_count)
         _wc = int(_pw.get("color", "#2B2D3A").lstrip("#") or "2B2D3A", 16)
+        # Build description — list items become <#channel-id> links if connected
+        _item1 = _pw.get("cardItem1") or "Procitaj pravila"
+        _item2 = _pw.get("cardItem2") or "Odaberi role"
+        _item3 = _pw.get("cardItem3") or "Predstavi se zajednici"
+        _ch1   = _pw.get("item1ChannelId") or ""
+        _ch2   = _pw.get("item2ChannelId") or ""
+        _ch3   = _pw.get("item3ChannelId") or ""
+        def _fmt_item(label: str, ch_id: str) -> str:
+            return f"<#{ch_id}>" if ch_id else f"**{label}**"
+        _desc_base = _pw.get("description") or ""
+        if not _desc_base:
+            _desc_base = (
+                f"{_fmt_item(_item1, _ch1)}\n"
+                f"{_fmt_item(_item2, _ch2)}\n"
+                f"{_fmt_item(_item3, _ch3)}"
+            )
+        else:
+            _desc_base = _desc_base.replace("{item1}", _fmt_item(_item1, _ch1))
+            _desc_base = _desc_base.replace("{item2}", _fmt_item(_item2, _ch2))
+            _desc_base = _desc_base.replace("{item3}", _fmt_item(_item3, _ch3))
+        _wd = _ev(_desc_base, member, member_count)
         e = discord.Embed(description=_wd, color=_wc, timestamp=datetime.now(timezone.utc))
         if _pw.get("title"): e.title = _ev(_pw["title"], member, member_count)
     else:
