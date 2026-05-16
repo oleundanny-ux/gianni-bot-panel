@@ -1634,65 +1634,6 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
         <div className="flex-shrink-0 p-5 space-y-5 border-r border-[#1E1F22] overflow-y-auto" style={{ width: formWidth }}>
           {embed.name === "welcome" && (
             <div className="space-y-4">
-              <div>
-                <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide mb-2 block">Opis (ispod pozdrava)</Label>
-                <Input value={cardDesc} onChange={e => setCardDesc(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Drago nam je sto si stigao/la..." />
-              </div>
-              <div className="space-y-3">
-                <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide block">Stavke liste</Label>
-                {([
-                  { text: cardItem1, setText: setCardItem1, chId: item1ChannelId, setChId: setItem1ChannelId, placeholder: "Procitaj pravila" },
-                  { text: cardItem2, setText: setCardItem2, chId: item2ChannelId, setChId: setItem2ChannelId, placeholder: "Odaberi role" },
-                  { text: cardItem3, setText: setCardItem3, chId: item3ChannelId, setChId: setItem3ChannelId, placeholder: "Predstavi se zajednici" },
-                ]).map(({ text, setText, chId, setChId, placeholder }, idx) => {
-                  const allChannels: DiscordChannel[] = [
-                    ...(channelData?.categories.flatMap(c => c.channels) ?? []),
-                    ...(channelData?.uncategorized ?? []),
-                  ];
-                  const linked = allChannels.find(c => c.id === chId);
-                  return (
-                    <div key={idx} className="bg-[#1E1F22] rounded-md p-2.5 space-y-2 border border-[#2B2D31]">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] font-bold text-[#57F287] uppercase tracking-wide w-4 flex-shrink-0">{idx + 1}.</span>
-                        <Input
-                          value={text}
-                          onChange={e => setText(e.target.value)}
-                          className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-7"
-                          placeholder={placeholder}
-                        />
-                      </div>
-                      <div>
-                        <select
-                          value={chId}
-                          onChange={e => setChId(e.target.value)}
-                          className="w-full bg-[#2B2D31] border border-[#404249] text-[#F2F3F5] text-sm rounded-md px-2 h-8"
-                        >
-                          <option value="">— Poveži kanal (opcionalno) —</option>
-                          {(channelData?.categories ?? []).map(cat => (
-                            <optgroup key={cat.id} label={cat.name}>
-                              {cat.channels.filter(c => c.type === 0).map(c => (
-                                <option key={c.id} value={c.id}>#{c.name}</option>
-                              ))}
-                            </optgroup>
-                          ))}
-                          {(channelData?.uncategorized ?? []).filter(c => c.type === 0).map(c => (
-                            <option key={c.id} value={c.id}>#{c.name}</option>
-                          ))}
-                        </select>
-                        {linked && (
-                          <p className="text-[10px] text-[#57F287] mt-1 flex items-center gap-1">
-                            <span>✓</span> #{linked.name}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div>
-                <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide mb-2 block">Završni tekst</Label>
-                <Input value={cardClosing} onChange={e => setCardClosing(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Uzivaj i zabavi se!" />
-              </div>
               <div className="space-y-3">
                 <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide block">Dugmad</Label>
                 {([
@@ -1766,15 +1707,12 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
               </div>
             </div>
           )}
-          {embed.name !== "welcome" && (
           <TextFieldWithEmoji
             label="Naslov"
             value={title}
             onChange={setTitle}
             testId="input-embed-title"
           />
-          )}
-          {embed.name !== "welcome" && (
           <TextFieldWithEmoji
             label="Opis"
             value={description}
@@ -1782,7 +1720,6 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
             multiline
             testId="input-embed-description"
           />
-          )}
           <div className="space-y-2">
             <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Boja embeda</Label>
             {/* Preset palette */}
