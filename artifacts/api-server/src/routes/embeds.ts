@@ -71,7 +71,7 @@ export const DEFAULT_EMBEDS = [
     color: "#FF85C8",
     category: "Sistem",
     footer: "GIANNI • Dobrodosao/la!",
-    thumbnail: "https://gian.today/api/icons/Mail?bg=7c3aed",
+    thumbnail: "https://gian.today/api/icons/Mail?bg=7c3aed&color=2e1065",
     fields: [],
   },
   {
@@ -116,7 +116,7 @@ export const DEFAULT_EMBEDS = [
     color: "#F1C40F",
     category: "Sistem",
     footer: "GIANNI • Starboard",
-    thumbnail: "https://gian.today/api/icons/Star?bg=b45309",
+    thumbnail: "https://gian.today/api/icons/Star?bg=f59e0b&color=78350f",
     fields: [],
   },
   {
@@ -147,7 +147,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f59e0b",
     category: "Log",
     footer: "GIANNI • Log",
-    thumbnail: "https://gian.today/api/icons/UserPlus?bg=92400e",
+    thumbnail: "https://gian.today/api/icons/UserPlus?bg=d97706&color=78350f",
     fields: [
       { name: "ID",     value: "`{userId}`",      inline: true },
       { name: "Ukupno", value: "`{memberCount}`", inline: true },
@@ -163,7 +163,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f59e0b",
     category: "Log",
     footer: "GIANNI • Log Editovanje",
-    thumbnail: "https://gian.today/api/icons/PencilLine?bg=92400e",
+    thumbnail: "https://gian.today/api/icons/PencilLine?bg=d97706&color=78350f",
     fields: [],
   },
   {
@@ -175,7 +175,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f59e0b",
     category: "Log",
     footer: "GIANNI • Log Brisanje",
-    thumbnail: "https://gian.today/api/icons/Trash2?bg=92400e",
+    thumbnail: "https://gian.today/api/icons/Trash2?bg=d97706&color=78350f",
     fields: [],
   },
   {
@@ -288,7 +288,7 @@ export const DEFAULT_EMBEDS = [
     color: "#ef4444",
     category: "Moderacija",
     footer: "GIANNI • Purge",
-    thumbnail: "https://gian.today/api/icons/Trash2?bg=7f1d1d",
+    thumbnail: "https://gian.today/api/icons/Trash2?bg=dc2626&color=450a0a",
     fields: [],
   },
   {
@@ -300,7 +300,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "Moderacija",
     footer: "GIANNI • Unban",
-    thumbnail: "https://gian.today/api/icons/Unlock?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/Unlock?bg=16a34a&color=14532d",
     fields: [
       { name: "Moderator", value: "{mod}", inline: true },
     ],
@@ -379,7 +379,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "XP",
     footer: "GIANNI • XP Leaderboard",
-    thumbnail: "https://gian.today/api/icons/Trophy?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/Trophy?bg=16a34a&color=14532d",
     fields: [],
   },
   {
@@ -393,7 +393,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "XP",
     footer: "GIANNI • Novac Leaderboard",
-    thumbnail: "https://gian.today/api/icons/Crown?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/Crown?bg=ef4444&color=450a0a",
     fields: [],
   },
 
@@ -410,7 +410,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI • Heist",
-    thumbnail: "https://gian.today/api/icons/Swords?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/Swords?bg=ef4444&color=450a0a",
     fields: [
       { name: "Ucesnici",     value: "`{count}`", inline: true },
       { name: "Nagradni fond", value: "`{pot}`",  inline: true },
@@ -427,7 +427,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI • Loto",
-    thumbnail: "https://gian.today/api/icons/Dices?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/Dices?bg=ef4444&color=450a0a",
     fields: [
       { name: "Jackpot", value: "`{pot}`",     inline: true },
       { name: "Tiketa",  value: "`{tickets}`", inline: true },
@@ -445,7 +445,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI • Dnevni Zadaci",
-    thumbnail: "https://gian.today/api/icons/ClipboardList?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/ClipboardList?bg=ef4444&color=450a0a",
     fields: [],
   },
   {
@@ -459,7 +459,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI • Giveaway",
-    thumbnail: "https://gian.today/api/icons/Gift?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/Gift?bg=ef4444&color=450a0a",
     fields: [
       { name: "Nagrada",    value: "{prize}",     inline: true },
       { name: "Pobjednika", value: "`{winners}`", inline: true },
@@ -474,7 +474,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI • Giveaway Kraj",
-    thumbnail: "https://gian.today/api/icons/Trophy?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/Trophy?bg=ef4444&color=450a0a",
     fields: [],
   },
   {
@@ -530,7 +530,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI • Shop",
-    thumbnail: "https://gian.today/api/icons/ShoppingCart?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/ShoppingCart?bg=ef4444&color=450a0a",
     fields: [],
   },
   {
@@ -542,7 +542,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "Ekonomija",
     footer: "GIANNI • Kupovina",
-    thumbnail: "https://gian.today/api/icons/ShoppingBag?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/ShoppingBag?bg=16a34a&color=14532d",
     fields: [],
   },
   {
@@ -552,7 +552,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI • Transfer",
-    thumbnail: "https://gian.today/api/icons/ArrowLeftRight?bg=7c2d12",
+    thumbnail: "https://gian.today/api/icons/ArrowLeftRight?bg=ef4444&color=450a0a",
     fields: [],
   },
   {
@@ -564,7 +564,7 @@ export const DEFAULT_EMBEDS = [
     color: "#ef4444",
     category: "Ekonomija",
     footer: "GIANNI • Pljacka",
-    thumbnail: "https://gian.today/api/icons/Swords?bg=7f1d1d",
+    thumbnail: "https://gian.today/api/icons/Swords?bg=dc2626&color=450a0a",
     fields: [
       { name: "Iznos",    value: "`{amount}`", inline: true },
       { name: "Rezultat", value: "{status}",   inline: true },
@@ -584,7 +584,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Slots",
-    thumbnail: "https://gian.today/api/icons/Dices?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Dices?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Ulog",    value: "`{bet}`",      inline: true },
       { name: "Dobitak", value: "`{winnings}`", inline: true },
@@ -600,7 +600,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Blackjack",
-    thumbnail: "https://gian.today/api/icons/Layers?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Layers?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Tvoje karte",  value: "{playerHand} (`{playerScore}`)", inline: true },
       { name: "Dealer karte", value: "{dealerHand} (`{dealerScore}`)", inline: true },
@@ -618,7 +618,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Poker",
-    thumbnail: "https://gian.today/api/icons/Trophy?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Trophy?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Buy-in", value: "`{buyin}`",  inline: true },
       { name: "Igraci", value: "`{players}`", inline: true },
@@ -635,7 +635,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Poker",
-    thumbnail: "https://gian.today/api/icons/Gamepad2?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Gamepad2?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Pot",     value: "`{pot}`",   inline: true },
       { name: "Na redu", value: "{current}", inline: true },
@@ -650,7 +650,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Poker Showdown",
-    thumbnail: "https://gian.today/api/icons/Crown?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Crown?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Dobitak", value: "`{pot}`", inline: true },
     ],
@@ -666,7 +666,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Among Us",
-    thumbnail: "https://gian.today/api/icons/Rocket?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Rocket?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
   {
@@ -679,7 +679,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Among Us",
-    thumbnail: "https://gian.today/api/icons/Target?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Target?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
   {
@@ -692,7 +692,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Among Us",
-    thumbnail: "https://gian.today/api/icons/Trophy?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Trophy?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
   {
@@ -706,7 +706,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Kaladont",
-    thumbnail: "https://gian.today/api/icons/BookOpen?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/BookOpen?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
   {
@@ -719,7 +719,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Kaladont",
-    thumbnail: "https://gian.today/api/icons/MessageCircle?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/MessageCircle?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
   {
@@ -731,7 +731,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "Igre",
     footer: "GIANNI • Kaladont",
-    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=16a34a&color=14532d",
     fields: [],
   },
   {
@@ -743,7 +743,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "Igre",
     footer: "GIANNI • Kaladont",
-    thumbnail: "https://gian.today/api/icons/Trophy?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/Trophy?bg=16a34a&color=14532d",
     fields: [],
   },
   {
@@ -757,7 +757,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Bingo",
-    thumbnail: "https://gian.today/api/icons/Grid3x3?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Grid3x3?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
   {
@@ -771,7 +771,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Vjasala",
-    thumbnail: "https://gian.today/api/icons/FileText?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/FileText?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Greske",    value: "`{wrong}/{max}`", inline: true },
       { name: "Pogodjeno", value: "`{guessed}`",     inline: true },
@@ -786,7 +786,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "Igre",
     footer: "GIANNI • Vjasala",
-    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=16a34a&color=14532d",
     fields: [],
   },
   {
@@ -799,7 +799,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Toplo-Hladno",
-    thumbnail: "https://gian.today/api/icons/Flame?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Flame?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Pokusaji", value: "`{attempts}`", inline: true },
     ],
@@ -815,7 +815,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Kviz",
-    thumbnail: "https://gian.today/api/icons/HelpCircle?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/HelpCircle?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Vrijeme", value: "`{time}s`",  inline: true },
       { name: "Nagrada", value: "`{reward}`", inline: true },
@@ -832,7 +832,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Geografija",
-    thumbnail: "https://gian.today/api/icons/Globe?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Globe?bg=3b82f6&color=1e3a8a",
     fields: [
       { name: "Vrijeme", value: "`{time}s`",  inline: true },
       { name: "Nagrada", value: "`{reward}`", inline: true },
@@ -849,7 +849,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Mafia",
-    thumbnail: "https://gian.today/api/icons/Eye?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Eye?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
   {
@@ -862,7 +862,7 @@ export const DEFAULT_EMBEDS = [
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI • Mafia",
-    thumbnail: "https://gian.today/api/icons/Crown?bg=1e3a5f",
+    thumbnail: "https://gian.today/api/icons/Crown?bg=3b82f6&color=1e3a8a",
     fields: [],
   },
 
@@ -876,7 +876,7 @@ export const DEFAULT_EMBEDS = [
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI • Lov",
-    thumbnail: "https://gian.today/api/icons/Target?bg=831843",
+    thumbnail: "https://gian.today/api/icons/Target?bg=db2777&color=831843",
     fields: [],
   },
   {
@@ -900,7 +900,7 @@ export const DEFAULT_EMBEDS = [
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI • Bitka",
-    thumbnail: "https://gian.today/api/icons/Swords?bg=831843",
+    thumbnail: "https://gian.today/api/icons/Swords?bg=db2777&color=831843",
     fields: [],
   },
   {
@@ -912,7 +912,7 @@ export const DEFAULT_EMBEDS = [
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI • Molitva",
-    thumbnail: "https://gian.today/api/icons/Sparkles?bg=831843",
+    thumbnail: "https://gian.today/api/icons/Sparkles?bg=db2777&color=831843",
     fields: [],
   },
   {
@@ -1098,7 +1098,7 @@ export const DEFAULT_EMBEDS = [
     color: "#14b8a6",
     category: "Info",
     footer: "GIANNI • Avatar",
-    thumbnail: "https://gian.today/api/icons/User?bg=134e4a",
+    thumbnail: "https://gian.today/api/icons/User?bg=0d9488&color=134e4a",
     fields: [],
   },
   {
@@ -1108,7 +1108,7 @@ export const DEFAULT_EMBEDS = [
     color: "#14b8a6",
     category: "Info",
     footer: "GIANNI • Brojanje",
-    thumbnail: "https://gian.today/api/icons/Hash?bg=134e4a",
+    thumbnail: "https://gian.today/api/icons/Hash?bg=0d9488&color=134e4a",
     fields: [
       { name: "Broj",   value: "`{count}`",   inline: true },
       { name: "Zadnji", value: "{lastUser}",  inline: true },
@@ -1128,7 +1128,7 @@ export const DEFAULT_EMBEDS = [
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI • Support",
-    thumbnail: "https://gian.today/api/icons/Ticket?bg=3b0764",
+    thumbnail: "https://gian.today/api/icons/Ticket?bg=7c3aed&color=2e1065",
     fields: [],
   },
   {
@@ -1158,7 +1158,7 @@ export const DEFAULT_EMBEDS = [
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI • Staff Prijava",
-    thumbnail: "https://gian.today/api/icons/Star?bg=3b0764",
+    thumbnail: "https://gian.today/api/icons/Star?bg=7c3aed&color=2e1065",
     fields: [],
   },
   {
@@ -1171,7 +1171,7 @@ export const DEFAULT_EMBEDS = [
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI • Privatni VC",
-    thumbnail: "https://gian.today/api/icons/Mic?bg=3b0764",
+    thumbnail: "https://gian.today/api/icons/Mic?bg=7c3aed&color=2e1065",
     fields: [],
   },
   {
@@ -1187,7 +1187,7 @@ export const DEFAULT_EMBEDS = [
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI • Voice Pravila",
-    thumbnail: "https://gian.today/api/icons/Volume2?bg=3b0764",
+    thumbnail: "https://gian.today/api/icons/Volume2?bg=7c3aed&color=2e1065",
     fields: [],
   },
 
@@ -1203,7 +1203,7 @@ export const DEFAULT_EMBEDS = [
     color: "#FF6A00",
     category: "Vatrice",
     footer: "GIANNI • Vatrice Top",
-    thumbnail: "https://gian.today/api/icons/Flame?bg=7c2200",
+    thumbnail: "https://gian.today/api/icons/Flame?bg=ea580c&color=7c2200",
     fields: [],
   },
   {
@@ -1215,7 +1215,7 @@ export const DEFAULT_EMBEDS = [
     color: "#FF6A00",
     category: "Vatrice",
     footer: "GIANNI • Vatrice",
-    thumbnail: "https://gian.today/api/icons/Zap?bg=7c2200",
+    thumbnail: "https://gian.today/api/icons/Zap?bg=ea580c&color=7c2200",
     fields: [],
   },
   {
@@ -1227,7 +1227,7 @@ export const DEFAULT_EMBEDS = [
     color: "#FF6A00",
     category: "Vatrice",
     footer: "GIANNI • Vatrice",
-    thumbnail: "https://gian.today/api/icons/Hash?bg=7c2200",
+    thumbnail: "https://gian.today/api/icons/Hash?bg=ea580c&color=7c2200",
     fields: [],
   },
   {
@@ -1239,7 +1239,7 @@ export const DEFAULT_EMBEDS = [
     color: "#FF6A00",
     category: "Vatrice",
     footer: "GIANNI • Vatrice",
-    thumbnail: "https://gian.today/api/icons/Tag?bg=7c2200",
+    thumbnail: "https://gian.today/api/icons/Tag?bg=ea580c&color=7c2200",
     fields: [],
   },
 
@@ -1254,7 +1254,7 @@ export const DEFAULT_EMBEDS = [
     color: "#92400e",
     category: "Poo",
     footer: "GIANNI • Poo",
-    thumbnail: "https://gian.today/api/icons/Activity?bg=3b1a08",
+    thumbnail: "https://gian.today/api/icons/Activity?bg=a16207&color=3b1a08",
     fields: [
       { name: "Zdravlje", value: "`{health}/100`",    inline: true },
       { name: "Sreca",    value: "`{happiness}/100`", inline: true },
@@ -1270,7 +1270,7 @@ export const DEFAULT_EMBEDS = [
     color: "#92400e",
     category: "Poo",
     footer: "GIANNI • Poo Zadaci",
-    thumbnail: "https://gian.today/api/icons/ClipboardList?bg=3b1a08",
+    thumbnail: "https://gian.today/api/icons/ClipboardList?bg=a16207&color=3b1a08",
     fields: [],
   },
   {
@@ -1284,7 +1284,7 @@ export const DEFAULT_EMBEDS = [
     color: "#92400e",
     category: "Poo",
     footer: "GIANNI • Poo Top",
-    thumbnail: "https://gian.today/api/icons/Trophy?bg=3b1a08",
+    thumbnail: "https://gian.today/api/icons/Trophy?bg=a16207&color=3b1a08",
     fields: [],
   },
   {
@@ -1296,7 +1296,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "Poo",
     footer: "GIANNI • Poo Hrani",
-    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=16a34a&color=14532d",
     fields: [],
   },
   {
@@ -1323,7 +1323,7 @@ export const DEFAULT_EMBEDS = [
     color: "#64748b",
     category: "Admin",
     footer: "GIANNI • Backup",
-    thumbnail: "https://gian.today/api/icons/Archive?bg=1e293b",
+    thumbnail: "https://gian.today/api/icons/Archive?bg=475569&color=1e293b",
     fields: [
       { name: "Velicina", value: "`{size}`", inline: true },
       { name: "Sljedeci", value: "{next}",   inline: true },
@@ -1338,7 +1338,7 @@ export const DEFAULT_EMBEDS = [
     color: "#64748b",
     category: "Admin",
     footer: "GIANNI • Backup Restore",
-    thumbnail: "https://gian.today/api/icons/RefreshCw?bg=1e293b",
+    thumbnail: "https://gian.today/api/icons/RefreshCw?bg=475569&color=1e293b",
     fields: [],
   },
   {
@@ -1348,7 +1348,7 @@ export const DEFAULT_EMBEDS = [
     color: "#64748b",
     category: "Admin",
     footer: "GIANNI • Backup Status",
-    thumbnail: "https://gian.today/api/icons/Database?bg=1e293b",
+    thumbnail: "https://gian.today/api/icons/Database?bg=475569&color=1e293b",
     fields: [
       { name: "Zadnji backup", value: "{lastBackup}", inline: true },
       { name: "Ukupno",        value: "`{count}`",    inline: true },
@@ -1363,7 +1363,7 @@ export const DEFAULT_EMBEDS = [
     color: "#64748b",
     category: "Admin",
     footer: "GIANNI • Report Zatvoren",
-    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=1e293b",
+    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=475569&color=1e293b",
     fields: [],
   },
   {
@@ -1375,7 +1375,7 @@ export const DEFAULT_EMBEDS = [
     color: "#64748b",
     category: "Admin",
     footer: "GIANNI • Nova Prijava",
-    thumbnail: "https://gian.today/api/icons/AlertTriangle?bg=1e293b",
+    thumbnail: "https://gian.today/api/icons/AlertTriangle?bg=475569&color=1e293b",
     fields: [
       { name: "ID",    value: "`{reportId}`", inline: true },
       { name: "Datum", value: "{date}",       inline: true },
@@ -1412,7 +1412,7 @@ export const DEFAULT_EMBEDS = [
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI • Queue",
-    thumbnail: "https://gian.today/api/icons/List?bg=2e1065",
+    thumbnail: "https://gian.today/api/icons/List?bg=6d28d9&color=2e1065",
     fields: [
       { name: "Pjesama u redu", value: "`{count}`", inline: true },
     ],
@@ -1426,7 +1426,7 @@ export const DEFAULT_EMBEDS = [
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI • Skip",
-    thumbnail: "https://gian.today/api/icons/ArrowRight?bg=2e1065",
+    thumbnail: "https://gian.today/api/icons/ArrowRight?bg=6d28d9&color=2e1065",
     fields: [],
   },
   {
@@ -1438,7 +1438,7 @@ export const DEFAULT_EMBEDS = [
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI • Pauza",
-    thumbnail: "https://gian.today/api/icons/Pause?bg=2e1065",
+    thumbnail: "https://gian.today/api/icons/Pause?bg=6d28d9&color=2e1065",
     fields: [],
   },
   {
@@ -1450,7 +1450,7 @@ export const DEFAULT_EMBEDS = [
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI • Stop",
-    thumbnail: "https://gian.today/api/icons/Square?bg=2e1065",
+    thumbnail: "https://gian.today/api/icons/Square?bg=6d28d9&color=2e1065",
     fields: [],
   },
   {
@@ -1464,7 +1464,7 @@ export const DEFAULT_EMBEDS = [
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI • Lyrics",
-    thumbnail: "https://gian.today/api/icons/ScrollText?bg=2e1065",
+    thumbnail: "https://gian.today/api/icons/ScrollText?bg=6d28d9&color=2e1065",
     fields: [],
   },
 
@@ -1480,7 +1480,7 @@ export const DEFAULT_EMBEDS = [
     color: "#06b6d4",
     category: "Verifikacija",
     footer: "GIANNI • Verifikacija",
-    thumbnail: "https://gian.today/api/icons/Shield?bg=0c4a6e",
+    thumbnail: "https://gian.today/api/icons/Shield?bg=0ea5e9&color=0c4a6e",
     fields: [],
   },
   {
@@ -1504,7 +1504,7 @@ export const DEFAULT_EMBEDS = [
     color: "#ef4444",
     category: "Verifikacija",
     footer: "GIANNI • Verifikacija",
-    thumbnail: "https://gian.today/api/icons/ShieldX?bg=7f1d1d",
+    thumbnail: "https://gian.today/api/icons/ShieldX?bg=dc2626&color=450a0a",
     fields: [],
   },
 
@@ -1520,7 +1520,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f43f5e",
     category: "Ankete",
     footer: "GIANNI • Anketa",
-    thumbnail: "https://gian.today/api/icons/BarChart2?bg=4c0519",
+    thumbnail: "https://gian.today/api/icons/BarChart2?bg=f43f5e&color=4c0519",
     fields: [
       { name: "Zavrsava", value: "{endTime}", inline: true },
     ],
@@ -1536,7 +1536,7 @@ export const DEFAULT_EMBEDS = [
     color: "#f43f5e",
     category: "Ankete",
     footer: "GIANNI • Anketa Rezultati",
-    thumbnail: "https://gian.today/api/icons/BarChart?bg=4c0519",
+    thumbnail: "https://gian.today/api/icons/BarChart?bg=f43f5e&color=4c0519",
     fields: [
       { name: "Ukupno glasova", value: "`{total}`", inline: true },
     ],
@@ -1553,7 +1553,7 @@ export const DEFAULT_EMBEDS = [
     color: "#d946ef",
     category: "Reaction Roles",
     footer: "GIANNI • Reaction Roles",
-    thumbnail: "https://gian.today/api/icons/Tag?bg=4a044e",
+    thumbnail: "https://gian.today/api/icons/Tag?bg=d946ef&color=4a044e",
     fields: [],
   },
   {
@@ -1563,7 +1563,7 @@ export const DEFAULT_EMBEDS = [
     color: "#22c55e",
     category: "Reaction Roles",
     footer: "GIANNI • Reaction Roles",
-    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=14532d",
+    thumbnail: "https://gian.today/api/icons/CheckCircle?bg=16a34a&color=14532d",
     fields: [],
   },
   {
@@ -1573,7 +1573,7 @@ export const DEFAULT_EMBEDS = [
     color: "#d946ef",
     category: "Reaction Roles",
     footer: "GIANNI • Reaction Roles",
-    thumbnail: "https://gian.today/api/icons/X?bg=4a044e",
+    thumbnail: "https://gian.today/api/icons/X?bg=d946ef&color=4a044e",
     fields: [],
   },
 ]
