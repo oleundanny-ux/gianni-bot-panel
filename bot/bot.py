@@ -1929,8 +1929,8 @@ async def on_member_join(member):
             ))
 
     if _card_file:
-        # Kartica sadrži sve informacije — šaljemo samo PNG + dugmad, bez duplog embeda
-        await chan.send(content=member.mention, file=_card_file, view=wv)
+        # Kartica sadrži sve vizualno uključujući dugmad — bez duplog view-a ispod
+        await chan.send(content=member.mention, file=_card_file)
     else:
         await chan.send(content=member.mention, embed=e, view=wv)
 
