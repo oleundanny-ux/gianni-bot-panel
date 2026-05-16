@@ -1114,33 +1114,33 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
           {/* Embed card — matches Discord layout exactly */}
           {(() => {
             const thumb = embed.thumbnail ?? null;
-            // Determine what to show as thumbnail
-            let thumbnailEl: React.ReactNode = null;
+
+            // Build author icon element (small, left side of author line)
+            let authorIconEl: React.ReactNode = null;
             if (thumb) {
               if (thumb.startsWith("http")) {
-                // If thumbnail is a gian.today icon URL, rewrite to local /api/icons/... for dev preview
                 const resolvedSrc = thumb.replace(
                   /^https?:\/\/gian\.today\//,
                   `${window.location.origin}/`
                 );
-                thumbnailEl = (
+                authorIconEl = (
                   <img
                     src={resolvedSrc}
-                    alt="thumbnail"
-                    className="rounded object-cover flex-shrink-0"
-                    style={{ width: isMobile ? 60 : 80, height: isMobile ? 60 : 80 }}
+                    alt="icon"
+                    className="object-cover flex-shrink-0"
+                    style={{ width: 32, height: 32, borderRadius: 8 }}
                     onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                   />
                 );
               } else {
-                // Template variable like {user.avatar} — show placeholder avatar
-                thumbnailEl = (
+                // Template variable like {user.avatar} → grey avatar circle
+                authorIconEl = (
                   <div
                     className="rounded-full bg-[#4E5058] flex items-center justify-center flex-shrink-0 overflow-hidden"
-                    style={{ width: isMobile ? 60 : 80, height: isMobile ? 60 : 80 }}
+                    style={{ width: 32, height: 32 }}
                     title={thumb}
                   >
-                    <svg width={isMobile ? 28 : 36} height={isMobile ? 28 : 36} viewBox="0 0 24 24" fill="#B5BAC1">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#B5BAC1">
                       <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
                     </svg>
                   </div>
@@ -1158,52 +1158,48 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
                 }}
               >
                 <div className="p-3 flex-1 min-w-0">
-                  {/* Main body: content + thumbnail side by side */}
-                  <div className="flex gap-2">
-                    <div className="flex-1 min-w-0">
-                      {/* Title */}
-                      {title && (
-                        <div className="font-semibold text-[#F2F3F5] text-sm leading-snug mb-1">
-                          {renderText(title)}
-                        </div>
-                      )}
-
-                      {/* Description */}
-                      {description && (
-                        <div className="text-[#DBDEE1] text-sm leading-relaxed whitespace-pre-wrap mb-2">
-                          {renderText(description)}
-                        </div>
-                      )}
-
-                      {/* Fields */}
-                      {(() => {
-                        const displayFields = (fieldsProp ?? embed.fields) ?? [];
-                        return displayFields.length > 0 && (
-                          <div className="grid gap-x-4 gap-y-2 mt-2" style={{
-                            gridTemplateColumns: displayFields.every(f => f.inline)
-                              ? "repeat(3, 1fr)"
-                              : "1fr"
-                          }}>
-                            {displayFields.map((f, i) => (
-                              <div key={i} className={f.inline ? "" : "col-span-full"}>
-                                <div className="text-[12px] font-bold text-[#F2F3F5] mb-0.5">{renderText(f.name)}</div>
-                                <div className="text-[12px] text-[#DBDEE1]">{renderText(f.value)}</div>
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      })()}
+                  {/* Author line with icon */}
+                  {authorIconEl && (
+                    <div className="flex items-center gap-2 mb-2">
+                      {authorIconEl}
+                      <span className="text-[#F2F3F5] text-[12px] font-semibold">GIANNI</span>
                     </div>
+                  )}
 
-                    {/* Thumbnail */}
-                    {thumbnailEl && (
-                      <div className="flex-shrink-0 pt-0.5">
-                        {thumbnailEl}
+                  {/* Title */}
+                  {title && (
+                    <div className="font-semibold text-[#F2F3F5] text-sm leading-snug mb-1">
+                      {renderText(title)}
+                    </div>
+                  )}
+
+                  {/* Description */}
+                  {description && (
+                    <div className="text-[#DBDEE1] text-sm leading-relaxed whitespace-pre-wrap mb-2">
+                      {renderText(description)}
+                    </div>
+                  )}
+
+                  {/* Fields */}
+                  {(() => {
+                    const displayFields = (fieldsProp ?? embed.fields) ?? [];
+                    return displayFields.length > 0 && (
+                      <div className="grid gap-x-4 gap-y-2 mt-2" style={{
+                        gridTemplateColumns: displayFields.every(f => f.inline)
+                          ? "repeat(3, 1fr)"
+                          : "1fr"
+                      }}>
+                        {displayFields.map((f, i) => (
+                          <div key={i} className={f.inline ? "" : "col-span-full"}>
+                            <div className="text-[12px] font-bold text-[#F2F3F5] mb-0.5">{renderText(f.name)}</div>
+                            <div className="text-[12px] text-[#DBDEE1]">{renderText(f.value)}</div>
+                          </div>
+                        ))}
                       </div>
-                    )}
-                  </div>
+                    );
+                  })()}
 
-                  {/* Footer — full width below */}
+                  {/* Footer */}
                   {embed.footer && (
                     <div className="mt-3 pt-2 border-t border-white/5 text-[11px] text-[#949BA4] flex items-center gap-1.5 flex-wrap">
                       {renderText(embed.footer)}
