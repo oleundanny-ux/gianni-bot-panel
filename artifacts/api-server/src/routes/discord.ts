@@ -617,63 +617,14 @@ router.post("/discord/channels/:channelId/send-embed", async (req, res) => {
   const components = buildComponents(embedData.buttons ?? []);
 
   try {
-    // For welcome embeds — fetch PNG card and send as file attachment
-    let cardBuffer: Buffer | null = null;
-    if (embedName === "welcome") {
-      try {
-        const btns = embedData.buttons ?? [];
-        const bl = (i: number, def: string) => btns[i]?.label || def;
-        const qs = new URLSearchParams({
-          user:        "TestUser",
-          memberCount: "1.234",
-          accountAge:  "2g 3m",
-          joinedAt:    new Date().toLocaleString("sr-Latn", { month: "short", year: "numeric" }),
-          count:       "1234",
-          desc:        embedData.cardDesc    || "",
-          item1:       embedData.cardItem1   || "",
-          item2:       embedData.cardItem2   || "",
-          item3:       embedData.cardItem3   || "",
-          closing:     embedData.cardClosing || "",
-          btn1:        bl(0, "Pravila"),
-          btn2:        bl(1, "Role"),
-          btn3:        bl(2, "Pozovi"),
-          btn4:        bl(3, "Chat"),
-          avatar:      "https://cdn.discordapp.com/embed/avatars/0.png",
-        });
-        const cardRes = await fetch(`http://localhost:${process.env.PORT || 8080}/api/welcome-card?${qs}`);
-        if (cardRes.ok) cardBuffer = Buffer.from(await cardRes.arrayBuffer());
-      } catch (cardErr: any) {
-        req.log.warn({ cardErr: cardErr.message }, "Could not fetch welcome card PNG");
-      }
-    }
-
-    let r: Response;
-    if (cardBuffer) {
-      // Card as embed image — inside Discord embed frame (color bar, footer, buttons)
-      const form = new FormData();
-      const cardEmbed: Record<string, unknown> = {
-        color: colorInt,
-        image: { url: "attachment://welcome.png" },
-      };
-      if (embedData.footer) cardEmbed.footer = { text: applyVars(embedData.footer) };
-      const payload: Record<string, unknown> = { embeds: [cardEmbed] };
-      if (components.length > 0) payload.components = components;
-      form.append("payload_json", JSON.stringify(payload));
-      form.append("files[0]", new Blob([cardBuffer], { type: "image/png" }), "welcome.png");
-      r = await fetch(`${DISCORD_API}/channels/${channelId}/messages`, {
-        method: "POST",
-        headers: { Authorization: botHeaders().Authorization },
-        body: form,
-      });
-    } else {
-      const body: Record<string, unknown> = { embeds: [discordEmbed] };
-      if (components.length > 0) body.components = components;
-      r = await fetch(`${DISCORD_API}/channels/${channelId}/messages`, {
-        method: "POST",
-        headers: botHeaders(),
-        body: JSON.stringify(body),
-      });
-    }
+    // Always send native Discord embed (with variables substituted)
+    const body: Record<string, unknown> = { embeds: [discordEmbed] };
+    if (components.length > 0) body.components = components;
+    const r = await fetch(`${DISCORD_API}/channels/${channelId}/messages`, {
+      method: "POST",
+      headers: botHeaders(),
+      body: JSON.stringify(body),
+    });
 
     if (!r.ok) {
       const err = await r.text();
