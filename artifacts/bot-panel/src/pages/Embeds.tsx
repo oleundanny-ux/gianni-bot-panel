@@ -926,6 +926,7 @@ interface EmbedButton {
   style: "primary" | "secondary" | "success" | "danger" | "link";
   emoji?: string;
   url?: string;
+  channelId?: string;
   roleId?: string;
   customId?: string;
 }
@@ -1449,6 +1450,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const updateEmbedMutation = useUpdateEmbed();
+  const { data: channelData } = useDiscordChannels();
 
   const [title, setTitle] = useState(embed.title ?? "");
   const [description, setDescription] = useState(embed.description ?? "");
@@ -1640,16 +1642,76 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
                 <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide mb-2 block">Završni tekst</Label>
                 <Input value={cardClosing} onChange={e => setCardClosing(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Uzivaj i zabavi se!" />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide block">Dugmad</Label>
                 {([
-                  [buttons[0]?.label ?? "Pravila", 0],
-                  [buttons[1]?.label ?? "Role",    1],
-                  [buttons[2]?.label ?? "Pozovi",  2],
-                  [buttons[3]?.label ?? "Chat",    3],
-                ] as [string, number][]).map(([val, idx]) => (
-                  <Input key={idx} value={val} onChange={e => { const v = e.target.value; setButtons(b => b.map((x, i) => i === idx ? { ...x, label: v } : x)); }} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder={`Dugme ${idx + 1}`} />
-                ))}
+                  { label: buttons[0]?.label ?? "Pravila", channelId: buttons[0]?.channelId ?? "", idx: 0 },
+                  { label: buttons[1]?.label ?? "Role",    channelId: buttons[1]?.channelId ?? "", idx: 1 },
+                  { label: buttons[2]?.label ?? "Pozovi",  channelId: buttons[2]?.channelId ?? "", idx: 2 },
+                  { label: buttons[3]?.label ?? "Chat",    channelId: buttons[3]?.channelId ?? "", idx: 3 },
+                ]).map(({ label, channelId, idx }) => {
+                  const allChannels: DiscordChannel[] = [
+                    ...(channelData?.categories.flatMap(c => c.channels) ?? []),
+                    ...(channelData?.uncategorized ?? []),
+                  ];
+                  const linked = allChannels.find(c => c.id === channelId);
+                  return (
+                    <div key={idx} className="bg-[#1E1F22] rounded-md p-2.5 space-y-2 border border-[#2B2D31]">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-bold text-[#5865F2] uppercase tracking-wide w-16 flex-shrink-0">Dugme {idx + 1}</span>
+                        <Input
+                          value={label}
+                          onChange={e => {
+                            const v = e.target.value;
+                            setButtons(b => {
+                              const next = [...b];
+                              while (next.length <= idx) next.push({ label: "", style: "link", type: "link" });
+                              next[idx] = { ...next[idx], label: v };
+                              return next;
+                            });
+                          }}
+                          className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-7"
+                          placeholder="Naziv dugmeta"
+                        />
+                      </div>
+                      <div>
+                        <select
+                          value={channelId}
+                          onChange={e => {
+                            const v = e.target.value;
+                            setButtons(b => {
+                              const next = [...b];
+                              while (next.length <= idx) next.push({ label: "", style: "link", type: "link" });
+                              next[idx] = { ...next[idx], channelId: v || undefined, type: "link", style: "link" };
+                              return next;
+                            });
+                          }}
+                          className="w-full bg-[#2B2D31] border border-[#404249] text-[#F2F3F5] text-sm rounded-md px-2 h-8"
+                        >
+                          <option value="">— Poveži kanal —</option>
+                          {(channelData?.categories ?? []).map(cat => (
+                            <optgroup key={cat.id} label={cat.name}>
+                              {cat.channels.filter(c => c.type === 0).map(c => (
+                                <option key={c.id} value={c.id}>#{c.name}</option>
+                              ))}
+                            </optgroup>
+                          ))}
+                          {(channelData?.uncategorized ?? []).filter(c => c.type === 0).map(c => (
+                            <option key={c.id} value={c.id}>#{c.name}</option>
+                          ))}
+                        </select>
+                        {linked && (
+                          <p className="text-[10px] text-[#57F287] mt-1 flex items-center gap-1">
+                            <span>✓</span> #{linked.name}
+                          </p>
+                        )}
+                        {!linked && channelId && (
+                          <p className="text-[10px] text-[#ED4245] mt-1">ID: {channelId}</p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
