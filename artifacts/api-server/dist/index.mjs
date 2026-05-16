@@ -66935,7 +66935,22 @@ async function runMigration() {
     logger.error({ err }, "DB migration failed \u2014 server will start but embeds may not persist");
   }
 }
-runMigration().then(() => {
+process.on("uncaughtException", (err) => {
+  logger.error({ err }, "uncaughtException \u2014 keeping process alive");
+});
+process.on("unhandledRejection", (reason) => {
+  logger.error({ reason }, "unhandledRejection \u2014 keeping process alive");
+});
+runMigration().then(async () => {
+  if (process.env["DATABASE_URL"]) {
+    try {
+      const { pool: pool2 } = await Promise.resolve().then(() => (init_src(), src_exports));
+      pool2.on("error", (err) => {
+        logger.error({ err }, "pg pool idle client error \u2014 connection will be replaced");
+      });
+    } catch (_) {
+    }
+  }
   app_default.listen(port, (err) => {
     if (err) {
       logger.error({ err }, "Error listening on port");
