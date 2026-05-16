@@ -25,49 +25,49 @@ async function getDb() {
 
 export const DEFAULT_EMBEDS = [
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━ SISTEM ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ SISTEM ━━━━━━━━━━━━━━━━━━━━
   {
     name: "welcome",
-    title: "👑  Dobrodošao/la, {user}!",
+    title: "👋  Dobrodošao/la, {user}!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ Drago nam je što si ovdje! 💕\n" +
-      "➜ Pogledaj kanale i upoznaj zajednicu!\n" +
-      "🐾 **discord.gg/gian**\n" +
+      "🎉 Drago nam je što si ovdje!\n" +
+      "🏠 Upoznaj zajednicu i istraži kanale!\n" +
+      "🔗 **discord.gg/gian**\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#9B59B6",
     category: "Sistem",
     footer: "GIANNI (Custom) • Dobrodošao/la!",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "💜 Član #{count}", value: "Hvala što si nam se pridružio/la!", inline: false },
-      { name: "⭐ Registracija",       value: "{accountAge}",                    inline: true  },
-      { name: "🔒 Pridružio/la se",     value: "{joinedAt}",                      inline: true  },
+      { name: "👤 Član #{count}",        value: "Hvala što si nam se pridružio/la!", inline: false },
+      { name: "📅 Registracija",         value: "{accountAge}",                     inline: true  },
+      { name: "📥 Pridružio/la se",      value: "{joinedAt}",                       inline: true  },
     ],
   },
   {
     name: "leave",
-    title: "➜  {user} je napustio/la server",
+    title: "🚪  {user} je napustio/la server",
     description:
-      "💜 Žao nam je što si otišao/la. 💕\n" +
-      "🐾 Uvijek si dobrodošao/la nazad!",
+      "😢 Žao nam je što si otišao/la.\n" +
+      "💌 Uvijek si dobrodošao/la nazad!",
     color: "#9B59B6",
     category: "Sistem",
     footer: "GIANNI (Custom) • Do viđenja!",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "⭐ Proveo/la na serveru", value: "{timeOnServer}", inline: true },
-      { name: "💎 Preostalo članova",      value: "`{memberCount}`", inline: true },
+      { name: "⏳ Proveo/la na serveru", value: "{timeOnServer}", inline: true },
+      { name: "👥 Preostalo članova",    value: "`{memberCount}`", inline: true },
     ],
   },
   {
     name: "dm-welcome",
-    title: "✨  Dobrodošao/la na GIAN, {user}!",
+    title: "💌  Dobrodošao/la na GIAN, {user}!",
     description:
-      "💕 Hvala ti što si se pridružio/la!\n\n" +
+      "🎊 Hvala ti što si se pridružio/la!\n\n" +
       "👑 **discord.gg/gian**\n\n" +
-      "🐾 Pročitaj pravila u kanalu `#pravila` i uživaj!\n" +
-      "💜 Za pomoć, pišite u `#podrška`.",
+      "📋 Pročitaj pravila u kanalu `#pravila` i uživaj!\n" +
+      "💬 Za pomoć, pišite u `#podrška`.",
     color: "#FF85C8",
     category: "Sistem",
     footer: "GIANNI (Custom) • Dobrodošao/la!",
@@ -76,1026 +76,846 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "boost",
-    title: "✨  BOOST — Hvala ti, {user}!",
+    title: "🚀  BOOST — Hvala ti, {user}!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "👑 **{user}** je boostao/la server!\n" +
-      "✨ Zahvaljujući tebi server raste!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    color: "#FF85C8",
+      "⚡ **{user}** je upravo **boostovao server**!\n" +
+      "💜 Hvala ti na podršci — server je sad još jači!",
+    color: "#9B59B6",
     category: "Sistem",
-    footer: "GIANNI (Custom) • Server Boost",
+    footer: "GIANNI (Custom) • Hvala na podršci",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "⭐ Ukupno boostova",  value: "`{boostCount}`",     inline: true },
-      { name: "⭐ Nivo servera",    value: "Nivo `{serverLevel}`", inline: true },
-      { name: "💕 Nagrada",          value: "<@&{rewardRole}>",   inline: false },
+      { name: "🚀 Ukupno boostova",   value: "`{boostCount}`",   inline: true },
+      { name: "💎 Server Tier",        value: "`Lvl {tier}`",     inline: true },
+      { name: "🪙 Nagrada",            value: "`+2.500 🪙`",      inline: true },
     ],
   },
   {
     name: "birthday",
-    title: "✨  Sretan Rođendan, {user}!",
+    title: "🎂  Sretan Rođendan, {user}!",
     description:
-      "✨ Danas je poseban dan — **{user}** slavi **{years}. rođendan!**\n" +
-      "💕 Svi čestitajmo! ✨\n" +
-      "👑 Uži i neka ti je sretan dan!",
+      "🎉 Danas je poseban dan za **{user}**!\n\n" +
+      "🎁 Svi mu/joj čestitajte!\n" +
+      "🌟 Neka ti je srećan i blagoslovljen dan!",
     color: "#FF85C8",
     category: "Sistem",
-    footer: "GIANNI (Custom) • Rođendan",
+    footer: "GIANNI (Custom) • Sretan Rođendan!",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "🪙 Poklon od bota", value: "`+{poklon}` 🪙",  inline: true },
-      { name: "⭐ Uloga dana",   value: "<@&{bdayRole}>", inline: true },
+      { name: "🎈 Godine", value: "`{age}` godina", inline: true },
+      { name: "🪙 Poklon", value: "`+5.000 🪙`",   inline: true },
     ],
   },
   {
     name: "starboard",
-    title: "⭐  Starboard — {stars} zvjezdica",
+    title: "⭐  Zvjezdana poruka!",
     description:
-      "✨ Popularna poruka od **{author}** je istaknuta!\n" +
-      "➜ [{previewText}]({jumpUrl})",
-    color: "#f59e0b",
+      "✨ Ova poruka je dobila **{stars}** zvjezdica!\n" +
+      "📍 Kanal: {channel}\n" +
+      "✍️ Autor: {author}",
+    color: "#F1C40F",
     category: "Sistem",
-    footer: "GIANNI (Custom) • Starboard • #{channel}",
-    thumbnail: null,
-    fields: [
-      { name: "⭐ Zvjezdica",       value: "`{stars}`",       inline: true  },
-      { name: "⭐ Kanal",            value: "<#{channelId}>",  inline: true  },
-      { name: "➜ Skoči", value: "[Idi na poruku]({jumpUrl})", inline: false },
-    ],
-  },
-  {
-    name: "aotw",
-    title: "👑  Član Sedmice!",
-    description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{user}** je odabran/a za člana sedmice!\n" +
-      "✨ Svako glasanje je važilo — hvala svima!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    color: "#FF85C8",
-    category: "Sistem",
-    footer: "GIANNI (Custom) • Član Sedmice",
-    thumbnail: "{user.avatar}",
-    fields: [
-      { name: "⭐ Pobjednik/ca", value: "{user}",         inline: true },
-      { name: "⭐ Glasova",       value: "`{votes}`",      inline: true },
-      { name: "🪙 Nagrada",          value: "`+{nagrada}` 🪙", inline: true },
-    ],
-  },
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ SISTEM PANELI ━━━━━━━━━━━━━━━━━━━━━━━━
-  {
-    name: "ticket",
-    title: "🔒  Podrška — Otvori Ticket",
-    description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "💜 Trebaš pomoć? Klikni dugme ispod!\n" +
-      "➜ Staff će ti odgovoriti što prije.\n" +
-      "🐾 Svaki ticket je privatan i siguran.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    color: "#a78bfa",
-    category: "Sistem paneli",
-    footer: "GIANNI (Custom) • Ticket Sistem",
-    thumbnail: null,
-    fields: [
-      { name: "⭐ Dostupnost",        value: "Uvijek otvoreni",   inline: true },
-      { name: "✅ Odgovor",    value: "Što brže moguće",   inline: true },
-      { name: "💎 Privatnost",    value: "Samo ti i staff",   inline: true },
-    ],
-  },
-  {
-    name: "ticket-otvoren",
-    title: "🔒  Ticket #{id} — Otvoren",
-    description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ Tvoj ticket je kreiran, **{user}**!\n" +
-      "💜 Opiši problem u detalje i staff će se javiti.\n" +
-      "🐾 Budi strpljiv/a!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    color: "#a78bfa",
-    category: "Sistem paneli",
-    footer: "GIANNI (Custom) • Ticket #{id}",
-    thumbnail: "{user.avatar}",
-    fields: [
-      { name: "✅ Otvorio/la", value: "{user}",     inline: true },
-      { name: "⭐ Datum",             value: "{date}",     inline: true },
-      { name: "💎 Kategorija",    value: "{category}", inline: true },
-    ],
-  },
-  {
-    name: "staff-prijava",
-    title: "👑  Staff Prijava",
-    description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ Zanimaju te staff pozicije na GIAN serveru?\n" +
-      "➜ Popuni formu klikom na dugme ispod!\n" +
-      "💜 Tražimo posvećene i aktivne članove.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    color: "#a78bfa",
-    category: "Sistem paneli",
-    footer: "GIANNI (Custom) • Staff Prijava",
-    thumbnail: null,
-    fields: [
-      { name: "⭐ Min. aktivnost", value: "30 dana na serveru",  inline: true },
-      { name: "✅ Potrebno",      value: "Dobre komunikacije",  inline: true },
-      { name: "💕 Benefiti",       value: "Ekskluzivne uloge",   inline: true },
-    ],
-  },
-  {
-    name: "private-vc",
-    title: "🔒  Privatni Voice Kanal",
-    description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "💜 Upravljaj svojim privatnim kanalom!\n" +
-      "➜ Koristi dugmad ispod za postavke.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    color: "#a78bfa",
-    category: "Sistem paneli",
-    footer: "GIANNI (Custom) • Privatni VC",
-    thumbnail: null,
-    fields: [
-      { name: "✅ Vlasnik",  value: "{owner}",   inline: true },
-      { name: "🐾 Korisnici", value: "`{count}`", inline: true },
-      { name: "💎 Limit",       value: "`{limit}`", inline: true },
-    ],
-  },
-  {
-    name: "voice-pravila",
-    title: "💜  Voice Kanali — Pravila",
-    description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ **Uvažavaj ostale korisnike**\n" +
-      "➜ **Ne ometaj razgovor namjerno**\n" +
-      "➜ **Zabranjen je eksplicitni sadržaj**\n" +
-      "➜ **Ne snimai bez pristanka**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "👑 Kršenje = mute / kick",
-    color: "#a78bfa",
-    category: "Sistem paneli",
-    footer: "GIANNI (Custom) • Voice Pravila",
+    footer: "GIANNI (Custom) • Starboard",
     thumbnail: null,
     fields: [],
   },
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━ LOG ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   {
-    name: "log-join",
-    title: "✨  Novi Član",
+    name: "aotw",
+    title: "🏆  Aktivni Član Sedmice",
     description:
-      "✨ **{user}** se pridružio/la serveru!\n" +
-      "⭐ Datum kreiranja računa: `{accountAge}`",
-    color: "#f59e0b",
-    category: "Log",
-    footer: "GIANNI (Custom) • Log • Join",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "👑 Čestitamo **{user}** na tituli!\n" +
+      "🌟 Ova sedmica pripada tebi!\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#F1C40F",
+    category: "Sistem",
+    footer: "GIANNI (Custom) • Aktivni Član Sedmice",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "✅ ID",           value: "`{userId}`",     inline: true },
-      { name: "⭐ Pridružio/la",        value: "{joinedAt}",     inline: true },
-      { name: "💎 Ukupno članova",  value: "`{memberCount}`", inline: true },
+      { name: "💬 Poruka",  value: "`{messageCount}`", inline: true },
+      { name: "🪙 Nagrada", value: "`+10.000 🪙`",     inline: true },
+    ],
+  },
+
+  // ━━━━━━━━━━━━━━━━━━━━ LOG ━━━━━━━━━━━━━━━━━━━━
+  {
+    name: "log-join",
+    title: "📥  Novi Član",
+    description:
+      "👤 **{user}** se pridružio serveru.\n" +
+      "📅 Registracija: {accountAge}",
+    color: "#f59e0b",
+    category: "Log",
+    footer: "GIANNI (Custom) • Log",
+    thumbnail: "{user.avatar}",
+    fields: [
+      { name: "🆔 ID",          value: "`{userId}`",   inline: true },
+      { name: "👥 Ukupno",      value: "`{memberCount}`", inline: true },
     ],
   },
   {
     name: "log-edit",
-    title: "⭐  Poruka Izmijenjena",
+    title: "✏️  Poruka Editovana",
     description:
-      "💜 **{user}** je izmijenio/la poruku u <#{channel}>.",
+      "👤 **{user}** je izmijenio/la poruku u {channel}.\n\n" +
+      "📝 **Stara poruka:**\n`{oldContent}`\n\n" +
+      "✅ **Nova poruka:**\n`{newContent}`",
     color: "#f59e0b",
     category: "Log",
-    footer: "GIANNI (Custom) • Log • Edit",
-    thumbnail: "{user.avatar}",
-    fields: [
-      { name: "✨ Stara poruka",      value: "```{before}```", inline: false },
-      { name: "✨ Nova poruka",     value: "```{after}```",  inline: false },
-      { name: "⭐ Datum",                           value: "{date}",         inline: true  },
-    ],
+    footer: "GIANNI (Custom) • Log Editovanje",
+    thumbnail: null,
+    fields: [],
   },
   {
     name: "log-delete",
-    title: "✨  Poruka Obrisana",
+    title: "🗑️  Poruka Obrisana",
     description:
-      "🛡️ **{user}** je obrisao/la poruku u <#{channel}>.",
+      "👤 **{user}** je obrisao/la poruku u {channel}.\n\n" +
+      "📝 **Sadržaj:**\n`{content}`",
     color: "#f59e0b",
     category: "Log",
-    footer: "GIANNI (Custom) • Log • Delete",
-    thumbnail: "{user.avatar}",
-    fields: [
-      { name: "⭐ Sadržaj", value: "```{content}```", inline: false },
-      { name: "💎 Kanal",    value: "<#{channel}>",    inline: true  },
-      { name: "⭐ Datum",        value: "{date}",          inline: true  },
-    ],
+    footer: "GIANNI (Custom) • Log Brisanje",
+    thumbnail: null,
+    fields: [],
   },
   {
     name: "report",
-    title: "⭐  Nova Prijava",
+    title: "🚨  Prijava člana",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🛡️ Korisnik je prijavljen stafu!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "💜 Razlog: **{reason}**",
+      "⚠️ **{reporter}** je prijavio/la **{reported}**.\n\n" +
+      "📋 **Razlog:** {reason}",
     color: "#f59e0b",
     category: "Log",
-    footer: "GIANNI (Custom) • Report",
-    thumbnail: "{target.avatar}",
+    footer: "GIANNI (Custom) • Prijava",
+    thumbnail: "{reported.avatar}",
     fields: [
-      { name: "🛡️ Prijavljeni", value: "{target}",   inline: true },
-      { name: "🐾 Prijavio/la",      value: "{reporter}", inline: true },
-      { name: "⭐ Datum",                  value: "{date}",     inline: true },
+      { name: "🆔 ID prijavljenog",  value: "`{reportedId}`", inline: true },
+      { name: "📅 Datum",             value: "{date}",         inline: true },
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ MODERACIJA ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ MODERACIJA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "warn",
-    title: "⭐  Upozorenje!",
+    title: "⚠️  Upozorenje",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{target}** je dobio/la upozorenje!\n" +
-      "🛡️ Razlog: **{reason}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "💜 Ponavljanje prekršaja = ban.",
+      "🔔 **{user}** je dobio/la upozorenje.\n\n" +
+      "📋 **Razlog:** {reason}",
     color: "#ef4444",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Moderacija",
-    thumbnail: "{target.avatar}",
+    thumbnail: "{user.avatar}",
     fields: [
-      { name: "🛡️ Moderator", value: "{mod}",              inline: true },
-      { name: "⭐ Datum",                value: "{date}",             inline: true },
-      { name: "⭐ Warn #{n}",       value: "od max `{max}`",     inline: true },
+      { name: "🛡️ Moderator", value: "{mod}",         inline: true },
+      { name: "⚠️ Warn #",   value: "`{warnCount}`", inline: true },
     ],
   },
   {
     name: "ban",
-    title: "⭐  Član Banovan",
+    title: "🔨  Član Banovan",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{target}** je banovan/a sa servera.\n" +
-      "🛡️ Razlog: **{reason}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "⛔ **{user}** je banovan sa servera.\n\n" +
+      "📋 **Razlog:** {reason}",
     color: "#ef4444",
     category: "Moderacija",
-    footer: "GIANNI (Custom) • Moderacija",
-    thumbnail: "{target.avatar}",
+    footer: "GIANNI (Custom) • Ban",
+    thumbnail: "{user.avatar}",
     fields: [
-      { name: "🛡️ Izvršio",  value: "{mod}",      inline: true },
-      { name: "⭐ Datum",               value: "{date}",     inline: true },
-      { name: "✨ Trajanje",       value: "{duration}", inline: true },
+      { name: "🛡️ Moderator", value: "{mod}",      inline: true },
+      { name: "⏳ Trajanje",   value: "{duration}", inline: true },
     ],
   },
   {
     name: "mod-kick",
-    title: "⭐  Član Kickovan",
+    title: "👢  Član Kickovan",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{target}** je kickovan/a sa servera.\n" +
-      "🛡️ Razlog: **{reason}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🚪 **{user}** je izbačen sa servera.\n\n" +
+      "📋 **Razlog:** {reason}",
     color: "#ef4444",
     category: "Moderacija",
-    footer: "GIANNI (Custom) • Moderacija",
-    thumbnail: "{target.avatar}",
+    footer: "GIANNI (Custom) • Kick",
+    thumbnail: "{user.avatar}",
     fields: [
-      { name: "🛡️ Izvršio", value: "{mod}",  inline: true },
-      { name: "⭐ Datum",              value: "{date}", inline: true },
+      { name: "🛡️ Moderator", value: "{mod}", inline: true },
     ],
   },
   {
     name: "mod-mute",
-    title: "⭐  Član Mutovan",
+    title: "🔇  Član Mutovan",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{target}** ne može slati poruke **{duration}**.\n" +
-      "🛡️ Razlog: **{reason}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🤐 **{user}** je mutovan.\n\n" +
+      "📋 **Razlog:** {reason}",
     color: "#ef4444",
     category: "Moderacija",
-    footer: "GIANNI (Custom) • Moderacija",
-    thumbnail: "{target.avatar}",
+    footer: "GIANNI (Custom) • Mute",
+    thumbnail: "{user.avatar}",
     fields: [
-      { name: "🛡️ Izvršio", value: "{mod}",      inline: true },
-      { name: "⭐ Trajanje",           value: "{duration}", inline: true },
-      { name: "✨ Ističe",        value: "{expires}",  inline: true },
+      { name: "🛡️ Moderator", value: "{mod}",      inline: true },
+      { name: "⏳ Trajanje",   value: "{duration}", inline: true },
     ],
   },
   {
     name: "mod-unmute",
-    title: "⭐  Član Odmutovan",
+    title: "🔊  Član Odmutovan",
     description:
-      "✨ **{target}** može ponovo slati poruke!\n" +
-      "✅ Mute je uklonjen od strane moderatora.",
+      "✅ **{user}** je odmutovan — može opet pisati.",
     color: "#22c55e",
     category: "Moderacija",
-    footer: "GIANNI (Custom) • Moderacija",
-    thumbnail: "{target.avatar}",
+    footer: "GIANNI (Custom) • Unmute",
+    thumbnail: "{user.avatar}",
     fields: [
-      { name: "🛡️ Izvršio", value: "{mod}",  inline: true },
-      { name: "⭐ Datum",              value: "{date}", inline: true },
+      { name: "🛡️ Moderator", value: "{mod}", inline: true },
     ],
   },
   {
     name: "mod-timeout",
-    title: "⭐  Timeout",
+    title: "⏰  Timeout",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{target}** je u timeoutu na **{duration}**.\n" +
-      "🛡️ Razlog: **{reason}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🕐 **{user}** je stavljen u timeout.\n\n" +
+      "📋 **Razlog:** {reason}",
     color: "#ef4444",
     category: "Moderacija",
-    footer: "GIANNI (Custom) • Moderacija",
-    thumbnail: "{target.avatar}",
+    footer: "GIANNI (Custom) • Timeout",
+    thumbnail: "{user.avatar}",
     fields: [
-      { name: "🛡️ Izvršio", value: "{mod}",      inline: true },
-      { name: "⭐ Trajanje",           value: "{duration}", inline: true },
-      { name: "✨ Ističe",        value: "{expires}",  inline: true },
+      { name: "🛡️ Moderator", value: "{mod}",      inline: true },
+      { name: "⏳ Trajanje",   value: "{duration}", inline: true },
     ],
   },
   {
     name: "mod-purge",
-    title: "⭐  Poruke Obrisane",
+    title: "🧹  Poruke Obrisane",
     description:
-      "✨ Obrisano **{count}** poruka u <#{channel}>.\n" +
-      "🛡️ Izvršio: **{mod}**",
+      "🗑️ **{mod}** je obrisao/la **{count}** poruka u {channel}.",
     color: "#ef4444",
     category: "Moderacija",
     footer: "GIANNI (Custom) • Purge",
     thumbnail: null,
-    fields: [
-      { name: "💎 Obrisano", value: "`{count}` poruka", inline: true },
-      { name: "⭐ Kanal",        value: "<#{channel}>",     inline: true },
-    ],
+    fields: [],
   },
   {
     name: "mod-unban",
-    title: "⭐  Član Odbanovan",
+    title: "🔓  Član Odbanovan",
     description:
-      "✨ **{target}** je odbanovan/a sa servera.\n" +
-      "✅ Može se ponovo pridružiti serveru.",
+      "✅ **{user}** je odbanovan sa servera.\n" +
+      "🤝 Dobrodošao/la nazad!",
     color: "#22c55e",
     category: "Moderacija",
-    footer: "GIANNI (Custom) • Moderacija",
+    footer: "GIANNI (Custom) • Unban",
     thumbnail: null,
     fields: [
-      { name: "🛡️ Izvršio", value: "{mod}",  inline: true },
-      { name: "⭐ Datum",              value: "{date}", inline: true },
+      { name: "🛡️ Moderator", value: "{mod}", inline: true },
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ XP ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ XP ━━━━━━━━━━━━━━━━━━━━
   {
     name: "levelup",
-    title: "✨  Level Up!",
+    title: "🎉  Level Up, {user}!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{user}** je dostigao/la nivo **{level}**!\n" +
-      "💕 Nastavi biti aktivan/na!\n" +
+      "⬆️ Dostigao/la si novi nivo!\n" +
+      "🌟 Nastavi tako — odlično!\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#22c55e",
     category: "XP",
-    footer: "GIANNI (Custom) • XP Sistem",
+    footer: "GIANNI (Custom) • Level Up",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "⭐ Novi nivo",      value: "`{level}`",      inline: true },
-      { name: "⭐ Ukupno XP", value: "`{xp}`",        inline: true },
-      { name: "🪙 Nagrada",           value: "`+{reward}` 🪙", inline: true },
+      { name: "📊 Novi nivo", value: "`Level {level}`", inline: true },
+      { name: "🪙 Nagrada",   value: "`+{reward} 🪙`",  inline: true },
     ],
   },
   {
     name: "vatrica-nova",
-    title: "🔥  Nova Vatrica!",
+    title: "🔥  Nova Vatrica, {user}!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{user}** je zaslužio/la novu vatricu!\n" +
-      "🔥🔥🔥 Ukupno vatrica: **{count}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-    color: "#22c55e",
+      "⭐ **{user}** je zaradio/la novu vatricu!\n" +
+      "🏆 Ukupno vatrica: **{count}**",
+    color: "#FF6A00",
     category: "XP",
-    footer: "GIANNI (Custom) • Vatrice",
+    footer: "GIANNI (Custom) • Vatrica",
     thumbnail: "{user.avatar}",
-    fields: [
-      { name: "🔥 Vatrice",               value: "`{count}`",    inline: true },
-      { name: "⭐ Poruka",    value: "`{messages}`", inline: true },
-    ],
+    fields: [],
   },
   {
     name: "aktivnost",
-    title: "⭐  Aktivnost — Podsjetnik",
+    title: "📊  Aktivnost",
     description:
-      "➜ **{user}**, nisi bio/la aktivan/na neko vrijeme!\n" +
-      "🐾 Chati, igraj igre i prikupljaj XP!",
+      "📈 Pregled aktivnosti za **{user}**:",
     color: "#22c55e",
     category: "XP",
-    footer: "GIANNI (Custom) • XP Sistem",
+    footer: "GIANNI (Custom) • Aktivnost",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "⭐ Neaktivan/na", value: "{inactive}", inline: true },
-      { name: "⭐ XP",     value: "`{xp}`",    inline: true },
+      { name: "💬 Poruke",    value: "`{messages}`", inline: true },
+      { name: "⏱️ Glasovni", value: "`{voice}`",    inline: true },
+      { name: "⭐ XP",        value: "`{xp}`",       inline: true },
     ],
   },
   {
     name: "rank",
-    title: "⭐  Rang — {user}",
+    title: "🏅  Rank — {user}",
     description:
-      "➜ Tvoj trenutni rang i XP statistika:",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "📊 Tvoj trenutni rank profil:",
     color: "#22c55e",
     category: "XP",
-    footer: "GIANNI (Custom) • XP Sistem",
+    footer: "GIANNI (Custom) • Rank",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "⭐ Rang",           value: "`#{rank}`",         inline: true },
-      { name: "⭐ Nivo",            value: "`{level}`",         inline: true },
-      { name: "⭐ XP",        value: "`{xp} / {nextXp}`", inline: true },
-      { name: "🐾 Progres",         value: "`{progressBar}`",   inline: false },
+      { name: "⭐ XP",        value: "`{xp}`",        inline: true },
+      { name: "📊 Level",     value: "`{level}`",     inline: true },
+      { name: "🏅 Rank",      value: "`#{rank}`",     inline: true },
+      { name: "🔥 Vatrice",   value: "`{vatrice}`",   inline: true },
+      { name: "🪙 Novac",     value: "`{balance} 🪙`", inline: true },
     ],
   },
   {
     name: "leaderboard-xp",
-    title: "⭐  Top Lista — XP",
+    title: "🏆  Top Lista — XP",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "👑 **{top1}** — Nivo `{top1lvl}` · `{top1xp}` XP\n" +
-      "⭐ **{top2}** — Nivo `{top2lvl}` · `{top2xp}` XP\n" +
-      "✅ **{top3}** — Nivo `{top3lvl}` · `{top3xp}` XP\n" +
-      "⭐ **{top4}** — Nivo `{top4lvl}` · `{top4xp}` XP\n" +
-      "➜ **{top5}** — Nivo `{top5lvl}` · `{top5xp}` XP\n" +
+      "🌟 Najaktivniji članovi servera:\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "⭐ Tvoje mjesto: **#{myRank}**",
+      "{leaderboard}",
     color: "#22c55e",
     category: "XP",
-    footer: "GIANNI (Custom) • XP Top Lista",
+    footer: "GIANNI (Custom) • XP Leaderboard",
     thumbnail: null,
     fields: [],
   },
   {
     name: "leaderboard-novac",
-    title: "⭐  Top Lista — Novac",
+    title: "💰  Top Lista — Novac",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "👑 **{top1}** — `{top1coins}` 🪙\n" +
-      "⭐ **{top2}** — `{top2coins}` 🪙\n" +
-      "✅ **{top3}** — `{top3coins}` 🪙\n" +
-      "⭐ **{top4}** — `{top4coins}` 🪙\n" +
-      "➜ **{top5}** — `{top5coins}` 🪙\n" +
+      "🏦 Najbogatiji članovi servera:\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🪙 Tvoje mjesto: **#{myRank}** · `{myCoins}` 🪙",
-    color: "#22c55e",
+      "{leaderboard}",
+    color: "#f97316",
     category: "XP",
-    footer: "GIANNI (Custom) • Novac Top Lista",
+    footer: "GIANNI (Custom) • Novac Leaderboard",
     thumbnail: null,
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ EKONOMIJA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ EKONOMIJA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "heist",
-    title: "⭐  RAZBOJ — U Pripremi!",
+    title: "🏦  Razboj u pripremi!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🔒 **{user}** organizuje razboj!\n" +
-      "✨ Klikni **Pridruži se** i osvoji nagradu!\n" +
-      "⭐ Potrebno **3 ili više** učesnika.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "⭐ Kreće za **30 sekundi!**",
+      "🎯 **{user}** planira pljačku banke!\n" +
+      "👥 Pridruži se ekipi — klikni dugme!\n" +
+      "⏳ Počinje za: **{countdown}**\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Ekonomija",
+    footer: "GIANNI (Custom) • Heist",
     thumbnail: null,
     fields: [
-      { name: "🐾 Učesnici",  value: "`{count}/10`",             inline: true },
-      { name: "🪙 Ciljna suma",  value: "`{target}` 🪙",            inline: true },
-      { name: "⭐ Rizik",      value: "`{risk}%` šansa propasti", inline: true },
+      { name: "👥 Učesnici",  value: "`{count}`",   inline: true },
+      { name: "💰 Nagradni fond", value: "`{pot} 🪙`", inline: true },
     ],
   },
   {
     name: "lottery",
-    title: "✨  Sedmična Loto",
+    title: "🎰  Sedmična Loto!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🎉 Kupi tiket i osvoji **JACKPOT!**\n" +
-      "🪙 Svaki tiket košta **100 coina**.\n" +
+      "🎫 Kupi tiket i osvoji jackpot!\n" +
+      "⏳ Žrijeb: **{drawTime}**\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • /lottery buy",
+    footer: "GIANNI (Custom) • Loto",
     thumbnail: null,
     fields: [
-      { name: "🪙 Jackpot",           value: "`{pot}` 🪙",        inline: true },
-      { name: "✨ Moji tiketi",           value: "`{my}` / `{total}`", inline: true },
-      { name: "✨ Šansa pobjede", value: "`{chance}%`",        inline: true },
-      { name: "⭐ Sljedeći žrijeb",      value: "{nextDraw}",         inline: false },
+      { name: "💰 Jackpot",   value: "`{pot} 🪙`",     inline: true },
+      { name: "🎫 Tiketa",    value: "`{tickets}`",    inline: true },
+      { name: "🪙 Cijena",    value: "`{price} 🪙`",   inline: true },
     ],
   },
   {
     name: "quests",
-    title: "⭐  Dnevni Zadaci",
+    title: "📋  Dnevni Zadaci",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ Završi zadatke i osvoji nagrade!\n" +
+      "✅ Ispuni zadatke i osvoji nagrade!\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "⭐ **Pošalji 10 poruka**\n`░░░░░░░░░░` `0/10` · 🪙 `+200`\n\n" +
-      "✅ **Odigraj 3 igre**\n`██████████` `3/3` · 🪙 `+500` ✅\n\n" +
-      "⭐ **Pošalji kompliment**\n`░░░░░░░░░░` `0/1` · 🪙 `+300`",
+      "{quests}",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Resetuju se u ponoć UTC",
+    footer: "GIANNI (Custom) • Dnevni Zadaci",
     thumbnail: null,
-    fields: [
-      { name: "✅ Završeno", value: "`{done}/3`",    inline: true },
-      { name: "🪙 Zarađeno",     value: "`{ukupno}` 🪙", inline: true },
-      { name: "⭐ Reset",           value: "Sutra 00:00",   inline: true },
-    ],
+    fields: [],
   },
   {
     name: "giveaway",
-    title: "✨  NAGRADNA IGRA!",
+    title: "🎁  Nagradna Igra!",
     description:
-      "## 👑  {nagrada}\n\n" +
-      "✨ Klikni **Učestvuj** i osvoji nagradu!\n" +
-      "💕 Sretno svima!",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🎉 **{host}** pokreće nagradnu igru!\n" +
+      "⏳ Završava: **{endTime}**\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Giveaway",
     thumbnail: null,
     fields: [
-      { name: "⭐ Završava",           value: "{kraj}",       inline: true },
-      { name: "🐾 Učesnici",     value: "`{ucesnici}`", inline: true },
-      { name: "⭐ Pobjednika",  value: "`{count}`",    inline: true },
-      { name: "✨ Domaćin",             value: "{domaćin}",   inline: false },
+      { name: "🏆 Nagrada",    value: "{prize}",      inline: true },
+      { name: "🎟️ Pobjednika", value: "`{winners}`", inline: true },
     ],
   },
   {
     name: "giveaway-end",
-    title: "⭐  Nagradna Igra — ZAVRŠENA!",
+    title: "🏆  Nagradna Igra Završena!",
     description:
-      "## 💕  {nagrada}\n\n" +
-      "✨ Čestitamo pobjedniku! ✨",
+      "🎉 Nagradna igra je gotova!\n\n" +
+      "🥇 **Pobjednici:**\n{winners}",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Giveaway završen",
+    footer: "GIANNI (Custom) • Giveaway Kraj",
     thumbnail: null,
-    fields: [
-      { name: "⭐ Pobjednik/ca", value: "{pobjednik}",  inline: true },
-      { name: "🐾 Učesnici",      value: "`{ucesnici}`", inline: true },
-      { name: "✨ Domaćin",              value: "{domaćin}",   inline: true },
-    ],
+    fields: [],
   },
   {
     name: "eco-balance",
-    title: "⭐  Novčanik — {user}",
+    title: "💰  Balans — {user}",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🪙 Pregled tvog financijskog stanja:\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "💳 Pregled tvog računa:",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Ekonomija",
+    footer: "GIANNI (Custom) • Balans",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "🪙 Gotovina",      value: "`{cash}` 🪙",  inline: true },
-      { name: "💎 Banka",        value: "`{bank}` 🪙",  inline: true },
-      { name: "⭐ Ukupno",    value: "`{total}` 🪙", inline: true },
+      { name: "🪙 Novčanik", value: "`{wallet} 🪙`", inline: true },
+      { name: "🏦 Banka",    value: "`{bank} 🪙`",   inline: true },
+      { name: "💰 Ukupno",   value: "`{total} 🪙`",  inline: true },
     ],
   },
   {
     name: "eco-daily",
-    title: "⭐  Dnevna Nagrada",
+    title: "📅  Dnevna Nagrada!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{user}** je preuzeo/la dnevnu nagradu!\n" +
-      "💕 Streak: **{streak} dana** zaredom!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "✅ **{user}** je preuzeo/la dnevnu nagradu!\n" +
+      "⏰ Sljedeća nagrada za: **24h**",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Sutra možeš ponovo",
+    footer: "GIANNI (Custom) • Daily",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "🪙 Nagrada",         value: "`+{amount}` 🪙",     inline: true },
-      { name: "⭐ Streak bonus", value: "`+{bonus}` 🪙",      inline: true },
-      { name: "💎 Novi balans",    value: "`{total}` 🪙",       inline: true },
+      { name: "🪙 Nagrada",  value: "`+{amount} 🪙`", inline: true },
+      { name: "🔥 Streak",   value: "`{streak} dana`", inline: true },
     ],
   },
   {
     name: "eco-work",
-    title: "⭐  Posao — {job}",
+    title: "💼  Posao",
     description:
-      "✨ **{user}** je radio/la kao **{job}**!\n" +
-      "🪙 Zaradio/la: **{amount}** kovanica!",
+      "🔧 **{user}** je radio/la kao **{job}** i zaradio/la!",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Sljedeći posao za {cooldown}",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Posao",
+    thumbnail: "{user.avatar}",
     fields: [
-      { name: "🪙 Zarada",  value: "`+{amount}` 🪙", inline: true },
-      { name: "💎 Balans", value: "`{total}` 🪙",   inline: true },
+      { name: "🪙 Zarada",   value: "`+{amount} 🪙`", inline: true },
+      { name: "⏰ Sljedeći", value: "`{cooldown}`",    inline: true },
     ],
   },
   {
     name: "eco-shop",
-    title: "⭐  S H O P — Prodavnica",
+    title: "🛒  Shop",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ Dobrodošao/la u GIAN prodavnicu!\n" +
-      "🪙 Kupi role, iteme i privilegije.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🏪 Dostupni predmeti:\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "{items}",
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Shop",
     thumbnail: null,
-    fields: [
-      { name: "⭐ VIP Role",              value: "`5.000` 🪙",  inline: true },
-      { name: "👑 Premium",        value: "`10.000` 🪙", inline: true },
-      { name: "💎 Dijamant",                        value: "`25.000` 🪙", inline: true },
-    ],
+    fields: [],
   },
   {
     name: "eco-buy",
-    title: "⭐  Kupovina Uspješna!",
+    title: "✅  Kupovina Uspješna!",
     description:
-      "✨ **{user}** je kupio/la **{item}**!\n" +
-      "💕 Uživaj u kupovini!",
-    color: "#f97316",
+      "🛍️ **{user}** je kupio/la **{item}**!\n" +
+      "🪙 Potrošeno: `{price} 🪙`",
+    color: "#22c55e",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Shop",
-    thumbnail: "{user.avatar}",
-    fields: [
-      { name: "🪙 Plaćeno",   value: "`-{price}` 🪙",   inline: true },
-      { name: "💎 Ostalo",   value: "`{balance}` 🪙",  inline: true },
-    ],
+    footer: "GIANNI (Custom) • Kupovina",
+    thumbnail: null,
+    fields: [],
   },
   {
     name: "eco-transfer",
-    title: "⭐  Transfer Kovanica",
+    title: "💸  Transfer Kovanica",
     description:
-      "🪙 **{from}** je poslao/la **{amount}** 🪙 → **{to}**\n" +
-      "✅ Transfer uspješno izvršen!",
+      "↔️ **{from}** je poslao/la **{amount} 🪙** korisniku **{to}**!",
     color: "#f97316",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Ekonomija",
+    footer: "GIANNI (Custom) • Transfer",
     thumbnail: null,
-    fields: [
-      { name: "🪙 Iznos",                         value: "`{amount}` 🪙", inline: true },
-      { name: "⭐ Pošiljalac",         value: "{from}",        inline: true },
-      { name: "➜ Primalac",         value: "{to}",          inline: true },
-    ],
+    fields: [],
   },
   {
     name: "eco-rob",
-    title: "⭐  Pljačka!",
+    title: "🦹  Pljačka!",
     description:
-      "✨ **{user}** je pokušao/la opljačkati **{target}**!\n" +
+      "💰 **{robber}** je pokušao/la opljačkati **{victim}**!\n\n" +
       "{result}",
     color: "#ef4444",
     category: "Ekonomija",
-    footer: "GIANNI (Custom) • Ekonomija",
+    footer: "GIANNI (Custom) • Pljačka",
     thumbnail: null,
     fields: [
-      { name: "🪙 Ukradeno", value: "`{stolen}` 🪙", inline: true },
-      { name: "⭐ Kazna",  value: "`{fine}` 🪙",   inline: true },
+      { name: "💰 Iznos",    value: "`{amount} 🪙`", inline: true },
+      { name: "📊 Rezultat", value: "{status}",      inline: true },
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━ IGRE — NE DIRATI! ━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ IGRE ━━━━━━━━━━━━━━━━━━━━
   {
     name: "slots",
-    title: "⭐ S L O T  M A Š I N A",
-    description: "𓉘  ⭐  │  ⭐  │  ⭐  𓉝\n\n🎉 Sva tri ista — **JACKPOT!**",
-    color: "#9B59B6",
+    title: "🎰  Slot Mašina",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🎲 **{user}** vrti slotove!\n\n" +
+      "[ {r1} | {r2} | {r3} ]\n\n" +
+      "{result}\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom)",
+    footer: "GIANNI (Custom) • Slots",
     thumbnail: null,
     fields: [
-      { name: "🪙 Ulog",    value: "`{ulog} 🪙`",                                              inline: true },
-      { name: "⭐ Rezultat", value: "🎉 **+{dobitak} 🪙** *(×3)*", inline: true },
-      { name: "🔒 Balans", value: "`{balans} 🪙`",                                          inline: true },
+      { name: "🪙 Ulog",    value: "`{bet} 🪙`",    inline: true },
+      { name: "💰 Dobitak", value: "`{winnings} 🪙`", inline: true },
     ],
   },
   {
     name: "blackjack",
-    title: "⭐ Blackjack",
-    description: null,
-    color: "#9B59B6",
+    title: "🃏  Blackjack",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🎴 **{user}** igra blackjack!\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "Oklada: {oklada} 🪙 • GIANNI (Custom)",
+    footer: "GIANNI (Custom) • Blackjack",
     thumbnail: null,
     fields: [
-      { name: "Tvoje karte  (17)", value: "🂡 🂮", inline: false },
-      { name: "Dealer  (?)",       value: "🂫 🎴", inline: false },
-      { name: "Rezultat",          value: "🎉 **BLACKJACK!** `+{dobitak} 🪙`!", inline: false },
+      { name: "🎴 Tvoje karte",    value: "{playerHand} (`{playerScore}`)", inline: true },
+      { name: "🤖 Dealer karte",   value: "{dealerHand} (`{dealerScore}`)", inline: true },
+      { name: "🪙 Ulog",           value: "`{bet} 🪙`",                     inline: false },
     ],
   },
   {
     name: "poker-lobby",
-    title: "⭐ POKER — Texas Hold'em",
+    title: "♠️  Poker — Lobby",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━\n🪙 **Ulog po igraču:** `{ulog} 🪙`\n⭐ **Trenutni pot:** `{pot} 🪙`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🐾 **Igrači ({count}/9):**\n▸ **{player1}**\n▸ **{player2}**\n\n▸ Klikni **Ulazi u igru** da se pridružiš\n▸ Domaćin klika **Počni igru** kad je spreman\n▸ Igra automatski kreće za **60 sekundi**",
-    color: "#9B59B6",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🃏 **{host}** otvara poker stol!\n" +
+      "👥 Čekamo igrače... ({count}/{max})\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • Poker • Min 2, Max 9 igrača",
+    footer: "GIANNI (Custom) • Poker",
     thumbnail: null,
-    fields: [],
+    fields: [
+      { name: "🪙 Buy-in",    value: "`{buyin} 🪙`", inline: true },
+      { name: "👥 Igrači",    value: "`{players}`",  inline: true },
+    ],
   },
   {
     name: "poker-game",
-    title: "⭐ Pre-Flop — Kartice podijeljene",
+    title: "🎲  Poker — U Toku",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━\n⭐ **Zajedničke kartice:**\n`?` `?` `?` `?` `?`\n🪙 **Pot:** `{pot} 🪙`\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🐾 **Aktivni:**\n⭐ **{player1}**\n⭐ **{player2}**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🔒 **Čekamo potez:**\n⭐ {player1}",
-    color: "#FF85C8",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "♠️ Runda **{round}** — {phase}\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🃏 Stol: {communityCards}",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • Klikni 'Vidi kartice' za svoju ruku",
+    footer: "GIANNI (Custom) • Poker",
     thumbnail: null,
-    fields: [],
+    fields: [
+      { name: "💰 Pot",       value: "`{pot} 🪙`",  inline: true },
+      { name: "🎯 Na redu",   value: "{current}",   inline: true },
+    ],
   },
   {
     name: "poker-showdown",
-    title: "⭐ SHOWDOWN — Poker",
+    title: "👑  Poker — Showdown!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━\n⭐ **Zajedničke kartice:**\n🂡 🂺 🂳 🃈 🃑\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n⭐ **{winner}**\n   Ruka: 🂡 🂮\n   → **Royal Flush**\n\n⭐ **{loser}**\n   Ruka: 🃁 🃎\n   → **Dva Para**\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n🪙 **Dobitak:** `{dobitak} 🪙` po pobjedniku",
-    color: "#9B59B6",
+      "🏆 **{winner}** pobijedio/la!\n\n" +
+      "🃏 Pobjednička kombinacija: **{hand}**",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • Poker završen",
+    footer: "GIANNI (Custom) • Poker Showdown",
+    thumbnail: null,
+    fields: [
+      { name: "🪙 Dobitak", value: "`{pot} 🪙`", inline: true },
+    ],
+  },
+  {
+    name: "among-us-lobby",
+    title: "🚀  Among Us — Lobby",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "👨‍🚀 **{host}** otvara igru!\n" +
+      "👥 Igrači: {count}/{max}\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
+    category: "Igre",
+    footer: "GIANNI (Custom) • Among Us",
     thumbnail: null,
     fields: [],
   },
   {
-    name: "among-us-lobby",
-    title: "⭐ Among Us — Lobby",
-    description: "Pridruži se i čekaj da host pokrene igru!\n**Min 4 • Max 10 igrača**",
-    color: "#9B59B6",
-    category: "Igre",
-    footer: "Host: klikni Pokreni igru kad ste svi tu!",
-    thumbnail: null,
-    fields: [
-      { name: "🐾 Igrači (2/10)", value: "🛡️ Player1\n⭐ Player2", inline: false },
-    ],
-  },
-  {
     name: "among-us-game",
-    title: "⭐ Among Us — U Toku",
-    description: null,
-    color: "#9B59B6",
+    title: "🔪  Among Us — U Toku",
+    description:
+      "👀 Imposter je među nama...\n\n" +
+      "👥 Preostalo igrača: **{alive}**\n" +
+      "💀 Eliminirani: **{dead}**",
+    color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Among Us",
     thumbnail: null,
-    fields: [
-      { name: "🐾 Igrači",          value: "🛡️ Player1\n⭐ Player2\n🔒 ~~Player3~~", inline: false },
-      { name: "⭐ Zadaci", value: "⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ `3/10`", inline: true },
-      { name: "⭐ Živi",         value: "2 crew | 1 imp", inline: true },
-    ],
+    fields: [],
   },
   {
     name: "among-us-end",
-    title: "⭐ CREWMATI POBIJEDE!",
-    description: "Svi impostori eliminirani! ⭐",
-    color: "#9B59B6",
+    title: "🏆  Among Us — Kraj",
+    description:
+      "🎉 Igra je završena!\n\n" +
+      "🥇 **Pobjednici:** {winners}\n" +
+      "🔪 **Imposter:** {imposter}",
+    color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Among Us",
     thumbnail: null,
-    fields: [
-      { name: "🐾 Otkrivene uloge", value: "⭐ **Player1** — CREWMATE\n🔒 **Player2** — IMPOSTOR", inline: false },
-    ],
+    fields: [],
   },
   {
     name: "kaladont-start",
-    title: "⭐ K A L A D O N T",
+    title: "🔤  Kaladont — Start!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n✨ Igra je počela! Prva riječ:\n## ⭐  **BALKAN**\n━━━━━━━━━━━━━━━━━━━━━",
-    color: "#9B59B6",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "📝 Igra počinje! Prva riječ:\n" +
+      "➜ **{word}**\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "Pokrenuo/la: {user}  •  Pritisni dugme za kraj",
+    footer: "GIANNI (Custom) • Kaladont",
     thumbnail: null,
-    fields: [
-      { name: "➜  Sljedeća počinje sa", value: "## **`AN`**",                                                 inline: true  },
-      { name: "⭐  Težina",                   value: "⭐ Normalno · 2 slova",       inline: true  },
-      { name: "⭐  Niz",                               value: "**#1**",                                                       inline: true  },
-      {
-        name: "⭐  Pravila igre",
-        value:
-          "⭐ Svaka riječ počinje traženim slovima\n🔒 Ista osoba **ne može** igrati iza sebe\n➜ Ponavljanje iste riječi nije dozvoljeno\n✨ **50/50 sudbina** — čak i ispravna može propasti!\n⭐ Pritisni **Pomoć** za primjer riječi\n⭐ Upiši **`KALADONT`** i osvoji **1500** 🪙!",
-        inline: false,
-      },
-    ],
+    fields: [],
   },
   {
     name: "kaladont-active",
-    title: "⭐ K A L A D O N T  —  aktivna igra",
-    description: "━━━━━━━━━━━━━━━━━━━━━",
-    color: "#9B59B6",
+    title: "🔤  Kaladont — Na redu: {user}",
+    description:
+      "⏳ **{user}**, tvoj red!\n\n" +
+      "➜ Zadnje slovo: **{letter}**\n" +
+      "⌛ Imaš **{seconds}** sekundi!",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "Pritisni dugme za kraj igre",
+    footer: "GIANNI (Custom) • Kaladont",
     thumbnail: null,
-    fields: [
-      { name: "✨  Zadnja riječ",        value: "**`ANKETA`**", inline: true  },
-      { name: "⭐  Odigrao/la",               value: "Korisnik",     inline: true  },
-      { name: "⭐  Niz",                           value: "**#5**",       inline: true  },
-      { name: "➜  Sljedeća počinje sa", value: "## **`TA`**", inline: false },
-    ],
+    fields: [],
   },
   {
     name: "kaladont-word",
-    title: null,
-    description: "## ✨  **TAČKA**\n*⭐ Korisnik*",
-    color: "#9B59B6",
+    title: "✅  Kaladont — Prihvaćeno!",
+    description:
+      "👍 **{user}** je rekao/la: **{word}**\n" +
+      "➜ Sljedeće slovo: **{nextLetter}**",
+    color: "#22c55e",
     category: "Igre",
-    footer: "GIANNI Kaladont  •  #6",
+    footer: "GIANNI (Custom) • Kaladont",
     thumbnail: null,
-    fields: [
-      { name: "➜  Sljedeća počinje sa", value: "## **`KA`**", inline: true },
-      { name: "⭐  Niz",                               value: "**#6**",      inline: true },
-    ],
+    fields: [],
   },
   {
     name: "kaladont-win",
-    title: "⭐ K A L A D O N T  —  P O B J E D A !",
-    description: "🎉 {user} je izrekao/la magičnu riječ!",
-    color: "#FF85C8",
+    title: "🏆  Kaladont — Pobjeda!",
+    description:
+      "🎉 **{winner}** pobijedio/la!\n" +
+      "🪙 Nagrada: `+{reward} 🪙`",
+    color: "#22c55e",
     category: "Igre",
-    footer: "GIANNI (Custom) • Kaladont pobjeda",
-    thumbnail: "{user.avatar}",
-    fields: [
-      { name: "⭐  Pobjednik/ca", value: "**{user}**",                                    inline: true },
-      { name: "⭐  Riječi u nizu",  value: "**{count}**",                                   inline: true },
-      { name: "🪙  Nagrada",         value: "**+1.500 🪙**", inline: true },
-      { name: "✨  XP",          value: "**+200**",                                      inline: true },
-    ],
+    footer: "GIANNI (Custom) • Kaladont",
+    thumbnail: null,
+    fields: [],
   },
   {
     name: "bingo",
-    title: "⭐ B  I  N  G  O",
+    title: "🎯  Bingo!",
     description:
-      "⭐ **Klikni dugme ispod i unesi 5 brojeva (1–75)!**\n✨ Tiket košta samo **500 coina** 🪙\n\n🔒 Imaš **2 minute** za tiket!\n✨ Rezultati se objavljuju **javno** za sve",
-    color: "#9B59B6",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🎲 Izvučeni brojevi:\n" +
+      "{numbers}\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI Bingo • Cijena tiketa: 500 coina",
+    footer: "GIANNI (Custom) • Bingo",
     thumbnail: null,
-    fields: [
-      {
-        name: "⭐  Nagradna lista",
-        value:
-          "⭐ `2 pogotka`  ──  **10.000** 🪙\n⭐ `3 pogotka`  ──  **30.000** 🪙\n⭐ `4 pogotka`  ──  **75.000** 🪙\n⭐ `5 pogodaka` ── **250.000** 🪙  **JACKPOT!**",
-        inline: false,
-      },
-    ],
+    fields: [],
   },
-  // Igre dopune
   {
     name: "vjasala",
-    title: "⭐ V J E Š A L A",
+    title: "📝  Vješala",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n⭐ Pogodi skrivenu riječ!\n\n```\n_ _ _ _ _ _\n```\n━━━━━━━━━━━━━━━━━━━━━",
-    color: "#9B59B6",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "```{drawing}```\n" +
+      "🔤 Riječ: **{display}**\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • /vjasala",
+    footer: "GIANNI (Custom) • Vješala",
     thumbnail: null,
     fields: [
-      { name: "💕 Životi",         value: "`{zivoti}/6`",  inline: true },
-      { name: "⭐ Pogođena slova", value: "`{pogodjena}`", inline: true },
-      { name: "🔒 Promašaji",      value: "`{promasaji}`", inline: true },
+      { name: "❌ Greške",   value: "`{wrong}/{max}`",    inline: true },
+      { name: "🔤 Pogođeno", value: "`{guessed}`",        inline: true },
     ],
   },
   {
     name: "vjasala-kraj",
-    title: "⭐ Vješala — Pogodak!",
-    description: "⭐ Čestitamo {user}! Pogodio/la si **{rijec}**! ✨\n🪙 **Nagrada:** `+{nagrada} 🪙`",
-    color: "#FF85C8",
+    title: "🎉  Vješala — Pogodak!",
+    description:
+      "✅ **{user}** je pogodio/la: **{word}**!\n" +
+      "🪙 Nagrada: `+{reward} 🪙`",
+    color: "#22c55e",
     category: "Igre",
-    footer: "GIANNI (Custom) • /vjasala",
-    thumbnail: "{user.avatar}",
+    footer: "GIANNI (Custom) • Vješala",
+    thumbnail: null,
     fields: [],
   },
   {
     name: "toplo-hladno",
-    title: "⭐ T O P L O  •  H L A D N O",
+    title: "🌡️  Toplo ili Hladno?",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n⭐ Pogodi tajni broj (1–{max})!\n\n⭐ **Hladno** — daleko si\n⭐ **Toplo** — bliže si\n💕 **Vrelo** — skoro!\n━━━━━━━━━━━━━━━━━━━━━",
-    color: "#9B59B6",
+      "🎯 **{user}** pokušava pogoditi broj!\n\n" +
+      "➜ Pogodak: **{guess}**\n" +
+      "📊 **{feedback}**",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • /toplo-hladno",
+    footer: "GIANNI (Custom) • Toplo-Hladno",
     thumbnail: null,
     fields: [
-      { name: "⭐ Maksimum",       value: "`{max}`",      inline: true },
-      { name: "⭐ Pokušaji",  value: "`{pokusaji}`", inline: true },
-      { name: "💕 Status",       value: "{status}",     inline: true },
+      { name: "🔢 Pokušaji", value: "`{attempts}`", inline: true },
     ],
   },
   {
     name: "kviz",
-    title: "⭐ K V I Z  —  Balkan Pitanje",
+    title: "🧠  Kviz — Balkan Pitanje",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n⭐ **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
-    color: "#9B59B6",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "❓ **{question}**\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "{options}",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • /kviz • Oklada: {oklada} 🪙",
+    footer: "GIANNI (Custom) • Kviz",
     thumbnail: null,
     fields: [
-      { name: "⭐ A",  value: "{a}", inline: true },
-      { name: "⭐ B",  value: "{b}", inline: true },
-      { name: "⭐ C",       value: "{c}", inline: true },
-      { name: "💕 D",     value: "{d}", inline: true },
+      { name: "⏰ Vrijeme",     value: "`{time}s`",     inline: true },
+      { name: "🪙 Nagrada",     value: "`{reward} 🪙`", inline: true },
     ],
   },
   {
     name: "geografija",
-    title: "⭐ G E O G R A F I J A  —  Kviz",
+    title: "🌍  Geografija Kviz",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━\n⭐ **{pitanje}**\n━━━━━━━━━━━━━━━━━━━━━",
-    color: "#9B59B6",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🗺️ **{question}**\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "{options}",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • /geografija • Oklada: {oklada} 🪙",
+    footer: "GIANNI (Custom) • Geografija",
     thumbnail: null,
     fields: [
-      { name: "⭐ A",  value: "{a}", inline: true },
-      { name: "⭐ B",  value: "{b}", inline: true },
-      { name: "⭐ C",       value: "{c}", inline: true },
-      { name: "💕 D",     value: "{d}", inline: true },
+      { name: "⏰ Vrijeme",  value: "`{time}s`",     inline: true },
+      { name: "🪙 Nagrada", value: "`{reward} 🪙`", inline: true },
     ],
   },
   {
     name: "mafia-lobby",
-    title: "⭐ M A F I A  —  Lobby",
+    title: "🕵️  Mafia — Lobby",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━\n✨ Mafia igra se priprema!\n**Pridruži se klikom na dugme.**\n━━━━━━━━━━━━━━━━━━━━━━━\n⭐ Min: **5** | Max: **12** igrača\n🔒 Igra kreće automatski za **60s** ili kad host klikne Start",
-    color: "#9B59B6",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🔫 **{host}** pokrenuo/la Mafia igru!\n" +
+      "👥 Igrači: {count}/{max}\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Mafia",
     thumbnail: null,
-    fields: [
-      { name: "🐾 Igrači ({count}/12)", value: "{igraci}", inline: false },
-    ],
+    fields: [],
   },
   {
     name: "mafia-end",
-    title: "⭐ M A F I A  —  Kraj Igre",
-    description: "## {rezultat}\n\n{opis}",
-    color: "#FF85C8",
+    title: "👑  Mafia — Kraj Igre!",
+    description:
+      "🏆 **{winners}** pobijedio/la!\n\n" +
+      "🕵️ Mafia: {mafia}\n" +
+      "👮 Grad: {town}",
+    color: "#3b82f6",
     category: "Igre",
-    footer: "GIANNI (Custom) • Mafia završena",
+    footer: "GIANNI (Custom) • Mafia",
     thumbnail: null,
-    fields: [
-      { name: "🐾 Uloge",       value: "{uloge}",      inline: false },
-      { name: "⭐ Pobjednici",  value: "{pobjednici}", inline: true  },
-      { name: "🔒 Eliminirani",   value: "{eliminirani}", inline: true },
-    ],
+    fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━━━ FUN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ FUN ━━━━━━━━━━━━━━━━━━━━
   {
     name: "hunt",
-    title: "✨  Ulov!",
+    title: "🏹  Lov — Ulovio/la životinju!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "## {animal}\n" +
-      "⭐ **{rarity}**  ·  💎 Snaga: `{power}`\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🦌 **{user}** je ulovio/la: **{animal}**!\n" +
+      "🪙 Zarada: `+{amount} 🪙`",
     color: "#ec4899",
     category: "Fun",
-    footer: "GIANNI (Custom) • {user} • /hunt",
+    footer: "GIANNI (Custom) • Lov",
     thumbnail: null,
-    fields: [
-      { name: "✨ Imaš ukupno", value: "`1× {animal}`", inline: true },
-      { name: "🪙 Vrijednost",          value: "`{value}` 🪙",  inline: true },
-    ],
+    fields: [],
   },
   {
     name: "zoo",
-    title: "⭐  {user} — Moj Zoo",
+    title: "🦁  Zoo — Tvoja Zbirka",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **Legendary**\n⭐ **Zmaj** `×1`\n\n" +
-      "✅ **Uncommon**\n✨ **Vuk** `×3` · **Lisica** `×2`\n\n" +
-      "💜 **Common**\n🐾 **Riba** `×7` · **Zec** `×5`\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🐾 **{user}** ima sljedeće životinje:",
     color: "#ec4899",
     category: "Fun",
-    footer: "GIANNI (Custom) • /hunt za loviti!",
-    thumbnail: null,
-    fields: [
-      { name: "✨ Ukupno životinja", value: "`{total}`",   inline: true },
-      { name: "💎 Ukupna snaga",           value: "`{power}`",   inline: true },
-      { name: "🪙 Ukupna vrijednost",       value: "`{value}` 🪙", inline: true },
-    ],
+    footer: "GIANNI (Custom) • Zoo",
+    thumbnail: "{user.avatar}",
+    fields: [],
   },
   {
     name: "battle",
-    title: "⚡  B I T K A!",
+    title: "⚔️  Bitka!",
     description:
-      "🐾 **{player1}** ⚔️ 💜 **{player2}**\n" +
-      "`████████████░░░░░░░░`\n" +
-      "💎 `{score1}` vs `{score2}` 💎",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🛡️ **{challenger}** vs **{opponent}**!\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "{result}",
     color: "#ec4899",
     category: "Fun",
-    footer: "GIANNI (Custom) • Battle",
-    thumbnail: "{winner.avatar}",
-    fields: [
-      { name: "⭐ Pobjednik/ca", value: "**{winner}**",  inline: true  },
-      { name: "🔒 Poražen/a",      value: "{loser}",       inline: true  },
-      { name: "🪙 Nagrada",          value: "`+{nagrada}` 🪙", inline: false },
-    ],
+    footer: "GIANNI (Custom) • Bitka",
+    thumbnail: null,
+    fields: [],
   },
   {
     name: "pray",
-    title: "✨  Molitva",
+    title: "🙏  Molitva",
     description:
-      "💕 **{user}** moli se za **{target}**!\n" +
-      "✨ Nebo čuje — **+{bonus}** 🪙 palo s neba! 🎉",
+      "✨ **{user}** se molio/la i...\n\n" +
+      "{result}",
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI (Custom) • Molitva",
@@ -1104,27 +924,22 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vers",
-    title: "✨  Vers — Drop the Mic",
+    title: "🎤  Vers — Hip Hop",
     description:
-      "> ✨\n" +
-      "> *Ovo je primjer versa koji korisnik pošalje*\n" +
-      "> *Svaki red je jedan stih*\n" +
-      "> ✨",
+      "🎵 **{user}** baca verse:\n\n" +
+      "```{verse}```",
     color: "#ec4899",
     category: "Fun",
-    footer: "GIANNI (Custom) • vers • drop the mic",
-    thumbnail: null,
-    fields: [
-      { name: "✨ Izvođač",              value: "{user}",        inline: true },
-      { name: "✨ Reakcije",  value: "`{reactions}`", inline: true },
-    ],
+    footer: "GIANNI (Custom) • Vers",
+    thumbnail: "{user.avatar}",
+    fields: [],
   },
   {
     name: "kompli",
-    title: "🌹  Kompliment",
+    title: "💌  Kompliment",
     description:
-      "💕 **{from}** kaže **{to}**:\n" +
-      "*\u201eTi si razlog zašto dan počinje sa osmijehom.\u201c* ✨",
+      "💕 **{from}** kaže **{to}**:\n\n" +
+      "*{compliment}*",
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI (Custom) • Kompliment",
@@ -1133,22 +948,22 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "fora",
-    title: "😏  Fora",
+    title: "😂  Fora",
     description:
-      "😸 **{from}** je pogledao/la **{to}** i shvatio/la:\n" +
-      "*\u201eBrate/sestro, ti si dokaz da evolucija nije uvijek napredak.\u201c* 😏",
+      "😏 **{from}** je pogledao/la **{to}** i shvatio/la:\n\n" +
+      "*{joke}*",
     color: "#ec4899",
     category: "Fun",
-    footer: "GIANNI (Custom) • Sve u šali!",
+    footer: "GIANNI (Custom) • Fora",
     thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "muv",
-    title: "✨  Muvanje",
+    title: "💘  Muvanje",
     description:
-      "😸 **{from}** → **{to}**:\n" +
-      "*\u201eJesi li ti WiFi? Jer osjećam konekciju između nas.\u201c* ✨",
+      "😍 **{from}** → **{to}**:\n\n" +
+      "*{pickup}*",
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI (Custom) • Balkan Muvanje",
@@ -1157,236 +972,281 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "crush",
-    title: "💕  Tajni Crush",
+    title: "💖  Crush",
     description:
-      "✨ Po zvijezdama i kafanskim računima...\n" +
-      "👑 Tvoj tajni crush je... **{crush}**! 😏",
+      "❤️ **{user}** ima crush na nekoga!\n" +
+      "Saznaj koga — svi glasajte!",
     color: "#ec4899",
     category: "Fun",
-    footer: "GIANNI (Custom) • Fun",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Crush",
+    thumbnail: "{user.avatar}",
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ LJUBAVNE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ LJUBAVNE ━━━━━━━━━━━━━━━━━━━━
   {
     name: "zagrljaj",
-    title: "✨  Zagrljaj",
+    title: "🤗  Zagrljaj",
     description:
-      "🐾 **{from}** grli **{to}**!\n" +
-      "✨ Aww, tako slatko! 💕",
+      "💕 **{from}** grli **{to}**!\n" +
+      "Budi slobodan/na primiti ovaj zagrljaj! 🫂",
     color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Zagrljaj",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "poljubac",
-    title: "✨  Poljubac",
+    title: "💋  Poljubac",
     description:
-      "💕 **{from}** šalje poljubac **{to}**!\n" +
-      "✨ Aww! ✨",
+      "😘 **{from}** šalje poljubac **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Poljubac",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "mazi",
-    title: "✨  Mazanje",
+    title: "🥰  Mazi",
     description:
-      "💕 **{from}** mazi **{to}** nježno!\n" +
-      "✨ Previše slatkoga! ✨",
+      "💕 **{from}** mazi **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Mazi",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "tapsi",
-    title: "🐾  Tapšanje",
+    title: "👏  Tapsi",
     description:
-      "🐾 **{from}** tapše **{to}** prijateljski!\n" +
-      "✨ Baš simpatično! ✨",
+      "🫶 **{from}** tapsi **{to}** po glavi!",
     color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Tapsi",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "high5",
-    title: "✨  High Five!",
+    title: "🙌  High Five!",
     description:
-      "✨ **{from}** daje peticu **{to}**!\n" +
-      "🐾 HIGH FIVE! ✨",
+      "✋ **{from}** daje high five **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • High Five",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "cudan",
-    title: "😏  Čudno Ponašanje",
+    title: "😅  Ćudan",
     description:
-      "😏 **{from}** se čudno ponaša prema **{to}**!\n" +
-      "😸 Ajde brate/sestro, malo normalnije! 😏",
-    color: "#e879f9",
+      "👀 **{from}** gleda čudno u **{to}**...\n" +
+      "Niko ne zna zašto! 🤔",
+    color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Ćudan",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "srce",
-    title: "✨  Srce",
+    title: "❤️  Srce",
     description:
-      "✨ **{from}** šalje srce **{to}**!\n" +
-      "💕 Aww! ✨ ✨",
+      "💕 **{from}** šalje srce **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Srce",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
   {
     name: "brak",
-    title: "✨  Prijedlog Braka!",
+    title: "💍  Prosidba!",
     description:
-      "💎 **{from}** je zaprosio/la **{to}**!\n" +
-      "💕 Hoćeš li? ✨ ✨",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "💒 **{from}** prosi **{to}**!\n" +
+      "👑 Hoćeš li prihvatiti?\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#FF85C8",
     category: "Ljubavne",
-    footer: "GIANNI (Custom) • Ljubavne",
-    thumbnail: null,
+    footer: "GIANNI (Custom) • Prosidba",
+    thumbnail: "{to.avatar}",
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━ INFO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ INFO ━━━━━━━━━━━━━━━━━━━━
   {
     name: "spotify",
-    title: "⭐  {trackTitle}",
+    title: "🎵  Spotify",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **Izvođač:** {artist}\n" +
-      "📝 **Album:** {album}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "`0:45` ▰▰▰▰▰▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱ `3:22`",
-    color: "#14b8a6",
+      "🎶 **{user}** sluša muziku:",
+    color: "#1DB954",
     category: "Info",
-    footer: "Spotify • GIANNI (Custom)",
+    footer: "GIANNI (Custom) • Spotify",
     thumbnail: "{albumArt}",
     fields: [
-      { name: "⭐ Žanr",      value: "{genre}",    inline: true  },
-      { name: "✨ Trajanje",         value: "{duration}", inline: true  },
-      { name: "⭐ Link",            value: "[Otvori na Spotifyju]({url})", inline: false },
+      { name: "🎵 Pjesma",   value: "**{song}**",   inline: true },
+      { name: "🎤 Izvođač",  value: "{artist}",     inline: true },
+      { name: "💽 Album",    value: "{album}",      inline: true },
     ],
   },
   {
     name: "invite",
-    title: "⭐  Statistika — {user}",
+    title: "📊  Statistika Pozivnica",
     description:
-      "➜ Pregled statistike korisnika na serveru:",
+      "📨 Pregled pozivnica za **{user}**:",
     color: "#14b8a6",
     category: "Info",
-    footer: "GIANNI (Custom) • {user} • ID: {userId}",
+    footer: "GIANNI (Custom) • Pozivnice",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "⭐ Poruka poslato",    value: "`{poruke}`",               inline: true  },
-      { name: "🐾 Doveo/la članova", value: "`{invites}`",              inline: true  },
-      { name: "⭐ Pridružio/la se",        value: "{joinedAt}",               inline: true  },
-      { name: "⭐ Invite link",            value: "`{inviteUses}` korišćenja", inline: false },
+      { name: "✅ Pozvano",     value: "`{invites}`",    inline: true },
+      { name: "🚪 Otišlo",      value: "`{left}`",       inline: true },
+      { name: "❌ Lažnih",      value: "`{fake}`",       inline: true },
     ],
   },
   {
     name: "avatar",
-    title: "⭐  Avatar — {user}",
+    title: "🖼️  Avatar — {user}",
     description:
-      "➜ [PNG]({png}) **·** ⭐ [JPG]({jpg}) **·** ⭐ [WEBP]({webp})",
+      "👤 Avatar od **{user}**:",
     color: "#14b8a6",
     category: "Info",
     footer: "GIANNI (Custom) • Avatar",
     thumbnail: null,
-    fields: [
-      { name: "🐾 Korisnik", value: "{user}",     inline: true },
-      { name: "⭐ ID",    value: "`{userId}`", inline: true },
-    ],
+    fields: [],
   },
   {
     name: "brojanje-info",
-    title: "⭐  Brojanje — Stanje",
+    title: "🔢  Brojanje — Stanje",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ **Kanal:** {channel}\n" +
-      "⭐ **Trenutno:** `{current}`\n" +
-      "⭐ **Sljedeći broj:** `{next}`\n" +
-      "🐾 **Zadnji brojao:** {lastUser}\n" +
-      "⭐ **Rekord:** `{highScore}`\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "📊 Trenutno stanje brojanja na serveru:",
     color: "#14b8a6",
     category: "Info",
     footer: "GIANNI (Custom) • Brojanje",
     thumbnail: null,
     fields: [
-      { name: "⭐ Status",  value: "`{status}`",  inline: true },
-      { name: "⭐ Rekord",          value: "`{record}`",  inline: true },
-      { name: "🔒 Zadnji propust",    value: "{lastFail}",  inline: true },
+      { name: "🔢 Broj",        value: "`{count}`",   inline: true },
+      { name: "👤 Zadnji",      value: "{lastUser}",  inline: true },
+      { name: "🏆 Rekord",      value: "`{record}`",  inline: true },
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ VATRICE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ SISTEM PANELI ━━━━━━━━━━━━━━━━━━━━
   {
-    name: "vatrice-pup",
-    title: "🔥  Top Lista — Vatrice",
+    name: "ticket",
+    title: "🎫  Podrška — Otvori Tiket",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "👑 **{top1}** — 🔥 `{top1count}`\n" +
-      "⭐ **{top2}** — 🔥 `{top2count}`\n" +
-      "✅ **{top3}** — 🔥 `{top3count}`\n" +
-      "⭐ **{top4}** — 🔥 `{top4count}`\n" +
-      "✨ **{top5}** — 🔥 `{top5count}`\n" +
+      "📩 Trebaš pomoć? Klikni dugme ispod!\n" +
+      "🛡️ Staff će ti odgovoriti što prije.\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#a78bfa",
+    category: "Sistem paneli",
+    footer: "GIANNI (Custom) • Support",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "ticket-otvoren",
+    title: "✅  Tiket Otvoren",
+    description:
+      "🎫 **{user}**, tiket je otvoren!\n\n" +
+      "📝 Opiši problem i staff će ti pomoći.\n" +
+      "⏳ Odgovor stiže što prije!",
+    color: "#22c55e",
+    category: "Sistem paneli",
+    footer: "GIANNI (Custom) • Tiket",
+    thumbnail: "{user.avatar}",
+    fields: [
+      { name: "🆔 Tiket ID", value: "`#{ticketId}`", inline: true },
+      { name: "📅 Otvoren",  value: "{date}",        inline: true },
+    ],
+  },
+  {
+    name: "staff-prijava",
+    title: "📋  Staff Prijava",
+    description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "⭐ Tvoje mjesto: **#{rank}** · Imaš: **{myCount}** vatrica",
+      "⭐ Želi postati staff?\n" +
+      "📝 Ispuni prijavu klikom na dugme!\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#a78bfa",
+    category: "Sistem paneli",
+    footer: "GIANNI (Custom) • Staff Prijava",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "private-vc",
+    title: "🎙️  Privatni Voice Kanal",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "🔒 Upravljaj privatnim voice kanalom!\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#a78bfa",
+    category: "Sistem paneli",
+    footer: "GIANNI (Custom) • Privatni VC",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "voice-pravila",
+    title: "🔊  Voice Pravila",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "📋 **Pravila za Voice kanale:**\n\n" +
+      "🔇 Ne uznemiravaj ostale\n" +
+      "🎵 Muzika samo uz pristanak\n" +
+      "🚫 Nema neprimjerenog sadržaja\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+    color: "#a78bfa",
+    category: "Sistem paneli",
+    footer: "GIANNI (Custom) • Voice Pravila",
+    thumbnail: null,
+    fields: [],
+  },
+
+  // ━━━━━━━━━━━━━━━━━━━━ VATRICE ━━━━━━━━━━━━━━━━━━━━
+  {
+    name: "vatrice-pup",
+    title: "🔥  Top Lista Vatrica",
+    description:
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "⭐ Najtopliji članovi servera:\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "{leaderboard}",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "GIANNI (Custom) • Vatrice Top Lista",
+    footer: "GIANNI (Custom) • Vatrice Top",
     thumbnail: null,
     fields: [],
   },
   {
     name: "vatrice-start",
-    title: "🔥  Vatrica Sistem — Aktiviran!",
+    title: "🔥  Vatrica Sistem — Pokrenut!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✅ Vatrica sistem je uspješno aktiviran!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "⭐ Svako **{prag}** poruka = **1 vatrica**\n" +
-      "⭐ Nick se automatski ažurira\n" +
-      "✨ Objave idu u {kanal}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "⭐ Vatrica sistem je aktivan!\n" +
+      "💬 Prikupljaj vatrice aktivnošću!",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "GIANNI (Custom) • Vatrice Sistem",
+    footer: "GIANNI (Custom) • Vatrice",
     thumbnail: null,
-    fields: [
-      { name: "🔥 Emoji",         value: "`{emoji}`",        inline: true },
-      { name: "⭐ Kanal",         value: "{kanal}",           inline: true },
-      { name: "💎 Prag",      value: "`{prag}` poruka",  inline: true },
-    ],
+    fields: [],
   },
   {
     name: "vatrice-kanal",
-    title: "⭐  Vatrica Kanal Postavljen",
+    title: "🔥  Vatrica Kanal Postavljen",
     description:
-      "✨ Objave vatrica idu od sada u {kanal}.\n" +
-      "✅ Postavka uspješno sačuvana!",
+      "📍 Kanal za vatrice: {channel}\n" +
+      "✅ Sve vatrice idu u ovaj kanal!",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "GIANNI (Custom) • Vatrice Sistem",
+    footer: "GIANNI (Custom) • Vatrice",
     thumbnail: null,
     fields: [],
   },
@@ -1394,50 +1254,39 @@ export const DEFAULT_EMBEDS = [
     name: "vatrice-oblik",
     title: "🔥  Vatrica Emoji Promijenjen",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ Emoji vatrice je uspješno promijenjen!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "✏️ Emoji za vatrice promijenjen!\n" +
+      "➜ Novi emoji: {emoji}",
     color: "#FF6A00",
     category: "Vatrice",
-    footer: "GIANNI (Custom) • Vatrice Sistem",
+    footer: "GIANNI (Custom) • Vatrice",
     thumbnail: null,
-    fields: [
-      { name: "🔒 Stari emoji",  value: "`{stari}`", inline: true },
-      { name: "✅ Novi emoji", value: "`{novi}`",  inline: true },
-    ],
+    fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━━ POO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ POO ━━━━━━━━━━━━━━━━━━━━
   {
     name: "poo",
-    title: "⭐  P O O  —  Stanje Kreature",
+    title: "💩  Poo — Stanje Kreature",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{emojiBar}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✅ **Zdravlje:** `{zdravlje}/100`\n" +
-      "💕 **Raspoloženje:** `{raspolozenje}`\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🐾 Ukupno čuvara: **{cuvari}**\n" +
-      "⭐ Završenih zadataka: **{zadaci}/100**",
+      "🐾 Tvoja Poo kreatura!\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#92400e",
     category: "Poo",
-    footer: "GIANNI (Custom) • Poo Sistem",
+    footer: "GIANNI (Custom) • Poo",
     thumbnail: null,
     fields: [
-      { name: "✅ Zdravlje",    value: "`{zdravlje}/100`", inline: true },
-      { name: "💕 Raspoloženje", value: "`{raspolozenje}`", inline: true },
-      { name: "⭐ Zadaci",        value: "`{zadaci}/100`",   inline: true },
+      { name: "❤️ Zdravlje",    value: "`{health}/100`",    inline: true },
+      { name: "😄 Sreća",       value: "`{happiness}/100`", inline: true },
+      { name: "🍖 Sitost",      value: "`{hunger}/100`",    inline: true },
     ],
   },
   {
     name: "poo-zadaci",
-    title: "⭐  P O O  —  Lista Zadataka",
+    title: "📋  Poo — Zadaci",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "💜 Poo zadaci — stranica **{str}/{ukupnoStr}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{zadaci}",
+      "✅ Ispuni zadatke da hraniš svoju Poo!\n\n" +
+      "{tasks}",
     color: "#92400e",
     category: "Poo",
     footer: "GIANNI (Custom) • Poo Zadaci",
@@ -1446,208 +1295,210 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-top",
-    title: "⭐  P O O  —  Top Čuvari",
+    title: "🏆  Poo — Top Čuvari",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "👑 **{top1}** — `{top1pts}` pts\n" +
-      "⭐ **{top2}** — `{top2pts}` pts\n" +
-      "✅ **{top3}** — `{top3pts}` pts\n" +
-      "💜 **{top4}** — `{top4pts}` pts\n" +
-      "➜ **{top5}** — `{top5pts}` pts\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "💩 Najbolji čuvari Poo kreatura:\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      "{leaderboard}",
     color: "#92400e",
     category: "Poo",
-    footer: "GIANNI (Custom) • Poo Top Lista",
+    footer: "GIANNI (Custom) • Poo Top",
     thumbnail: null,
     fields: [],
   },
   {
     name: "poo-hrani",
-    title: "⭐  P O O  —  Hranjen!",
+    title: "🍖  Poo — Hranjena!",
     description:
-      "🐾 **{user}** je hranio/la Poo-a! 🎉\n" +
-      "🪙 Potrošeno: **200 coina**\n\n" +
-      "{emojiBar}\n" +
-      "✅ **Zdravlje:** `{zdravlje}/100` **(+{bonus})**",
-    color: "#92400e",
+      "✅ **{user}** je hranio/la svoju Poo!\n" +
+      "😄 Sreća: +{happiness} | 🍖 Sitost: +{hunger}",
+    color: "#22c55e",
     category: "Poo",
-    footer: "GIANNI (Custom) • Poo Sistem",
+    footer: "GIANNI (Custom) • Poo Hrani",
     thumbnail: null,
-    fields: [
-      { name: "✅ Novo zdravlje", value: "`{zdravlje}/100`", inline: true },
-      { name: "🪙 Trošak",            value: "`200` 🪙",          inline: true },
-    ],
+    fields: [],
   },
   {
     name: "poo-info",
-    title: "⭐  P O O  —  Moj Doprinos",
+    title: "📊  Poo — Moj Doprinos",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🐾 **{user}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{progres}",
+      "🐾 **{user}** briga o Poo kreaturama:",
     color: "#92400e",
     category: "Poo",
-    footer: "GIANNI (Custom) • Poo Sistem",
+    footer: "GIANNI (Custom) • Poo Info",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "✅ Završenih zadataka", value: "`{zavrseni}`", inline: true },
-      { name: "⭐ Bodova ukupno",       value: "`{bodovi}`",   inline: true },
-      { name: "⭐ Rang",               value: "`#{rang}`",    inline: true },
+      { name: "🍖 Hranjenja", value: "`{feedings}`", inline: true },
+      { name: "⭐ Doprinos",  value: "`{score}`",    inline: true },
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ ADMIN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ ADMIN ━━━━━━━━━━━━━━━━━━━━
   {
     name: "backup",
-    title: "⭐  B A C K U P  —  Snimljen",
+    title: "💾  Backup — Snimljen",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✅ Backup je uspješno snimljen!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "✅ Server backup uspješno snimljen!\n" +
+      "📅 Datum: **{datum}**",
     color: "#64748b",
     category: "Admin",
-    footer: "GIANNI (Custom) • Backup Sistem",
+    footer: "GIANNI (Custom) • Backup",
     thumbnail: null,
     fields: [
-      { name: "⭐ Datum",                          value: "{datum}",    inline: true },
-      { name: "💎 Veličina",                   value: "{velicina}", inline: true },
-      { name: "➜ Lokacija",       value: "Discord DM", inline: true },
+      { name: "💾 Veličina",   value: "`{size}`",    inline: true },
+      { name: "📅 Sljedeći",   value: "{next}",      inline: true },
     ],
   },
   {
     name: "backup-restore",
-    title: "⭐  B A C K U P  —  Vraćen",
+    title: "♻️  Backup — Vraćen",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✅ Backup je uspješno vraćen!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ Svi podaci su prepisani backupom od **{datum}**.",
+      "✅ Server backup vraćen!\n" +
+      "➜ Svi podaci prepisani backupom od **{datum}**.",
     color: "#64748b",
     category: "Admin",
-    footer: "GIANNI (Custom) • Backup Vraćen",
+    footer: "GIANNI (Custom) • Backup Restore",
     thumbnail: null,
-    fields: [
-      { name: "⭐ Backup datum",          value: "{datum}",    inline: true },
-      { name: "🐾 Pokrenuo/la",     value: "{korisnik}", inline: true },
-    ],
+    fields: [],
   },
   {
     name: "backup-status",
-    title: "⭐  B A C K U P  —  Status",
+    title: "📊  Backup — Status",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ Cloud backup istorija:\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{historija}",
+      "💾 Pregled backup stanja:",
     color: "#64748b",
     category: "Admin",
-    footer: "GIANNI (Custom) • Backup Sistem",
+    footer: "GIANNI (Custom) • Backup Status",
     thumbnail: null,
     fields: [
-      { name: "✅ Ukupno backupa",    value: "`{ukupno}`",  inline: true },
-      { name: "⭐ Zadnji",                   value: "{zadnji}",    inline: true },
-      { name: "💜 Veličina",      value: "{velicina}",  inline: true },
+      { name: "✅ Zadnji backup",  value: "{lastBackup}", inline: true },
+      { name: "📁 Ukupno",         value: "`{count}`",    inline: true },
+    ],
+  },
+  {
+    name: "report-closed",
+    title: "✅  Report Zatvoren",
+    description:
+      "🔒 Prijava je zatvoren od strane **{mod}**.\n\n" +
+      "📋 **Ishod:** {outcome}",
+    color: "#64748b",
+    category: "Admin",
+    footer: "GIANNI (Custom) • Report Zatvoren",
+    thumbnail: null,
+    fields: [],
+  },
+  {
+    name: "report-nova",
+    title: "🚨  Nova Prijava",
+    description:
+      "⚠️ **{reporter}** prijavio/la **{reported}**!\n\n" +
+      "📋 **Razlog:** {reason}",
+    color: "#64748b",
+    category: "Admin",
+    footer: "GIANNI (Custom) • Nova Prijava",
+    thumbnail: null,
+    fields: [
+      { name: "🆔 ID",     value: "`{reportId}`", inline: true },
+      { name: "📅 Datum",  value: "{date}",       inline: true },
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ MUZIKA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ MUZIKA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "music-play",
-    title: "⭐  Sada Svira",
+    title: "▶️  Now Playing",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ **[{title}]({url})**\n" +
-      "💜 {author} · `{duration}`\n" +
+      "🎵 **{title}**\n" +
+      "🎤 Izvođač: **{artist}**\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI (Custom) • Muzika",
     thumbnail: "{thumbnail}",
     fields: [
-      { name: "⭐ Dodao/la",      value: "{requester}",         inline: true },
-      { name: "💎 Glasnoća",  value: "`{volume}%`",          inline: true },
-      { name: "⭐ Red čekanja",   value: "`{queueSize}` pjesme", inline: true },
+      { name: "⏱️ Trajanje",  value: "`{duration}`", inline: true },
+      { name: "🔊 Glasnoća",  value: "`{volume}%`",  inline: true },
+      { name: "👤 Tražio/la", value: "{requester}",  inline: true },
     ],
   },
   {
     name: "music-queue",
-    title: "⭐  Red — Muzika",
+    title: "📜  Red Čekanja",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ **Sada svira:**\n" +
-      "**[{currentTitle}]({currentUrl})** · `{currentDuration}`\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{queueList}",
+      "🎵 **Trenutno:** {current}\n\n" +
+      "📋 **Sljedeće:**\n{queue}\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#8b5cf6",
     category: "Muzika",
-    footer: "GIANNI (Custom) • Muzika • Strana {page}/{totalPages}",
+    footer: "GIANNI (Custom) • Queue",
     thumbnail: null,
     fields: [
-      { name: "💎 Ukupno u redu", value: "`{queueSize}` pjesme", inline: true },
-      { name: "⭐ Ukupno trajanje",   value: "`{totalDuration}`",    inline: true },
+      { name: "🎵 Pjesama u redu", value: "`{count}`", inline: true },
     ],
   },
   {
     name: "music-skip",
-    title: "⭐  Preskočeno",
+    title: "⏭️  Preskočeno",
     description:
-      "✨ **{user}** je preskočio/la: **{title}**\n" +
-      "📝 Sljedeće: **{next}**",
+      "⏭️ **{user}** je preskočio/la: **{title}**\n" +
+      "▶️ Sljedeće: **{next}**",
     color: "#8b5cf6",
     category: "Muzika",
-    footer: "GIANNI (Custom) • Muzika",
+    footer: "GIANNI (Custom) • Skip",
     thumbnail: null,
     fields: [],
   },
   {
     name: "music-pause",
-    title: "⭐  Pauzirano",
+    title: "⏸️  Pauzirano",
     description:
-      "💜 Muzika je pauzirana.\n" +
-      "➜ Napiši `/resume` da nastaviš.",
+      "⏸️ Muzika pauzirana od **{user}**.\n" +
+      "▶️ Nastavi sa `/resume`.",
     color: "#8b5cf6",
     category: "Muzika",
-    footer: "GIANNI (Custom) • Muzika",
+    footer: "GIANNI (Custom) • Pauza",
     thumbnail: null,
     fields: [],
   },
   {
     name: "music-stop",
-    title: "⭐  Muzika Zaustavljena",
+    title: "⏹️  Zaustavljeno",
     description:
-      "💜 **{user}** je zaustavio/la muziku i obrisao/la red.\n" +
-      "🐾 Vidimo se sljedeći put!",
+      "⏹️ **{user}** je zaustavio/la muziku.\n" +
+      "🎵 Red čekanja obrisan.",
     color: "#8b5cf6",
     category: "Muzika",
-    footer: "GIANNI (Custom) • Muzika",
+    footer: "GIANNI (Custom) • Stop",
     thumbnail: null,
     fields: [],
   },
   {
     name: "music-lyrics",
-    title: "⭐  Tekst Pjesme — {title}",
+    title: "📝  Tekst Pjesme",
     description:
+      "🎵 **{title}** — {artist}\n\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{lyrics}\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#8b5cf6",
     category: "Muzika",
-    footer: "GIANNI (Custom) • Lyrics • {author}",
+    footer: "GIANNI (Custom) • Lyrics",
     thumbnail: null,
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━ VERIFIKACIJA ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ VERIFIKACIJA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "verify-panel",
-    title: "⭐  V E R I F I K A C I J A",
+    title: "🛡️  Verifikacija",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ Klikni dugme ispod da potvrdiš da nisi bot!\n" +
-      "⭐ Dobijate pristup svim kanalima nakon verifikacije.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **discord.gg/gian**",
+      "✅ Verificiraj se da pristupiš serveru!\n" +
+      "🔒 Klikni dugme ispod.\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#06b6d4",
     category: "Verifikacija",
     footer: "GIANNI (Custom) • Verifikacija",
@@ -1656,12 +1507,11 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "verify-success",
-    title: "⭐  Verifikacija Uspješna!",
+    title: "✅  Verifikacija Uspješna!",
     description:
-      "✨ **{user}** — Dobrodošao/la! 💕\n" +
-      "⭐ Verifikacija je prošla. Uživaj na serveru!\n" +
-      "➜ Dobio/la si ulogu: <@&{roleId}>",
-    color: "#06b6d4",
+      "🎉 **{user}**, uspješno si verificiran/a!\n" +
+      "🚀 Dobrodošao/la na server!",
+    color: "#22c55e",
     category: "Verifikacija",
     footer: "GIANNI (Custom) • Verifikacija",
     thumbnail: "{user.avatar}",
@@ -1669,10 +1519,10 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "verify-fail",
-    title: "⭐  Verifikacija Neuspješna",
+    title: "❌  Verifikacija Neuspješna",
     description:
-      "⭐ Verifikacija nije prošla. Pokušaj ponovo!\n" +
-      "➜ Ako imaš problema, kontaktiraj staff.",
+      "⚠️ **{user}**, verifikacija nije uspjela.\n" +
+      "🔄 Pokušaj ponovo.",
     color: "#ef4444",
     category: "Verifikacija",
     footer: "GIANNI (Custom) • Verifikacija",
@@ -1680,52 +1530,48 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━━━━━ ANKETE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ ANKETE ━━━━━━━━━━━━━━━━━━━━
   {
     name: "poll-create",
-    title: "⭐  A N K E T A",
+    title: "🗳️  Nova Anketa",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{question}**\n" +
+      "❓ **{question}**\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "⭐ Glasaj koristeći reakcije ispod!",
+      "{options}",
     color: "#f43f5e",
     category: "Ankete",
-    footer: "GIANNI (Custom) • Anketa • Završava za {duration}",
+    footer: "GIANNI (Custom) • Anketa",
     thumbnail: null,
     fields: [
-      { name: "1️⃣ Opcija A", value: "{optionA}", inline: true },
-      { name: "2️⃣ Opcija B", value: "{optionB}", inline: true },
-      { name: "3️⃣ Opcija C", value: "{optionC}", inline: true },
+      { name: "⏰ Završava", value: "{endTime}", inline: true },
     ],
   },
   {
     name: "poll-results",
-    title: "⭐  Anketa — Rezultati",
+    title: "📊  Rezultati Ankete",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{question}**\n" +
+      "❓ **{question}**\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{resultsBar}",
+      "{results}",
     color: "#f43f5e",
     category: "Ankete",
-    footer: "GIANNI (Custom) • Anketa završena • Glasova: {totalVotes}",
+    footer: "GIANNI (Custom) • Anketa Rezultati",
     thumbnail: null,
     fields: [
-      { name: "⭐ Pobjednik",  value: "**{winner}** — `{winnerPercent}%`", inline: true },
-      { name: "⭐ Ukupno glasova",   value: "`{totalVotes}`",                    inline: true },
+      { name: "👥 Ukupno glasova", value: "`{total}`", inline: true },
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ REACTION ROLES ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  // ━━━━━━━━━━━━━━━━━━━━ REACTION ROLES ━━━━━━━━━━━━━━━━━━━━
   {
     name: "rr-panel",
-    title: "💜  U L O G E  —  Odaberi Svoju",
+    title: "🏷️  Reaction Roles",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "➜ Klikni na reakciju i dobij/skini ulogu!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{roleList}",
+      "🎭 Odaberi svoju ulogu klikom na dugme!\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
     color: "#d946ef",
     category: "Reaction Roles",
     footer: "GIANNI (Custom) • Reaction Roles",
@@ -1736,59 +1582,26 @@ export const DEFAULT_EMBEDS = [
     name: "rr-add",
     title: "✅  Uloga Dodana",
     description:
-      "✨ **{user}** — dobio/la si ulogu <@&{roleId}>!\n" +
-      "💕 Uživaj u novoj ulozi!",
-    color: "#d946ef",
+      "🎭 **{user}** dobio/la ulogu **{role}**!",
+    color: "#22c55e",
     category: "Reaction Roles",
     footer: "GIANNI (Custom) • Reaction Roles",
-    thumbnail: "{user.avatar}",
+    thumbnail: null,
     fields: [],
   },
   {
     name: "rr-remove",
-    title: "⭐  Uloga Skinuta",
+    title: "❌  Uloga Skinuta",
     description:
-      "💜 **{user}** — uloga <@&{roleId}> je skinuta.\n" +
-      "➜ Možeš je ponovo dodati kada želiš!",
+      "🎭 **{user}** izgubio/la ulogu **{role}**.",
     color: "#d946ef",
     category: "Reaction Roles",
     footer: "GIANNI (Custom) • Reaction Roles",
-    thumbnail: "{user.avatar}",
-    fields: [],
-  },
-
-  // ━━━━━━━━━━━━━━━━━━━━━━━ REPORT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  {
-    name: "report-nova",
-    title: "⭐  Nova Prijava — Report",
-    description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "✨ **{reporter}** je prijavio/la **{target}**!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🛡️ Razlog: **{reason}**",
-    color: "#ef4444",
-    category: "Admin",
-    footer: "GIANNI (Custom) • Report Sistem",
-    thumbnail: "{target.avatar}",
-    fields: [
-      { name: "💜 Prijavio/la",    value: "{reporter}", inline: true },
-      { name: "🛡️ Prijavljeni",    value: "{target}",   inline: true },
-      { name: "⭐ Datum",                     value: "{date}",     inline: true },
-    ],
-  },
-  {
-    name: "report-closed",
-    title: "⭐  Report Zatvoren",
-    description:
-      "✨ Report #**{id}** je zatvoren od strane **{mod}**.\n" +
-      "✅ Akcija: **{action}**",
-    color: "#64748b",
-    category: "Admin",
-    footer: "GIANNI (Custom) • Report Sistem",
     thumbnail: null,
     fields: [],
   },
-];
+]
+
 
 async function loadEmbeds(): Promise<typeof DEFAULT_EMBEDS> {
   const conn = await getDb();
