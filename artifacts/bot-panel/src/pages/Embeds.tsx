@@ -1461,11 +1461,14 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
   const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
 
   // Welcome card specific state
-  const [cardDesc,    setCardDesc]    = useState<string>((embed as any).cardDesc    ?? "Drago nam je sto si stigao/la u nasu zajednicu!");
-  const [cardItem1,   setCardItem1]   = useState<string>((embed as any).cardItem1   ?? "Procitaj pravila");
-  const [cardItem2,   setCardItem2]   = useState<string>((embed as any).cardItem2   ?? "Odaberi role");
-  const [cardItem3,   setCardItem3]   = useState<string>((embed as any).cardItem3   ?? "Predstavi se zajednici");
-  const [cardClosing, setCardClosing] = useState<string>((embed as any).cardClosing ?? "Uzivaj i zabavi se!");
+  const [cardDesc,       setCardDesc]       = useState<string>((embed as any).cardDesc       ?? "Drago nam je sto si stigao/la u nasu zajednicu!");
+  const [cardItem1,      setCardItem1]      = useState<string>((embed as any).cardItem1      ?? "Procitaj pravila");
+  const [cardItem2,      setCardItem2]      = useState<string>((embed as any).cardItem2      ?? "Odaberi role");
+  const [cardItem3,      setCardItem3]      = useState<string>((embed as any).cardItem3      ?? "Predstavi se zajednici");
+  const [cardClosing,    setCardClosing]    = useState<string>((embed as any).cardClosing    ?? "Uzivaj i zabavi se!");
+  const [item1ChannelId, setItem1ChannelId] = useState<string>((embed as any).item1ChannelId ?? "");
+  const [item2ChannelId, setItem2ChannelId] = useState<string>((embed as any).item2ChannelId ?? "");
+  const [item3ChannelId, setItem3ChannelId] = useState<string>((embed as any).item3ChannelId ?? "");
   const [cardPreviewUrl, setCardPreviewUrl] = useState<string>("");
 
   // Resizable panel state
@@ -1513,6 +1516,9 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
     setCardItem2((embed as any).cardItem2 ?? "Odaberi role");
     setCardItem3((embed as any).cardItem3 ?? "Predstavi se zajednici");
     setCardClosing((embed as any).cardClosing ?? "Uzivaj i zabavi se!");
+    setItem1ChannelId((embed as any).item1ChannelId ?? "");
+    setItem2ChannelId((embed as any).item2ChannelId ?? "");
+    setItem3ChannelId((embed as any).item3ChannelId ?? "");
   }, [embed.name]);
 
   // Debounced card preview URL — rebuild 500ms after any card field changes
@@ -1542,7 +1548,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
 
   const handleSave = () => {
     updateEmbedMutation.mutate(
-      { name: embed.name, data: { title, description, color, bgColor, fields, buttons, cardDesc, cardItem1, cardItem2, cardItem3, cardClosing } as any },
+      { name: embed.name, data: { title, description, color, bgColor, fields, buttons, cardDesc, cardItem1, cardItem2, cardItem3, cardClosing, item1ChannelId, item2ChannelId, item3ChannelId } as any },
       {
         onSuccess: () => {
           toast({ title: "Embed sacuvan" });
@@ -1632,11 +1638,56 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
                 <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide mb-2 block">Opis (ispod pozdrava)</Label>
                 <Input value={cardDesc} onChange={e => setCardDesc(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Drago nam je sto si stigao/la..." />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide block">Stavke liste</Label>
-                <Input value={cardItem1} onChange={e => setCardItem1(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Stavka 1" />
-                <Input value={cardItem2} onChange={e => setCardItem2(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Stavka 2" />
-                <Input value={cardItem3} onChange={e => setCardItem3(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Stavka 3" />
+                {([
+                  { text: cardItem1, setText: setCardItem1, chId: item1ChannelId, setChId: setItem1ChannelId, placeholder: "Procitaj pravila" },
+                  { text: cardItem2, setText: setCardItem2, chId: item2ChannelId, setChId: setItem2ChannelId, placeholder: "Odaberi role" },
+                  { text: cardItem3, setText: setCardItem3, chId: item3ChannelId, setChId: setItem3ChannelId, placeholder: "Predstavi se zajednici" },
+                ]).map(({ text, setText, chId, setChId, placeholder }, idx) => {
+                  const allChannels: DiscordChannel[] = [
+                    ...(channelData?.categories.flatMap(c => c.channels) ?? []),
+                    ...(channelData?.uncategorized ?? []),
+                  ];
+                  const linked = allChannels.find(c => c.id === chId);
+                  return (
+                    <div key={idx} className="bg-[#1E1F22] rounded-md p-2.5 space-y-2 border border-[#2B2D31]">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-bold text-[#57F287] uppercase tracking-wide w-4 flex-shrink-0">{idx + 1}.</span>
+                        <Input
+                          value={text}
+                          onChange={e => setText(e.target.value)}
+                          className="bg-[#2B2D31] border-[#404249] text-[#F2F3F5] text-sm h-7"
+                          placeholder={placeholder}
+                        />
+                      </div>
+                      <div>
+                        <select
+                          value={chId}
+                          onChange={e => setChId(e.target.value)}
+                          className="w-full bg-[#2B2D31] border border-[#404249] text-[#F2F3F5] text-sm rounded-md px-2 h-8"
+                        >
+                          <option value="">— Poveži kanal (opcionalno) —</option>
+                          {(channelData?.categories ?? []).map(cat => (
+                            <optgroup key={cat.id} label={cat.name}>
+                              {cat.channels.filter(c => c.type === 0).map(c => (
+                                <option key={c.id} value={c.id}>#{c.name}</option>
+                              ))}
+                            </optgroup>
+                          ))}
+                          {(channelData?.uncategorized ?? []).filter(c => c.type === 0).map(c => (
+                            <option key={c.id} value={c.id}>#{c.name}</option>
+                          ))}
+                        </select>
+                        {linked && (
+                          <p className="text-[10px] text-[#57F287] mt-1 flex items-center gap-1">
+                            <span>✓</span> #{linked.name}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
               <div>
                 <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide mb-2 block">Završni tekst</Label>
