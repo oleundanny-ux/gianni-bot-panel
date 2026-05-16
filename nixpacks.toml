@@ -1,14 +1,10 @@
 [phases.setup]
 nixPkgs = ["nodejs_20"]
 
-[phases.install]
-cmds = [
-  "npm install -g pnpm@9",
-  "pnpm install"
-]
-
 [phases.build]
 cmds = [
+  "npm install -g pnpm@9 --quiet",
+  "pnpm install --frozen-lockfile",
   "pnpm --filter @workspace/api-server run build",
   "cp artifacts/api-server/dist/index.mjs index.mjs",
   "cp artifacts/api-server/dist/pino-worker.mjs pino-worker.mjs",
