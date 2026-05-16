@@ -1929,8 +1929,12 @@ async def on_member_join(member):
             ))
 
     if _card_file:
-        # Kartica sadrži sve vizualno uključujući dugmad — bez duplog view-a ispod
-        await chan.send(content=member.mention, file=_card_file)
+        # Kartica unutar Discord embeda — boja na rubu, footer, dugmad
+        _card_embed = discord.Embed(color=_wc if _pw else 0x2B2D3A)
+        _card_embed.set_image(url="attachment://welcome.png")
+        _footer_text = _wev(_pw.get("footer") or f"{BOT_NAME} • Welcome") if _pw else f"{BOT_NAME} • Welcome"
+        _card_embed.set_footer(text=_footer_text, icon_url=member.guild.icon.url if member.guild.icon else None)
+        await chan.send(content=member.mention, file=_card_file, embed=_card_embed, view=wv)
     else:
         await chan.send(content=member.mention, embed=e, view=wv)
 
