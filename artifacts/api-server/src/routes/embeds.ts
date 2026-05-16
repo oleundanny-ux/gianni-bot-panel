@@ -28,7 +28,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ SISTEM ━━━━━━━━━━━━━━━━━━━━
   {
     name: "welcome",
-    title: "Dobrodosao/la, {user}!",
+    title: "👋 Dobrodosao/la, {user}!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Drago nam je sto si ovdje!\n" +
@@ -47,7 +47,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "leave",
-    title: "{user} je napustio/la server",
+    title: "👋 {user} je napustio/la server",
     description:
       "Zao nam je sto si otisao/la.\n" +
       "Uvijek si dobrodosao/la nazad!",
@@ -62,7 +62,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "dm-welcome",
-    title: "Dobrodosao/la na GIAN, {user}!",
+    title: "📬 Dobrodosao/la na GIAN, {user}!",
     description:
       "Hvala ti sto si se pridruzio/la!\n\n" +
       "discord.gg/gian\n\n" +
@@ -76,7 +76,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "boost",
-    title: "BOOST — Hvala ti, {user}!",
+    title: "🚀 BOOST — Hvala ti, {user}!",
     description:
       "**{user}** je upravo **boostovao server**!\n" +
       "Hvala ti na podrsci — server je sad jos jaci!",
@@ -92,7 +92,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "birthday",
-    title: "Sretan Rodjendan, {user}!",
+    title: "🎂 Sretan Rodjendan, {user}!",
     description:
       "Danas je poseban dan za **{user}**!\n\n" +
       "Svi mu/joj cestitajte!\n" +
@@ -108,7 +108,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "starboard",
-    title: "Zvjezdana poruka!",
+    title: "⭐ Zvjezdana poruka!",
     description:
       "Ova poruka je dobila **{stars}** zvjezdica!\n" +
       "Kanal: {channel}\n" +
@@ -121,7 +121,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "aotw",
-    title: "Aktivni Clan Sedmice",
+    title: "🏆 Aktivni Clan Sedmice",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Cestitamo **{user}** na tituli!\n" +
@@ -140,7 +140,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ LOG ━━━━━━━━━━━━━━━━━━━━
   {
     name: "log-join",
-    title: "Novi Clan",
+    title: "📥 Novi Clan",
     description:
       "**{user}** se pridruzio serveru.\n" +
       "Registracija: {accountAge}",
@@ -155,7 +155,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "log-edit",
-    title: "Poruka Editovana",
+    title: "✏️ Poruka Editovana",
     description:
       "**{user}** je izmjenio/la poruku u {channel}.\n\n" +
       "**Stara poruka:**\n`{oldContent}`\n\n" +
@@ -168,7 +168,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "log-delete",
-    title: "Poruka Obrisana",
+    title: "🗑️ Poruka Obrisana",
     description:
       "**{user}** je obrisao/la poruku u {channel}.\n\n" +
       "**Sadrzaj:**\n`{content}`",
@@ -180,7 +180,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "report",
-    title: "Prijava clana",
+    title: "📋 Prijava clana",
     description:
       "**{reporter}** je prijavio/la **{reported}**.\n\n" +
       "**Razlog:** {reason}",
@@ -197,7 +197,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ MODERACIJA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "warn",
-    title: "Upozorenje",
+    title: "⚠️ Upozorenje",
     description:
       "**{user}** je dobio/la upozorenje.\n\n" +
       "**Razlog:** {reason}",
@@ -212,7 +212,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "ban",
-    title: "Clan Banovan",
+    title: "🔨 Clan Banovan",
     description:
       "**{user}** je banovan sa servera.\n\n" +
       "**Razlog:** {reason}",
@@ -227,7 +227,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-kick",
-    title: "Clan Kickovan",
+    title: "👟 Clan Kickovan",
     description:
       "**{user}** je izbacen sa servera.\n\n" +
       "**Razlog:** {reason}",
@@ -241,7 +241,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-mute",
-    title: "Clan Mutovan",
+    title: "🔇 Clan Mutovan",
     description:
       "**{user}** je mutovan.\n\n" +
       "**Razlog:** {reason}",
@@ -256,7 +256,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-unmute",
-    title: "Clan Odmutovan",
+    title: "🔊 Clan Odmutovan",
     description: "**{user}** je odmutovan — moze opet pisati.",
     color: "#22c55e",
     category: "Moderacija",
@@ -268,7 +268,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-timeout",
-    title: "Timeout",
+    title: "⏰ Timeout",
     description:
       "**{user}** je stavljen u timeout.\n\n" +
       "**Razlog:** {reason}",
@@ -283,7 +283,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-purge",
-    title: "Poruke Obrisane",
+    title: "🧹 Poruke Obrisane",
     description: "**{mod}** je obrisao/la **{count}** poruka u {channel}.",
     color: "#ef4444",
     category: "Moderacija",
@@ -293,7 +293,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mod-unban",
-    title: "Clan Odbanovan",
+    title: "🔓 Clan Odbanovan",
     description:
       "**{user}** je odbanovan sa servera.\n" +
       "Dobrodosao/la nazad!",
@@ -309,7 +309,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ XP ━━━━━━━━━━━━━━━━━━━━
   {
     name: "levelup",
-    title: "Level Up, {user}!",
+    title: "⬆️ Level Up, {user}!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Dostigao/la si novi nivo!\n" +
@@ -326,7 +326,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrica-nova",
-    title: "Nova Vatrica, {user}!",
+    title: "🔥 Nova Vatrica, {user}!",
     description:
       "**{user}** je zaradio/la novu vatricu!\n" +
       "Ukupno vatrica: **{count}**",
@@ -338,7 +338,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "aktivnost",
-    title: "Aktivnost",
+    title: "📊 Aktivnost",
     description: "Pregled aktivnosti za **{user}**:",
     color: "#22c55e",
     category: "XP",
@@ -352,7 +352,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rank",
-    title: "Rank — {user}",
+    title: "🏅 Rank — {user}",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Tvoj trenutni rank profil:",
@@ -370,7 +370,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "leaderboard-xp",
-    title: "Top Lista — XP",
+    title: "🏆 Top Lista — XP",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Najaktivniji clanovi servera:\n" +
@@ -384,7 +384,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "leaderboard-novac",
-    title: "Top Lista — Novac",
+    title: "💰 Top Lista — Novac",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Najbogatiji clanovi servera:\n" +
@@ -400,7 +400,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ EKONOMIJA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "heist",
-    title: "Razboj u pripremi!",
+    title: "⚔️ Razboj u pripremi!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{user}** planira pljacku banke!\n" +
@@ -418,7 +418,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "lottery",
-    title: "Sedmicna Loto!",
+    title: "🎰 Sedmicna Loto!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Kupi tiket i osvoji jackpot!\n" +
@@ -436,7 +436,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "quests",
-    title: "Dnevni Zadaci",
+    title: "📜 Dnevni Zadaci",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Ispuni zadatke i osvoji nagrade!\n" +
@@ -450,7 +450,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "giveaway",
-    title: "Nagradna Igra!",
+    title: "🎁 Nagradna Igra!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{host}** pokrce nagradnu igru!\n" +
@@ -467,7 +467,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "giveaway-end",
-    title: "Nagradna Igra Zavrsena!",
+    title: "🏆 Nagradna Igra Zavrsena!",
     description:
       "Nagradna igra je gotova!\n\n" +
       "**Pobjednici:**\n{winners}",
@@ -479,7 +479,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-balance",
-    title: "Balans — {user}",
+    title: "💳 Balans — {user}",
     description: "Pregled tvog racuna:",
     color: "#f97316",
     category: "Ekonomija",
@@ -493,7 +493,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-daily",
-    title: "Dnevna Nagrada!",
+    title: "💰 Dnevna Nagrada!",
     description:
       "**{user}** je preuzeo/la dnevnu nagradu!\n" +
       "Sljedeca nagrada za: **24h**",
@@ -508,7 +508,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-work",
-    title: "Posao",
+    title: "💼 Posao",
     description: "**{user}** je radio/la kao **{job}** i zaradio/la!",
     color: "#f97316",
     category: "Ekonomija",
@@ -521,7 +521,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-shop",
-    title: "Shop",
+    title: "🛒 Shop",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Dostupni predmeti:\n" +
@@ -535,7 +535,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-buy",
-    title: "Kupovina Uspjesna!",
+    title: "✅ Kupovina Uspjesna!",
     description:
       "**{user}** je kupio/la **{item}}**!\n" +
       "Potroseno: `{price}`",
@@ -547,7 +547,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-transfer",
-    title: "Transfer Kovanica",
+    title: "💸 Transfer Kovanica",
     description: "**{from}** je poslao/la **{amount}** korisniku **{to}**!",
     color: "#f97316",
     category: "Ekonomija",
@@ -557,7 +557,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "eco-rob",
-    title: "Pljacka!",
+    title: "🏴‍☠️ Pljacka!",
     description:
       "**{robber}** je pokusao/la opljackati **{victim}**!\n\n" +
       "{result}",
@@ -574,7 +574,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ IGRE ━━━━━━━━━━━━━━━━━━━━
   {
     name: "slots",
-    title: "Slot Masina",
+    title: "🎰 Slot Masina",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{user}** vrti slotove!\n\n" +
@@ -592,7 +592,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "blackjack",
-    title: "Blackjack",
+    title: "🃏 Blackjack",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{user}** igra blackjack!\n" +
@@ -609,7 +609,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-lobby",
-    title: "Poker — Lobby",
+    title: "🃏 Poker — Lobby",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{host}** otvara poker stol!\n" +
@@ -626,7 +626,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-game",
-    title: "Poker — U Toku",
+    title: "🃏 Poker — U Toku",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Runda **{round}** — {phase}\n" +
@@ -643,7 +643,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poker-showdown",
-    title: "Poker — Showdown!",
+    title: "🃏 Poker — Showdown!",
     description:
       "**{winner}** pobijedio/la!\n\n" +
       "Pobjednicka kombinacija: **{hand}**",
@@ -657,7 +657,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-lobby",
-    title: "Among Us — Lobby",
+    title: "🚀 Among Us — Lobby",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{host}** otvara igru!\n" +
@@ -671,7 +671,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-game",
-    title: "Among Us — U Toku",
+    title: "🚀 Among Us — U Toku",
     description:
       "Imposter je medu nama...\n\n" +
       "Preostalo igraca: **{alive}**\n" +
@@ -684,7 +684,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "among-us-end",
-    title: "Among Us — Kraj",
+    title: "🚀 Among Us — Kraj",
     description:
       "Igra je zavrsena!\n\n" +
       "**Pobjednici:** {winners}\n" +
@@ -697,7 +697,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kaladont-start",
-    title: "Kaladont — Start!",
+    title: "📝 Kaladont — Start!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Igra pocinje! Prva rijec:\n" +
@@ -711,7 +711,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kaladont-active",
-    title: "Kaladont — Na redu: {user}",
+    title: "📝 Kaladont — Na redu: {user}",
     description:
       "**{user}**, tvoj red!\n\n" +
       "Zadnje slovo: **{letter}**\n" +
@@ -724,7 +724,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kaladont-word",
-    title: "Kaladont — Prihvaceno!",
+    title: "✅ Kaladont — Prihvaceno!",
     description:
       "**{user}** je rekao/la: **{word}**\n" +
       "Sljedece slovo: **{nextLetter}**",
@@ -736,7 +736,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kaladont-win",
-    title: "Kaladont — Pobjeda!",
+    title: "🏆 Kaladont — Pobjeda!",
     description:
       "**{winner}** pobijedio/la!\n" +
       "Nagrada: `+{reward}`",
@@ -748,7 +748,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "bingo",
-    title: "Bingo!",
+    title: "🎱 Bingo!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Izvuceni brojevi:\n" +
@@ -762,7 +762,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vjasala",
-    title: "Vjasala",
+    title: "🪢 Vjasala",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "```{drawing}```\n" +
@@ -779,7 +779,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vjasala-kraj",
-    title: "Vjasala — Pogodak!",
+    title: "✅ Vjasala — Pogodak!",
     description:
       "**{user}** je pogodio/la: **{word}**!\n" +
       "Nagrada: `+{reward}`",
@@ -791,7 +791,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "toplo-hladno",
-    title: "Toplo ili Hladno?",
+    title: "🌡️ Toplo ili Hladno?",
     description:
       "**{user}** pokusava pogoditi broj!\n\n" +
       "Pogodak: **{guess}**\n" +
@@ -806,7 +806,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kviz",
-    title: "Kviz — Balkan Pitanje",
+    title: "❓ Kviz — Balkan Pitanje",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{question}**\n" +
@@ -823,7 +823,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "geografija",
-    title: "Geografija Kviz",
+    title: "🌍 Geografija Kviz",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{question}**\n" +
@@ -840,7 +840,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mafia-lobby",
-    title: "Mafia — Lobby",
+    title: "🕵️ Mafia — Lobby",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{host}** pokrenuo/la Mafia igru!\n" +
@@ -854,7 +854,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mafia-end",
-    title: "Mafia — Kraj Igre!",
+    title: "🕵️ Mafia — Kraj Igre!",
     description:
       "**{winners}** pobijedio/la!\n\n" +
       "Mafia: {mafia}\n" +
@@ -869,7 +869,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ FUN ━━━━━━━━━━━━━━━━━━━━
   {
     name: "hunt",
-    title: "Lov — Ulovio/la zivotinju!",
+    title: "🎯 Lov — Ulovio/la zivotinju!",
     description:
       "**{user}** je ulovio/la: **{animal}**!\n" +
       "Zarada: `+{amount}`",
@@ -881,7 +881,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "zoo",
-    title: "Zoo — Tvoja Zbirka",
+    title: "🦁 Zoo — Tvoja Zbirka",
     description: "**{user}** ima sljedece zivotinje:",
     color: "#ec4899",
     category: "Fun",
@@ -891,7 +891,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "battle",
-    title: "Bitka!",
+    title: "⚔️ Bitka!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{challenger}** vs **{opponent}**!\n" +
@@ -905,7 +905,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "pray",
-    title: "Molitva",
+    title: "🙏 Molitva",
     description:
       "**{user}** se molio/la i...\n\n" +
       "{result}",
@@ -917,7 +917,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vers",
-    title: "Vers — Hip Hop",
+    title: "🎤 Vers — Hip Hop",
     description:
       "**{user}** baca verse:\n\n" +
       "```{verse}```",
@@ -929,7 +929,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "kompli",
-    title: "Kompliment",
+    title: "💬 Kompliment",
     description:
       "**{from}** kaze **{to}**:\n\n" +
       "*{compliment}*",
@@ -941,7 +941,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "fora",
-    title: "Fora",
+    title: "😄 Fora",
     description:
       "**{from}** je pogledao/la **{to}** i shvatio/la:\n\n" +
       "*{joke}*",
@@ -953,7 +953,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "muv",
-    title: "Muvanje",
+    title: "😍 Muvanje",
     description:
       "**{from}** → **{to}**:\n\n" +
       "*{pickup}*",
@@ -965,7 +965,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "crush",
-    title: "Crush",
+    title: "💘 Crush",
     description:
       "**{user}** ima crush na nekoga!\n" +
       "Saznaj koga — svi glasajte!",
@@ -979,7 +979,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ LJUBAVNE ━━━━━━━━━━━━━━━━━━━━
   {
     name: "zagrljaj",
-    title: "Zagrljaj",
+    title: "🤗 Zagrljaj",
     description: "**{from}** grli **{to}**! Budi slobodan/na primiti ovaj zagrljaj!",
     color: "#FF85C8",
     category: "Ljubavne",
@@ -989,7 +989,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poljubac",
-    title: "Poljubac",
+    title: "💋 Poljubac",
     description: "**{from}** salje poljubac **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
@@ -999,7 +999,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "mazi",
-    title: "Mazi",
+    title: "🥰 Mazi",
     description: "**{from}** mazi **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
@@ -1009,7 +1009,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "tapsi",
-    title: "Tapsi",
+    title: "👆 Tapsi",
     description: "**{from}** tapsi **{to}** po glavi!",
     color: "#FF85C8",
     category: "Ljubavne",
@@ -1019,7 +1019,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "high5",
-    title: "High Five!",
+    title: "🙌 High Five!",
     description: "**{from}** daje high five **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
@@ -1029,7 +1029,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "cudan",
-    title: "Cudan",
+    title: "👀 Cudan",
     description: "**{from}** gleda cudno u **{to}**... Niko ne zna zasto!",
     color: "#FF85C8",
     category: "Ljubavne",
@@ -1039,7 +1039,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "srce",
-    title: "Srce",
+    title: "❤️ Srce",
     description: "**{from}** salje srce **{to}**!",
     color: "#FF85C8",
     category: "Ljubavne",
@@ -1049,7 +1049,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "brak",
-    title: "Prosidba!",
+    title: "💍 Prosidba!",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{from}** prosi **{to}**!\n" +
@@ -1065,7 +1065,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ INFO ━━━━━━━━━━━━━━━━━━━━
   {
     name: "spotify",
-    title: "Spotify",
+    title: "🎵 Spotify",
     description: "**{user}** slusa muziku:",
     color: "#1DB954",
     category: "Info",
@@ -1079,7 +1079,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "invite",
-    title: "Statistika Pozivnica",
+    title: "📨 Statistika Pozivnica",
     description: "Pregled pozivnica za **{user}**:",
     color: "#14b8a6",
     category: "Info",
@@ -1093,7 +1093,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "avatar",
-    title: "Avatar — {user}",
+    title: "🖼️ Avatar — {user}",
     description: "Avatar od **{user}**:",
     color: "#14b8a6",
     category: "Info",
@@ -1103,7 +1103,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "brojanje-info",
-    title: "Brojanje — Stanje",
+    title: "🔢 Brojanje — Stanje",
     description: "Trenutno stanje brojanja na serveru:",
     color: "#14b8a6",
     category: "Info",
@@ -1119,7 +1119,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ SISTEM PANELI ━━━━━━━━━━━━━━━━━━━━
   {
     name: "ticket",
-    title: "Podrska — Otvori Tiket",
+    title: "🎫 Podrska — Otvori Tiket",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Trebas pomoc? Klikni dugme ispod!\n" +
@@ -1133,7 +1133,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "ticket-otvoren",
-    title: "Tiket Otvoren",
+    title: "📩 Tiket Otvoren",
     description:
       "**{user}**, tiket je otvoren!\n\n" +
       "Opisi problem i staff ce ti pomoci.\n" +
@@ -1149,7 +1149,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "staff-prijava",
-    title: "Staff Prijava",
+    title: "⭐ Staff Prijava",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Zeli postati staff?\n" +
@@ -1163,7 +1163,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "private-vc",
-    title: "Privatni Voice Kanal",
+    title: "🎙️ Privatni Voice Kanal",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Upravljaj privatnim voice kanalom!\n" +
@@ -1176,7 +1176,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "voice-pravila",
-    title: "Voice Pravila",
+    title: "📋 Voice Pravila",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**Pravila za Voice kanale:**\n\n" +
@@ -1194,7 +1194,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ VATRICE ━━━━━━━━━━━━━━━━━━━━
   {
     name: "vatrice-pup",
-    title: "Top Lista Vatrica",
+    title: "🔥 Top Lista Vatrica",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Najtopliji clanovi servera:\n" +
@@ -1208,7 +1208,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrice-start",
-    title: "Vatrica Sistem — Pokrenut!",
+    title: "🔥 Vatrica Sistem — Pokrenut!",
     description:
       "Vatrica sistem je aktivan!\n" +
       "Prikupljaj vatrice aktivnoscu!",
@@ -1220,7 +1220,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrice-kanal",
-    title: "Vatrica Kanal Postavljen",
+    title: "🔥 Vatrica Kanal Postavljen",
     description:
       "Kanal za vatrice: {channel}\n" +
       "Sve vatrice idu u ovaj kanal!",
@@ -1232,7 +1232,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "vatrice-oblik",
-    title: "Vatrica Emoji Promijenjen",
+    title: "🔥 Vatrica Emoji Promijenjen",
     description:
       "Emoji za vatrice promijenjen!\n" +
       "Novi emoji: {emoji}",
@@ -1246,7 +1246,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ POO ━━━━━━━━━━━━━━━━━━━━
   {
     name: "poo",
-    title: "Poo — Stanje Kreature",
+    title: "💩 Poo — Stanje Kreature",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Tvoja Poo kreatura!\n" +
@@ -1263,7 +1263,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-zadaci",
-    title: "Poo — Zadaci",
+    title: "💩 Poo — Zadaci",
     description:
       "Ispuni zadatke da hranis svoju Poo!\n\n" +
       "{tasks}",
@@ -1275,7 +1275,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-top",
-    title: "Poo — Top Cuvari",
+    title: "💩 Poo — Top Cuvari",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Najbolji cuvari Poo kreatura:\n" +
@@ -1289,7 +1289,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-hrani",
-    title: "Poo — Hranjena!",
+    title: "💩 Poo — Hranjena!",
     description:
       "**{user}** je hranio/la svoju Poo!\n" +
       "Sreca: +{happiness} | Sitost: +{hunger}",
@@ -1301,7 +1301,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poo-info",
-    title: "Poo — Moj Doprinos",
+    title: "💩 Poo — Moj Doprinos",
     description: "**{user}** briga o Poo kreaturama:",
     color: "#92400e",
     category: "Poo",
@@ -1316,7 +1316,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ ADMIN ━━━━━━━━━━━━━━━━━━━━
   {
     name: "backup",
-    title: "Backup — Snimljen",
+    title: "💾 Backup — Snimljen",
     description:
       "Server backup uspjesno snimljen!\n" +
       "Datum: **{datum}**",
@@ -1331,7 +1331,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "backup-restore",
-    title: "Backup — Vracen",
+    title: "💾 Backup — Vracen",
     description:
       "Server backup vracen!\n" +
       "Svi podaci prepisani backupom od **{datum}**.",
@@ -1343,7 +1343,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "backup-status",
-    title: "Backup — Status",
+    title: "💾 Backup — Status",
     description: "Pregled backup stanja:",
     color: "#64748b",
     category: "Admin",
@@ -1356,7 +1356,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "report-closed",
-    title: "Report Zatvoren",
+    title: "📋 Report Zatvoren",
     description:
       "Prijava je zatvoren od strane **{mod}**.\n\n" +
       "**Ishod:** {outcome}",
@@ -1368,7 +1368,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "report-nova",
-    title: "Nova Prijava",
+    title: "🚨 Nova Prijava",
     description:
       "**{reporter}** prijavio/la **{reported}**!\n\n" +
       "**Razlog:** {reason}",
@@ -1385,7 +1385,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ MUZIKA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "music-play",
-    title: "Now Playing",
+    title: "🎵 Now Playing",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{title}**\n" +
@@ -1403,7 +1403,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-queue",
-    title: "Red Cekanja",
+    title: "📋 Red Cekanja",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**Trenutno:** {current}\n\n" +
@@ -1419,7 +1419,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-skip",
-    title: "Preskoceno",
+    title: "⏭️ Preskoceno",
     description:
       "**{user}** je preskocio/la: **{title}**\n" +
       "Sljedece: **{next}**",
@@ -1431,7 +1431,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-pause",
-    title: "Pauzirano",
+    title: "⏸️ Pauzirano",
     description:
       "Muzika pauzirana od **{user}**.\n" +
       "Nastavi sa `/resume`.",
@@ -1443,7 +1443,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-stop",
-    title: "Zaustavljeno",
+    title: "⏹️ Zaustavljeno",
     description:
       "**{user}** je zaustavio/la muziku.\n" +
       "Red cekanja obrisan.",
@@ -1455,7 +1455,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "music-lyrics",
-    title: "Tekst Pjesme",
+    title: "📜 Tekst Pjesme",
     description:
       "**{title}** — {artist}\n\n" +
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
@@ -1471,7 +1471,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ VERIFIKACIJA ━━━━━━━━━━━━━━━━━━━━
   {
     name: "verify-panel",
-    title: "Verifikacija",
+    title: "🛡️ Verifikacija",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Verificiraj se da pristupis serveru!\n" +
@@ -1485,7 +1485,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "verify-success",
-    title: "Verifikacija Uspjesna!",
+    title: "✅ Verifikacija Uspjesna!",
     description:
       "**{user}**, uspjesno si verificiran/a!\n" +
       "Dobrodosao/la na server!",
@@ -1497,7 +1497,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "verify-fail",
-    title: "Verifikacija Neuspjesna",
+    title: "❌ Verifikacija Neuspjesna",
     description:
       "**{user}**, verifikacija nije uspjela.\n" +
       "Pokusaj ponovo.",
@@ -1511,7 +1511,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ ANKETE ━━━━━━━━━━━━━━━━━━━━
   {
     name: "poll-create",
-    title: "Nova Anketa",
+    title: "📊 Nova Anketa",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{question}**\n" +
@@ -1527,7 +1527,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "poll-results",
-    title: "Rezultati Ankete",
+    title: "📊 Rezultati Ankete",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "**{question}**\n" +
@@ -1545,7 +1545,7 @@ export const DEFAULT_EMBEDS = [
   // ━━━━━━━━━━━━━━━━━━━━ REACTION ROLES ━━━━━━━━━━━━━━━━━━━━
   {
     name: "rr-panel",
-    title: "Reaction Roles",
+    title: "🏷️ Reaction Roles",
     description:
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "Odaberi svoju ulogu klikom na dugme!\n" +
@@ -1558,7 +1558,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rr-add",
-    title: "Uloga Dodana",
+    title: "✅ Uloga Dodana",
     description: "**{user}** dobio/la ulogu **{role}**!",
     color: "#22c55e",
     category: "Reaction Roles",
@@ -1568,7 +1568,7 @@ export const DEFAULT_EMBEDS = [
   },
   {
     name: "rr-remove",
-    title: "Uloga Skinuta",
+    title: "🏷️ Uloga Skinuta",
     description: "**{user}** izgubio/la ulogu **{role}**.",
     color: "#d946ef",
     category: "Reaction Roles",
