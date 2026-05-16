@@ -574,14 +574,38 @@ router.post("/discord/channels/:channelId/send-embed", async (req, res) => {
 
   if (!embedData) return res.status(404).json({ error: "Embed not found" });
 
+  // Demo variable substitution for panel test sends
+  const now = new Date();
+  const demoVars: Record<string, string> = {
+    "{user}":        "@TestUser",
+    "{user.name}":   "TestUser",
+    "{user.avatar}": "https://cdn.discordapp.com/embed/avatars/0.png",
+    "{server}":      "GIANNI",
+    "{accountAge}":  "2g 3m",
+    "{joinedAt}":    now.toLocaleString("sr-Latn", { month: "short", year: "numeric" }),
+    "{count}":       "1.234",
+    "{memberCount}": "1.234",
+    "{item1}":       "**Pravila**",
+    "{item2}":       "**Role**",
+    "{item3}":       "**Predstavi se**",
+  };
+  const applyVars = (s: string): string =>
+    Object.entries(demoVars).reduce((acc, [k, v]) => acc.replaceAll(k, v), s);
+
   const colorHex = (embedData.color ?? "#2B2D3A").replace("#", "");
   const colorInt = parseInt(colorHex, 16) || 0x2B2D3A;
 
   const discordEmbed: Record<string, unknown> = { color: colorInt };
-  if (embedData.title)            discordEmbed.title = embedData.title;
-  if (embedData.description)      discordEmbed.description = embedData.description;
-  if (embedData.footer)           discordEmbed.footer = { text: embedData.footer };
-  if (embedData.fields?.length)   discordEmbed.fields = embedData.fields;
+  if (embedData.title)       discordEmbed.title = applyVars(embedData.title);
+  if (embedData.description) discordEmbed.description = applyVars(embedData.description);
+  if (embedData.thumbnail)   discordEmbed.thumbnail = { url: applyVars(embedData.thumbnail) };
+  if (embedData.footer)      discordEmbed.footer = { text: applyVars(embedData.footer) };
+  if (embedData.fields?.length)
+    discordEmbed.fields = embedData.fields.map((f: any) => ({
+      ...f,
+      name:  applyVars(String(f.name  ?? "")),
+      value: applyVars(String(f.value ?? "")),
+    }));
 
   const components = buildComponents(embedData.buttons ?? []);
 
