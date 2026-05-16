@@ -28,19 +28,26 @@ export const DEFAULT_EMBEDS = [
   //  SISTEM
   {
     name: "welcome",
-    title: "👋  Dobrodošao/la, {user}!",
+    title: "Dobrodošao/la, {user}! 💗",
     description:
-      "🎉 Drago nam je što si ovdje!\n" +
-      "🏠 Upoznaj zajednicu i istraži kanale!\n" +
-      "🔗 **discord.gg/gian**\n",
-    color: "#9B59B6",
+      "Drago nam je što si stigao/la u našu zajednicu! ✨\n\n" +
+      "📖 Pročitaj pravila\n" +
+      "🎭 Odaberi role\n" +
+      "💬 Predstavi se zajednici\n\n" +
+      "Uživaj i zabavi se! 💕",
+    color: "#ec4899",
     category: "Sistem",
-    footer: "GIANNI (Custom) • Dobrodošao/la!",
+    footer: "✦ GIANNI • 🎮 WELCOME SYSTEM ✦",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "👤 Član #{count}",        value: "Hvala što si nam se pridružio/la!", inline: false },
-      { name: "📅 Registracija",         value: "{accountAge}",                     inline: true  },
-      { name: "📥 Pridružio/la se",      value: "{joinedAt}",                       inline: true  },
+      { name: "✦ SERVER STATS ✦",        value: "",                     inline: false },
+      { name: "👥 Members",              value: "`{memberCount}`",       inline: true  },
+      { name: "🌐 Online",               value: "`24/7`",                inline: true  },
+      { name: "🛡️ Secure",              value: "`Always Protected`",    inline: true  },
+      { name: "✦ YOUR INFO ✦",           value: "",                     inline: false },
+      { name: "👤 Account",              value: "{accountAge}",          inline: true  },
+      { name: "📥 Joined",               value: "{joinedAt}",            inline: true  },
+      { name: "# Member ID",             value: "`#{count}`",            inline: true  },
     ],
   },
   {
