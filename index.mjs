@@ -66605,7 +66605,6 @@ var icons_default = router11;
 // src/routes/welcome-card.ts
 var import_express12 = __toESM(require_express2(), 1);
 var import_lucide2 = __toESM(require_lucide(), 1);
-import { Resvg as Resvg2 } from "@resvg/resvg-js";
 var router12 = (0, import_express12.Router)();
 function esc(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -66851,6 +66850,7 @@ ${star4(316, 488, 4, "#8855a0", "0.85")}
 ${star4(584, 488, 4, "#8855a0", "0.85")}
 </svg>`;
   try {
+    const { Resvg: Resvg2 } = await import("@resvg/resvg-js");
     const resvg = new Resvg2(svg, {
       fitTo: { mode: "original" },
       font: { loadSystemFonts: true }
@@ -66859,6 +66859,9 @@ ${star4(584, 488, 4, "#8855a0", "0.85")}
     res.set({ "Content-Type": "image/png", "Cache-Control": "no-cache" });
     res.send(png);
   } catch (err) {
+    if (err?.code === "ERR_MODULE_NOT_FOUND" || err?.message?.includes("resvg")) {
+      return res.status(503).json({ error: "Welcome card nije dostupan na ovom serveru (@resvg/resvg-js nije instaliran)" });
+    }
     res.status(500).json({ error: "Render failed", detail: String(err) });
   }
 });
