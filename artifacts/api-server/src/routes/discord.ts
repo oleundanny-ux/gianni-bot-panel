@@ -649,9 +649,9 @@ router.post("/discord/channels/:channelId/send-embed", async (req, res) => {
 
     let r: Response;
     if (cardBuffer) {
-      // Multipart — embed + PNG file
+      // Card exists — send ONLY the PNG + buttons (card already contains all info)
       const form = new FormData();
-      const payload: Record<string, unknown> = { embeds: [discordEmbed] };
+      const payload: Record<string, unknown> = {};
       if (components.length > 0) payload.components = components;
       form.append("payload_json", JSON.stringify(payload));
       form.append("files[0]", new Blob([cardBuffer], { type: "image/png" }), "welcome.png");
