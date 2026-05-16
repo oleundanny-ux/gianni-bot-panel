@@ -1,6 +1,7 @@
 import { Router, type IRouter } from "express";
 import healthRouter from "./health";
 import authRouter from "./auth";
+import iconsRouter from "./icons";
 import commandsRouter from "./commands";
 import embedsRouter from "./embeds";
 import settingsRouter from "./settings";
@@ -14,6 +15,7 @@ const router: IRouter = Router();
 // Public routes (no auth required)
 router.use(healthRouter);
 router.use(authRouter);
+router.use(iconsRouter);
 
 // All remaining routes are protected by authMiddleware (applied in app.ts)
 router.use(commandsRouter);
