@@ -1426,20 +1426,26 @@ async def on_ready():
     cur_cmds = len(bot.tree.get_commands())
     last_cmds = data.get("_last_synced_count", -1)
     if cur_cmds != last_cmds:
-        try:
-            synced = await bot.tree.sync()
-            data["_last_synced_count"] = len(synced)
-            save_data()
-            print(f"  ✔ Globalni sync: {len(synced)} komandi (promijenjeno)")
-        except Exception as e:
-            print(f"  ✘ Globalni sync error: {e}")
+        synced_count = 0
+        # 1. Sync per-guild (instant, no duplicates)
         for guild in bot.guilds:
             try:
                 bot.tree.copy_global_to(guild=guild)
-                await bot.tree.sync(guild=guild)
-                print(f"  ✔ {guild.name} ({guild.member_count} članova)")
+                synced = await bot.tree.sync(guild=guild)
+                synced_count = len(synced)
+                print(f"  ✔ {guild.name} ({guild.member_count} članova) — {synced_count} komandi")
             except Exception as e:
                 print(f"  ✘ {guild.name}: {e}")
+        # 2. Obriši globalne komande da nema duplikata
+        try:
+            bot.tree.clear_commands(guild=None)
+            await bot.tree.sync()
+            print(f"  ✔ Globalne komande obrisane — nema više duplikata")
+        except Exception as e:
+            print(f"  ✘ Clear global error: {e}")
+        data["_last_synced_count"] = synced_count
+        save_data()
+        print(f"  ✔ Sync završen: {synced_count} komandi (guild-only)")
     else:
         print(f"  ⚡ Sync preskočen — komande nepromijenjene ({cur_cmds})")
     print(f"{'═'*45}\n")
