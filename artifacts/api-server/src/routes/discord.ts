@@ -649,9 +649,16 @@ router.post("/discord/channels/:channelId/send-embed", async (req, res) => {
 
     let r: Response;
     if (cardBuffer) {
-      // Card exists — send ONLY the PNG, no duplicate buttons (card shows them visually)
+      // Card as embed image — inside Discord embed frame (color bar, footer, buttons)
       const form = new FormData();
-      form.append("payload_json", JSON.stringify({}));
+      const cardEmbed: Record<string, unknown> = {
+        color: colorInt,
+        image: { url: "attachment://welcome.png" },
+      };
+      if (embedData.footer) cardEmbed.footer = { text: applyVars(embedData.footer) };
+      const payload: Record<string, unknown> = { embeds: [cardEmbed] };
+      if (components.length > 0) payload.components = components;
+      form.append("payload_json", JSON.stringify(payload));
       form.append("files[0]", new Blob([cardBuffer], { type: "image/png" }), "welcome.png");
       r = await fetch(`${DISCORD_API}/channels/${channelId}/messages`, {
         method: "POST",
