@@ -30,7 +30,7 @@ export const DEFAULT_EMBEDS = [
     name: "welcome",
     title: "Dobrodošao/la, {user}! 💗",
     description:
-      "Drago nam je što si stigao/la u našu zajednicu! ✨\n\n" +
+      "Drago nam je što si stigao/la u **GIANNI** zajednicu! ✨\n\n" +
       "📖 Pročitaj pravila\n" +
       "🎭 Odaberi role\n" +
       "💬 Predstavi se zajednici\n\n" +
@@ -40,14 +40,14 @@ export const DEFAULT_EMBEDS = [
     footer: "✦ GIANNI • 🎮 WELCOME SYSTEM ✦",
     thumbnail: "{user.avatar}",
     fields: [
-      { name: "✦ SERVER STATS ✦",        value: "",                     inline: false },
-      { name: "👥 Members",              value: "`{memberCount}`",       inline: true  },
-      { name: "🌐 Online",               value: "`24/7`",                inline: true  },
-      { name: "🛡️ Secure",              value: "`Always Protected`",    inline: true  },
-      { name: "✦ YOUR INFO ✦",           value: "",                     inline: false },
-      { name: "👤 Account",              value: "{accountAge}",          inline: true  },
-      { name: "📥 Joined",               value: "{joinedAt}",            inline: true  },
-      { name: "# Member ID",             value: "`#{count}`",            inline: true  },
+      { name: "✦ SERVER STATS ✦",  value: "",                  inline: false },
+      { name: "👥 Members",        value: "`{memberCount}`",    inline: true  },
+      { name: "🌐 Online",         value: "`24/7`",             inline: true  },
+      { name: "🛡️ Secure",        value: "`Always Protected`", inline: true  },
+      { name: "✦ YOUR INFO ✦",     value: "",                  inline: false },
+      { name: "👤 Account",        value: "{accountAge}",       inline: true  },
+      { name: "📥 Joined",         value: "{joinedAt}",         inline: true  },
+      { name: "# Member ID",       value: "`#{count}`",         inline: true  },
     ],
     buttons: [
       { type: "link", label: "Pravila", style: "link" },
@@ -55,6 +55,11 @@ export const DEFAULT_EMBEDS = [
       { type: "link", label: "Pozovi",  style: "link" },
       { type: "link", label: "Chat",    style: "link" },
     ],
+    cardDesc:    "Drago nam je sto si stigao/la u nasu zajednicu!",
+    cardItem1:   "Procitaj pravila",
+    cardItem2:   "Odaberi role",
+    cardItem3:   "Predstavi se zajednici",
+    cardClosing: "Uzivaj i zabavi se! ♥",
   },
   {
     name: "leave",
