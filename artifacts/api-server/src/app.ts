@@ -5,6 +5,7 @@ import path from "path";
 import fs from "fs";
 import router from "./routes";
 import iconsRouter from "./routes/icons";
+import welcomeCardRouter from "./routes/welcome-card";
 import { logger } from "./lib/logger";
 import { authMiddleware } from "./middleware/auth.js";
 
@@ -35,6 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Public routes — no auth required
 app.use(iconsRouter);
+app.use(welcomeCardRouter);
 
 app.use("/api", authMiddleware, router);
 
