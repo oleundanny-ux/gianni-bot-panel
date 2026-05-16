@@ -632,7 +632,7 @@ router.post("/discord/channels/:channelId/send-embed", async (req, res) => {
       return res.status(r.status).json({ error: err });
     }
     const msg = await r.json() as { id: string };
-    req.log.info({ channelId, embedName, messageId: msg.id, buttons: (embedData.buttons ?? []).length, hasCard: !!cardBuffer }, "Embed sent to channel");
+    req.log.info({ channelId, embedName, messageId: msg.id, buttons: (embedData.buttons ?? []).length }, "Embed sent to channel");
     return res.json({ ok: true, messageId: msg.id });
   } catch (err: any) {
     req.log.error({ err }, "Failed to send embed to Discord");
