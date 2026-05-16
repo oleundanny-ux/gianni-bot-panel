@@ -25,16 +25,14 @@ async function getDb() {
 
 export const DEFAULT_EMBEDS = [
 
-  // ━━━━━━━━━━━━━━━━━━━━ SISTEM ━━━━━━━━━━━━━━━━━━━━
+  //  SISTEM
   {
     name: "welcome",
     title: "👋  Dobrodošao/la, {user}!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎉 Drago nam je što si ovdje!\n" +
       "🏠 Upoznaj zajednicu i istraži kanale!\n" +
-      "🔗 **discord.gg/gian**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🔗 **discord.gg/gian**\n",
     color: "#9B59B6",
     category: "Sistem",
     footer: "GIANNI (Custom) • Dobrodošao/la!",
@@ -123,10 +121,8 @@ export const DEFAULT_EMBEDS = [
     name: "aotw",
     title: "🏆  Aktivni Član Sedmice",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "👑 Čestitamo **{user}** na tituli!\n" +
-      "🌟 Ova sedmica pripada tebi!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🌟 Ova sedmica pripada tebi!\n",
     color: "#F1C40F",
     category: "Sistem",
     footer: "GIANNI (Custom) • Aktivni Član Sedmice",
@@ -137,7 +133,7 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ LOG ━━━━━━━━━━━━━━━━━━━━
+  //  LOG
   {
     name: "log-join",
     title: "📥  Novi Član",
@@ -194,7 +190,7 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ MODERACIJA ━━━━━━━━━━━━━━━━━━━━
+  //  MODERACIJA
   {
     name: "warn",
     title: "⚠️  Upozorenje",
@@ -308,15 +304,13 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ XP ━━━━━━━━━━━━━━━━━━━━
+  //  XP
   {
     name: "levelup",
     title: "🎉  Level Up, {user}!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "⬆️ Dostigao/la si novi nivo!\n" +
-      "🌟 Nastavi tako — odlično!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🌟 Nastavi tako — odlično!\n",
     color: "#22c55e",
     category: "XP",
     footer: "GIANNI (Custom) • Level Up",
@@ -357,7 +351,6 @@ export const DEFAULT_EMBEDS = [
     name: "rank",
     title: "🏅  Rank — {user}",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "📊 Tvoj trenutni rank profil:",
     color: "#22c55e",
     category: "XP",
@@ -375,9 +368,7 @@ export const DEFAULT_EMBEDS = [
     name: "leaderboard-xp",
     title: "🏆  Top Lista — XP",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🌟 Najaktivniji članovi servera:\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{leaderboard}",
     color: "#22c55e",
     category: "XP",
@@ -389,9 +380,7 @@ export const DEFAULT_EMBEDS = [
     name: "leaderboard-novac",
     title: "💰  Top Lista — Novac",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🏦 Najbogatiji članovi servera:\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{leaderboard}",
     color: "#f97316",
     category: "XP",
@@ -400,16 +389,14 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ EKONOMIJA ━━━━━━━━━━━━━━━━━━━━
+  //  EKONOMIJA
   {
     name: "heist",
     title: "🏦  Razboj u pripremi!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎯 **{user}** planira pljačku banke!\n" +
       "👥 Pridruži se ekipi — klikni dugme!\n" +
-      "⏳ Počinje za: **{countdown}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "⏳ Počinje za: **{countdown}**\n",
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Heist",
@@ -423,10 +410,8 @@ export const DEFAULT_EMBEDS = [
     name: "lottery",
     title: "🎰  Sedmična Loto!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎫 Kupi tiket i osvoji jackpot!\n" +
-      "⏳ Žrijeb: **{drawTime}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "⏳ Žrijeb: **{drawTime}**\n",
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Loto",
@@ -441,9 +426,7 @@ export const DEFAULT_EMBEDS = [
     name: "quests",
     title: "📋  Dnevni Zadaci",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "✅ Ispuni zadatke i osvoji nagrade!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{quests}",
     color: "#f97316",
     category: "Ekonomija",
@@ -455,10 +438,8 @@ export const DEFAULT_EMBEDS = [
     name: "giveaway",
     title: "🎁  Nagradna Igra!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎉 **{host}** pokreće nagradnu igru!\n" +
-      "⏳ Završava: **{endTime}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "⏳ Završava: **{endTime}**\n",
     color: "#f97316",
     category: "Ekonomija",
     footer: "GIANNI (Custom) • Giveaway",
@@ -528,9 +509,7 @@ export const DEFAULT_EMBEDS = [
     name: "eco-shop",
     title: "🛒  Shop",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🏪 Dostupni predmeti:\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{items}",
     color: "#f97316",
     category: "Ekonomija",
@@ -577,16 +556,14 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ IGRE ━━━━━━━━━━━━━━━━━━━━
+  //  IGRE
   {
     name: "slots",
     title: "🎰  Slot Mašina",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎲 **{user}** vrti slotove!\n\n" +
       "[ {r1} | {r2} | {r3} ]\n\n" +
-      "{result}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "{result}\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Slots",
@@ -600,9 +577,7 @@ export const DEFAULT_EMBEDS = [
     name: "blackjack",
     title: "🃏  Blackjack",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🎴 **{user}** igra blackjack!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🎴 **{user}** igra blackjack!\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Blackjack",
@@ -617,10 +592,8 @@ export const DEFAULT_EMBEDS = [
     name: "poker-lobby",
     title: "♠️  Poker — Lobby",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🃏 **{host}** otvara poker stol!\n" +
-      "👥 Čekamo igrače... ({count}/{max})\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "👥 Čekamo igrače... ({count}/{max})\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Poker",
@@ -634,9 +607,7 @@ export const DEFAULT_EMBEDS = [
     name: "poker-game",
     title: "🎲  Poker — U Toku",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "♠️ Runda **{round}** — {phase}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🃏 Stol: {communityCards}",
     color: "#3b82f6",
     category: "Igre",
@@ -665,10 +636,8 @@ export const DEFAULT_EMBEDS = [
     name: "among-us-lobby",
     title: "🚀  Among Us — Lobby",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "👨‍🚀 **{host}** otvara igru!\n" +
-      "👥 Igrači: {count}/{max}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "👥 Igrači: {count}/{max}\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Among Us",
@@ -705,10 +674,8 @@ export const DEFAULT_EMBEDS = [
     name: "kaladont-start",
     title: "🔤  Kaladont — Start!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "📝 Igra počinje! Prva riječ:\n" +
-      "➜ **{word}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "➜ **{word}**\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Kaladont",
@@ -756,10 +723,8 @@ export const DEFAULT_EMBEDS = [
     name: "bingo",
     title: "🎯  Bingo!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎲 Izvučeni brojevi:\n" +
-      "{numbers}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "{numbers}\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Bingo",
@@ -770,10 +735,8 @@ export const DEFAULT_EMBEDS = [
     name: "vjasala",
     title: "📝  Vješala",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "```{drawing}```\n" +
-      "🔤 Riječ: **{display}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🔤 Riječ: **{display}**\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Vješala",
@@ -814,9 +777,7 @@ export const DEFAULT_EMBEDS = [
     name: "kviz",
     title: "🧠  Kviz — Balkan Pitanje",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "❓ **{question}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{options}",
     color: "#3b82f6",
     category: "Igre",
@@ -831,9 +792,7 @@ export const DEFAULT_EMBEDS = [
     name: "geografija",
     title: "🌍  Geografija Kviz",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🗺️ **{question}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{options}",
     color: "#3b82f6",
     category: "Igre",
@@ -848,10 +807,8 @@ export const DEFAULT_EMBEDS = [
     name: "mafia-lobby",
     title: "🕵️  Mafia — Lobby",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🔫 **{host}** pokrenuo/la Mafia igru!\n" +
-      "👥 Igrači: {count}/{max}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "👥 Igrači: {count}/{max}\n",
     color: "#3b82f6",
     category: "Igre",
     footer: "GIANNI (Custom) • Mafia",
@@ -872,7 +829,7 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ FUN ━━━━━━━━━━━━━━━━━━━━
+  //  FUN
   {
     name: "hunt",
     title: "🏹  Lov — Ulovio/la životinju!",
@@ -900,9 +857,7 @@ export const DEFAULT_EMBEDS = [
     name: "battle",
     title: "⚔️  Bitka!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🛡️ **{challenger}** vs **{opponent}**!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{result}",
     color: "#ec4899",
     category: "Fun",
@@ -983,7 +938,7 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ LJUBAVNE ━━━━━━━━━━━━━━━━━━━━
+  //  LJUBAVNE
   {
     name: "zagrljaj",
     title: "🤗  Zagrljaj",
@@ -1067,10 +1022,8 @@ export const DEFAULT_EMBEDS = [
     name: "brak",
     title: "💍  Prosidba!",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "💒 **{from}** prosi **{to}**!\n" +
-      "👑 Hoćeš li prihvatiti?\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "👑 Hoćeš li prihvatiti?\n",
     color: "#FF85C8",
     category: "Ljubavne",
     footer: "GIANNI (Custom) • Prosidba",
@@ -1078,7 +1031,7 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ INFO ━━━━━━━━━━━━━━━━━━━━
+  //  INFO
   {
     name: "spotify",
     title: "🎵  Spotify",
@@ -1136,15 +1089,13 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ SISTEM PANELI ━━━━━━━━━━━━━━━━━━━━
+  //  SISTEM PANELI
   {
     name: "ticket",
     title: "🎫  Podrška — Otvori Tiket",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "📩 Trebaš pomoć? Klikni dugme ispod!\n" +
-      "🛡️ Staff će ti odgovoriti što prije.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🛡️ Staff će ti odgovoriti što prije.\n",
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI (Custom) • Support",
@@ -1171,10 +1122,8 @@ export const DEFAULT_EMBEDS = [
     name: "staff-prijava",
     title: "📋  Staff Prijava",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "⭐ Želi postati staff?\n" +
-      "📝 Ispuni prijavu klikom na dugme!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "📝 Ispuni prijavu klikom na dugme!\n",
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI (Custom) • Staff Prijava",
@@ -1185,9 +1134,7 @@ export const DEFAULT_EMBEDS = [
     name: "private-vc",
     title: "🎙️  Privatni Voice Kanal",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🔒 Upravljaj privatnim voice kanalom!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🔒 Upravljaj privatnim voice kanalom!\n",
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI (Custom) • Privatni VC",
@@ -1198,12 +1145,10 @@ export const DEFAULT_EMBEDS = [
     name: "voice-pravila",
     title: "🔊  Voice Pravila",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "📋 **Pravila za Voice kanale:**\n\n" +
       "🔇 Ne uznemiravaj ostale\n" +
       "🎵 Muzika samo uz pristanak\n" +
-      "🚫 Nema neprimjerenog sadržaja\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🚫 Nema neprimjerenog sadržaja\n",
     color: "#a78bfa",
     category: "Sistem paneli",
     footer: "GIANNI (Custom) • Voice Pravila",
@@ -1211,14 +1156,12 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ VATRICE ━━━━━━━━━━━━━━━━━━━━
+  //  VATRICE
   {
     name: "vatrice-pup",
     title: "🔥  Top Lista Vatrica",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "⭐ Najtopliji članovi servera:\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{leaderboard}",
     color: "#FF6A00",
     category: "Vatrice",
@@ -1263,14 +1206,12 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ POO ━━━━━━━━━━━━━━━━━━━━
+  //  POO
   {
     name: "poo",
     title: "💩  Poo — Stanje Kreature",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🐾 Tvoja Poo kreatura!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🐾 Tvoja Poo kreatura!\n",
     color: "#92400e",
     category: "Poo",
     footer: "GIANNI (Custom) • Poo",
@@ -1297,9 +1238,7 @@ export const DEFAULT_EMBEDS = [
     name: "poo-top",
     title: "🏆  Poo — Top Čuvari",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "💩 Najbolji čuvari Poo kreatura:\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{leaderboard}",
     color: "#92400e",
     category: "Poo",
@@ -1334,7 +1273,7 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ ADMIN ━━━━━━━━━━━━━━━━━━━━
+  //  ADMIN
   {
     name: "backup",
     title: "💾  Backup — Snimljen",
@@ -1404,15 +1343,13 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ MUZIKA ━━━━━━━━━━━━━━━━━━━━
+  //  MUZIKA
   {
     name: "music-play",
     title: "▶️  Now Playing",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎵 **{title}**\n" +
-      "🎤 Izvođač: **{artist}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🎤 Izvođač: **{artist}**\n",
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI (Custom) • Muzika",
@@ -1427,10 +1364,8 @@ export const DEFAULT_EMBEDS = [
     name: "music-queue",
     title: "📜  Red Čekanja",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "🎵 **Trenutno:** {current}\n\n" +
-      "📋 **Sljedeće:**\n{queue}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "📋 **Sljedeće:**\n{queue}\n",
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI (Custom) • Queue",
@@ -1480,9 +1415,7 @@ export const DEFAULT_EMBEDS = [
     title: "📝  Tekst Pjesme",
     description:
       "🎵 **{title}** — {artist}\n\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "{lyrics}\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "{lyrics}\n",
     color: "#8b5cf6",
     category: "Muzika",
     footer: "GIANNI (Custom) • Lyrics",
@@ -1490,15 +1423,13 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ VERIFIKACIJA ━━━━━━━━━━━━━━━━━━━━
+  //  VERIFIKACIJA
   {
     name: "verify-panel",
     title: "🛡️  Verifikacija",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "✅ Verificiraj se da pristupiš serveru!\n" +
-      "🔒 Klikni dugme ispod.\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🔒 Klikni dugme ispod.\n",
     color: "#06b6d4",
     category: "Verifikacija",
     footer: "GIANNI (Custom) • Verifikacija",
@@ -1530,14 +1461,12 @@ export const DEFAULT_EMBEDS = [
     fields: [],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ ANKETE ━━━━━━━━━━━━━━━━━━━━
+  //  ANKETE
   {
     name: "poll-create",
     title: "🗳️  Nova Anketa",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "❓ **{question}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{options}",
     color: "#f43f5e",
     category: "Ankete",
@@ -1551,9 +1480,7 @@ export const DEFAULT_EMBEDS = [
     name: "poll-results",
     title: "📊  Rezultati Ankete",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "❓ **{question}**\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
       "{results}",
     color: "#f43f5e",
     category: "Ankete",
@@ -1564,14 +1491,12 @@ export const DEFAULT_EMBEDS = [
     ],
   },
 
-  // ━━━━━━━━━━━━━━━━━━━━ REACTION ROLES ━━━━━━━━━━━━━━━━━━━━
+  //  REACTION ROLES
   {
     name: "rr-panel",
     title: "🏷️  Reaction Roles",
     description:
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" +
-      "🎭 Odaberi svoju ulogu klikom na dugme!\n" +
-      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "🎭 Odaberi svoju ulogu klikom na dugme!\n",
     color: "#d946ef",
     category: "Reaction Roles",
     footer: "GIANNI (Custom) • Reaction Roles",
