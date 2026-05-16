@@ -1458,6 +1458,14 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
   const [buttons, setButtons] = useState<EmbedButton[]>((embed as any).buttons ?? []);
   const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
 
+  // Welcome card specific state
+  const [cardDesc,    setCardDesc]    = useState<string>((embed as any).cardDesc    ?? "Drago nam je sto si stigao/la u nasu zajednicu!");
+  const [cardItem1,   setCardItem1]   = useState<string>((embed as any).cardItem1   ?? "Procitaj pravila");
+  const [cardItem2,   setCardItem2]   = useState<string>((embed as any).cardItem2   ?? "Odaberi role");
+  const [cardItem3,   setCardItem3]   = useState<string>((embed as any).cardItem3   ?? "Predstavi se zajednici");
+  const [cardClosing, setCardClosing] = useState<string>((embed as any).cardClosing ?? "Uzivaj i zabavi se!");
+  const [cardPreviewUrl, setCardPreviewUrl] = useState<string>("");
+
   // Resizable panel state
   const [formWidth, setFormWidth] = useState(280);
   const isResizing = useRef(false);
@@ -1498,7 +1506,33 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
     setBgColor((embed as any).bgColor ?? "#2B2D31");
     setFields(embed.fields ?? []);
     setButtons((embed as any).buttons ?? []);
+    setCardDesc((embed as any).cardDesc ?? "Drago nam je sto si stigao/la u nasu zajednicu!");
+    setCardItem1((embed as any).cardItem1 ?? "Procitaj pravila");
+    setCardItem2((embed as any).cardItem2 ?? "Odaberi role");
+    setCardItem3((embed as any).cardItem3 ?? "Predstavi se zajednici");
+    setCardClosing((embed as any).cardClosing ?? "Uzivaj i zabavi se!");
   }, [embed.name]);
+
+  // Debounced card preview URL — rebuild 500ms after any card field changes
+  useEffect(() => {
+    if (embed.name !== "welcome") return;
+    const btns = buttons as EmbedButton[];
+    const build = () =>
+      `${window.location.origin}/api/welcome-card` +
+      `?user=Testko&memberCount=1.250.000%2B&accountAge=2g+3m&joinedAt=Maj+2024&count=4521` +
+      `&desc=${encodeURIComponent(cardDesc)}` +
+      `&item1=${encodeURIComponent(cardItem1)}` +
+      `&item2=${encodeURIComponent(cardItem2)}` +
+      `&item3=${encodeURIComponent(cardItem3)}` +
+      `&closing=${encodeURIComponent(cardClosing)}` +
+      `&btn1=${encodeURIComponent(btns[0]?.label ?? "Pravila")}` +
+      `&btn2=${encodeURIComponent(btns[1]?.label ?? "Role")}` +
+      `&btn3=${encodeURIComponent(btns[2]?.label ?? "Pozovi")}` +
+      `&btn4=${encodeURIComponent(btns[3]?.label ?? "Chat")}`;
+    setCardPreviewUrl(build());
+    const t = setTimeout(() => setCardPreviewUrl(build()), 500);
+    return () => clearTimeout(t);
+  }, [embed.name, cardDesc, cardItem1, cardItem2, cardItem3, cardClosing, buttons]);
 
   const updateField = (i: number, key: "name" | "value", val: string) => {
     setFields((fs: EmbedField[]) => fs.map((f: EmbedField, idx: number) => idx === i ? { ...f, [key]: val } : f));
@@ -1506,7 +1540,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
 
   const handleSave = () => {
     updateEmbedMutation.mutate(
-      { name: embed.name, data: { title, description, color, bgColor, fields, buttons } as any },
+      { name: embed.name, data: { title, description, color, bgColor, fields, buttons, cardDesc, cardItem1, cardItem2, cardItem3, cardClosing } as any },
       {
         onSuccess: () => {
           toast({ title: "Embed sacuvan" });
@@ -1590,12 +1624,44 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
       <div className="flex flex-row flex-1 overflow-hidden">
         {/* Form */}
         <div className="flex-shrink-0 p-5 space-y-5 border-r border-[#1E1F22] overflow-y-auto" style={{ width: formWidth }}>
+          {embed.name === "welcome" && (
+            <div className="space-y-4">
+              <div>
+                <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide mb-2 block">Opis (ispod pozdrava)</Label>
+                <Input value={cardDesc} onChange={e => setCardDesc(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Drago nam je sto si stigao/la..." />
+              </div>
+              <div className="space-y-2">
+                <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide block">Stavke liste</Label>
+                <Input value={cardItem1} onChange={e => setCardItem1(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Stavka 1" />
+                <Input value={cardItem2} onChange={e => setCardItem2(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Stavka 2" />
+                <Input value={cardItem3} onChange={e => setCardItem3(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Stavka 3" />
+              </div>
+              <div>
+                <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide mb-2 block">Završni tekst</Label>
+                <Input value={cardClosing} onChange={e => setCardClosing(e.target.value)} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder="Uzivaj i zabavi se!" />
+              </div>
+              <div className="space-y-2">
+                <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide block">Dugmad</Label>
+                {([
+                  [buttons[0]?.label ?? "Pravila", 0],
+                  [buttons[1]?.label ?? "Role",    1],
+                  [buttons[2]?.label ?? "Pozovi",  2],
+                  [buttons[3]?.label ?? "Chat",    3],
+                ] as [string, number][]).map(([val, idx]) => (
+                  <Input key={idx} value={val} onChange={e => { const v = e.target.value; setButtons(b => b.map((x, i) => i === idx ? { ...x, label: v } : x)); }} className="bg-[#1E1F22] border-[#2B2D31] text-[#F2F3F5] text-sm" placeholder={`Dugme ${idx + 1}`} />
+                ))}
+              </div>
+            </div>
+          )}
+          {embed.name !== "welcome" && (
           <TextFieldWithEmoji
             label="Naslov"
             value={title}
             onChange={setTitle}
             testId="input-embed-title"
           />
+          )}
+          {embed.name !== "welcome" && (
           <TextFieldWithEmoji
             label="Opis"
             value={description}
@@ -1603,6 +1669,7 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
             multiline
             testId="input-embed-description"
           />
+          )}
           <div className="space-y-2">
             <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Boja embeda</Label>
             {/* Preset palette */}
@@ -1734,7 +1801,9 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
           )}
 
           {/* ── Dugmad editor ────────────────────────────────────── */}
-          <ButtonEditor buttons={buttons} onChange={setButtons} />
+          {embed.name !== "welcome" && (
+            <ButtonEditor buttons={buttons} onChange={setButtons} />
+          )}
         </div>
 
         {/* Resize handle */}
@@ -1785,12 +1854,9 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
             </div>
           </div>
           {embed.name === "welcome" ? (
-            <img
-              src={`${window.location.origin}/api/welcome-card?user=Testko&memberCount=1.250.000%2B&accountAge=2g+3m&joinedAt=Maj+2024&count=4521&t=${Date.now()}`}
-              alt="Welcome card preview"
-              className="rounded-xl w-full border border-[#ec4899]/20 mt-1"
-              style={{ imageRendering: "auto" }}
-            />
+            cardPreviewUrl
+              ? <img key={cardPreviewUrl} src={cardPreviewUrl} alt="Welcome card preview" className="rounded-xl w-full border border-[#ec4899]/20 mt-1" style={{ imageRendering: "auto" }} />
+              : <div className="rounded-xl w-full h-48 bg-[#1E1F22] border border-[#ec4899]/20 mt-1 flex items-center justify-center text-[#949BA4] text-sm">Učitavanje...</div>
           ) : (
             <DiscordEmbedPreview
               embed={embed}
