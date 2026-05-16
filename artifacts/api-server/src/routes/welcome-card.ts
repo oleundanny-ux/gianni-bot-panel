@@ -97,6 +97,15 @@ router.get("/api/welcome-card", async (req, res) => {
   const accountAge  =  (req.query.accountAge  as string) ?? "?";
   const joinedAt    =  (req.query.joinedAt    as string) ?? "?";
   const count       =  (req.query.count       as string) ?? "?";
+  const cardDesc    =  (req.query.desc        as string) ?? "Drago nam je sto si stigao/la u nasu zajednicu!";
+  const cardItem1   =  (req.query.item1       as string) ?? "Procitaj pravila";
+  const cardItem2   =  (req.query.item2       as string) ?? "Odaberi role";
+  const cardItem3   =  (req.query.item3       as string) ?? "Predstavi se zajednici";
+  const cardClosing =  (req.query.closing     as string) ?? "Uzivaj i zabavi se!";
+  const cardBtn1    =  (req.query.btn1        as string) ?? "Pravila";
+  const cardBtn2    =  (req.query.btn2        as string) ?? "Role";
+  const cardBtn3    =  (req.query.btn3        as string) ?? "Pozovi";
+  const cardBtn4    =  (req.query.btn4        as string) ?? "Chat";
 
   const avatarB64 = avatarUrl ? await fetchAsBase64(avatarUrl) : null;
 
@@ -209,16 +218,16 @@ ${star4(561, 207, 4.5)}
 <line x1="568" y1="207" x2="620" y2="207" stroke="#ec4899" stroke-width="0.8" opacity="0.38"/>
 
 <!-- Description -->
-<text x="315" y="242" font-family="Arial,sans-serif" font-size="13.5" fill="#dcc4d4">Drago nam je sto si stigao/la u nasu zajednicu!</text>
+<text x="315" y="242" font-family="Arial,sans-serif" font-size="13.5" fill="#dcc4d4">${esc(cardDesc)}</text>
 ${star4(596, 238, 4, "white", "0.75")}
 
 <!-- List items with icon boxes -->
-${listItem(315, 277, "BookOpen",      "Procitaj pravila")}
-${listItem(315, 312, "Tag",           "Odaberi role")}
-${listItem(315, 347, "MessageCircle", "Predstavi se zajednici")}
+${listItem(315, 277, "BookOpen",      cardItem1)}
+${listItem(315, 312, "Tag",           cardItem2)}
+${listItem(315, 347, "MessageCircle", cardItem3)}
 
 <!-- Closing line -->
-<text x="315" y="386" font-family="Arial,sans-serif" font-size="13.5" fill="#dcc4d4">Uzivaj i zabavi se! &#x2665;</text>
+<text x="315" y="386" font-family="Arial,sans-serif" font-size="13.5" fill="#dcc4d4">${esc(cardClosing)} &#x2665;</text>
 
 <!-- ─── RIGHT PANEL ─── -->
 <rect x="648" y="24" width="234" height="438" rx="14" fill="url(#panelBg)"/>
@@ -253,10 +262,10 @@ ${infoRow(664, 328, "Calendar", "Joined",    joinedAt)}
 ${infoRow(664, 363, "Hash",     "Member ID", "#" + count)}
 
 <!-- ─── BUTTONS ─── -->
-${btn(25,  414, 162, 45, "BookOpen",      "Pravila", true)}
-${btn(197, 414, 128, 45, "Tag",           "Role",    false)}
-${btn(335, 414, 148, 45, "UserPlus",      "Pozovi",  false)}
-${btn(493, 414, 128, 45, "MessageCircle", "Chat",    false)}
+${btn(25,  414, 162, 45, "BookOpen",      cardBtn1, true)}
+${btn(197, 414, 128, 45, "Tag",           cardBtn2, false)}
+${btn(335, 414, 148, 45, "UserPlus",      cardBtn3, false)}
+${btn(493, 414, 128, 45, "MessageCircle", cardBtn4, false)}
 
 <!-- ─── FOOTER ─── -->
 ${star4(316, 488, 4, "#8855a0", "0.85")}
