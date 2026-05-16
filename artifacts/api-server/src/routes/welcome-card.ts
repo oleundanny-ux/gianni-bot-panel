@@ -1,7 +1,49 @@
 import { Router } from "express";
 import { Resvg } from "@resvg/resvg-js";
+import { icons } from "lucide";
 
 const router = Router();
+
+type IconNodes = [string, Record<string, string>][];
+
+function esc(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function licon(name: string, x: number, y: number, sz: number, col: string): string {
+  const nodes = (icons as Record<string, IconNodes>)[name];
+  if (!nodes) return "";
+  const sc = sz / 24;
+  const sw = (1.8 / sc).toFixed(3);
+  const paths = nodes
+    .map(([tag, attrs]) => `<${tag} ${Object.entries(attrs).map(([k, v]) => `${k}="${v}"`).join(" ")}/>`)
+    .join("");
+  return `<g transform="translate(${x},${y}) scale(${sc})" fill="none" stroke="${col}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${paths}</g>`;
+}
+
+function starField(n: number, w: number, h: number): string {
+  let s = 0xdeadbeef;
+  const rng = () => {
+    s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+    s ^= s >>> 16;
+    return (s >>> 0) / 0xffffffff;
+  };
+  return Array.from({ length: n }, () => {
+    const x = rng() * w, y = rng() * h;
+    const r = rng() * 1.4 + 0.4;
+    const o = (rng() * 0.5 + 0.3).toFixed(2);
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="white" opacity="${o}"/>`;
+  }).join("");
+}
+
+function star4(x: number, y: number, sz: number, col = "#ec4899", op = "1"): string {
+  const h = sz, q = sz * 0.28;
+  return `<path d="M${x},${y - h} L${x + q},${y - q} L${x + h},${y} L${x + q},${y + q} L${x},${y + h} L${x - q},${y + q} L${x - h},${y} L${x - q},${y - q} Z" fill="${col}" opacity="${op}"/>`;
+}
 
 async function fetchAsBase64(url: string): Promise<string | null> {
   try {
@@ -15,60 +57,37 @@ async function fetchAsBase64(url: string): Promise<string | null> {
   }
 }
 
-function esc(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-// Deterministic pseudo-random star field
-function starField(n: number, w: number, h: number): string {
-  let s = 0xdeadbeef;
-  const rng = () => { s = Math.imul(s ^ (s >>> 16), 0x45d9f3b); s ^= s >>> 16; return (s >>> 0) / 0xffffffff; };
-  return Array.from({ length: n }, () => {
-    const x = rng() * w, y = rng() * h;
-    const r = rng() * 1.4 + 0.4;
-    const o = (rng() * 0.5 + 0.3).toFixed(2);
-    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="white" opacity="${o}"/>`;
-  }).join("");
-}
-
-// 4-pointed sparkle star
-function star4(x: number, y: number, sz: number, col = "#ec4899", op = "1"): string {
-  const h = sz, q = sz * 0.28;
-  return `<path d="M${x},${y - h} L${x + q},${y - q} L${x + h},${y} L${x + q},${y + q} L${x},${y + h} L${x - q},${y + q} L${x - h},${y} L${x - q},${y - q} Z" fill="${col}" opacity="${op}"/>`;
-}
-
-// Crescent moon via two-circle mask
-function crescentMoon(cx: number, cy: number, r: number): string {
-  const off = r * 0.35;
+function listItem(x: number, y: number, iconName: string, text: string): string {
+  const bx = x, by = y - 17, bw = 23, bh = 23;
   return `
-  <circle cx="${cx}" cy="${cy}" r="${r}" fill="#c0507a" opacity="0.55"/>
-  <circle cx="${cx - off}" cy="${cy - off * 0.5}" r="${r * 0.82}" fill="#0d0516" opacity="1"/>`;
+  <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="5" fill="#1e0530" stroke="#ec4899" stroke-width="1" opacity="0.85"/>
+  ${licon(iconName, bx + 2.5, by + 2.5, 18, "#ec4899")}
+  <text x="${bx + bw + 9}" y="${y}" font-family="Arial,sans-serif" font-size="13.5" fill="#d4b8cc">${esc(text)}</text>`;
 }
 
-// Planet with ring (right panel decoration)
-function planet(cx: number, cy: number): string {
+function statBlock(x: number, y: number, iconName: string, label: string, value: string): string {
   return `
-  <circle cx="${cx}" cy="${cy}" r="12" fill="#2d0a3e" stroke="#ec4899" stroke-width="1.2" opacity="0.7"/>
-  <ellipse cx="${cx}" cy="${cy}" rx="20" ry="6" fill="none" stroke="#ec4899" stroke-width="1.2" opacity="0.6" transform="rotate(-25,${cx},${cy})"/>`;
+  ${licon(iconName, x, y - 13, 14, "#8855a0")}
+  <text x="${x + 18}" y="${y}" font-family="Arial,sans-serif" font-size="11" fill="#8855a0">${esc(label)}</text>
+  <text x="${x}" y="${y + 17}" font-family="Arial,sans-serif" font-weight="bold" font-size="14" fill="white">${esc(value)}</text>`;
 }
 
-// Rounded rectangle button
-function btn(x: number, y: number, w: number, h: number, label: string, filled: boolean): string {
+function infoRow(x: number, y: number, iconName: string, label: string, value: string): string {
+  return `
+  ${licon(iconName, x, y - 12, 13, "#8855a0")}
+  <text x="${x + 18}" y="${y}" font-family="Arial,sans-serif" font-size="11.5" fill="#8855a0">${esc(label)}</text>
+  <text x="${x + 80}" y="${y}" font-family="Arial,sans-serif" font-size="12.5" fill="white">${esc(value)}</text>`;
+}
+
+function btn(x: number, y: number, w: number, h: number, iconName: string, label: string, filled: boolean): string {
   const bg = filled
-    ? `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" fill="#ec4899"/>`
-    : `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" fill="#2a0a2a" stroke="#ec4899" stroke-width="1.5" opacity="0.9"/>`;
+    ? `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" fill="#c2185b"/>`
+    : `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9" fill="#1a0528" stroke="#ec4899" stroke-width="1.5" opacity="0.9"/>`;
+  const cx = x + (iconName ? 18 : 0);
+  const tx = x + w / 2 + (iconName ? 8 : 0);
   return `${bg}
-  <text x="${x + w / 2}" y="${y + h / 2 + 5}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="14" fill="white">${esc(label)}</text>`;
-}
-
-function statRow(x: number, y: number, label: string, value: string): string {
-  return `
-  <text x="${x}" y="${y}" font-family="Arial,sans-serif" font-size="11" fill="#a67cc0">${esc(label)}</text>
-  <text x="${x + 95}" y="${y}" font-family="Arial,sans-serif" font-weight="bold" font-size="13" fill="white">${esc(value)}</text>`;
+  ${iconName ? licon(iconName, cx - 14, y + (h - 16) / 2, 16, "white") : ""}
+  <text x="${tx}" y="${y + h / 2 + 5}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="13" fill="white">${esc(label)}</text>`;
 }
 
 router.get("/api/welcome-card", async (req, res) => {
@@ -82,30 +101,29 @@ router.get("/api/welcome-card", async (req, res) => {
   const avatarB64 = avatarUrl ? await fetchAsBase64(avatarUrl) : null;
 
   const W = 900, H = 500;
-  const AX = 160, AY = 215, AR = 100; // avatar center + radius
+  const AX = 158, AY = 210, AR = 100;
 
-  // Username font size — shrink for long names
   const uLen = user.length;
-  const uSize = uLen > 16 ? 26 : uLen > 12 ? 31 : 36;
+  const uSize = uLen > 17 ? 24 : uLen > 13 ? 29 : 34;
 
   const svg = `<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-  <radialGradient id="bg" cx="40%" cy="40%" r="70%">
+  <radialGradient id="bg" cx="35%" cy="45%" r="75%">
     <stop offset="0%"   stop-color="#200930"/>
-    <stop offset="100%" stop-color="#0c0514"/>
+    <stop offset="100%" stop-color="#0b0413"/>
   </radialGradient>
-  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%"   stop-color="#ec4899" stop-opacity="0.45"/>
+  <radialGradient id="avatarGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#ec4899" stop-opacity="0.4"/>
     <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
   </radialGradient>
   <clipPath id="av"><circle cx="${AX}" cy="${AY}" r="${AR}"/></clipPath>
-  <filter id="glowF" x="-40%" y="-40%" width="180%" height="180%">
+  <filter id="glowF" x="-50%" y="-50%" width="200%" height="200%">
     <feGaussianBlur stdDeviation="5" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
   <linearGradient id="panelBg" x1="0%" y1="0%" x2="0%" y2="100%">
     <stop offset="0%"   stop-color="#1e0830"/>
-    <stop offset="100%" stop-color="#160525"/>
+    <stop offset="100%" stop-color="#130520"/>
   </linearGradient>
 </defs>
 
@@ -115,120 +133,135 @@ router.get("/api/welcome-card", async (req, res) => {
 <!-- Stars -->
 ${starField(70, W, H)}
 
-<!-- Sparkles scattered -->
+<!-- Accent sparkles -->
 ${star4(340, 78, 6)}
-${star4(380, 58, 3.5, "white", "0.8")}
+${star4(382, 60, 3.5, "white", "0.8")}
 ${star4(720, 38, 5)}
-${star4(762, 68, 3, "white", "0.7")}
-${star4(832, 44, 5.5)}
-${star4(855, 175, 3.5, "white", "0.7")}
-${star4(875, 350, 4.5, "white", "0.6")}
-${star4(62, 82, 4, "white", "0.6")}
-${star4(505, 28, 4.5, "white", "0.7")}
-${star4(42, 300, 3.5, "white", "0.6")}
-${star4(300, 460, 4, "white", "0.5")}
+${star4(764, 68, 3, "white", "0.7")}
+${star4(834, 44, 5.5)}
+${star4(858, 178, 3.5, "white", "0.7")}
+${star4(877, 355, 4.5, "white", "0.6")}
+${star4(60, 80, 4, "white", "0.6")}
+${star4(506, 28, 4.5, "white", "0.7")}
+${star4(40, 300, 3.5, "white", "0.6")}
+${star4(302, 462, 4, "white", "0.5")}
+${star4(636, 460, 3.5, "white", "0.5")}
 
-<!-- Moon bottom-left -->
-${crescentMoon(55, 418, 88)}
+<!-- Small pink heart top-left -->
+${licon("Heart", 34, 42, 17, "#ec4899")}
 
-<!-- Cloud hints -->
-<ellipse cx="100" cy="488" rx="80" ry="22" fill="#2a0838" opacity="0.55"/>
-<ellipse cx="48"  cy="478" rx="55" ry="16" fill="#2a0838" opacity="0.45"/>
+<!-- Moon crescent bottom-left -->
+<circle cx="62" cy="420" r="88" fill="#b5436e" opacity="0.5"/>
+<circle cx="42" cy="398" r="73" fill="#0b0413" opacity="1"/>
+
+<!-- Clouds -->
+<ellipse cx="112" cy="492" rx="88" ry="22" fill="#250838" opacity="0.6"/>
+<ellipse cx="52"  cy="484" rx="62" ry="17" fill="#250838" opacity="0.5"/>
+<ellipse cx="172" cy="496" rx="62" ry="16" fill="#200730" opacity="0.45"/>
+
+<!-- Left vine decoration -->
+<path d="M12,120 Q28,145 18,175 Q8,205 25,225" stroke="#ec4899" stroke-width="1.5" fill="none" opacity="0.25"/>
+<path d="M18,175 Q35,168 42,155" stroke="#ec4899" stroke-width="1" fill="none" opacity="0.2"/>
+<path d="M22,200 Q40,192 46,180" stroke="#ec4899" stroke-width="1" fill="none" opacity="0.2"/>
+<circle cx="43" cy="154" r="3" fill="#ec4899" opacity="0.22"/>
+<circle cx="47" cy="179" r="2.5" fill="#ec4899" opacity="0.2"/>
 
 <!-- Avatar glow halo -->
-<circle cx="${AX}" cy="${AY}" r="${AR + 22}" fill="url(#glow)"/>
+<circle cx="${AX}" cy="${AY}" r="${AR + 28}" fill="url(#avatarGlow)"/>
 
-<!-- Avatar ring -->
-<circle cx="${AX}" cy="${AY}" r="${AR + 12}" fill="none" stroke="#ec4899" stroke-width="2.5" opacity="0.9" filter="url(#glowF)"/>
-<circle cx="${AX}" cy="${AY}" r="${AR + 8}"  fill="none" stroke="#ec4899" stroke-width="1"   opacity="0.4"/>
+<!-- Avatar outer glow ring -->
+<circle cx="${AX}" cy="${AY}" r="${AR + 13}" fill="none" stroke="#ec4899" stroke-width="2.5" opacity="0.95" filter="url(#glowF)"/>
+<!-- Avatar inner subtle ring -->
+<circle cx="${AX}" cy="${AY}" r="${AR + 7}"  fill="none" stroke="#ec4899" stroke-width="1" opacity="0.38"/>
 
-<!-- Avatar background -->
-<circle cx="${AX}" cy="${AY}" r="${AR}" fill="#2d0a3e"/>
+<!-- Avatar background fill -->
+<circle cx="${AX}" cy="${AY}" r="${AR}" fill="#280840"/>
 
-<!-- Avatar image -->
+<!-- Avatar image or placeholder -->
 ${avatarB64
   ? `<image href="${avatarB64}" x="${AX - AR}" y="${AY - AR}" width="${AR * 2}" height="${AR * 2}" clip-path="url(#av)"/>`
-  : `<circle cx="${AX}" cy="${AY}" r="${AR}" fill="#3d0a50"/>
-     <text x="${AX}" y="${AY + 18}" text-anchor="middle" font-family="Arial,sans-serif" font-size="64" fill="#ec4899" font-weight="bold">?</text>`
-}
+  : `<circle cx="${AX}" cy="${AY}" r="${AR}" fill="#340a50"/>
+     <text x="${AX}" y="${AY + 22}" text-anchor="middle" font-family="Arial,sans-serif" font-size="68" fill="#ec4899" font-weight="bold">?</text>`}
 
-<!-- Online indicator -->
-<circle cx="${AX + AR - 14}" cy="${AY + AR - 14}" r="11" fill="#0c0514"/>
-<circle cx="${AX + AR - 14}" cy="${AY + AR - 14}" r="8"  fill="#3ba55c"/>
+<!-- Online green dot -->
+<circle cx="${AX + AR - 13}" cy="${AY + AR - 13}" r="12" fill="#0b0413"/>
+<circle cx="${AX + AR - 13}" cy="${AY + AR - 13}" r="8.5" fill="#3ba55c"/>
 
 <!-- ─── MIDDLE CONTENT ─── -->
 
-<!-- "hey!" -->
-<text x="315" y="92" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="22" fill="#ec4899" opacity="0.95">hey!</text>
-${star4(358, 84, 5)}
-${star4(374, 72, 3, "white", "0.75")}
+<!-- "hey!" italic -->
+<text x="315" y="93" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="22" fill="#ec4899" opacity="0.95">hey!</text>
+${star4(358, 85, 5)}
+${star4(375, 72, 3.5, "white", "0.75")}
 
-<!-- Title -->
+<!-- Title row 1 -->
 <text x="315" y="143" font-family="Arial,sans-serif" font-weight="bold" font-size="34" fill="white">Dobrodosao/la,</text>
-<text x="315" y="${143 + 46}" font-family="Arial,sans-serif" font-weight="bold" font-size="${uSize}" fill="#ec4899">@${esc(user)}  &#x2665;</text>
 
-<!-- Decorative divider -->
-<line x1="315" y1="208" x2="600" y2="208" stroke="#ec4899" stroke-width="0.8" opacity="0.35"/>
-${star4(445, 208, 5)}
-${star4(468, 208, 3.5, "white", "0.7")}
-<text x="456" y="213" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ec4899" opacity="0.85">&#x1F380;</text>
+<!-- Title row 2: @user + heart -->
+<text x="315" y="${143 + 45}" font-family="Arial,sans-serif" font-weight="bold" font-size="${uSize}" fill="#ec4899">@${esc(user)}</text>
+${licon("Heart", 315 + Math.min(uLen, 18) * uSize * 0.56 + 6, 143 + 45 - uSize * 0.8, uSize * 0.7, "#ec4899")}
+
+<!-- Decorative divider: left line, sparkle, member count, sparkle, right line -->
+<line x1="315" y1="207" x2="440" y2="207" stroke="#ec4899" stroke-width="0.8" opacity="0.38"/>
+${star4(447, 207, 4.5)}
+<text x="504" y="211" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="12" fill="#ec4899">Clan #${esc(count)}</text>
+${star4(561, 207, 4.5)}
+<line x1="568" y1="207" x2="620" y2="207" stroke="#ec4899" stroke-width="0.8" opacity="0.38"/>
 
 <!-- Description -->
-<text x="315" y="243" font-family="Arial,sans-serif" font-size="14.5" fill="#dcc4d4">Drago nam je sto si stigao/la u nasu zajednicu! *</text>
+<text x="315" y="242" font-family="Arial,sans-serif" font-size="13.5" fill="#dcc4d4">Drago nam je sto si stigao/la u nasu zajednicu!</text>
+${star4(596, 238, 4, "white", "0.75")}
 
-<!-- List items -->
-<rect x="315" y="260" width="3" height="14" rx="1" fill="#ec4899" opacity="0.7"/>
-<text x="326" y="272" font-family="Arial,sans-serif" font-size="14" fill="#cdb0c4">Procitaj pravila</text>
+<!-- List items with icon boxes -->
+${listItem(315, 277, "BookOpen",      "Procitaj pravila")}
+${listItem(315, 312, "Tag",           "Odaberi role")}
+${listItem(315, 347, "MessageCircle", "Predstavi se zajednici")}
 
-<rect x="315" y="290" width="3" height="14" rx="1" fill="#ec4899" opacity="0.7"/>
-<text x="326" y="302" font-family="Arial,sans-serif" font-size="14" fill="#cdb0c4">Odaberi role</text>
-
-<rect x="315" y="320" width="3" height="14" rx="1" fill="#ec4899" opacity="0.7"/>
-<text x="326" y="332" font-family="Arial,sans-serif" font-size="14" fill="#cdb0c4">Predstavi se zajednici</text>
-
-<text x="315" y="372" font-family="Arial,sans-serif" font-size="14.5" fill="#dcc4d4">Uzivaj i zabavi se! &#x2665;</text>
+<!-- Closing line -->
+<text x="315" y="386" font-family="Arial,sans-serif" font-size="13.5" fill="#dcc4d4">Uzivaj i zabavi se! &#x2665;</text>
 
 <!-- ─── RIGHT PANEL ─── -->
-<rect x="648" y="25" width="232" height="435" fill="url(#panelBg)" rx="13"/>
-<rect x="648" y="25" width="232" height="435" fill="none" stroke="#ec4899" stroke-width="1" rx="13" opacity="0.3"/>
+<rect x="648" y="24" width="234" height="438" rx="14" fill="url(#panelBg)"/>
+<rect x="648" y="24" width="234" height="438" rx="14" fill="none" stroke="#ec4899" stroke-width="1" opacity="0.32"/>
 
-<!-- Planet decoration -->
-${planet(845, 95)}
+<!-- Planet top-right of panel -->
+<circle cx="852" cy="96" r="14" fill="#26083e" stroke="#ec4899" stroke-width="1.2" opacity="0.65"/>
+<ellipse cx="852" cy="96" rx="24" ry="7" fill="none" stroke="#ec4899" stroke-width="1.2" opacity="0.55" transform="rotate(-25 852 96)"/>
 
-<!-- SERVER STATS header -->
-${star4(663, 55, 5)}
-<text x="762" y="59" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="11.5" fill="#ec4899" letter-spacing="1.5">SERVER STATS</text>
-${star4(862, 55, 5)}
+<!-- ✦ SERVER STATS ✦ -->
+${star4(664, 54, 5)}
+<text x="763" y="58" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="11" fill="#ec4899" letter-spacing="2">SERVER STATS</text>
+${star4(862, 54, 5)}
 
-<!-- Stats rows -->
-${statRow(663, 100, "Members", memberCount)}
-${statRow(663, 132, "Online",  "24/7")}
-${statRow(663, 164, "Secure",  "Always Protected")}
-${statRow(663, 196, "Uptime",  "100%")}
+<!-- Stat blocks (icon + label + bold value below) -->
+${statBlock(664, 87,  "Users",  "Members", memberCount)}
+${statBlock(664, 128, "Globe",  "Online",  "24/7")}
+${statBlock(664, 169, "Shield", "Secure",  "Always Protected")}
+${statBlock(664, 210, "Zap",    "Uptime",  "100%")}
 
-<!-- Separator -->
-<line x1="663" y1="215" x2="868" y2="215" stroke="#ec4899" stroke-width="0.8" opacity="0.3"/>
+<!-- Panel separator -->
+<line x1="664" y1="234" x2="870" y2="234" stroke="#ec4899" stroke-width="0.8" opacity="0.28"/>
 
-<!-- YOUR INFO header -->
-${star4(663, 238, 5)}
-<text x="762" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="11.5" fill="#ec4899" letter-spacing="1.5">YOUR INFO</text>
-${star4(862, 238, 5)}
+<!-- ✦ YOUR INFO ✦ -->
+${star4(664, 254, 5)}
+<text x="763" y="258" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="11" fill="#ec4899" letter-spacing="2">YOUR INFO</text>
+${star4(862, 254, 5)}
 
-<!-- Info rows -->
-${statRow(663, 276, "Account",   accountAge)}
-${statRow(663, 308, "Joined",    joinedAt)}
-${statRow(663, 340, "Member ID", "#" + count)}
+<!-- Info rows (icon + label + value same line) -->
+${infoRow(664, 293, "User",     "Account",   accountAge)}
+${infoRow(664, 328, "Calendar", "Joined",    joinedAt)}
+${infoRow(664, 363, "Hash",     "Member ID", "#" + count)}
 
 <!-- ─── BUTTONS ─── -->
-${btn(25,  415, 160, 44, "Pravila", true)}
-${btn(196, 415, 130, 44, "Role",    false)}
-${btn(337, 415, 150, 44, "Pozovi",  false)}
-${btn(498, 415, 130, 44, "Chat",    false)}
+${btn(25,  414, 162, 45, "BookOpen",      "Pravila", true)}
+${btn(197, 414, 128, 45, "Tag",           "Role",    false)}
+${btn(335, 414, 148, 45, "UserPlus",      "Pozovi",  false)}
+${btn(493, 414, 128, 45, "MessageCircle", "Chat",    false)}
 
 <!-- ─── FOOTER ─── -->
-${star4(318, 487, 4, "#9370a8", "0.8")}
-<text x="450" y="491" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#8855a0" letter-spacing="1.2">GIANNI  *  WELCOME SYSTEM</text>
-${star4(582, 487, 4, "#9370a8", "0.8")}
+${star4(316, 488, 4, "#8855a0", "0.85")}
+<text x="450" y="492" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#8855a0" letter-spacing="1.5">GIANNI  *  WELCOME SYSTEM</text>
+${star4(584, 488, 4, "#8855a0", "0.85")}
 </svg>`;
 
   try {
