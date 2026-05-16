@@ -1971,22 +1971,44 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
               </button>
             </div>
           </div>
-          {embed.name === "welcome" ? (
-            cardPreviewUrl
-              ? <img key={cardPreviewUrl} src={cardPreviewUrl} alt="Welcome card preview" className="rounded-xl w-full border border-[#ec4899]/20 mt-1" style={{ imageRendering: "auto" }} />
-              : <div className="rounded-xl w-full h-48 bg-[#1E1F22] border border-[#ec4899]/20 mt-1 flex items-center justify-center text-[#949BA4] text-sm">Učitavanje...</div>
-          ) : (
-            <DiscordEmbedPreview
-              embed={embed}
-              title={title}
-              description={description}
-              color={color}
-              bgColor={bgColor}
-              previewMode={previewMode}
-              fields={fields}
-              buttons={buttons}
-            />
-          )}
+          {(() => {
+            // Apply demo variable substitution for preview
+            const demoMap: Record<string, string> = {
+              "{user}": "@TestUser",
+              "{user.name}": "TestUser",
+              "{user.avatar}": "https://cdn.discordapp.com/embed/avatars/0.png",
+              "{server}": "GIANNI",
+              "{accountAge}": "2g 3m",
+              "{joinedAt}": "Maj 2026.",
+              "{count}": "1.234",
+              "{memberCount}": "1.234",
+            };
+            const applyDemo = (s: string) =>
+              Object.entries(demoMap).reduce((a, [k, v]) => a.replaceAll(k, v), s);
+            const previewTitle = applyDemo(title);
+            const previewDesc = applyDemo(description);
+            const previewFields = fields.map(f => ({
+              ...f,
+              name: applyDemo(String(f.name ?? "")),
+              value: applyDemo(String(f.value ?? "")),
+            }));
+            const previewEmbed = {
+              ...embed,
+              thumbnail: embed.thumbnail ? applyDemo(embed.thumbnail) : embed.thumbnail,
+            };
+            return (
+              <DiscordEmbedPreview
+                embed={previewEmbed}
+                title={previewTitle}
+                description={previewDesc}
+                color={color}
+                bgColor={bgColor}
+                previewMode={previewMode}
+                fields={previewFields}
+                buttons={buttons}
+              />
+            );
+          })()}
 
           <div className="mt-4 text-[11px] text-[#949BA4] space-y-1">
             <div>Varijable poput <code className="bg-[#1E1F22] px-1 rounded text-[#F1C40F]">{"{user}"}</code> zamjenjuje bot pri slanju.</div>
