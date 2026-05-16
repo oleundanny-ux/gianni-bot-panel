@@ -1792,20 +1792,41 @@ async def on_member_join(member):
 
     # ── Dugmadi ──
     wv = discord.ui.View()
-    if ch_game:
-        wv.add_item(discord.ui.Button(
-            label="game",
-            emoji="<a:game1:1500459114931949568>",
-            url=f"https://discord.com/channels/{member.guild.id}/{ch_game.id}",
-            style=discord.ButtonStyle.link
-        ))
-    if ch_mus:
-        wv.add_item(discord.ui.Button(
-            label="music",
-            emoji="<a:music2:1500459145382592602>",
-            url=f"https://discord.com/channels/{member.guild.id}/{ch_mus.id}",
-            style=discord.ButtonStyle.link
-        ))
+    pw_buttons = (_pw or {}).get("buttons") or []
+    if pw_buttons:
+        for pb in pw_buttons:
+            if not pb.get("label"):
+                continue
+            ch_id  = pb.get("channelId") or pb.get("channel_id")
+            direct = pb.get("url")
+            if ch_id:
+                btn_url = f"https://discord.com/channels/{member.guild.id}/{ch_id}"
+            elif direct:
+                btn_url = direct
+            else:
+                continue
+            wv.add_item(discord.ui.Button(
+                label=pb["label"],
+                emoji=pb.get("emoji") or None,
+                url=btn_url,
+                style=discord.ButtonStyle.link,
+            ))
+    else:
+        # Fallback — hardkodovani game/music kanali
+        if ch_game:
+            wv.add_item(discord.ui.Button(
+                label="game",
+                emoji="<a:game1:1500459114931949568>",
+                url=f"https://discord.com/channels/{member.guild.id}/{ch_game.id}",
+                style=discord.ButtonStyle.link
+            ))
+        if ch_mus:
+            wv.add_item(discord.ui.Button(
+                label="music",
+                emoji="<a:music2:1500459145382592602>",
+                url=f"https://discord.com/channels/{member.guild.id}/{ch_mus.id}",
+                style=discord.ButtonStyle.link
+            ))
 
     await chan.send(content=member.mention, embed=e, view=wv)
 
