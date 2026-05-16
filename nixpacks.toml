@@ -2,7 +2,18 @@
 nixPkgs = ["nodejs_20"]
 
 [phases.install]
-cmds = ["npm install --production 2>/dev/null || true"]
+cmds = [
+  "npm install -g pnpm@9",
+  "pnpm install"
+]
 
 [phases.build]
-cmds = []
+cmds = [
+  "pnpm --filter @workspace/api-server run build",
+  "cp artifacts/api-server/dist/index.mjs index.mjs",
+  "cp artifacts/api-server/dist/pino-worker.mjs pino-worker.mjs",
+  "cp artifacts/api-server/dist/pino-file.mjs pino-file.mjs",
+  "cp artifacts/api-server/dist/thread-stream-worker.mjs thread-stream-worker.mjs",
+  "BASE_PATH=/ NODE_ENV=production pnpm --filter @workspace/bot-panel run build",
+  "cp -r artifacts/bot-panel/dist/public/. public/"
+]
