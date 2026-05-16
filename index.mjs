@@ -66555,7 +66555,6 @@ var routes_default = router10;
 // src/routes/icons.ts
 var import_express11 = __toESM(require_express2(), 1);
 var import_lucide = __toESM(require_lucide(), 1);
-import { Resvg } from "@resvg/resvg-js";
 var router11 = (0, import_express11.Router)();
 function buildSvg(iconName, bg, color) {
   const iconNodes = import_lucide.icons[iconName];
@@ -66574,7 +66573,7 @@ function buildSvg(iconName, bg, color) {
 </svg>`;
 }
 var cache = /* @__PURE__ */ new Map();
-router11.get("/api/icons/:name", (req, res) => {
+router11.get("/api/icons/:name", async (req, res) => {
   const { name: name2 } = req.params;
   const bg = (req.query.bg ?? "18103a").replace(/^#/, "");
   const color = (req.query.color ?? "ffffff").replace(/^#/, "");
@@ -66591,12 +66590,17 @@ router11.get("/api/icons/:name", (req, res) => {
     return;
   }
   try {
+    const { Resvg } = await import("@resvg/resvg-js");
     const resvg = new Resvg(svg, { fitTo: { mode: "original" } });
     const png = Buffer.from(resvg.render().asPng());
     cache.set(cacheKey, png);
     res.set({ "Content-Type": "image/png", "Cache-Control": "public, max-age=31536000, immutable" });
     res.send(png);
-  } catch {
+  } catch (err) {
+    if (err?.code === "ERR_MODULE_NOT_FOUND" || err?.message?.includes("resvg")) {
+      res.status(503).json({ error: "Icon render nije dostupan (@resvg/resvg-js nije instaliran)" });
+      return;
+    }
     res.status(500).json({ error: "Render failed" });
   }
 });
@@ -66850,8 +66854,8 @@ ${star4(316, 488, 4, "#8855a0", "0.85")}
 ${star4(584, 488, 4, "#8855a0", "0.85")}
 </svg>`;
   try {
-    const { Resvg: Resvg2 } = await import("@resvg/resvg-js");
-    const resvg = new Resvg2(svg, {
+    const { Resvg } = await import("@resvg/resvg-js");
+    const resvg = new Resvg(svg, {
       fitTo: { mode: "original" },
       font: { loadSystemFonts: true }
     });
