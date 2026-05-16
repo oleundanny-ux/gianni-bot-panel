@@ -4,6 +4,7 @@ import pinoHttp from "pino-http";
 import path from "path";
 import fs from "fs";
 import router from "./routes";
+import iconsRouter from "./routes/icons";
 import { logger } from "./lib/logger";
 import { authMiddleware } from "./middleware/auth.js";
 
@@ -31,6 +32,9 @@ app.use(
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Public routes — no auth required
+app.use(iconsRouter);
 
 app.use("/api", authMiddleware, router);
 
