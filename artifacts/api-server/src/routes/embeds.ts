@@ -44,10 +44,6 @@ export const DEFAULT_EMBEDS = [
       { name: "👥 Members",        value: "`{memberCount}`",    inline: true  },
       { name: "🌐 Online",         value: "`24/7`",             inline: true  },
       { name: "🛡️ Secure",        value: "`Always Protected`", inline: true  },
-      { name: "✦ YOUR INFO ✦",     value: "",                  inline: false },
-      { name: "👤 Account",        value: "{accountAge}",       inline: true  },
-      { name: "📥 Joined",         value: "{joinedAt}",         inline: true  },
-      { name: "# Member ID",       value: "`#{count}`",         inline: true  },
     ],
     buttons: [
       { type: "link", label: "Pravila", style: "link" },
