@@ -28,34 +28,26 @@ export const DEFAULT_EMBEDS = [
   //  SISTEM
   {
     name: "welcome",
-    title: "Dobrodošao/la, {user}! 💗",
+    title: "",
     description:
-      "Drago nam je što si stigao/la u **GIANNI** zajednicu! ✨\n\n" +
-      "📖 Pročitaj pravila\n" +
-      "🎭 Odaberi role\n" +
-      "💬 Predstavi se zajednici\n\n" +
-      "Uživaj i zabavi se! 💕",
+      "╭・🌸 Welcome to **GIANNI**\n" +
+      "┆\n" +
+      "┆ ✦ User: {user}\n" +
+      "┆ ✦ Member: `#{memberCount}`\n" +
+      "┆ ✦ Account: {accountAge}\n" +
+      "┆\n" +
+      "╰・Enjoy your stay 💕",
     color: "#ec4899",
     category: "Sistem",
-    footer: "✦ GIANNI • 🎮 WELCOME SYSTEM ✦",
+    footer: "✦ GIANNI • WELCOME SYSTEM ✦",
     thumbnail: "{user.avatar}",
-    fields: [
-      { name: "✦ SERVER STATS ✦",  value: "",                  inline: false },
-      { name: "👥 Members",        value: "`{memberCount}`",    inline: true  },
-      { name: "🌐 Online",         value: "`24/7`",             inline: true  },
-      { name: "🛡️ Secure",        value: "`Always Protected`", inline: true  },
-    ],
+    fields: [],
     buttons: [
       { type: "link", label: "Pravila", style: "link" },
       { type: "link", label: "Role",    style: "link" },
       { type: "link", label: "Pozovi",  style: "link" },
       { type: "link", label: "Chat",    style: "link" },
     ],
-    cardDesc:    "Drago nam je sto si stigao/la u nasu zajednicu!",
-    cardItem1:   "Procitaj pravila",
-    cardItem2:   "Odaberi role",
-    cardItem3:   "Predstavi se zajednici",
-    cardClosing: "Uzivaj i zabavi se! ♥",
   },
   {
     name: "leave",
