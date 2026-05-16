@@ -1124,7 +1124,7 @@ export const DEFAULT_EMBEDS = [
     title: "<a:124071redrose:1496899261651226766>  Kompliment",
     description:
       "<a:3599pinkheart:1504504866700132534> **{from}** kaže **{to}**:\n" +
-      "*„Ti si razlog zašto dan počinje sa osmijehom."* <a:64382pinksparkles:1500259869259988033>",
+      "*\u201eTi si razlog zašto dan počinje sa osmijehom.\u201c* <a:64382pinksparkles:1500259869259988033>",
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI (Custom) • Kompliment",
@@ -1136,7 +1136,7 @@ export const DEFAULT_EMBEDS = [
     title: "<a:568481annoyedgojo:1496899399077330994>  Fora",
     description:
       "<a:24420sleepyhellokitty:1496898915176415413> **{from}** je pogledao/la **{to}** i shvatio/la:\n" +
-      "*„Brate/sestro, ti si dokaz da evolucija nije uvijek napredak."* <a:568481annoyedgojo:1496899399077330994>",
+      "*\u201eBrate/sestro, ti si dokaz da evolucija nije uvijek napredak.\u201c* <a:568481annoyedgojo:1496899399077330994>",
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI (Custom) • Sve u šali!",
@@ -1148,7 +1148,7 @@ export const DEFAULT_EMBEDS = [
     title: "<a:64382pinksparkles:1500259869259988033>  Muvanje",
     description:
       "<a:24420sleepyhellokitty:1496898915176415413> **{from}** → **{to}**:\n" +
-      "*„Jesi li ti WiFi? Jer osjećam konekciju između nas."* <a:64382pinksparkles:1500259869259988033>",
+      "*\u201eJesi li ti WiFi? Jer osjećam konekciju između nas.\u201c* <a:64382pinksparkles:1500259869259988033>",
     color: "#ec4899",
     category: "Fun",
     footer: "GIANNI (Custom) • Balkan Muvanje",
