@@ -49,6 +49,12 @@ export const DEFAULT_EMBEDS = [
       { name: "📥 Joined",               value: "{joinedAt}",            inline: true  },
       { name: "# Member ID",             value: "`#{count}`",            inline: true  },
     ],
+    buttons: [
+      { type: "link", label: "Pravila", style: "link" },
+      { type: "link", label: "Role",    style: "link" },
+      { type: "link", label: "Pozovi",  style: "link" },
+      { type: "link", label: "Chat",    style: "link" },
+    ],
   },
   {
     name: "leave",
