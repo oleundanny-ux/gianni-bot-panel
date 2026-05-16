@@ -1784,30 +1784,24 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
               </button>
             </div>
           </div>
-          <DiscordEmbedPreview
-            embed={embed}
-            title={title}
-            description={description}
-            color={color}
-            bgColor={bgColor}
-            previewMode={previewMode}
-            fields={fields}
-            buttons={buttons}
-          />
-
-          {embed.name === "welcome" && (
-            <div className="mt-5">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-[11px] font-semibold uppercase tracking-wide text-[#ec4899]">Welcome Card Preview</span>
-                <span className="text-[10px] text-[#949BA4]">— slika koja se šalje pri ulasku</span>
-              </div>
-              <img
-                src={`${window.location.origin}/api/welcome-card?user=Testko&memberCount=1.250.000%2B&accountAge=2g+3m&joinedAt=Maj+2024&count=4521`}
-                alt="Welcome card preview"
-                className="rounded-xl w-full max-w-[560px] border border-[#ec4899]/20"
-                style={{ imageRendering: "auto" }}
-              />
-            </div>
+          {embed.name === "welcome" ? (
+            <img
+              src={`${window.location.origin}/api/welcome-card?user=Testko&memberCount=1.250.000%2B&accountAge=2g+3m&joinedAt=Maj+2024&count=4521&t=${Date.now()}`}
+              alt="Welcome card preview"
+              className="rounded-xl w-full border border-[#ec4899]/20 mt-1"
+              style={{ imageRendering: "auto" }}
+            />
+          ) : (
+            <DiscordEmbedPreview
+              embed={embed}
+              title={title}
+              description={description}
+              color={color}
+              bgColor={bgColor}
+              previewMode={previewMode}
+              fields={fields}
+              buttons={buttons}
+            />
           )}
 
           <div className="mt-4 text-[11px] text-[#949BA4] space-y-1">
