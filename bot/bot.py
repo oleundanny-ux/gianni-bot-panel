@@ -1769,31 +1769,80 @@ async def on_member_join(member):
 
     # ── Welcome Embed (Panel API → fallback hardkod) ──
     _pw = await get_panel_embed("welcome")
+
+    # Welcome-specific variable resolver — handles {accountAge}, {joinedAt}, {count} etc.
+    _now_utc = datetime.now(timezone.utc)
+    _created  = member.created_at if member.created_at.tzinfo else member.created_at.replace(tzinfo=timezone.utc)
+    _delta    = _now_utc - _created
+    _yrs, _rem = divmod(_delta.days, 365)
+    _mos = _rem // 30
+    _age_str = (f"{_yrs}g {_mos}m" if _yrs and _mos else
+                f"{_yrs}g"         if _yrs           else
+                f"{_mos}m"         if _mos           else "< 1m")
+    _joined_str = (member.joined_at or _now_utc).strftime("%b %Y")
+
+    def _wev(text: str) -> str:
+        """Welcome embed variable expander — superset of _ev."""
+        if not text: return text
+        return (_ev(text, member, member_count)
+                .replace("{accountAge}", _age_str)
+                .replace("{joinedAt}",   _joined_str)
+                .replace("{count}",      str(member_count))
+                .replace("{user.avatar}", str(member.display_avatar.url))
+                .replace("{memberCount}", str(member_count)))
+
+    def _fmt_item(label: str, ch_id: str) -> str:
+        return f"<#{ch_id}>" if ch_id else f"**{label}**"
+
     if _pw:
-        _wc = int(_pw.get("color", "#2B2D3A").lstrip("#") or "2B2D3A", 16)
-        # Build description — list items become <#channel-id> links if connected
+        _wc = int((_pw.get("color") or "#ec4899").lstrip("#") or "ec4899", 16)
+
+        # Card list items (with optional channel links)
         _item1 = _pw.get("cardItem1") or "Procitaj pravila"
         _item2 = _pw.get("cardItem2") or "Odaberi role"
         _item3 = _pw.get("cardItem3") or "Predstavi se zajednici"
         _ch1   = _pw.get("item1ChannelId") or ""
         _ch2   = _pw.get("item2ChannelId") or ""
         _ch3   = _pw.get("item3ChannelId") or ""
-        def _fmt_item(label: str, ch_id: str) -> str:
-            return f"<#{ch_id}>" if ch_id else f"**{label}**"
+
+        # Build description
         _desc_base = _pw.get("description") or ""
         if not _desc_base:
-            _desc_base = (
-                f"{_fmt_item(_item1, _ch1)}\n"
-                f"{_fmt_item(_item2, _ch2)}\n"
-                f"{_fmt_item(_item3, _ch3)}"
-            )
+            _desc_base = (f"{_fmt_item(_item1, _ch1)}\n"
+                          f"{_fmt_item(_item2, _ch2)}\n"
+                          f"{_fmt_item(_item3, _ch3)}")
         else:
-            _desc_base = _desc_base.replace("{item1}", _fmt_item(_item1, _ch1))
-            _desc_base = _desc_base.replace("{item2}", _fmt_item(_item2, _ch2))
-            _desc_base = _desc_base.replace("{item3}", _fmt_item(_item3, _ch3))
-        _wd = _ev(_desc_base, member, member_count)
-        e = discord.Embed(description=_wd, color=_wc, timestamp=datetime.now(timezone.utc))
-        if _pw.get("title"): e.title = _ev(_pw["title"], member, member_count)
+            _desc_base = (_desc_base
+                .replace("{item1}", _fmt_item(_item1, _ch1))
+                .replace("{item2}", _fmt_item(_item2, _ch2))
+                .replace("{item3}", _fmt_item(_item3, _ch3)))
+
+        e = discord.Embed(description=_wev(_desc_base), color=_wc, timestamp=_now_utc)
+
+        if _pw.get("title"):
+            e.title = _wev(_pw["title"])
+
+        # Fields — with full variable substitution
+        for _f in (_pw.get("fields") or []):
+            _fn = _wev(str(_f.get("name") or ""))
+            _fv = _wev(str(_f.get("value") or ""))
+            if _fn or _fv:
+                e.add_field(
+                    name=_fn   or "\u200b",
+                    value=_fv  or "\u200b",
+                    inline=bool(_f.get("inline", True))
+                )
+
+        # Thumbnail
+        _thumb_raw = _pw.get("thumbnail") or ""
+        _thumb_url = _wev(_thumb_raw) if _thumb_raw else str(member.display_avatar.url)
+        if _thumb_url and _thumb_url.startswith("http"):
+            e.set_thumbnail(url=_thumb_url)
+
+        # Footer
+        _footer_text = _wev(_pw.get("footer") or f"{BOT_NAME} • Welcome")
+        e.set_footer(text=_footer_text, icon_url=member.guild.icon.url if member.guild.icon else None)
+
     else:
         e = discord.Embed(
             description=(
@@ -1802,18 +1851,49 @@ async def on_member_join(member):
                 f"🪶 **{member_count} member · discord.gg/gian**"
             ),
             color=0x2B2D3A,
-            timestamp=datetime.now(timezone.utc)
+            timestamp=_now_utc
         )
-    e.set_thumbnail(url=member.display_avatar.url)
-    e.set_footer(
-        text=f"{BOT_NAME} • Welcome",
-        icon_url=member.guild.icon.url if member.guild.icon else None
-    )
+        e.set_thumbnail(url=member.display_avatar.url)
+        e.set_footer(text=f"{BOT_NAME} • Welcome",
+                     icon_url=member.guild.icon.url if member.guild.icon else None)
+
+    # ── Welcome Card PNG ──
+    _card_file = None
+    try:
+        _btns = (_pw or {}).get("buttons") or []
+        def _blabel(i, default): return (_btns[i].get("label") or default) if len(_btns) > i else default
+        _qs_parts = [
+            f"user={_wev('{user.name}') if _pw else member.display_name}",
+            f"memberCount={member_count:,}".replace(",", "."),
+            f"accountAge={_age_str}",
+            f"joinedAt={_joined_str}",
+            f"count={member_count}",
+            f"desc={_pw.get('cardDesc') or ''}" if _pw else "",
+            f"item1={_pw.get('cardItem1') or ''}" if _pw else "",
+            f"item2={_pw.get('cardItem2') or ''}" if _pw else "",
+            f"item3={_pw.get('cardItem3') or ''}" if _pw else "",
+            f"closing={_pw.get('cardClosing') or ''}" if _pw else "",
+            f"btn1={_blabel(0, 'Pravila')}",
+            f"btn2={_blabel(1, 'Role')}",
+            f"btn3={_blabel(2, 'Pozovi')}",
+            f"btn4={_blabel(3, 'Chat')}",
+            f"avatar={member.display_avatar.url}",
+        ]
+        _qs = "&".join(p for p in _qs_parts if p)
+        _card_url = f"{PANEL_API_URL}/api/welcome-card?{_qs}"
+        async with aiohttp.ClientSession() as _cs:
+            async with _cs.get(_card_url, timeout=aiohttp.ClientTimeout(total=6)) as _cr:
+                if _cr.status == 200:
+                    import io as _io
+                    _card_file = discord.File(_io.BytesIO(await _cr.read()), filename="welcome.png")
+    except Exception as _ce:
+        print(f"[welcome-card] Greška: {_ce}")
 
     # ── Dugmadi ──
     wv = discord.ui.View()
     pw_buttons = (_pw or {}).get("buttons") or []
-    if pw_buttons:
+    _has_linked = any(pb.get("channelId") or pb.get("url") for pb in pw_buttons)
+    if pw_buttons and _has_linked:
         for pb in pw_buttons:
             if not pb.get("label"):
                 continue
@@ -1848,7 +1928,10 @@ async def on_member_join(member):
                 style=discord.ButtonStyle.link
             ))
 
-    await chan.send(content=member.mention, embed=e, view=wv)
+    if _card_file:
+        await chan.send(content=member.mention, file=_card_file, embed=e, view=wv)
+    else:
+        await chan.send(content=member.mention, embed=e, view=wv)
 
 def _find_boost_channel(guild: discord.Guild):
     """Vraća prvi tekstualni kanal koji u imenu sadrži 'boost' (case-insensitive),
