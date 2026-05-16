@@ -1126,7 +1126,7 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
                     src={resolvedSrc}
                     alt="thumbnail"
                     className="rounded object-cover flex-shrink-0"
-                    style={{ width: isMobile ? 60 : 80, height: isMobile ? 60 : 80 }}
+                    style={{ width: 56, height: 56 }}
                     onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
                   />
                 );
@@ -1134,10 +1134,10 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
                 thumbnailEl = (
                   <div
                     className="rounded-full bg-[#4E5058] flex items-center justify-center flex-shrink-0 overflow-hidden"
-                    style={{ width: isMobile ? 60 : 80, height: isMobile ? 60 : 80 }}
+                    style={{ width: 56, height: 56 }}
                     title={thumb}
                   >
-                    <svg width={isMobile ? 28 : 36} height={isMobile ? 28 : 36} viewBox="0 0 24 24" fill="#B5BAC1">
+                    <svg width={26} height={26} viewBox="0 0 24 24" fill="#B5BAC1">
                       <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
                     </svg>
                   </div>
@@ -1154,19 +1154,19 @@ function DiscordEmbedPreview({ embed, title, description, color, bgColor, previe
                   maxWidth: isMobile ? 260 : 480,
                 }}
               >
-                <div className="p-3 flex-1 min-w-0">
+                <div className="p-3 flex-1 min-w-0 overflow-hidden">
                   <div className="flex gap-2">
-                    <div className="flex-1 min-w-0">
+                    <div className="flex-1 min-w-0 overflow-hidden">
                       {/* Title */}
                       {title && (
-                        <div className="font-semibold text-[#F2F3F5] text-sm leading-snug mb-1">
+                        <div className="font-semibold text-[#F2F3F5] text-sm leading-snug mb-1 break-words">
                           {renderText(title)}
                         </div>
                       )}
 
                       {/* Description */}
                       {description && (
-                        <div className="text-[#DBDEE1] text-sm leading-relaxed whitespace-pre-wrap mb-2">
+                        <div className="text-[#DBDEE1] text-sm leading-relaxed whitespace-pre-wrap mb-2 break-words overflow-hidden">
                           {renderText(description)}
                         </div>
                       )}
