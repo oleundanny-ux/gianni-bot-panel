@@ -520,11 +520,14 @@ const DISCORD_BTN_STYLE: Record<string, number> = {
   primary: 1, secondary: 2, success: 3, danger: 4, link: 5,
 };
 
-function buildComponents(buttons: any[]): unknown[] {
+const DEFAULT_BTN_LABELS = ["Pravila", "Role", "Pozovi", "Chat"];
+
+function buildComponents(buttons: any[], guildId = PRIMARY_GUILD_ID): unknown[] {
   if (!buttons || buttons.length === 0) return [];
-  const comps = buttons.map((btn: any) => {
+  const comps = buttons.map((btn: any, idx: number) => {
     const style = btn.type === "link" ? 5 : (DISCORD_BTN_STYLE[btn.style] ?? 1);
-    const comp: Record<string, unknown> = { type: 2, style, label: btn.label || "Dugme" };
+    const label = btn.label || DEFAULT_BTN_LABELS[idx] || "Dugme";
+    const comp: Record<string, unknown> = { type: 2, style, label };
 
     // Emoji parsing — supports unicode or <:name:id> / <a:name:id>
     if (btn.emoji) {
@@ -536,9 +539,13 @@ function buildComponents(buttons: any[]): unknown[] {
       }
     }
 
-    // Link button needs url
+    // Link button needs url — build from channelId if url not set
     if (btn.type === "link") {
-      comp.url = btn.url || "https://discord.gg";
+      if (btn.channelId) {
+        comp.url = `https://discord.com/channels/${guildId}/${btn.channelId}`;
+      } else {
+        comp.url = btn.url || "https://discord.gg";
+      }
     } else {
       // Determine custom_id from type
       switch (btn.type) {
