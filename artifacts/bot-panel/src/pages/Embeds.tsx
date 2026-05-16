@@ -1840,7 +1840,12 @@ function EmbedEditor({ embed, isFullscreen, onToggleFullscreen }: {
 
           {/* Background colour picker */}
           <div className="space-y-2">
-            <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Pozadina embeda</Label>
+            <div>
+              <Label className="text-[#B5BAC1] text-xs font-semibold uppercase tracking-wide">Pozadina embeda</Label>
+              <p className="text-[10px] mt-0.5" style={{ color: "#F1C40F" }}>
+                ⚠ Samo za pregled u panelu — Discord ne podržava prilagođenu pozadinu embeda. Na Discordu pozadina ovisi o temi korisnika (dark/light mode).
+              </p>
+            </div>
             <div className="grid grid-cols-10 gap-1.5">
               {[
                 "#2B2D31","#1E1F22","#313338","#111214","#0d0d0d",
